@@ -15,6 +15,10 @@
 		3C992D1F1D578FF30048DCE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C992D1D1D578FF30048DCE9 /* LaunchScreen.storyboard */; };
 		3C992D2A1D578FF40048DCE9 /* FCAlertViewExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C992D291D578FF40048DCE9 /* FCAlertViewExampleTests.m */; };
 		3C992D351D578FF40048DCE9 /* FCAlertViewExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C992D341D578FF40048DCE9 /* FCAlertViewExampleUITests.m */; };
+		3C992D441D5790C40048DCE9 /* FCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C992D431D5790C40048DCE9 /* FCAlertView.m */; };
+		3C992D481D579BE20048DCE9 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C992D451D579BE20048DCE9 /* cancel.png */; };
+		3C992D491D579BE20048DCE9 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C992D461D579BE20048DCE9 /* checkmark.png */; };
+		3C992D4A1D579BE20048DCE9 /* exclamation.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C992D471D579BE20048DCE9 /* exclamation.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,11 @@
 		3C992D301D578FF40048DCE9 /* FCAlertViewExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FCAlertViewExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C992D341D578FF40048DCE9 /* FCAlertViewExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCAlertViewExampleUITests.m; sourceTree = "<group>"; };
 		3C992D361D578FF40048DCE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C992D421D5790C40048DCE9 /* FCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCAlertView.h; sourceTree = "<group>"; };
+		3C992D431D5790C40048DCE9 /* FCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCAlertView.m; sourceTree = "<group>"; };
+		3C992D451D579BE20048DCE9 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
+		3C992D461D579BE20048DCE9 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
+		3C992D471D579BE20048DCE9 /* exclamation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exclamation.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +114,11 @@
 				3C992D131D578FF30048DCE9 /* AppDelegate.m */,
 				3C992D151D578FF30048DCE9 /* ViewController.h */,
 				3C992D161D578FF30048DCE9 /* ViewController.m */,
-				3C992D181D578FF30048DCE9 /* Main.storyboard */,
+				3C992D421D5790C40048DCE9 /* FCAlertView.h */,
+				3C992D431D5790C40048DCE9 /* FCAlertView.m */,
+				3C992D4B1D579BE70048DCE9 /* AlertType Vectors */,
 				3C992D1B1D578FF30048DCE9 /* Assets.xcassets */,
+				3C992D181D578FF30048DCE9 /* Main.storyboard */,
 				3C992D1D1D578FF30048DCE9 /* LaunchScreen.storyboard */,
 				3C992D201D578FF30048DCE9 /* Info.plist */,
 				3C992D0F1D578FF30048DCE9 /* Supporting Files */,
@@ -138,6 +150,16 @@
 				3C992D361D578FF40048DCE9 /* Info.plist */,
 			);
 			path = FCAlertViewExampleUITests;
+			sourceTree = "<group>";
+		};
+		3C992D4B1D579BE70048DCE9 /* AlertType Vectors */ = {
+			isa = PBXGroup;
+			children = (
+				3C992D451D579BE20048DCE9 /* cancel.png */,
+				3C992D461D579BE20048DCE9 /* checkmark.png */,
+				3C992D471D579BE20048DCE9 /* exclamation.png */,
+			);
+			name = "AlertType Vectors";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,8 +266,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C992D1F1D578FF30048DCE9 /* LaunchScreen.storyboard in Resources */,
+				3C992D491D579BE20048DCE9 /* checkmark.png in Resources */,
 				3C992D1C1D578FF30048DCE9 /* Assets.xcassets in Resources */,
+				3C992D4A1D579BE20048DCE9 /* exclamation.png in Resources */,
 				3C992D1A1D578FF30048DCE9 /* Main.storyboard in Resources */,
+				3C992D481D579BE20048DCE9 /* cancel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C992D441D5790C40048DCE9 /* FCAlertView.m in Sources */,
 				3C992D171D578FF30048DCE9 /* ViewController.m in Sources */,
 				3C992D141D578FF30048DCE9 /* AppDelegate.m in Sources */,
 				3C992D111D578FF30048DCE9 /* main.m in Sources */,
