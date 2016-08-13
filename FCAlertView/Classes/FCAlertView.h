@@ -80,7 +80,7 @@
 @property (nonatomic, retain) UIColor * flatTurquoise;
 @property (nonatomic, retain) UIColor * flatGreen;
 @property (nonatomic, retain) UIColor * flatBlue;
-@property (nonatomic, retain) UIColor * flatMidnightBlue;
+@property (nonatomic, retain) UIColor * flatMidnight;
 @property (nonatomic, retain) UIColor * flatPurple;
 @property (nonatomic, retain) UIColor * flatOrange;
 @property (nonatomic, retain) UIColor * flatRed;
