@@ -466,19 +466,19 @@
 #pragma  mark - Default Types of Alerts
 
 - (void) makeAlertTypeWarning {
-    vectorImage = [UIImage imageNamed:@"cancel.png"];
+    vectorImage = [UIImage imageNamed:@"close-round.png"];
     alertViewWithVector = 1;
     self.colorScheme = self.flatRed;
 }
 
 - (void) makeAlertTypeCaution {
-    vectorImage = [UIImage imageNamed:@"exclamation.png"];
+    vectorImage = [UIImage imageNamed:@"alert.png"];
     alertViewWithVector = 1;
     self.colorScheme = self.flatOrange;
 }
 
 - (void) makeAlertTypeSuccess {
-    vectorImage = [UIImage imageNamed:@"checkmark.png"];
+    vectorImage = [UIImage imageNamed:@"checkmark-round.png"];
     alertViewWithVector = 1;
     self.colorScheme = self.flatGreen;
 }
