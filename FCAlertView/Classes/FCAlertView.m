@@ -486,7 +486,7 @@
 }
 
 - (void) makeAlertTypeCaution {
-    vectorImage = [self loadImageFromResourceBundle:@"alert.png"];
+    vectorImage = [self loadImageFromResourceBundle:@"alert-round.png"];
     alertViewWithVector = 1;
     self.colorScheme = self.flatOrange;
 }
