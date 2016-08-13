@@ -61,7 +61,7 @@ Start by adding the following to your desired View Controller:
 
 ## Extra Customizations 
 
-This section includes all the tiny details that you can customize your alert with, which makes FCAlertView very customizable. 
+This section includes all the tiny details that you can customize your alert with, which makes FCAlertView very customizable. Or leave it as is and enjoy the simplicity. 
 
 ### Alert Types
 
@@ -211,10 +211,12 @@ If you'd also like to detect button touch for the Done/Dismiss button, simply ad
 FCAlertView is an ongoing project with the goal of becoming the number 1 used custom AlertView for iOS. Improvements and changes are on the way, and here are some of the things that are coming soon to it:
 
 - Adding TextFields
-- More Custom Animations 
+- More Custom Animations
+- Blur Background 
 - Alert Sounds 
 - Big and Beautiful Full Screen Alerts
 - Landscape Orientation
+- Frame Customizations
 - Send in your suggestion [here](mailto:nimat6462@yahoo.ca)
 
 About FCAlertView
