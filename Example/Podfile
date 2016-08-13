@@ -1,7 +1,7 @@
 use_frameworks!
 
 target 'FCAlertView_Example' do
-  pod 'FCAlertView', '~> 0.0.9'
+  pod 'FCAlertView'
 
   target 'FCAlertView_Tests' do
     inherit! :search_paths
