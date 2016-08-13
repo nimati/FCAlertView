@@ -205,9 +205,11 @@ If you'd also like to detect button touch for the Done/Dismiss button, simply ad
 
 ### Detect when FCAlertView is about to present
 
+```Objective-C
 - (void)FCAlertViewWillAppear:(FCAlertView *)alertView {	
 	// Your FCAlertView will be Presented, Perform the Action you'd like here.
 }
+```
 
 ## More Customizations
 
