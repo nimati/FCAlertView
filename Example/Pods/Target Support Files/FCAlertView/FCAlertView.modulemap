@@ -1,0 +1,6 @@
+framework module FCAlertView {
+  umbrella header "FCAlertView-umbrella.h"
+
+  export *
+  module * { export * }
+}
