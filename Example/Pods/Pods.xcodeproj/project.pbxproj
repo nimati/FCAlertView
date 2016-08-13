@@ -39,9 +39,6 @@
 		2EA3A1A89026B910FDEB1B146CABAB3C /* Pods-FCAlertView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FCAlertView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		31D60790F1A282943F4D4E8391A4A836 /* FCAlertView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FCAlertView-umbrella.h"; sourceTree = "<group>"; };
 		398F88D5DEE81F449D1C6E77875CF98A /* Pods-FCAlertView_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FCAlertView_Example-resources.sh"; sourceTree = "<group>"; };
-		3C32D5151D5FC58B00FB55BB /* alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alert.png; sourceTree = "<group>"; };
-		3C32D5161D5FC58B00FB55BB /* close-round.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-round.png"; sourceTree = "<group>"; };
-		3C32D5171D5FC58B00FB55BB /* checkmark-round.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark-round.png"; sourceTree = "<group>"; };
 		41A8F02FB2F6ACCA7DEE48931012C27D /* Pods-FCAlertView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FCAlertView_Tests-umbrella.h"; sourceTree = "<group>"; };
 		4C31D5AC0965C827B99B817ED68F9DEA /* Pods-FCAlertView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FCAlertView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		4ED6C93DC0911243662AB9037F22F832 /* Pods-FCAlertView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FCAlertView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -100,9 +97,6 @@
 		1011E0E099F8F7C3C338F34BEC22258F /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				3C32D5151D5FC58B00FB55BB /* alert.png */,
-				3C32D5161D5FC58B00FB55BB /* close-round.png */,
-				3C32D5171D5FC58B00FB55BB /* checkmark-round.png */,
 				183B3CFC21BAEE652DDA7F02C24B945A /* FCAlertView.modulemap */,
 				A2F36E2D82178192B650DC9499921EF2 /* FCAlertView.xcconfig */,
 				D60BA400EE1FEE26D0E2C4885BBD5A02 /* FCAlertView-dummy.m */,

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FCAlertView'
-  s.version          = '0.0.10'
+  s.version          = '0.0.12'
   s.summary          = 'FCAlertView is a Flat Customizable AlertView'
 
 # This description is used to generate tags and improve search results.
@@ -32,9 +32,9 @@ FCAlertView is a fully customizable and beautifully designed AlertView. I design
 
   s.source_files = 'FCAlertView/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'FCAlertView' => ['FCAlertView/Assets/*.png']
-  # }
+  s.resource_bundles = {
+    'FCAlertView' => ['FCAlertView/Assets/*.png']
+  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
