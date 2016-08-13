@@ -38,38 +38,38 @@ Add the following to your desired View Controller:
 #import "FCAlertView.h"
 ```
 
-## Presenting an FCAlertView
+### Presenting an FCAlertView
 
 ```Objective-C
 	FCAlertView *alert = [[FCAlertView alloc] init];
 	
     [alert showAlertInView:self
                  withTitle:@"Alert Title"
-              withSubtitle:@"This is my alert's subtitle. Keep it short and concise. 😜👌"
+              withSubtitle:@"This is your alert's subtitle. Keep it short and concise. 😜👌"
            withCustomImage:nil
        withDoneButtonTitle:nil
                 andButtons:nil];
 
 ```
 
-## Alert Types
+### Alert Types
 
-### Success
+#### Success
 
 ```Objective-C
-	[alert makeAlertTypeSuccess];
+[alert makeAlertTypeSuccess];
 ```
 
-### Caution
+#### Caution
 
 ```Objective-C
-	[alert makeAlertTypeCaution];
+[alert makeAlertTypeCaution];
 ```
 
-### Warning
+#### Warning
 
 ```Objective-C
-	[alert makeAlertTypeWarning];
+[alert makeAlertTypeWarning];
 ```
 
 
