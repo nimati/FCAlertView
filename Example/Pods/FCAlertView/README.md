@@ -8,10 +8,7 @@ FCAlertView is a Flat Customizable AlertView, written in Objective C
 [![License](https://img.shields.io/cocoapods/l/FCAlertView.svg?style=flat)](http://cocoapods.org/pods/FCAlertView)
 [![Platform](https://img.shields.io/cocoapods/p/FCAlertView.svg?style=flat)](http://cocoapods.org/pods/FCAlertView)
 
-Requirements
-------------
 
-iOS 8.0+
 
 Installation
 ------------
@@ -32,7 +29,7 @@ Simply drag ```FCAlertView.m``` and ```FCAlertView.h``` to your Xcode project.
 Adding FCAlertView
 ------------------
 
-Add the following to your desired View Controller:
+Start by adding the following to your desired View Controller:
 
 ```Objective-C
 #import "FCAlertView.h"
@@ -54,19 +51,39 @@ Add the following to your desired View Controller:
 
 ## Base Customizations 
 
-- Title (NSString): You can leave the Title as ```nil``` or Give it an ```NSString```.
+- **Title (NSString):** You can leave the Title as ```nil``` or Give it an ```NSString```.
 
-- Subtitle (NSString): FCAlertView always requires a subtitle, even if you want just a few words, add it here instead of to the title and leave the title as nil. Take a look at Screenshot 2 for an example.
+- **Subtitle (NSString):** FCAlertView always requires a subtitle, even if you want just a few words, add it here instead of the title (then leave the title as nil). *Take a look at Screenshot 2 for an example*.
 
--  CustomImage (UIImage): You can leave this image as ```nil``` or Give it a ```UIImage``` which will show at the top of the alert. Take a look at Screenshot 3 for an example.
+-  **CustomImage (UIImage):** You can leave this image as ```nil``` or Give it a ```UIImage``` which will show at the top of the alert. *Take a look at Screenshot 3 for an example*.
 
-- DoneButtonTitle (NSString): You can leave this as ```nil``` to show "Ok" as the dismiss button for the AlertView, or Give it an ```NSString```.
+- **DoneButtonTitle (NSString):** You can leave this as ```nil``` to show "Ok" as the dismiss button for the AlertView, or Give it an ```NSString```.
 
-- Buttons (NSArray of NSStrings): If you want to add buttons to your alert, simply add an array of 1 or 2 button titles as ```NSString``` here, anything more will be ignored as 2 is the max custom buttons you can add (aside from the done button). Read more about buttons and actions further down.
+- **Buttons (NSArray of NSStrings):** If you want to add buttons to your alert, simply add an array of 1 or 2 button titles as ```NSString``` here, anything more will be ignored as 2 is the max custom buttons you can add (aside from the done button). Read more about buttons and actions further down.
 
 ## Extra Customizations 
 
-This section includes all the tiny details that you can customize your alert with, which makes FCAlertView very customizable. 
+This section includes all the tiny details that you can customize your alert with, which makes FCAlertView very customizable. Or leave it as is and enjoy the simplicity. 
+
+### Color Scheme
+
+By default, FCAlertView doesn't include a color scheme, much like UIAlertView, but you can add one by adding this line:
+
+```Objective-C
+alert.colorScheme = [UIColor colorWithRed:150.0f/255.0f green:150.0f/255.0f blue:150.0f/255.0f alpha:1.0];
+```
+
+FCAlertView also comes with a set of pre-made colors that you can use:
+
+![alt text](https://github.com/nimati/FCAlertView/blob/master/Images/FlatColors.png?raw=true "Flat Colors")
+
+#####*Credit goes to [flatuicolors.com](http://flatuicolors.com) for the Beautiful Palette of Flat Colors*
+
+Simply choose the color you'd like to use for your AlertView, and add:
+
+```Objective-C
+alert.colorScheme = alert.flatBlue; // Replace "Blue" with your preferred color from the image above
+```
 
 ### Alert Types
 
@@ -216,9 +233,13 @@ If you'd also like to detect button touch for the Done/Dismiss button, simply ad
 FCAlertView is an ongoing project with the goal of becoming the number 1 used custom AlertView for iOS. Improvements and changes are on the way, and here are some of the things that are coming soon to it:
 
 - Adding TextFields
-- More Custom Animations 
+- More Custom Animations
+- Blur Background 
 - Alert Sounds 
-- Bigger and Beautiful Full Screen Alerts
+- Big and Beautiful Full Screen Alerts
+- Landscape Orientation
+- Frame Customizations
+- More Types of Alerts
 - Send in your suggestion [here](mailto:nimat6462@yahoo.ca)
 
 About FCAlertView

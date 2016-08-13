@@ -26,7 +26,7 @@ FCAlertView is a fully customizable and beautifully designed AlertView. I design
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Nima Tahami' => 'nimat6462@yahoo.ca' }
   s.source           = { :git => 'https://github.com/nimati/FCAlertView.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/nima_tahami'
+  s.social_media_url = 'https://twitter.com/nima_tahami'
 
   s.ios.deployment_target = '8.0'
 
