@@ -74,6 +74,7 @@ alert.colorScheme = [UIColor colorWithRed:150.0f/255.0f green:150.0f/255.0f blue
 FCAlertView also comes with a set of pre-made colours that you can use:
 
 ![alt text](https://github.com/nimati/FCAlertView/blob/master/Images/FlatColors.png?raw=true "Flat Colours")
+
 *Credit goes to [flatuicolors.com](http://flatuicolors.com) for the Beautiful Colour Palette of Flat Colours*
 
 Simply choose what color you'd like to use for your AlertView, and add:
