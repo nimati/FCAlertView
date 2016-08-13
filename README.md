@@ -71,16 +71,16 @@ By default, FCAlertView doesn't include a color scheme, much like UIAlertView, b
 alert.colorScheme = [UIColor colorWithRed:150.0f/255.0f green:150.0f/255.0f blue:150.0f/255.0f alpha:1.0];
 ```
 
-FCAlertView also comes with a set of pre-made colours that you can use:
+FCAlertView also comes with a set of pre-made colors that you can use:
 
-![alt text](https://github.com/nimati/FCAlertView/blob/master/Images/FlatColors.png?raw=true "Flat Colours")
+![alt text](https://github.com/nimati/FCAlertView/blob/master/Images/FlatColors.png?raw=true "Flat Colors")
 
-*Credit goes to [flatuicolors.com](http://flatuicolors.com) for the Beautiful Colour Palette of Flat Colours*
+#####*Credit goes to [flatuicolors.com](http://flatuicolors.com) for the Beautiful Palette of Flat Colors*
 
-Simply choose what color you'd like to use for your AlertView, and add:
+Simply choose the color you'd like to use for your AlertView, and add:
 
 ```Objective-C
-alert.colorScheme = alert.flatBlue; // Replace "Blue" with your preferred colour from the image above
+alert.colorScheme = alert.flatBlue; // Replace "Blue" with your preferred color from the image above
 ```
 
 ### Alert Types
