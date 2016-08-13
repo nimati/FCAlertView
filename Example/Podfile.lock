@@ -1,16 +1,12 @@
 PODS:
-  - FCAlertView (0.1.0)
+  - FCAlertView (0.0.9)
 
 DEPENDENCIES:
-  - FCAlertView (from `../`)
-
-EXTERNAL SOURCES:
-  FCAlertView:
-    :path: ../
+  - FCAlertView (~> 0.0.9)
 
 SPEC CHECKSUMS:
-  FCAlertView: 7b63e0b5687bebb640996fba99ffef76124a5121
+  FCAlertView: 72e3eb6bd7e6888e4f4a4aea725b4425bee1a979
 
-PODFILE CHECKSUM: ad8bd5b90f2de602fb58d64c5b1475bd8cf420eb
+PODFILE CHECKSUM: 57cc3aabf1a402aec6765f69bb395e5e15069056
 
 COCOAPODS: 1.0.1

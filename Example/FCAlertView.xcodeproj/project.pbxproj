@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C0076D31D5EAB1D00998CE5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0076D21D5EAB1D00998CE5 /* ViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -39,6 +40,8 @@
 		105888ECB2633A22F1CC6496 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		1B36D3DEFF1FAA57F633B043 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		321D7F606A0D672B57AFD6A9 /* Pods_FCAlertView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FCAlertView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C0076D11D5EAB1D00998CE5 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3C0076D21D5EAB1D00998CE5 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		591F9343DA0846253235B857 /* Pods-FCAlertView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FCAlertView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FCAlertView_Tests/Pods-FCAlertView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* FCAlertView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FCAlertView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -141,6 +144,8 @@
 		6003F593195388D20070C39A /* Example for FCAlertView */ = {
 			isa = PBXGroup;
 			children = (
+				3C0076D11D5EAB1D00998CE5 /* ViewController.h */,
+				3C0076D21D5EAB1D00998CE5 /* ViewController.m */,
 				6003F59C195388D20070C39A /* FCAppDelegate.h */,
 				6003F59D195388D20070C39A /* FCAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -392,6 +397,7 @@
 			files = (
 				6003F59E195388D20070C39A /* FCAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* FCViewController.m in Sources */,
+				3C0076D31D5EAB1D00998CE5 /* ViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
