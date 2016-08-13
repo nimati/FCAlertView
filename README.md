@@ -42,14 +42,14 @@ Start by adding the following to your desired View Controller:
 ### Presenting an FCAlertView
 
 ```Objective-C
-	FCAlertView *alert = [[FCAlertView alloc] init];
+FCAlertView *alert = [[FCAlertView alloc] init];
 	
-    [alert showAlertInView:self
-                 withTitle:@"Alert Title"
-              withSubtitle:@"This is your alert's subtitle. Keep it short and concise. 😜👌"
-           withCustomImage:nil
-       withDoneButtonTitle:nil
-                andButtons:nil];
+[alert showAlertInView:self
+             withTitle:@"Alert Title"
+          withSubtitle:@"This is your alert's subtitle. Keep it short and concise. 😜👌"
+       withCustomImage:nil
+   withDoneButtonTitle:nil
+            andButtons:nil];
 
 ```
 
