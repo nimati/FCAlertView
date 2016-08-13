@@ -263,7 +263,7 @@ FCAlertView is an ongoing project with the goal of becoming the most used custom
 - Frame Customizations
 - More Types of Alerts (including Progress Types)
 - iPad Friendly Alerts
-- Something Missing? Email your suggestion [here](mailto:nimat6462@yahoo.ca)
+- Something Missing? Email your suggestion [here](mailto:info@nimatahami.com)
 
 About FCAlertView
 -----------------
@@ -271,6 +271,13 @@ About FCAlertView
 FCAlertView is a fully customizable and beautifully designed AlertView. I designed FCAlertView beacuse I've always wanted to have access to change the different attributes of the default UIAlertView. Design wise, FCAlertView is similar looking to the default AlertView, however, as you start customizing it for your specific need, you realize it can do a lot more while looking flat and sharp. 
 
 FCAlertView lets you do things such as specify the number of buttons, the color scheme of the view, adding a small image to it, hide the view after a certain time, and more. A full description of how to customize FCAlertView to fit your alert can be found on http://github.com/nimati/FCAlertView
+
+Vision of FC Libraries
+----------------------
+
+My goal is to create a set of different libraries, each targetting a certain UI element of iOS, with the goal to improve the design and add more customizations. As such, FCAlertView is a more Flat/Customizable AlertView. With this mindset, I'd like to create more FC libraries, such as FCActionSheet, FCNotification (for quick, in app alerts), FCGuideView (for guiding your users around your app). If you also have a suggestion for an FC Library, please send it [here](mailto:info@nimatahami.com)
+
+Cheers 🍻
 
 ### Author
 
