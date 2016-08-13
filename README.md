@@ -27,7 +27,7 @@ pod 'FCAlertView'
 
 ### Manually
 
-Simply drag FCAlertView.m and FCAlertView.h to your Xcode project.
+Simply drag ```FCAlertView.m``` and ```FCAlertView.h``` to your Xcode project.
 
 Adding FCAlertView
 ------------------
@@ -142,7 +142,7 @@ alert.hideAllButtons = YES;
 
 To add actions to your buttons, you have to first delegate your FCAlertView with your view, and then add a helper method which will detect button touches. Here's how you can add an alert with buttons and perform actions:
 
-First add ```FCAlertViewDelegate``` to your View Controller like such:
+First add ```FCAlertViewDelegate``` to your View Controller's @interface as such:
 
 ```Objective-C
 #import <UIKit/UIKit.h>
@@ -153,7 +153,7 @@ First add ```FCAlertViewDelegate``` to your View Controller like such:
 @end
 ```
 
-Now lets add our FCAlertView with Buttons where we need to present it
+Now add your FCAlertView with Buttons where you need to present it:
 
 ```Objective-C
 	FCAlertView *alert = [[FCAlertView alloc] init];
@@ -173,19 +173,13 @@ After adding your FCAlertView, you can detect button touches by adding this meth
 
 ```Objective-C
 - (void) FCAlertView:(FCAlertView *)alertView clickedButtonIndex:(NSInteger)index buttonTitle:(NSString *)title {
-    
     if ([title isEqualToString:@"Button 1"]) {
-     
         // Perform Action for Button 1
-
     }
     
     if ([title isEqualToString:@"Button 2"]) {
-        
         // Perform Action for Button 2
-        
     }
-    
 }
 ```
 
@@ -193,28 +187,26 @@ After adding your FCAlertView, you can detect button touches by adding this meth
 
 If you'd also like to detect button touch for the Done/Dismiss button, simply add this method to your class:
 
+```Objective-C
 - (void)FCAlertDoneButtonClicked:(FCAlertView *)alertView {
-	
 	// Done Button was Pressed, Perform the Action you'd like here.
-
 }
+```
 
 ## Other Helper Methods
 
 ### Detect when FCAlertView has been dismissed
 
+```Objective-C
 - (void)FCAlertViewDismissed:(FCAlertView *)alertView {
-	
 	// Your FCAlertView was Dismissed, Perform the Action you'd like here.
-
 }
+```
 
 ### Detect when FCAlertView is about to present
 
-- (void)FCAlertViewWillAppear:(FCAlertView *)alertView {
-	
+- (void)FCAlertViewWillAppear:(FCAlertView *)alertView {	
 	// Your FCAlertView will be Presented, Perform the Action you'd like here.
-
 }
 
 ## More Customizations
