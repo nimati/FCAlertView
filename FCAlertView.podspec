@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FCAlertView'
-  s.version          = '0.0.17'
+  s.version          = '0.0.19'
   s.summary          = 'FCAlertView is a Flat Customizable AlertView'
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ FCAlertView is a fully customizable and beautifully designed AlertView. I design
   s.source           = { :git => 'https://github.com/nimati/FCAlertView.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/nima_tahami'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '7.0'
 
   s.source_files = 'FCAlertView/Classes/**/*'
   
