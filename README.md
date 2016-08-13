@@ -216,6 +216,24 @@ If you'd also like to detect button touch for the Done/Dismiss button, simply ad
 
 ## Other Helper Methods
 
+Make sure to add ```FCAlertViewDelegate``` to your View Controller's @interface as such:
+
+```Objective-C
+#import <UIKit/UIKit.h>
+#import "FCAlertView.h"
+
+@interface ViewController : UIViewController <FCAlertViewDelegate>
+
+@end
+```
+
+and setting the delegate of your FCAlertView, as such:
+
+```Objective-C
+  FCAlertView *alert = [[FCAlertView alloc] init];
+  alert.delegate = self;
+```
+
 ### Detect when FCAlertView has been dismissed
 
 ```Objective-C
@@ -250,7 +268,9 @@ FCAlertView is an ongoing project with the goal of becoming the number 1 used cu
 About FCAlertView
 -----------------
 
-FCAlertView is a fully customizable and beautifully designed AlertView. I designed FCAlertView beacuse I've always wanted to have access to change the different attributes of the default AlertView. Design wise, FCAlertView is similar looking to the default AlertView, however, as you start customizing it for your specific need, you realize it can do a lot more and look very flat and nice. FCAlertView lets you do things such as specify the number of buttons, the color scheme of the view, adding a small image to it, hide the view after a certain time, and more. A full description of how to customize FCAlertView to fit your alert can be found on http://github.com/nimati/FCAlertView
+FCAlertView is a fully customizable and beautifully designed AlertView. I designed FCAlertView beacuse I've always wanted to have access to change the different attributes of the default UIAlertView. Design wise, FCAlertView is similar looking to the default AlertView, however, as you start customizing it for your specific need, you realize it can do a lot more while looking flat and sharp. 
+
+FCAlertView lets you do things such as specify the number of buttons, the color scheme of the view, adding a small image to it, hide the view after a certain time, and more. A full description of how to customize FCAlertView to fit your alert can be found on http://github.com/nimati/FCAlertView
 
 ### Author
 
