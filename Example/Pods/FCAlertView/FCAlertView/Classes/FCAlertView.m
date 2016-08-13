@@ -463,22 +463,36 @@
     
 }
 
++(NSBundle *)getResourcesBundle
+{
+    NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle bundleForClass:[self class]] URLForResource:@"MyBundle" withExtension:@"bundle"]];
+    return bundle;
+}
+
+-(UIImage *)loadImageFromResourceBundle:(NSString *)imageName
+{
+    NSBundle *bundle = [FCAlertView getResourcesBundle];
+    NSString *imageFileName = [NSString stringWithFormat:@"%@.png",imageName];
+    UIImage *image = [UIImage imageNamed:imageFileName inBundle:bundle compatibleWithTraitCollection:nil];
+    return image;
+}
+
 #pragma  mark - Default Types of Alerts
 
 - (void) makeAlertTypeWarning {
-    vectorImage = [UIImage imageNamed:@"close-round.png"];
+    vectorImage = [self loadImageFromResourceBundle:@"close-round.png"];
     alertViewWithVector = 1;
     self.colorScheme = self.flatRed;
 }
 
 - (void) makeAlertTypeCaution {
-    vectorImage = [UIImage imageNamed:@"alert.png"];
+    vectorImage = [self loadImageFromResourceBundle:@"alert.png"];
     alertViewWithVector = 1;
     self.colorScheme = self.flatOrange;
 }
 
 - (void) makeAlertTypeSuccess {
-    vectorImage = [UIImage imageNamed:@"checkmark-round.png"];
+    vectorImage = [self loadImageFromResourceBundle:@"checkmark-round.png"];
     alertViewWithVector = 1;
     self.colorScheme = self.flatGreen;
 }
