@@ -143,7 +143,7 @@
                                     alertViewFrame.size.height - 45);
         
     } else {
-        if (_hideDoneButton) { // Frames for when AlertView has hidden the DONE/DISMISS button
+        if (_hideDoneButton && _numberOfButtons == 0) { // Frames for when AlertView has hidden the DONE/DISMISS button
             alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
                                         self.frame.size.height/2 - ((alertViewFrame.size.height - 50)/2),
                                         result.width - defaultSpacing,

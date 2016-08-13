@@ -7,21 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B24368E200BBECA62EB697DA888E832 /* close-round.png in Resources */ = {isa = PBXBuildFile; fileRef = CBED0D69CBD7EFDE18DCAD1A1BA57786 /* close-round.png */; };
-		462E0F068F29BFD4FB27AAC89B519B52 /* alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CBDE2FE3118D5403A464EDD49CA82BB /* alert.png */; };
+		0298F253C2A203ED34767414369F0911 /* checkmark-round.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA6B542F46B6E63D836A7E233C24C34 /* checkmark-round.png */; };
 		4857C596162532B48BC78AA5C9BE49A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		53F5CAC83BCB432C59463B43959E63B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		5EF5AB086B2A5B2F8B97B26842D87CD3 /* FCAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A152DB51EEEB3091759892581A0B14FC /* FCAlertView.bundle */; };
 		6A8660F4277DCB3153313E479C5D9316 /* Pods-FCAlertView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 611C721888A341842BE5533987141652 /* Pods-FCAlertView_Tests-dummy.m */; };
 		6C092DDADCF33279CBEBDEDB5A9B909F /* Pods-FCAlertView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEB6B647BE0269C181D2F8F8831CA64 /* Pods-FCAlertView_Example-dummy.m */; };
-		726816B4A678D0B42117B62E7D37FF9F /* checkmark-round.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F3998D464E650255DB19AD2AB94D623 /* checkmark-round.png */; };
 		7AF98990197D4174863C82B198B55947 /* FCAlertView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F1AB346A24505AF2ECCC3767256ABED5 /* FCAlertView-dummy.m */; };
 		7CBB05408F2DC287E844B49D9576FE53 /* FCAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CB534231CD85F420BF63FE82B068E37 /* FCAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8491B62589CB4EE3AA53FB7C586714D4 /* FCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1EA2ED035D74647526CEC7DA443DD /* FCAlertView.m */; };
 		8CCBDCA281FDB65D6DDE3479E34FD42F /* Pods-FCAlertView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D95D29ECAC147E0E23E69A1A88AC03DC /* Pods-FCAlertView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95C932387ADDDE933148C14055228362 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		C9544876EE83B9F175CA4CEFA97585F3 /* alert-round.png in Resources */ = {isa = PBXBuildFile; fileRef = DEDE75F091FD35392BBD1A8157EEF72F /* alert-round.png */; };
 		D875F351D5F063C561CD179A53D8096D /* Pods-FCAlertView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A8F02FB2F6ACCA7DEE48931012C27D /* Pods-FCAlertView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F3DA22F089925D67171AC941856FB65C /* FCAlertView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E6EA5F188877084CE854964280B40D0F /* FCAlertView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC98690F19EFB5193D209491CA6464DB /* close-round.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EA62431B0ECAE02C03BD8888DD12851 /* close-round.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,16 +44,15 @@
 /* Begin PBXFileReference section */
 		08F6D2B6F96ADEA93991993695A7CEAD /* Pods-FCAlertView_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FCAlertView_Tests-resources.sh"; sourceTree = "<group>"; };
 		0B92E124B99240D45741659D5CAE0B4B /* Pods-FCAlertView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FCAlertView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		0EA62431B0ECAE02C03BD8888DD12851 /* close-round.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "close-round.png"; path = "FCAlertView/Assets/close-round.png"; sourceTree = "<group>"; };
 		1C50ACFBC3512D286ED9F16A8A9C5C43 /* Pods-FCAlertView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FCAlertView_Tests.modulemap"; sourceTree = "<group>"; };
 		265E0A616E04F91972A8CD2566C1DC93 /* Pods_FCAlertView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FCAlertView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EA3A1A89026B910FDEB1B146CABAB3C /* Pods-FCAlertView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FCAlertView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		398F88D5DEE81F449D1C6E77875CF98A /* Pods-FCAlertView_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FCAlertView_Example-resources.sh"; sourceTree = "<group>"; };
-		3CBDE2FE3118D5403A464EDD49CA82BB /* alert.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = alert.png; path = FCAlertView/Assets/alert.png; sourceTree = "<group>"; };
 		41A8F02FB2F6ACCA7DEE48931012C27D /* Pods-FCAlertView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FCAlertView_Tests-umbrella.h"; sourceTree = "<group>"; };
 		4C31D5AC0965C827B99B817ED68F9DEA /* Pods-FCAlertView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FCAlertView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		4ED6C93DC0911243662AB9037F22F832 /* Pods-FCAlertView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FCAlertView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5CB534231CD85F420BF63FE82B068E37 /* FCAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FCAlertView.h; path = FCAlertView/Classes/FCAlertView.h; sourceTree = "<group>"; };
-		5F3998D464E650255DB19AD2AB94D623 /* checkmark-round.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "checkmark-round.png"; path = "FCAlertView/Assets/checkmark-round.png"; sourceTree = "<group>"; };
 		611C721888A341842BE5533987141652 /* Pods-FCAlertView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FCAlertView_Tests-dummy.m"; sourceTree = "<group>"; };
 		6418EDD8424066F92057B3552A561D88 /* FCAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FCAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EE1EA2ED035D74647526CEC7DA443DD /* FCAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FCAlertView.m; path = FCAlertView/Classes/FCAlertView.m; sourceTree = "<group>"; };
@@ -68,11 +67,12 @@
 		B15E08ADC7A91CC56A72A364830BC4B4 /* FCAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FCAlertView-prefix.pch"; sourceTree = "<group>"; };
 		B897C833926F09B754E6EC0F4086138F /* Pods-FCAlertView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FCAlertView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C04462341AB2A3452B5868CB5EDB5292 /* FCAlertView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FCAlertView.xcconfig; sourceTree = "<group>"; };
-		CBED0D69CBD7EFDE18DCAD1A1BA57786 /* close-round.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "close-round.png"; path = "FCAlertView/Assets/close-round.png"; sourceTree = "<group>"; };
 		CDEB6B647BE0269C181D2F8F8831CA64 /* Pods-FCAlertView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FCAlertView_Example-dummy.m"; sourceTree = "<group>"; };
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D50761AD0D532B3EDF4E5B374DB13F57 /* Pods-FCAlertView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FCAlertView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D95D29ECAC147E0E23E69A1A88AC03DC /* Pods-FCAlertView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FCAlertView_Example-umbrella.h"; sourceTree = "<group>"; };
+		DEDE75F091FD35392BBD1A8157EEF72F /* alert-round.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "alert-round.png"; path = "FCAlertView/Assets/alert-round.png"; sourceTree = "<group>"; };
+		DFA6B542F46B6E63D836A7E233C24C34 /* checkmark-round.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "checkmark-round.png"; path = "FCAlertView/Assets/checkmark-round.png"; sourceTree = "<group>"; };
 		E59908A11BCEC8A5F35A484027BFB8B3 /* Pods_FCAlertView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FCAlertView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E9CF02AD8F482CEB87E76B25809720 /* Pods-FCAlertView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FCAlertView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		E6EA5F188877084CE854964280B40D0F /* FCAlertView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FCAlertView-umbrella.h"; sourceTree = "<group>"; };
@@ -125,16 +125,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		1ECD75683A1BE19A28EE49BE84A4A74E /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				3CBDE2FE3118D5403A464EDD49CA82BB /* alert.png */,
-				5F3998D464E650255DB19AD2AB94D623 /* checkmark-round.png */,
-				CBED0D69CBD7EFDE18DCAD1A1BA57786 /* close-round.png */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		223BF1B03858B5583B814DE6822FA8C7 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +169,16 @@
 			);
 			name = "Pods-FCAlertView_Example";
 			path = "Target Support Files/Pods-FCAlertView_Example";
+			sourceTree = "<group>";
+		};
+		8F0A92BA501B8D21908571AF702AD0EB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DEDE75F091FD35392BBD1A8157EEF72F /* alert-round.png */,
+				DFA6B542F46B6E63D836A7E233C24C34 /* checkmark-round.png */,
+				0EA62431B0ECAE02C03BD8888DD12851 /* close-round.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		9974CD037A3682B7BE625E17B8226DC1 /* Support Files */ = {
@@ -227,7 +227,7 @@
 			children = (
 				5CB534231CD85F420BF63FE82B068E37 /* FCAlertView.h */,
 				6EE1EA2ED035D74647526CEC7DA443DD /* FCAlertView.m */,
-				1ECD75683A1BE19A28EE49BE84A4A74E /* Resources */,
+				8F0A92BA501B8D21908571AF702AD0EB /* Resources */,
 				9974CD037A3682B7BE625E17B8226DC1 /* Support Files */,
 			);
 			path = FCAlertView;
@@ -335,7 +335,7 @@
 			buildPhases = (
 				414C2080387EFD777CF62C58E52C75B6 /* Sources */,
 				0E277C9B61993D3DB9671ECD16286F3C /* Frameworks */,
-				4EF573A4C980CE456124396718DC0D07 /* Resources */,
+				2BF4DB907560F800668A72CC73AAA856 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -376,13 +376,13 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4EF573A4C980CE456124396718DC0D07 /* Resources */ = {
+		2BF4DB907560F800668A72CC73AAA856 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				462E0F068F29BFD4FB27AAC89B519B52 /* alert.png in Resources */,
-				726816B4A678D0B42117B62E7D37FF9F /* checkmark-round.png in Resources */,
-				0B24368E200BBECA62EB697DA888E832 /* close-round.png in Resources */,
+				C9544876EE83B9F175CA4CEFA97585F3 /* alert-round.png in Resources */,
+				0298F253C2A203ED34767414369F0911 /* checkmark-round.png in Resources */,
+				FC98690F19EFB5193D209491CA6464DB /* close-round.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

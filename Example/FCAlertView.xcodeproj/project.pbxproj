@@ -14,7 +14,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* FCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* FCAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* FCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* FCViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -53,8 +52,6 @@
 		6003F59B195388D20070C39A /* FCAlertView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FCAlertView-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* FCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* FCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* FCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* FCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* FCAlertView_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FCAlertView_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -144,13 +141,11 @@
 		6003F593195388D20070C39A /* Example for FCAlertView */ = {
 			isa = PBXGroup;
 			children = (
-				3C0076D11D5EAB1D00998CE5 /* ViewController.h */,
-				3C0076D21D5EAB1D00998CE5 /* ViewController.m */,
 				6003F59C195388D20070C39A /* FCAppDelegate.h */,
 				6003F59D195388D20070C39A /* FCAppDelegate.m */,
+				3C0076D11D5EAB1D00998CE5 /* ViewController.h */,
+				3C0076D21D5EAB1D00998CE5 /* ViewController.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* FCViewController.h */,
-				6003F5A6195388D20070C39A /* FCViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -396,7 +391,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* FCAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* FCViewController.m in Sources */,
 				3C0076D31D5EAB1D00998CE5 /* ViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
@@ -518,7 +512,6 @@
 			baseConfigurationReference = CFB214F5045001FCE1FECCFE /* Pods-FCAlertView_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FCAlertView/FCAlertView-Prefix.pch";
 				INFOPLIST_FILE = "FCAlertView/FCAlertView-Info.plist";
@@ -535,7 +528,6 @@
 			baseConfigurationReference = 8A17B1DD47225084EB8243FF /* Pods-FCAlertView_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FCAlertView/FCAlertView-Prefix.pch";
 				INFOPLIST_FILE = "FCAlertView/FCAlertView-Info.plist";

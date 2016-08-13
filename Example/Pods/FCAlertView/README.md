@@ -240,6 +240,7 @@ FCAlertView is an ongoing project with the goal of becoming the number 1 used cu
 - Landscape Orientation
 - Frame Customizations
 - More Types of Alerts
+- iPad Friendly Alerts
 - Send in your suggestion [here](mailto:nimat6462@yahoo.ca)
 
 About FCAlertView

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FCAlertView'
-  s.version          = '0.0.20'
+  s.version          = '0.0.21'
   s.summary          = 'FCAlertView is a Flat Customizable AlertView'
 
 # This description is used to generate tags and improve search results.

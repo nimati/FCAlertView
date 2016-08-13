@@ -8,7 +8,13 @@ FCAlertView is a Flat Customizable AlertView, written in Objective C
 [![License](https://img.shields.io/cocoapods/l/FCAlertView.svg?style=flat)](http://cocoapods.org/pods/FCAlertView)
 [![Platform](https://img.shields.io/cocoapods/p/FCAlertView.svg?style=flat)](http://cocoapods.org/pods/FCAlertView)
 
-
+![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot.png)
+![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot2.png) 
+![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot3.png) 
+![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot4.png) 
+![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot5.png)
+![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot6.png)
+![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot7.png)
 
 Installation
 ------------
@@ -239,7 +245,7 @@ FCAlertView is an ongoing project with the goal of becoming the number 1 used cu
 - Big and Beautiful Full Screen Alerts
 - Landscape Orientation
 - Frame Customizations
-- More Types of Alerts
+- More Types of Alerts (including Progress Types)
 - iPad Friendly Alerts
 - Send in your suggestion [here](mailto:nimat6462@yahoo.ca)
 
