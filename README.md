@@ -252,7 +252,7 @@ and setting the delegate of your FCAlertView, as such:
 
 ## More Customizations
 
-FCAlertView is an ongoing project with the goal of becoming the number 1 used custom AlertView for iOS. Improvements and changes are on the way, and here are some of the things that are coming soon to it:
+FCAlertView is an ongoing project with the goal of becoming the most used custom AlertView for iOS. Improvements and changes are on the way, and here are some of the things that are coming soon with it:
 
 - Adding TextFields
 - More Custom Animations
@@ -263,7 +263,7 @@ FCAlertView is an ongoing project with the goal of becoming the number 1 used cu
 - Frame Customizations
 - More Types of Alerts (including Progress Types)
 - iPad Friendly Alerts
-- Send in your suggestion [here](mailto:nimat6462@yahoo.ca)
+- Something Missing? Email your suggestion [here](mailto:nimat6462@yahoo.ca)
 
 About FCAlertView
 -----------------
@@ -274,7 +274,7 @@ FCAlertView lets you do things such as specify the number of buttons, the color 
 
 ### Author
 
-Created and designed by Nima Tahami
+Created and designed by [Nima Tahami](http://nimatahami.com)
 
 ### License
 
