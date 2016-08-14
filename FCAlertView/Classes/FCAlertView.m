@@ -224,7 +224,7 @@
                                                                           60.0f)];
     descriptionLabel.font = [UIFont systemFontOfSize:15.0f weight:UIFontWeightLight];
     descriptionLabel.numberOfLines = 4;
-    descriptionLabel.textColor = self.titleColor;
+    descriptionLabel.textColor = self.subTitleColor;
     descriptionLabel.text = self.subTitle;
     descriptionLabel.textAlignment = NSTextAlignmentCenter;
     descriptionLabel.adjustsFontSizeToFitWidth = YES;

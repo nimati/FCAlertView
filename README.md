@@ -89,6 +89,9 @@ Simply choose the color you'd like to use for your AlertView, and add:
 alert.colorScheme = alert.flatBlue; // Replace "Blue" with your preferred color from the image above
 ```
 
+### Title and Subtitle Colors
+
+
 ### Alert Types
 
 FCAlertView comes with 3 pre-designed custom alert types. Success, Caution, or Warning, simply add the one line after initializing FCAlertView.
