@@ -8,7 +8,7 @@ FCAlertView is a Flat Customizable AlertView, written in Objective C
 [![License](https://img.shields.io/cocoapods/l/FCAlertView.svg?style=flat)](http://cocoapods.org/pods/FCAlertView)
 [![Platform](https://img.shields.io/cocoapods/p/FCAlertView.svg?style=flat)](http://cocoapods.org/pods/FCAlertView)
 
-![Logo](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/RepoLogo1.png)
+![Logo](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/RepoLogo2.png)
 
 ![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot.png)
 ![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot2.png) 
