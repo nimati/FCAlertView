@@ -186,7 +186,7 @@ alert.hideAllButtons = YES;
 
 To add actions to your buttons, you have to first delegate your FCAlertView with your view, and then add a helper method which will detect button touches. Here's how you can add an alert with buttons and perform actions:
 
-First add ```FCAlertViewDelegate``` to your View Controller's ```Objective-C @interface``` as such:
+First add ```FCAlertViewDelegate``` to your View Controller's ```@interface``` as such:
 
 ```Objective-C
 #import <UIKit/UIKit.h>
