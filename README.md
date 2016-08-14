@@ -94,13 +94,13 @@ alert.colorScheme = alert.flatBlue; // Replace "Blue" with your preferred color 
 #### Change Title Color by Adding
 
 ```Objective-C
-alertView.titleColor = alertView.flatPurple;
+alert.titleColor = alertView.flatPurple;
 ```
 
 #### Change SubTitle Color by Adding
 
 ```Objective-C
-alertView.subTitleColor = alertView.flatBlue;
+alert.subTitleColor = alertView.flatBlue;
 ```
 
 ### AlertView Rounded Corners
@@ -108,7 +108,7 @@ alertView.subTitleColor = alertView.flatBlue;
 Change the Rounding of the FCAlertView's corners as desired using:
 
 ```Objective-C
-alertView.cornerRadius = 4; // Replace 4 with your desired corner radius amount
+alert.cornerRadius = 4; // Replace 4 with your desired corner radius amount
 
 ```
 
