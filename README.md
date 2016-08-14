@@ -93,7 +93,7 @@ alert.colorScheme = alert.flatBlue; // Replace "Blue" with your preferred color 
 
 #### Change Title Color by Adding
 
-```
+```Objective-C
 alertView.titleColor = alertView.flatPurple;
 ```
 
