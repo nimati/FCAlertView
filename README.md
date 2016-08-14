@@ -103,6 +103,15 @@ alertView.titleColor = alertView.flatPurple;
 alertView.subTitleColor = alertView.flatBlue;
 ```
 
+### AlertView Rounded Corners
+
+Change the Rounding of the FCAlertView's corners as desired using:
+
+```Objective-C
+alertView.cornerRadius = 4; // Replace 4 with your desired corner radius amount
+
+```
+
 ### Alert Types
 
 FCAlertView comes with 3 pre-designed custom alert types. Success, Caution, or Warning, simply add the one line after initializing FCAlertView.
@@ -142,7 +151,7 @@ alert.dismissOnOutsideTouch = YES;
 Dismiss the AlertView when a certain time has elapsed after the AlertView is presented, by adding this line:
 
 ```Objective-C
-alert.autoHideSeconds = 5; //Change 5 to number of Seconds you'd like the view to appear for before dismissing itself
+alert.autoHideSeconds = 5; // Replace 5 with the number of Seconds you'd like the view to appear for before dismissing itself
 ```
 
 #### Done Button or Any Custom Buttons
