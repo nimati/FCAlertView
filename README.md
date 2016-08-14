@@ -108,7 +108,7 @@ alert.subTitleColor = alertView.flatBlue;
 Change the Rounding of the FCAlertView's corners as desired using:
 
 ```Objective-C
-alert.cornerRadius = 4; // Replace 4 with your desired corner radius amount
+alert.cornerRadius = 4; // Replace 4 with your desired corner radius amount (Set to 0.1 if you don't want rounding)
 
 ```
 
