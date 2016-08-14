@@ -91,6 +91,17 @@ alert.colorScheme = alert.flatBlue; // Replace "Blue" with your preferred color 
 
 ### Title and Subtitle Colors
 
+#### Change Title Color by Adding
+
+```Objective-C
+alertView.titleColor = alertView.flatPurple;
+```
+
+#### Change SubTitle Color by Adding
+
+```Objective-C
+alertView.subTitleColor = alertView.flatBlue;
+```
 
 ### Alert Types
 
