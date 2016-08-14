@@ -186,7 +186,7 @@ alert.hideAllButtons = YES;
 
 To add actions to your buttons, you have to first delegate your FCAlertView with your view, and then add a helper method which will detect button touches. Here's how you can add an alert with buttons and perform actions:
 
-First add ```FCAlertViewDelegate``` to your View Controller's @interface as such:
+First add ```FCAlertViewDelegate``` to your View Controller's ```Objective-C @interface``` as such:
 
 ```Objective-C
 #import <UIKit/UIKit.h>
@@ -295,8 +295,8 @@ FCAlertView is a fully customizable and beautifully designed AlertView. I design
 
 FCAlertView lets you do things such as specify the number of buttons, the color scheme of the view, adding a small image to it, hide the view after a certain time, and more. A full description of how to customize FCAlertView to fit your alert can be found on http://github.com/nimati/FCAlertView.
 
-Vision of FC Libraries
-----------------------
+The Vision for FC Libraries
+---------------------------
 
 My goal is to create a set of different libraries, each targetting a certain UI element of iOS, with the goal to improve the design and add more customizations. As such, FCAlertView is a more Flat/Customizable AlertView. With this mindset, I'd like to create more FC libraries, such as FCActionSheet, FCNotification (for quick, in app alerts), FCGuideView (for guiding your users around your app). If you also have a suggestion for an FC Library, please send it [here](mailto:info@nimatahami.com).
 
