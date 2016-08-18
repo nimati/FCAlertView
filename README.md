@@ -57,9 +57,9 @@ FCAlertView *alert = [[FCAlertView alloc] init];
 
 - **Title (NSString):** You can leave the Title as ```nil``` or Give it an ```NSString```.
 
-- **Subtitle (NSString):** FCAlertView always requires a subtitle, even if you want just a few words, add it here instead of the title (then leave the title as nil). *Take a look at Screenshot 2 for an example*.
+- **Subtitle (NSString):** FCAlertView always requires a subtitle, even if you want just a few words, add it here instead of the title (then leave the title as nil). *Take a look at [Screenshot 2](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot2.png) for an example*.
 
--  **CustomImage (UIImage):** You can leave this image as ```nil``` or Give it a ```UIImage``` which will show at the top of the alert. *Take a look at Screenshot 3 for an example*.
+-  **CustomImage (UIImage):** You can leave this image as ```nil``` or Give it a ```UIImage``` which will show at the top of the alert. *Take a look at [Screenshot 4](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot4.png) for an example*.
 
 - **DoneButtonTitle (NSString):** You can leave this as ```nil``` to show "Ok" as the dismiss button for the AlertView, or Give it an ```NSString```.
 
@@ -306,11 +306,11 @@ Cheers 🍻
 
 ### Author
 
-Created and designed by [Nima Tahami](http://nimatahami.com)
+Created and designed by [Nima Tahami](http://nimatahami.com).
 
-Credits for the Beautiful Color Palette goes to [flatuicolors.com](http://flatuicolors.com)
+Credits for the Beautiful Color Palette goes to [flatuicolors.com](http://flatuicolors.com).
 
-Credit for the Beautiful Icons go to [ionicons.com](http://ionicons.com)
+Credit for the Beautiful Icons go to [ionicons.com](http://ionicons.com).
 
 ### License
 

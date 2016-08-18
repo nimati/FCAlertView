@@ -305,6 +305,12 @@
         if (!_hideAllButtons && !_hideDoneButton)
             [alertView addSubview:doneButton];
         
+        UIView *secondSeparator = [[UIView alloc] initWithFrame:CGRectMake(0,
+                                                                           doneButton.frame.origin.y - 2,
+                                                                           2,
+                                                                           45)];
+        [alertView addSubview:secondSeparator];
+        
     } else if (_numberOfButtons >= 2) { // View  contains TWO OTHER Buttons - First & Second Button
         
         UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -383,6 +389,7 @@
                                                secondButton.frame.origin.y,
                                                2,
                                                45);
+        
         secondSeparator.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
         
         UIVisualEffect *blurEffect;
