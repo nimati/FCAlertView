@@ -182,7 +182,7 @@ If you'd like to simply hide all buttons from your alert, you can do so by addin
 alert.hideAllButtons = YES;
 ```
 
-## Button Actions
+# Button Actions
 
 To add actions to your buttons, you have to first delegate your FCAlertView with your view, and then add a helper method which will detect button touches. Here's how you can add an alert with buttons and perform actions:
 
@@ -237,7 +237,7 @@ If you'd also like to detect button touch for the Done/Dismiss button, simply ad
 }
 ```
 
-## Other Helper Methods
+# Other Helper Methods
 
 Make sure to add ```FCAlertViewDelegate``` to your View Controller's ```@interface``` as such:
 
@@ -273,7 +273,7 @@ and setting the delegate of your FCAlertView, as such:
 }
 ```
 
-## More Customizations
+# More Customizations
 
 FCAlertView is an ongoing project with the goal of becoming the most used custom AlertView for iOS. Improvements and changes are on the way, and here are some of the things that are coming soon with it:
 
