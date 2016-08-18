@@ -16,7 +16,7 @@ FCAlertView is a Flat Customizable AlertView, written in Objective C
 ![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot4.png) 
 ![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot5.png)
 
-##Installation
+#Installation
 
 ### Using CocoaPods
 
@@ -31,7 +31,7 @@ pod 'FCAlertView'
 
 Simply drag ```FCAlertView.m``` and ```FCAlertView.h``` to your Xcode project.
 
-##Adding FCAlertView
+#Adding FCAlertView
 
 Start by adding the following to your desired View Controller:
 
