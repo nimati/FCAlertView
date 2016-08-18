@@ -209,7 +209,7 @@ Now add your FCAlertView with Buttons where you need to present it:
               withSubtitle:@"This is your alert's subtitle. Keep it short and concise. 😜👌"
            withCustomImage:nil
        withDoneButtonTitle:nil
-                andButtons:@[@"Button 1", @"Button 2"]];
+                andButtons:@[@"Button 1", @"Button 2"]]; // Set your button titles here
 
 ```
 
@@ -217,7 +217,7 @@ After adding your FCAlertView, you can detect button touches by adding this meth
 
 ```Objective-C
 - (void) FCAlertView:(FCAlertView *)alertView clickedButtonIndex:(NSInteger)index buttonTitle:(NSString *)title {
-    if ([title isEqualToString:@"Button 1"]) {
+    if ([title isEqualToString:@"Button 1"]) { // Change "Button 1" to the title of your first button
         // Perform Action for Button 1
     }
     
