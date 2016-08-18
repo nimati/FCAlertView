@@ -307,7 +307,9 @@ Cheers 🍻
 ### Author
 
 Created and designed by [Nima Tahami](http://nimatahami.com).
+
 Credits for the Beautiful Color Palette goes to [flatuicolors.com](http://flatuicolors.com).
+
 Credit for the Beautiful Icons go to [ionicons.com](http://ionicons.com).
 
 ### License
