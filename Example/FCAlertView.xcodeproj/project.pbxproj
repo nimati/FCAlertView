@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C0076D31D5EAB1D00998CE5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0076D21D5EAB1D00998CE5 /* ViewController.m */; };
+		3CEC7EA31D679EF6001B739E /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEC7EA21D679EF6001B739E /* ExampleViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 		321D7F606A0D672B57AFD6A9 /* Pods_FCAlertView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FCAlertView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C0076D11D5EAB1D00998CE5 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3C0076D21D5EAB1D00998CE5 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3CEC7EA11D679EF6001B739E /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
+		3CEC7EA21D679EF6001B739E /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
 		591F9343DA0846253235B857 /* Pods-FCAlertView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FCAlertView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FCAlertView_Tests/Pods-FCAlertView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* FCAlertView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FCAlertView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -145,6 +148,8 @@
 				6003F59D195388D20070C39A /* FCAppDelegate.m */,
 				3C0076D11D5EAB1D00998CE5 /* ViewController.h */,
 				3C0076D21D5EAB1D00998CE5 /* ViewController.m */,
+				3CEC7EA11D679EF6001B739E /* ExampleViewController.h */,
+				3CEC7EA21D679EF6001B739E /* ExampleViewController.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -391,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* FCAppDelegate.m in Sources */,
+				3CEC7EA31D679EF6001B739E /* ExampleViewController.m in Sources */,
 				3C0076D31D5EAB1D00998CE5 /* ViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
