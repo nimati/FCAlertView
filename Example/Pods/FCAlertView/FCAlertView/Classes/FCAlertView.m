@@ -143,7 +143,7 @@
                                     alertViewFrame.size.height - 45);
         
     } else {
-        if (_hideDoneButton) { // Frames for when AlertView has hidden the DONE/DISMISS button
+        if (_hideDoneButton && _numberOfButtons == 0) { // Frames for when AlertView has hidden the DONE/DISMISS button
             alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
                                         self.frame.size.height/2 - ((alertViewFrame.size.height - 50)/2),
                                         result.width - defaultSpacing,
@@ -224,7 +224,7 @@
                                                                           60.0f)];
     descriptionLabel.font = [UIFont systemFontOfSize:15.0f weight:UIFontWeightLight];
     descriptionLabel.numberOfLines = 4;
-    descriptionLabel.textColor = self.titleColor;
+    descriptionLabel.textColor = self.subTitleColor;
     descriptionLabel.text = self.subTitle;
     descriptionLabel.textAlignment = NSTextAlignmentCenter;
     descriptionLabel.adjustsFontSizeToFitWidth = YES;
@@ -305,12 +305,6 @@
         if (!_hideAllButtons && !_hideDoneButton)
             [alertView addSubview:doneButton];
         
-        UIView *secondSeparator = [[UIView alloc] initWithFrame:CGRectMake(0,
-                                                                           doneButton.frame.origin.y - 2,
-                                                                           2,
-                                                                           45)];
-        [alertView addSubview:secondSeparator];
-        
     } else if (_numberOfButtons >= 2) { // View  contains TWO OTHER Buttons - First & Second Button
         
         UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -389,7 +383,6 @@
                                                secondButton.frame.origin.y,
                                                2,
                                                45);
-        
         secondSeparator.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
         
         UIVisualEffect *blurEffect;

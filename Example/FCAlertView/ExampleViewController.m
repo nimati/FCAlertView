@@ -25,65 +25,75 @@
     // LIST OF ALL CUSTOMIZATION YOU CAN MAKE
     
     _alertViewOptions = [[NSMutableArray alloc] init];
-
-    NSArray *options = @[@{@"title" : @"Color Scheme",
-                           @"description" : @"Choose your own color scheme or from one of included.",
-                           @"setting" : @"OFF",
-                           @"status" : @0,
-                           @"customIndicator" : @1,
-                           @"selection" : @[@"OFF", @"Turquoise", @"Green", @"Blue", @"Midnight", @"Purple", @"Orange", @"Red", @"Silver", @"Gray"]},
-                         @{@"title" : @"Title Color",
-                           @"description" : @"Choose your own color scheme or from one of included.",
-                           @"setting" : @"OFF",
-                           @"status" : @0,
-                           @"customIndicator" : @0},
-                         @{@"title" : @"Subtitle Color",
-                           @"description" : @"Choose your own color scheme or from one of included.",
-                           @"setting" : @"OFF",
-                           @"status" : @0,
-                           @"customIndicator" : @0},
-                         @{@"title" : @"Rounded Corners",
-                           @"description" : @"Choose rounding of the alert.",
-                           @"setting" : @"18",
-                           @"status" : @1,
-                           @"customIndicator" : @0},
-                         @{@"title" : @"Hide Alert Title",
-                           @"description" : @"Show or Hide the alert's title",
-                           @"setting" : @"OFF",
-                           @"status" : @0,
-                           @"customIndicator" : @0},
-                         @{@"title" : @"Alert Type",
-                           @"description" : @"Choose from Pre-Set Success, Caution, and Warning.",
-                           @"setting" : @"OFF",
-                           @"status" : @0,
-                           @"customIndicator" : @0},
-                         @{@"title" : @"Number of Buttons",
-                           @"description" : @"You can have upto 2 extra buttons in your alert.",
-                           @"setting" : @0,
-                           @"status" : @0,
-                           @"customIndicator" : @0},
-                         @{@"title" : @"Auto-Close",
-                           @"description" : @"Alert will hide after a certain time.",
-                           @"setting" : @"OFF",
-                           @"status" : @0,
-                           @"customIndicator" : @0},
-                         @{@"title" : @"Outside Touch",
-                           @"description" : @"Alert will hide after outside the alert is touched.",
-                           @"setting" : @"OFF",
-                           @"status" : @0,
-                           @"customIndicator" : @0},
-                         @{@"title" : @"Hide Done Button",
-                           @"description" : @"Hide the Done Button that closes the alert.",
-                           @"setting" : @"OFF",
-                           @"status" : @0,
-                           @"customIndicator" : @0},
-                         @{@"title" : @"Hide All Buttons",
-                           @"description" : @"Hide all buttons that are in the alert.",
-                           @"setting" : @"OFF",
-                           @"status" : @0,
-                           @"customIndicator" : @0}];
     
-    _alertViewOptions = [options mutableCopy];
+    _alertViewOptionsOriginal = @[@{@"title" : @"Color Scheme",
+                                    @"description" : @"Choose your own color scheme or from one of included.",
+                                    @"setting" : @"OFF",
+                                    @"status" : @0,
+                                    @"customIndicator" : @1,
+                                    @"selection" : @[@"OFF", @"Turquoise", @"Green", @"Blue", @"Midnight", @"Purple", @"Orange", @"Red", @"Silver", @"Gray"]},
+                                  @{@"title" : @"Title Color",
+                                    @"description" : @"Choose your own title color or from one of included.",
+                                    @"setting" : @"OFF",
+                                    @"status" : @0,
+                                    @"customIndicator" : @1,
+                                    @"selection" : @[@"OFF", @"Turquoise", @"Green", @"Blue", @"Midnight", @"Purple", @"Orange", @"Red", @"Silver", @"Gray"]},
+                                  @{@"title" : @"Subtitle Color",
+                                    @"description" : @"Choose your own subtitle color or from one of included.",
+                                    @"setting" : @"OFF",
+                                    @"status" : @0,
+                                    @"customIndicator" : @1,
+                                    @"selection" : @[@"OFF", @"Turquoise", @"Green", @"Blue", @"Midnight", @"Purple", @"Orange", @"Red", @"Silver", @"Gray"]},
+                                  @{@"title" : @"Rounded Corners",
+                                    @"description" : @"Choose the rounding of the alert.",
+                                    @"setting" : @"18",
+                                    @"status" : @18,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"OFF", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25"]},
+                                  @{@"title" : @"Show Alert Title",
+                                    @"description" : @"Show or Hide the alert's title",
+                                    @"setting" : @"ON",
+                                    @"status" : @1,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"OFF", @"ON"]},
+                                  @{@"title" : @"Alert Type",
+                                    @"description" : @"Choose from Pre-Set Success, Caution, and Warning.",
+                                    @"setting" : @"OFF",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"OFF", @"Success", @"Caution", @"Warning"]},
+                                  @{@"title" : @"Number of Buttons",
+                                    @"description" : @"You can have upto 2 extra buttons in your alert.",
+                                    @"setting" : @"0",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"0", @"1", @"2"]},
+                                  @{@"title" : @"Auto-Close",
+                                    @"description" : @"Alert will hide after a certain number of seconds.",
+                                    @"setting" : @"OFF",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"OFF", @"1", @"2", @"3", @"4", @"5"]},
+                                  @{@"title" : @"Outside Touch",
+                                    @"description" : @"Alert will hide after outside the alert is touched.",
+                                    @"setting" : @"OFF",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"OFF", @"ON"]},
+                                  @{@"title" : @"Hide Done Button",
+                                    @"description" : @"Hide the Done Button that closes the alert.",
+                                    @"setting" : @"OFF",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"OFF", @"ON"]},
+                                  @{@"title" : @"Hide All Buttons",
+                                    @"description" : @"Hide all buttons that are in the alert.",
+                                    @"setting" : @"OFF",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"OFF", @"ON"]}];
+    
+    _alertViewOptions = [_alertViewOptionsOriginal mutableCopy];
     
     // NAV BAR SETTINGS
     
@@ -95,7 +105,7 @@
     self.tableView.dataSource = self;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-
+    
 }
 
 #pragma mark - TableView Datasource Changes
@@ -129,14 +139,16 @@
         separatorLineView.backgroundColor = [UIColor colorWithRed:247.0f/255.0f green:247.0f/255.0f blue:247.0f/255.0f alpha:1.0];
         [cell.contentView addSubview:separatorLineView];
         
+        // Circle Indicator Layer
+        
         CAShapeLayer *circleLayer = [CAShapeLayer layer];
         [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(self.tableView.frame.size.width - 20, 80/2 - 8/2, 8, 8)] CGPath]];
         
-        if (![[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"customIndicator"]) {
-        if ([[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"status"] isEqual:@0])
-            [circleLayer setFillColor:[_redColor CGColor]];
-        else
-            [circleLayer setFillColor:[_greenColor CGColor]];
+        if (![[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"customIndicator"] isEqual:@1]) {
+            if ([[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"status"] isEqual:@0])
+                [circleLayer setFillColor:[_redColor CGColor]];
+            else
+                [circleLayer setFillColor:[_greenColor CGColor]];
         } else {
             NSString *selectedColor = [[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"selection"]
                                        objectAtIndex:[[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"status"] integerValue]];
@@ -144,7 +156,7 @@
             [circleLayer setFillColor:[[self checkFlatColors:selectedColor] CGColor]];
             
         }
-
+        
         // Option Title Label
         
         UILabel *optionTitle = [[UILabel alloc] initWithFrame:CGRectMake(25.0f, 0.0f, self.tableView.frame.size.width - 120.0f, 40.0f)];
@@ -165,8 +177,7 @@
         
         // Option Setting Label
         
-        NSString *selectedSetting = [[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"selection"]
-                                   objectAtIndex:[[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"status"] integerValue]];
+        NSString *selectedSetting = [[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"setting"];
         
         UILabel *optionSetting = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width - 30.0f, 80.0f)];
         optionSetting.numberOfLines = 1;
@@ -174,19 +185,38 @@
         optionSetting.textColor = [UIColor colorWithWhite:80.0f/255.0f alpha:1.0];
         optionSetting.textAlignment = NSTextAlignmentRight;
         optionSetting.text = selectedSetting;
-
+        
         // Adding Cell Subviews
         
         [[cell.contentView layer] addSublayer:circleLayer];
         [cell.contentView addSubview:optionTitle];
         [cell.contentView addSubview:optionDesc];
         [cell.contentView addSubview:optionSetting];
-
+        
+        // Long Press Gesture for Turning OFF Customizations
+        
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+        [cell addGestureRecognizer:longPress];
         
     }
     
     return cell;
     
+}
+
+-(void) handleLongPress: (UIGestureRecognizer *)longPress {
+    if (longPress.state==UIGestureRecognizerStateBegan) {
+        CGPoint pressPoint = [longPress locationInView:self.tableView];
+        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:pressPoint];
+        NSMutableDictionary *selectedCell = [[_alertViewOptions objectAtIndex:indexPath.row] mutableCopy];
+        [selectedCell setObject:[[_alertViewOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"status"] forKey:@"status"];
+        [selectedCell setObject:[[_alertViewOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"setting"] forKey:@"setting"];
+        [_alertViewOptions replaceObjectAtIndex:indexPath.row withObject:selectedCell];
+        NSLog(@"For: %@ Reset to: %@",
+              [selectedCell objectForKey:@"title"],
+              [[_alertViewOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"setting"]);
+        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
+    }
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -199,6 +229,10 @@
     status = (status + 1) %(selection.count);
     
     [selectedCell setObject:[NSNumber numberWithInteger:status] forKey:@"status"];
+    
+    NSString *selectedSetting = [[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"selection"] objectAtIndex:status];
+    
+    [selectedCell setObject:selectedSetting forKey:@"setting"];
     
     [_alertViewOptions replaceObjectAtIndex:indexPath.row withObject:selectedCell];
     
@@ -243,51 +277,111 @@
 
 - (IBAction)showAlert:(id)sender {
     
-    
-//    @property (weak, nonatomic) IBOutlet UIButton *autoCloseButton;
-//    @property (weak, nonatomic) IBOutlet UIButton *dismissTouchButton;
-//    @property (weak, nonatomic) IBOutlet UIButton *closeButtonToggle;
+    // ADDING AND INITIALIZING FCALERTVIEW
     
     FCAlertView *alert = [[FCAlertView alloc] init];
     
-    // SETTING ALERT COLOR SCHEME
+    // ALL CUSTOMIZATIONS - DON'T COPY THIS TO YOUR CODE
+    // Go Through README.md or this example to understand how to use these customizations work and how to add them
+    // It's best to include these customiztions before PRESENTING THE FCALERTVIEW
     
-    NSString *selectedColor = [[[_alertViewOptions objectAtIndex:0] objectForKey:@"selection"]
-                               objectAtIndex:[[[_alertViewOptions objectAtIndex:0] objectForKey:@"status"] integerValue]];
+    // Setting FCAlertView's Color Scheme
     
-    alert.colorScheme = [self checkFlatColors:selectedColor];
+    NSString *selectedColor = [[_alertViewOptions objectAtIndex:0] objectForKey:@"setting"];
     
-    // SETTING ALERT TYPE
+    if (![selectedColor isEqual:@"OFF"])
+        alert.colorScheme = [self checkFlatColors:selectedColor];
     
-    if (self.type == 1)
+    // Setting FCAlertView's Title Color
+    
+    NSString *titleColor = [[_alertViewOptions objectAtIndex:1] objectForKey:@"setting"];
+    
+    if (![titleColor isEqual:@"OFF"])
+        alert.titleColor = [self checkFlatColors:titleColor];
+    
+    // Setting FCAlertView's Subtitle Color
+    
+    NSString *subtitleColor = [[_alertViewOptions objectAtIndex:2] objectForKey:@"setting"];
+    
+    if (![subtitleColor isEqual:@"OFF"])
+        alert.subTitleColor = [self checkFlatColors:subtitleColor];
+    
+    // Setting FCAlertView's Rounded Corner Pixels - Use 0.05 to turn OFF
+    
+    if ([[[_alertViewOptions objectAtIndex:3] objectForKey:@"setting"] integerValue] > 0)
+        alert.cornerRadius = [[[_alertViewOptions objectAtIndex:3] objectForKey:@"status"] integerValue];
+    if ([[[_alertViewOptions objectAtIndex:3] objectForKey:@"setting"] isEqual:@"OFF"])
+        alert.cornerRadius = 0.05;
+    
+    // Setting FCAlertView's Alert Type
+    
+    if ([[[_alertViewOptions objectAtIndex:5] objectForKey:@"setting"] isEqual:@"Success"])
         [alert makeAlertTypeSuccess];
     
-    if (self.type == 2)
+    if ([[[_alertViewOptions objectAtIndex:5] objectForKey:@"setting"] isEqual:@"Caution"])
         [alert makeAlertTypeCaution];
     
-    if (self.type == 3)
+    if ([[[_alertViewOptions objectAtIndex:5] objectForKey:@"setting"] isEqual:@"Warning"])
         [alert makeAlertTypeWarning];
     
-    // DISMISS ALERTVIEW ON OUTSIDE TOUCH
+    // Choosing the Title for FCAlertView
     
-    alert.dismissOnOutsideTouch = self.dismissOnOutsideTouch;
+    if ([[[_alertViewOptions objectAtIndex:4] objectForKey:@"setting"] isEqual:@"OFF"])
+        self.alertTitle = nil;
     
-    // HIDE CLOSE/DONE BUTTON
+    if ([[[_alertViewOptions objectAtIndex:4] objectForKey:@"setting"] isEqual:@"ON"])
+        self.alertTitle = @"Alert Title";
     
-    alert.hideDoneButton = self.hideDoneButton;
+    // Adding Buttons to FCAlertView
     
-    // PRESENTING THE ALERTVIEW
-    // Title: Alert's Title, NSString, Default is Nil/Can be Nil
-    // Subtitle: Alert's Subtitle, NSString, Shouldn't be Nil
-    // Custom Image: Alert's Vector, UIImage, Default is Nil/Can be Nil
-    // Done Button Title: Alert's Main Close/Done Button Title, NSString, Default will be "Ok", Can be Nil
-    // Buttons: Other Alert's Buttons Titles, NSArray of NSStrings, Can be Nil or max of 2 Buttons.
+    if ([[[_alertViewOptions objectAtIndex:6] objectForKey:@"setting"] integerValue] == 0)
+        self.arrayOfButtonTitles = @[];
     
-    alert.autoHideSeconds = _timer;
+    if ([[[_alertViewOptions objectAtIndex:6] objectForKey:@"setting"] integerValue] == 1)
+        self.arrayOfButtonTitles = @[@"First"];
+    
+    if ([[[_alertViewOptions objectAtIndex:6] objectForKey:@"setting"] integerValue] == 2)
+        self.arrayOfButtonTitles = @[@"First", @"Second"];
+    
+    // Auto Closing FCAlertView based on time passed after presenting it
+    
+    if (![[[_alertViewOptions objectAtIndex:7] objectForKey:@"setting"] isEqual:@"OFF"])
+        alert.autoHideSeconds = [[[_alertViewOptions objectAtIndex:7] objectForKey:@"setting"] integerValue];
+    else
+        alert.autoHideSeconds = 0;
+    
+    // Dismissing FCAlertView with touch on outside of view
+    
+    if (![[[_alertViewOptions objectAtIndex:8] objectForKey:@"setting"] isEqual:@"OFF"])
+        alert.dismissOnOutsideTouch = 1;
+    else
+        alert.dismissOnOutsideTouch = 0;
+    
+    // Hiding Done Button in FCAlertView
+    
+    if (![[[_alertViewOptions objectAtIndex:9] objectForKey:@"setting"] isEqual:@"OFF"])
+        alert.hideDoneButton = 1;
+    else
+        alert.hideDoneButton = 0;
+    
+    // Hiding All Buttons in FCAlertView
+    
+    if (![[[_alertViewOptions objectAtIndex:10] objectForKey:@"setting"] isEqual:@"OFF"])
+        alert.hideAllButtons = 1;
+    else
+        alert.hideAllButtons = 0;
+    
+    // PRESENTING THE FCALERTVIEW
+    
+    // TITLE: Alert's Title, NSString, Default is Nil/Can be Nil
+    // SUBTITLE: Alert's Subtitle, NSString, Shouldn't be Nil
+    // CUSTOM IMAGE: Alert's Vector, UIImage, Default is Nil/Can be Nil
+    // DONE BUTTON TITLE: Alert's Main Close/Done Button Title, NSString, Default will be "Ok", Can be Nil
+    // BUTTONS: Other Alert's Buttons Titles, NSArray of NSStrings, Can be Nil or max of 2 Buttons.
     
     [alert showAlertInView:self
                  withTitle:_alertTitle
-              withSubtitle:@"This is my alert's subtitle. Keep it short and concise. 😜👌"
+              withSubtitle:@"This is my alert's subtitle. Keep it short and concise. 😜"
            withCustomImage:nil
        withDoneButtonTitle:nil
                 andButtons:self.arrayOfButtonTitles];

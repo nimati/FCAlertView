@@ -74,6 +74,7 @@
 
 @property (nonatomic, retain) UIColor * colorScheme;
 @property (nonatomic, retain)  UIColor * titleColor;
+@property (nonatomic, retain)  UIColor * subTitleColor;
 
 // Preset Flat Colors
 

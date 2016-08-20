@@ -8,7 +8,11 @@ FCAlertView is a Flat Customizable AlertView, written in Objective C
 [![License](https://img.shields.io/cocoapods/l/FCAlertView.svg?style=flat)](http://cocoapods.org/pods/FCAlertView)
 [![Platform](https://img.shields.io/cocoapods/p/FCAlertView.svg?style=flat)](http://cocoapods.org/pods/FCAlertView)
 
-
+![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot.png)
+![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot2.png) 
+![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot3.png) 
+![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot4.png) 
+![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot5.png)
 
 Installation
 ------------
@@ -38,14 +42,14 @@ Start by adding the following to your desired View Controller:
 ### Presenting an FCAlertView
 
 ```Objective-C
-	FCAlertView *alert = [[FCAlertView alloc] init];
+FCAlertView *alert = [[FCAlertView alloc] init];
 	
-    [alert showAlertInView:self
-                 withTitle:@"Alert Title"
-              withSubtitle:@"This is your alert's subtitle. Keep it short and concise. 😜👌"
-           withCustomImage:nil
-       withDoneButtonTitle:nil
-                andButtons:nil];
+[alert showAlertInView:self
+             withTitle:@"Alert Title"
+          withSubtitle:@"This is your alert's subtitle. Keep it short and concise. 😜👌"
+       withCustomImage:nil
+   withDoneButtonTitle:nil
+            andButtons:nil];
 
 ```
 
@@ -84,6 +88,9 @@ Simply choose the color you'd like to use for your AlertView, and add:
 ```Objective-C
 alert.colorScheme = alert.flatBlue; // Replace "Blue" with your preferred color from the image above
 ```
+
+### Title and Subtitle Colors
+
 
 ### Alert Types
 
@@ -212,6 +219,24 @@ If you'd also like to detect button touch for the Done/Dismiss button, simply ad
 
 ## Other Helper Methods
 
+Make sure to add ```FCAlertViewDelegate``` to your View Controller's @interface as such:
+
+```Objective-C
+#import <UIKit/UIKit.h>
+#import "FCAlertView.h"
+
+@interface ViewController : UIViewController <FCAlertViewDelegate>
+
+@end
+```
+
+and setting the delegate of your FCAlertView, as such:
+
+```Objective-C
+  FCAlertView *alert = [[FCAlertView alloc] init];
+  alert.delegate = self;
+```
+
 ### Detect when FCAlertView has been dismissed
 
 ```Objective-C
@@ -230,7 +255,7 @@ If you'd also like to detect button touch for the Done/Dismiss button, simply ad
 
 ## More Customizations
 
-FCAlertView is an ongoing project with the goal of becoming the number 1 used custom AlertView for iOS. Improvements and changes are on the way, and here are some of the things that are coming soon to it:
+FCAlertView is an ongoing project with the goal of becoming the most used custom AlertView for iOS. Improvements and changes are on the way, and here are some of the things that are coming soon with it:
 
 - Adding TextFields
 - More Custom Animations
@@ -239,18 +264,27 @@ FCAlertView is an ongoing project with the goal of becoming the number 1 used cu
 - Big and Beautiful Full Screen Alerts
 - Landscape Orientation
 - Frame Customizations
-- More Types of Alerts
+- More Types of Alerts (including Progress Types)
 - iPad Friendly Alerts
-- Send in your suggestion [here](mailto:nimat6462@yahoo.ca)
+- Something Missing? Email your suggestion [here](mailto:info@nimatahami.com)
 
 About FCAlertView
 -----------------
 
-FCAlertView is a fully customizable and beautifully designed AlertView. I designed FCAlertView beacuse I've always wanted to have access to change the different attributes of the default AlertView. Design wise, FCAlertView is similar looking to the default AlertView, however, as you start customizing it for your specific need, you realize it can do a lot more and look very flat and nice. FCAlertView lets you do things such as specify the number of buttons, the color scheme of the view, adding a small image to it, hide the view after a certain time, and more. A full description of how to customize FCAlertView to fit your alert can be found on http://github.com/nimati/FCAlertView
+FCAlertView is a fully customizable and beautifully designed AlertView. I designed FCAlertView beacuse I've always wanted to have access to change the different attributes of the default UIAlertView. Design wise, FCAlertView is similar looking to the default AlertView, however, as you start customizing it for your specific need, you realize it can do a lot more while looking flat and sharp. 
+
+FCAlertView lets you do things such as specify the number of buttons, the color scheme of the view, adding a small image to it, hide the view after a certain time, and more. A full description of how to customize FCAlertView to fit your alert can be found on http://github.com/nimati/FCAlertView.
+
+Vision of FC Libraries
+----------------------
+
+My goal is to create a set of different libraries, each targetting a certain UI element of iOS, with the goal to improve the design and add more customizations. As such, FCAlertView is a more Flat/Customizable AlertView. With this mindset, I'd like to create more FC libraries, such as FCActionSheet, FCNotification (for quick, in app alerts), FCGuideView (for guiding your users around your app). If you also have a suggestion for an FC Library, please send it [here](mailto:info@nimatahami.com).
+
+Cheers 🍻
 
 ### Author
 
-Created and designed by Nima Tahami
+Created and designed by [Nima Tahami](http://nimatahami.com)
 
 ### License
 

@@ -14,16 +14,10 @@
 // Customizations
 
 @property (strong, nonatomic) NSMutableArray *alertViewOptions;
+@property (strong, nonatomic) NSArray *alertViewOptionsOriginal;
 
 @property UIColor *redColor;
 @property UIColor *greenColor;
-
-@property NSInteger type;
-@property NSInteger timer;
-@property NSInteger dismissOnOutsideTouch;
-@property NSInteger hideDoneButton;
-@property NSInteger hideTitle;
-@property NSInteger numOfButtons;
 
 @property (retain, nonatomic) NSString *alertTitle;
 @property (retain, nonatomic) NSArray *arrayOfButtonTitles;
