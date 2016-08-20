@@ -48,11 +48,38 @@
                     <connections>
                         <outlet property="showAlertButton" destination="T42-Bt-TZ1" id="ztF-sa-aHv"/>
                         <outlet property="tableView" destination="nNi-ZD-sI7" id="wO6-LN-wiM"/>
+                        <segue destination="QYy-ta-wLt" kind="push" identifier="showReadmeFile" id="nst-mz-WAp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mss-tl-OV8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1143.5" y="329.5"/>
+        </scene>
+        <!--Readme View Controller-->
+        <scene sceneID="bZy-jL-sTa">
+            <objects>
+                <viewController id="QYy-ta-wLt" customClass="ReadmeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OId-DW-A7N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="4Ht-Eo-pwf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="PLQ-ju-Phg"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="webView" destination="4Ht-Eo-pwf" id="TQS-s4-VeH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Wf-MV-tOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1639.5" y="329.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wwb-Dk-eUx">

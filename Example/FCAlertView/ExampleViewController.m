@@ -100,6 +100,11 @@
     
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : self.themeColor}];
     
+    UIBarButtonItem *readmeBtn = [[UIBarButtonItem alloc] initWithTitle:@"Readme" style:UIBarButtonItemStylePlain target:self action:@selector(showReadMe)];
+    self.navigationItem.rightBarButtonItem = readmeBtn;
+    
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:44.0/255.0f green:62.0/255.0f blue:80.0/255.0f alpha:1.0];
+    
     // TABLEVIEW SETTINGS
     
     self.tableView.delegate = self;
@@ -335,6 +340,12 @@
         color = self.redColor;
     
     return color;
+    
+}
+
+- (void) showReadMe {
+    
+    [self performSegueWithIdentifier:@"showReadmeFile" sender:self];
     
 }
 

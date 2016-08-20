@@ -11,6 +11,7 @@
 		3CEC7EA51D682868001B739E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CEC7EA41D682868001B739E /* MessageUI.framework */; };
 		3CEC7EA71D682D29001B739E /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CEC7EA61D682D29001B739E /* Launch.storyboard */; };
 		3CEC7EAB1D6831F8001B739E /* FCLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CEC7EAA1D6831F8001B739E /* FCLogo.png */; };
+		3CEC7EAE1D6832E8001B739E /* ReadmeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEC7EAD1D6832E8001B739E /* ReadmeViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -47,6 +48,8 @@
 		3CEC7EA41D682868001B739E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3CEC7EA61D682D29001B739E /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Launch.storyboard; path = ../Launch.storyboard; sourceTree = "<group>"; };
 		3CEC7EAA1D6831F8001B739E /* FCLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FCLogo.png; sourceTree = "<group>"; };
+		3CEC7EAC1D6832E8001B739E /* ReadmeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadmeViewController.h; sourceTree = "<group>"; };
+		3CEC7EAD1D6832E8001B739E /* ReadmeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadmeViewController.m; sourceTree = "<group>"; };
 		591F9343DA0846253235B857 /* Pods-FCAlertView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FCAlertView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FCAlertView_Tests/Pods-FCAlertView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* FCAlertView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FCAlertView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -154,6 +157,8 @@
 				6003F59D195388D20070C39A /* FCAppDelegate.m */,
 				3CEC7EA11D679EF6001B739E /* ExampleViewController.h */,
 				3CEC7EA21D679EF6001B739E /* ExampleViewController.m */,
+				3CEC7EAC1D6832E8001B739E /* ReadmeViewController.h */,
+				3CEC7EAD1D6832E8001B739E /* ReadmeViewController.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				3CEC7EA61D682D29001B739E /* Launch.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -404,6 +409,7 @@
 			files = (
 				6003F59E195388D20070C39A /* FCAppDelegate.m in Sources */,
 				3CEC7EA31D679EF6001B739E /* ExampleViewController.m in Sources */,
+				3CEC7EAE1D6832E8001B739E /* ReadmeViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
