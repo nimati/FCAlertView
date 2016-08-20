@@ -21,8 +21,9 @@
     
     self.redColor = [UIColor colorWithRed:190.0f/255.0f green:0.0f blue:0.0f alpha:1.0f];
     self.greenColor = [UIColor colorWithRed:42.0f/255.0f green:186.0f/255.0f blue:83.0f/255.0f alpha:1.0f];
+    self.themeColor = [UIColor colorWithRed:59.0f/255.0f green:154.0f/255.0f blue:217.0f/255.0f alpha:1.0];
     
-    // LIST OF ALL CUSTOMIZATION YOU CAN MAKE
+    // LIST OF ALL CUSTOMIZATION YOU CAN MAKE - Used For this Example App
     
     _alertViewOptions = [[NSMutableArray alloc] init];
     
@@ -97,7 +98,7 @@
     
     // NAV BAR SETTINGS
     
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithRed:59.0f/255.0f green:154.0f/255.0f blue:217.0f/255.0f alpha:1.0]}];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : self.themeColor}];
     
     // TABLEVIEW SETTINGS
     
@@ -105,6 +106,11 @@
     self.tableView.dataSource = self;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    CGFloat dummyViewHeight = 170;
+    UIView *dummyView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, dummyViewHeight)];
+    self.tableView.tableHeaderView = dummyView;
+    self.tableView.contentInset = UIEdgeInsetsMake(-dummyViewHeight, 0, 0, 0);
     
 }
 
@@ -204,21 +210,6 @@
     
 }
 
--(void) handleLongPress: (UIGestureRecognizer *)longPress {
-    if (longPress.state==UIGestureRecognizerStateBegan) {
-        CGPoint pressPoint = [longPress locationInView:self.tableView];
-        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:pressPoint];
-        NSMutableDictionary *selectedCell = [[_alertViewOptions objectAtIndex:indexPath.row] mutableCopy];
-        [selectedCell setObject:[[_alertViewOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"status"] forKey:@"status"];
-        [selectedCell setObject:[[_alertViewOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"setting"] forKey:@"setting"];
-        [_alertViewOptions replaceObjectAtIndex:indexPath.row withObject:selectedCell];
-        NSLog(@"For: %@ Reset to: %@",
-              [selectedCell objectForKey:@"title"],
-              [[_alertViewOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"setting"]);
-        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
-    }
-}
-
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSMutableDictionary *selectedCell = [[_alertViewOptions objectAtIndex:indexPath.row] mutableCopy];
@@ -243,6 +234,78 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
+
+-(void) handleLongPress: (UIGestureRecognizer *)longPress {
+    
+    if (longPress.state==UIGestureRecognizerStateBegan) {
+        
+        CGPoint pressPoint = [longPress locationInView:self.tableView];
+        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:pressPoint];
+        
+        NSMutableDictionary *selectedCell = [[_alertViewOptions objectAtIndex:indexPath.row] mutableCopy];
+        [selectedCell setObject:[[_alertViewOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"status"] forKey:@"status"];
+        [selectedCell setObject:[[_alertViewOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"setting"] forKey:@"setting"];
+        [_alertViewOptions replaceObjectAtIndex:indexPath.row withObject:selectedCell];
+        
+        NSLog(@"For: %@ Reset to: %@",
+              [selectedCell objectForKey:@"title"],
+              [[_alertViewOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"setting"]);
+        
+        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
+        
+    }
+    
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 120)];
+    headerView.backgroundColor = [UIColor colorWithWhite:239.0f/255.0f alpha:1.0];
+    
+    // Separator Line View
+    
+    UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 167, self.view.frame.size.width, 3)];
+    separatorLineView.backgroundColor = [UIColor colorWithWhite:225.0f/255.0f alpha:1.0];
+    [headerView addSubview:separatorLineView];
+    
+    // Label for Instructions
+    
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 0, headerView.frame.size.width - 60, headerView.frame.size.height)];
+    headerLabel.font = [UIFont systemFontOfSize:16.0f];
+    headerLabel.textColor = [UIColor colorWithWhite:80.0f/255.0f alpha:1.0];
+    headerLabel.textAlignment = NSTextAlignmentCenter;
+    headerLabel.text = @"Welcome to FCAlertView's Example App\n Tap on cells to Toggle Customizations\n Hold to Reset to Default \n Enjoy!";
+    headerLabel.numberOfLines = 4;
+    headerLabel.backgroundColor = [UIColor clearColor];
+    
+    // Suggestion Button
+    
+    UIButton *suggestionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    suggestionBtn.frame = CGRectMake(tableView.frame.size.width/2 - (tableView.frame.size.width - 140)/2, 110, tableView.frame.size.width - 140, 40);
+    suggestionBtn.titleLabel.font = [UIFont systemFontOfSize:16.0f];
+    [suggestionBtn setTitle:@"Got Suggestions?" forState:UIControlStateNormal];
+    [suggestionBtn setTitleColor:self.themeColor forState:UIControlStateNormal];
+    suggestionBtn.layer.cornerRadius = 4;
+    suggestionBtn.clipsToBounds = YES;
+    suggestionBtn.layer.borderWidth = 1.5;
+    suggestionBtn.layer.borderColor = suggestionBtn.titleLabel.textColor.CGColor;
+    [suggestionBtn addTarget:self action:@selector(sendEmail) forControlEvents:UIControlEventTouchUpInside];
+    
+    // Adding To HeaderView
+    
+    [headerView addSubview:headerLabel];
+    [headerView addSubview:suggestionBtn];
+    
+    return headerView;
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    return  170.0;
+}
+
+#pragma mark - FCAlertViewExample Helper Methods
 
 - (UIColor *) checkFlatColors:(NSString *)selectedColor {
     
@@ -275,13 +338,34 @@
     
 }
 
+#pragma mark - Send Suggestions
+
+- (void) sendEmail {
+
+    NSString *emailTitle = @"Test Email";
+    NSString *messageBody = @"iOS programming is so fun!";
+    NSArray *toRecipents = [NSArray arrayWithObject:@"nima6tahami@gmail.com"];
+    
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = self;
+    [mc setSubject:emailTitle];
+    [mc setMessageBody:messageBody isHTML:NO];
+    [mc setToRecipients:toRecipents];
+    
+    // Present mail view controller on screen
+    [self presentViewController:mc animated:YES completion:NULL];
+    
+}
+
+#pragma mark - IBActions
+
 - (IBAction)showAlert:(id)sender {
     
     // ADDING AND INITIALIZING FCALERTVIEW
     
-    FCAlertView *alert = [[FCAlertView alloc] init];
+    FCAlertView *alert = [[FCAlertView alloc] init]; // 2) Add This Where you Want to Create an FCAlertView
     
-    // ALL CUSTOMIZATIONS - DON'T COPY THIS TO YOUR CODE
+    // ALL CUSTOMIZATIONS - DON'T COPY THIS TO YOUR CODE // 3) Customize as you need to
     // Go Through README.md or this example to understand how to use these customizations work and how to add them
     // It's best to include these customiztions before PRESENTING THE FCALERTVIEW
     
@@ -371,7 +455,7 @@
     else
         alert.hideAllButtons = 0;
     
-    // PRESENTING THE FCALERTVIEW
+    // PRESENTING THE FCALERTVIEW // 4) Add This to finally present FCAlertView in your view's window
     
     // TITLE: Alert's Title, NSString, Default is Nil/Can be Nil
     // SUBTITLE: Alert's Subtitle, NSString, Shouldn't be Nil

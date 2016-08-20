@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FCAlertView.h"
+#import "FCAlertView.h" // 1) Add This to your Project
+#import <MessageUI/MessageUI.h>
 
 @interface ExampleViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, FCAlertViewDelegate>
 
@@ -16,6 +17,7 @@
 @property (strong, nonatomic) NSMutableArray *alertViewOptions;
 @property (strong, nonatomic) NSArray *alertViewOptionsOriginal;
 
+@property UIColor *themeColor;
 @property UIColor *redColor;
 @property UIColor *greenColor;
 
