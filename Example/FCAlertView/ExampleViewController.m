@@ -107,7 +107,7 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    CGFloat dummyViewHeight = 170;
+    CGFloat dummyViewHeight = 180;
     UIView *dummyView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, dummyViewHeight)];
     self.tableView.tableHeaderView = dummyView;
     self.tableView.contentInset = UIEdgeInsetsMake(-dummyViewHeight, 0, 0, 0);
@@ -148,7 +148,7 @@
         // Circle Indicator Layer
         
         CAShapeLayer *circleLayer = [CAShapeLayer layer];
-        [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(self.tableView.frame.size.width - 20, 80/2 - 8/2, 8, 8)] CGPath]];
+        [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(self.tableView.frame.size.width - 27, 80/2 - 8/2, 8, 8)] CGPath]];
         
         if (![[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"customIndicator"] isEqual:@1]) {
             if ([[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"status"] isEqual:@0])
@@ -185,7 +185,7 @@
         
         NSString *selectedSetting = [[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"setting"];
         
-        UILabel *optionSetting = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width - 30.0f, 80.0f)];
+        UILabel *optionSetting = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width - 35.0f, 80.0f)];
         optionSetting.numberOfLines = 1;
         optionSetting.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
         optionSetting.textColor = [UIColor colorWithWhite:80.0f/255.0f alpha:1.0];
@@ -264,7 +264,7 @@
     
     // Separator Line View
     
-    UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 167, self.view.frame.size.width, 3)];
+    UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 177, self.view.frame.size.width, 3)];
     separatorLineView.backgroundColor = [UIColor colorWithWhite:225.0f/255.0f alpha:1.0];
     [headerView addSubview:separatorLineView];
     
@@ -281,7 +281,7 @@
     // Suggestion Button
     
     UIButton *suggestionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    suggestionBtn.frame = CGRectMake(tableView.frame.size.width/2 - (tableView.frame.size.width - 140)/2, 110, tableView.frame.size.width - 140, 40);
+    suggestionBtn.frame = CGRectMake(tableView.frame.size.width/2 - (tableView.frame.size.width - 140)/2, 118, tableView.frame.size.width - 140, 40);
     suggestionBtn.titleLabel.font = [UIFont systemFontOfSize:16.0f];
     [suggestionBtn setTitle:@"Got Suggestions?" forState:UIControlStateNormal];
     [suggestionBtn setTitleColor:self.themeColor forState:UIControlStateNormal];
@@ -302,7 +302,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    return  170.0;
+    return  180.0;
 }
 
 #pragma mark - FCAlertViewExample Helper Methods
@@ -342,8 +342,8 @@
 
 - (void) sendEmail {
 
-    NSString *emailTitle = @"Test Email";
-    NSString *messageBody = @"iOS programming is so fun!";
+    NSString *emailTitle = @"FCAlertView Suggestion";
+    NSString *messageBody = @"Hey Nima,\n\nI got a suggestion for FCAlertView:\n";
     NSArray *toRecipents = [NSArray arrayWithObject:@"nima6tahami@gmail.com"];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
@@ -352,9 +352,32 @@
     [mc setMessageBody:messageBody isHTML:NO];
     [mc setToRecipients:toRecipents];
     
-    // Present mail view controller on screen
     [self presentViewController:mc animated:YES completion:NULL];
     
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Suggestion Mail Cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Suggestion Mail Saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Suggestion Mail Sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Suggestion Mail Sent Failed: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 #pragma mark - IBActions

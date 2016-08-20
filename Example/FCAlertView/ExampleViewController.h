@@ -10,7 +10,7 @@
 #import "FCAlertView.h" // 1) Add This to your Project
 #import <MessageUI/MessageUI.h>
 
-@interface ExampleViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, FCAlertViewDelegate>
+@interface ExampleViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, FCAlertViewDelegate, MFMailComposeViewControllerDelegate>
 
 // Customizations
 
