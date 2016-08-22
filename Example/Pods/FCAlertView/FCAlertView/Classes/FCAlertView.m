@@ -97,10 +97,10 @@
     UITouch *touch = [touches anyObject];
     
     CGPoint touchPoint = [touch locationInView:_alertBackground];
-    CGPoint touchPoint2 = [touch locationInView:alertView];
+    CGPoint touchPoint2 = [touch locationInView:alertViewContents];
     
     BOOL isPointInsideBackview = [_alertBackground pointInside:touchPoint withEvent:nil];
-    BOOL isPointInsideAlertView = [_alertBackground pointInside:touchPoint2 withEvent:nil];
+    BOOL isPointInsideAlertView = [alertViewContents pointInside:touchPoint2 withEvent:nil];
     
     if (_dismissOnOutsideTouch && isPointInsideBackview && !isPointInsideAlertView)
         [self dismissAlertView];

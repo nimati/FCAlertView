@@ -8,14 +8,15 @@ FCAlertView is a Flat Customizable AlertView, written in Objective C
 [![License](https://img.shields.io/cocoapods/l/FCAlertView.svg?style=flat)](http://cocoapods.org/pods/FCAlertView)
 [![Platform](https://img.shields.io/cocoapods/p/FCAlertView.svg?style=flat)](http://cocoapods.org/pods/FCAlertView)
 
+![Logo](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/RepoLogo2.png)
+
 ![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot.png)
 ![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot2.png) 
 ![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot3.png) 
 ![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot4.png) 
 ![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot5.png)
 
-Installation
-------------
+#Installation
 
 ### Using CocoaPods
 
@@ -30,8 +31,7 @@ pod 'FCAlertView'
 
 Simply drag ```FCAlertView.m``` and ```FCAlertView.h``` to your Xcode project.
 
-Adding FCAlertView
-------------------
+#Adding FCAlertView
 
 Start by adding the following to your desired View Controller:
 
@@ -57,9 +57,9 @@ FCAlertView *alert = [[FCAlertView alloc] init];
 
 - **Title (NSString):** You can leave the Title as ```nil``` or Give it an ```NSString```.
 
-- **Subtitle (NSString):** FCAlertView always requires a subtitle, even if you want just a few words, add it here instead of the title (then leave the title as nil). *Take a look at Screenshot 2 for an example*.
+- **Subtitle (NSString):** FCAlertView always requires a subtitle, even if you want just a few words, add it here instead of the title (then leave the title as nil). *Take a look at [Screenshot 2](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot2.png) for an example*.
 
--  **CustomImage (UIImage):** You can leave this image as ```nil``` or Give it a ```UIImage``` which will show at the top of the alert. *Take a look at Screenshot 3 for an example*.
+-  **CustomImage (UIImage):** You can leave this image as ```nil``` or Give it a ```UIImage``` which will show at the top of the alert. *Take a look at [Screenshot 4](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot4.png) for an example*.
 
 - **DoneButtonTitle (NSString):** You can leave this as ```nil``` to show "Ok" as the dismiss button for the AlertView, or Give it an ```NSString```.
 
@@ -91,6 +91,26 @@ alert.colorScheme = alert.flatBlue; // Replace "Blue" with your preferred color 
 
 ### Title and Subtitle Colors
 
+#### Change Title Color by Adding
+
+```Objective-C
+alert.titleColor = alertView.flatPurple;
+```
+
+#### Change SubTitle Color by Adding
+
+```Objective-C
+alert.subTitleColor = alertView.flatBlue;
+```
+
+### AlertView Rounded Corners
+
+Change the Rounding of the FCAlertView's corners as desired using:
+
+```Objective-C
+alert.cornerRadius = 4; // Replace 4 with your desired corner radius amount (Set to 0.1 if you don't want rounding)
+
+```
 
 ### Alert Types
 
@@ -131,7 +151,7 @@ alert.dismissOnOutsideTouch = YES;
 Dismiss the AlertView when a certain time has elapsed after the AlertView is presented, by adding this line:
 
 ```Objective-C
-alert.autoHideSeconds = 5; //Change 5 to number of Seconds you'd like the view to appear for before dismissing itself
+alert.autoHideSeconds = 5; // Replace 5 with the number of Seconds you'd like the view to appear for before dismissing itself
 ```
 
 #### Done Button or Any Custom Buttons
@@ -162,11 +182,11 @@ If you'd like to simply hide all buttons from your alert, you can do so by addin
 alert.hideAllButtons = YES;
 ```
 
-## Button Actions
+# Button Actions
 
 To add actions to your buttons, you have to first delegate your FCAlertView with your view, and then add a helper method which will detect button touches. Here's how you can add an alert with buttons and perform actions:
 
-First add ```FCAlertViewDelegate``` to your View Controller's @interface as such:
+First add ```FCAlertViewDelegate``` to your View Controller's ```@interface``` as such:
 
 ```Objective-C
 #import <UIKit/UIKit.h>
@@ -189,7 +209,7 @@ Now add your FCAlertView with Buttons where you need to present it:
               withSubtitle:@"This is your alert's subtitle. Keep it short and concise. 😜👌"
            withCustomImage:nil
        withDoneButtonTitle:nil
-                andButtons:@[@"Button 1", @"Button 2"]];
+                andButtons:@[@"Button 1", @"Button 2"]]; // Set your button titles here
 
 ```
 
@@ -197,7 +217,7 @@ After adding your FCAlertView, you can detect button touches by adding this meth
 
 ```Objective-C
 - (void) FCAlertView:(FCAlertView *)alertView clickedButtonIndex:(NSInteger)index buttonTitle:(NSString *)title {
-    if ([title isEqualToString:@"Button 1"]) {
+    if ([title isEqualToString:@"Button 1"]) { // Change "Button 1" to the title of your first button
         // Perform Action for Button 1
     }
     
@@ -217,9 +237,9 @@ If you'd also like to detect button touch for the Done/Dismiss button, simply ad
 }
 ```
 
-## Other Helper Methods
+# Other Helper Methods
 
-Make sure to add ```FCAlertViewDelegate``` to your View Controller's @interface as such:
+Make sure to add ```FCAlertViewDelegate``` to your View Controller's ```@interface``` as such:
 
 ```Objective-C
 #import <UIKit/UIKit.h>
@@ -253,7 +273,7 @@ and setting the delegate of your FCAlertView, as such:
 }
 ```
 
-## More Customizations
+# More Customizations
 
 FCAlertView is an ongoing project with the goal of becoming the most used custom AlertView for iOS. Improvements and changes are on the way, and here are some of the things that are coming soon with it:
 
@@ -266,7 +286,7 @@ FCAlertView is an ongoing project with the goal of becoming the most used custom
 - Frame Customizations
 - More Types of Alerts (including Progress Types)
 - iPad Friendly Alerts
-- Something Missing? Email your suggestion [here](mailto:info@nimatahami.com)
+- Something Missing? Email your suggestion [here](mailto:nima6tahami@gmail.com)
 
 About FCAlertView
 -----------------
@@ -275,16 +295,22 @@ FCAlertView is a fully customizable and beautifully designed AlertView. I design
 
 FCAlertView lets you do things such as specify the number of buttons, the color scheme of the view, adding a small image to it, hide the view after a certain time, and more. A full description of how to customize FCAlertView to fit your alert can be found on http://github.com/nimati/FCAlertView.
 
-Vision of FC Libraries
-----------------------
+The Vision for FC Libraries
+---------------------------
 
-My goal is to create a set of different libraries, each targetting a certain UI element of iOS, with the goal to improve the design and add more customizations. As such, FCAlertView is a more Flat/Customizable AlertView. With this mindset, I'd like to create more FC libraries, such as FCActionSheet, FCNotification (for quick, in app alerts), FCGuideView (for guiding your users around your app). If you also have a suggestion for an FC Library, please send it [here](mailto:info@nimatahami.com).
+My goal is to create a set of different libraries, each targetting a certain UI element of iOS, with the goal to improve the design and add more customizations. As such, FCAlertView is a more Flat/Customizable AlertView. With this mindset, I'd like to create more FC libraries, such as FCActionSheet, FCNotification (for quick, in app alerts), FCGuideView (for guiding your users around your app). If you also have a suggestion for an FC Library, please send it [here](mailto:nima6tahami@gmail.com).
+
+> Ultimately, FC Libraries is here to improve the look and feel of your app for your end users. So all improvements and suggestions are welcome.
 
 Cheers 🍻
 
 ### Author
 
-Created and designed by [Nima Tahami](http://nimatahami.com)
+Created and designed by [Nima Tahami](http://nimatahami.com).
+
+Credits for the Beautiful Color Palette goes to [flatuicolors.com](http://flatuicolors.com).
+
+Credit for the Beautiful Icons go to [ionicons.com](http://ionicons.com).
 
 ### License
 
