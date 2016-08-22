@@ -31,6 +31,10 @@ pod 'FCAlertView'
 
 Simply drag ```FCAlertView.m``` and ```FCAlertView.h``` to your Xcode project.
 
+# Example
+
+FCAlertView comes with an example app that you can use to try out all of the customizations below. It's recommended that you go through all of the docs before using the example app. To use the example app, clone or download FCAlertView, open and run ```Example/FCAlertView.xcworkspace```.
+
 #Adding FCAlertView
 
 Start by adding the following to your desired View Controller:
