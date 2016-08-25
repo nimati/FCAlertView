@@ -29,40 +29,40 @@
     
     _alertViewOptionsOriginal = @[@{@"title" : @"Color Scheme",
                                     @"description" : @"Choose your own color scheme or from one of included.",
-                                    @"setting" : @"OFF",
+                                    @"setting" : @"Off",
                                     @"status" : @0,
                                     @"customIndicator" : @1,
-                                    @"selection" : @[@"OFF", @"Turquoise", @"Green", @"Blue", @"Midnight", @"Purple", @"Orange", @"Red", @"Silver", @"Gray"]},
+                                    @"selection" : @[@"Off", @"Turquoise", @"Green", @"Blue", @"Midnight", @"Purple", @"Orange", @"Red", @"Silver", @"Gray"]},
                                   @{@"title" : @"Title Color",
                                     @"description" : @"Choose your own title color or from one of included.",
-                                    @"setting" : @"OFF",
+                                    @"setting" : @"Off",
                                     @"status" : @0,
                                     @"customIndicator" : @1,
-                                    @"selection" : @[@"OFF", @"Turquoise", @"Green", @"Blue", @"Midnight", @"Purple", @"Orange", @"Red", @"Silver", @"Gray"]},
+                                    @"selection" : @[@"Off", @"Turquoise", @"Green", @"Blue", @"Midnight", @"Purple", @"Orange", @"Red", @"Silver", @"Gray"]},
                                   @{@"title" : @"Subtitle Color",
                                     @"description" : @"Choose your own subtitle color or from one of included.",
-                                    @"setting" : @"OFF",
+                                    @"setting" : @"Off",
                                     @"status" : @0,
                                     @"customIndicator" : @1,
-                                    @"selection" : @[@"OFF", @"Turquoise", @"Green", @"Blue", @"Midnight", @"Purple", @"Orange", @"Red", @"Silver", @"Gray"]},
+                                    @"selection" : @[@"Off", @"Turquoise", @"Green", @"Blue", @"Midnight", @"Purple", @"Orange", @"Red", @"Silver", @"Gray"]},
                                   @{@"title" : @"Rounded Corners",
                                     @"description" : @"Choose the rounding of the alert.",
                                     @"setting" : @"18",
                                     @"status" : @18,
                                     @"customIndicator" : @0,
-                                    @"selection" : @[@"OFF", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25"]},
+                                    @"selection" : @[@"Off", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25"]},
                                   @{@"title" : @"Show Alert Title",
                                     @"description" : @"Show or Hide the alert's title",
-                                    @"setting" : @"ON",
+                                    @"setting" : @"On",
                                     @"status" : @1,
                                     @"customIndicator" : @0,
-                                    @"selection" : @[@"OFF", @"ON"]},
+                                    @"selection" : @[@"Off", @"On"]},
                                   @{@"title" : @"Alert Type",
                                     @"description" : @"Choose from Pre-Set Success, Caution, and Warning.",
-                                    @"setting" : @"OFF",
+                                    @"setting" : @"Off",
                                     @"status" : @0,
                                     @"customIndicator" : @0,
-                                    @"selection" : @[@"OFF", @"Success", @"Caution", @"Warning"]},
+                                    @"selection" : @[@"Off", @"Success", @"Caution", @"Warning"]},
                                   @{@"title" : @"Number of Buttons",
                                     @"description" : @"You can have upto 2 extra buttons in your alert.",
                                     @"setting" : @"0",
@@ -71,28 +71,28 @@
                                     @"selection" : @[@"0", @"1", @"2"]},
                                   @{@"title" : @"Auto-Close",
                                     @"description" : @"Alert will hide after a certain number of seconds.",
-                                    @"setting" : @"OFF",
+                                    @"setting" : @"Off",
                                     @"status" : @0,
                                     @"customIndicator" : @0,
-                                    @"selection" : @[@"OFF", @"1", @"2", @"3", @"4", @"5"]},
+                                    @"selection" : @[@"Off", @"1", @"2", @"3", @"4", @"5"]},
                                   @{@"title" : @"Outside Touch",
                                     @"description" : @"Alert will hide after outside the alert is touched.",
-                                    @"setting" : @"OFF",
+                                    @"setting" : @"Off",
                                     @"status" : @0,
                                     @"customIndicator" : @0,
-                                    @"selection" : @[@"OFF", @"ON"]},
+                                    @"selection" : @[@"Off", @"On"]},
                                   @{@"title" : @"Hide Done Button",
                                     @"description" : @"Hide the Done Button that closes the alert.",
-                                    @"setting" : @"OFF",
+                                    @"setting" : @"Off",
                                     @"status" : @0,
                                     @"customIndicator" : @0,
-                                    @"selection" : @[@"OFF", @"ON"]},
+                                    @"selection" : @[@"Off", @"On"]},
                                   @{@"title" : @"Hide All Buttons",
                                     @"description" : @"Hide all buttons that are in the alert.",
-                                    @"setting" : @"OFF",
+                                    @"setting" : @"Off",
                                     @"status" : @0,
                                     @"customIndicator" : @0,
-                                    @"selection" : @[@"OFF", @"ON"]}];
+                                    @"selection" : @[@"Off", @"On"]}];
     
     _alertViewOptions = [_alertViewOptionsOriginal mutableCopy];
     
@@ -204,7 +204,7 @@
         [cell.contentView addSubview:optionDesc];
         [cell.contentView addSubview:optionSetting];
         
-        // Long Press Gesture for Turning OFF Customizations
+        // Long Press Gesture for Turning Off Customizations
         
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
         [cell addGestureRecognizer:longPress];
@@ -336,7 +336,7 @@
         color = alert.flatSilver;
     if ([selectedColor isEqual:@"Gray"])
         color = alert.flatGray;
-    if ([selectedColor isEqual:@"OFF"])
+    if ([selectedColor isEqual:@"Off"])
         color = self.redColor;
     
     return color;
@@ -407,28 +407,28 @@
     
     NSString *selectedColor = [[_alertViewOptions objectAtIndex:0] objectForKey:@"setting"];
     
-    if (![selectedColor isEqual:@"OFF"])
+    if (![selectedColor isEqual:@"Off"])
         alert.colorScheme = [self checkFlatColors:selectedColor];
     
     // Setting FCAlertView's Title Color
     
     NSString *titleColor = [[_alertViewOptions objectAtIndex:1] objectForKey:@"setting"];
     
-    if (![titleColor isEqual:@"OFF"])
+    if (![titleColor isEqual:@"Off"])
         alert.titleColor = [self checkFlatColors:titleColor];
     
     // Setting FCAlertView's Subtitle Color
     
     NSString *subtitleColor = [[_alertViewOptions objectAtIndex:2] objectForKey:@"setting"];
     
-    if (![subtitleColor isEqual:@"OFF"])
+    if (![subtitleColor isEqual:@"Off"])
         alert.subTitleColor = [self checkFlatColors:subtitleColor];
     
-    // Setting FCAlertView's Rounded Corner Pixels - Use 0.05 to turn OFF
+    // Setting FCAlertView's Rounded Corner Pixels - Use 0.05 to turn Off
     
     if ([[[_alertViewOptions objectAtIndex:3] objectForKey:@"setting"] integerValue] > 0)
         alert.cornerRadius = [[[_alertViewOptions objectAtIndex:3] objectForKey:@"status"] integerValue];
-    if ([[[_alertViewOptions objectAtIndex:3] objectForKey:@"setting"] isEqual:@"OFF"])
+    if ([[[_alertViewOptions objectAtIndex:3] objectForKey:@"setting"] isEqual:@"Off"])
         alert.cornerRadius = 0.05;
     
     // Setting FCAlertView's Alert Type
@@ -444,10 +444,10 @@
     
     // Choosing the Title for FCAlertView
     
-    if ([[[_alertViewOptions objectAtIndex:4] objectForKey:@"setting"] isEqual:@"OFF"])
+    if ([[[_alertViewOptions objectAtIndex:4] objectForKey:@"setting"] isEqual:@"Off"])
         self.alertTitle = nil;
     
-    if ([[[_alertViewOptions objectAtIndex:4] objectForKey:@"setting"] isEqual:@"ON"])
+    if ([[[_alertViewOptions objectAtIndex:4] objectForKey:@"setting"] isEqual:@"On"])
         self.alertTitle = @"Alert Title";
     
     // Adding Buttons to FCAlertView
@@ -463,28 +463,28 @@
     
     // Auto Closing FCAlertView based on time passed after presenting it
     
-    if (![[[_alertViewOptions objectAtIndex:7] objectForKey:@"setting"] isEqual:@"OFF"])
+    if (![[[_alertViewOptions objectAtIndex:7] objectForKey:@"setting"] isEqual:@"Off"])
         alert.autoHideSeconds = [[[_alertViewOptions objectAtIndex:7] objectForKey:@"setting"] integerValue];
     else
         alert.autoHideSeconds = 0;
     
     // Dismissing FCAlertView with touch on outside of view
     
-    if (![[[_alertViewOptions objectAtIndex:8] objectForKey:@"setting"] isEqual:@"OFF"])
+    if (![[[_alertViewOptions objectAtIndex:8] objectForKey:@"setting"] isEqual:@"Off"])
         alert.dismissOnOutsideTouch = 1;
     else
         alert.dismissOnOutsideTouch = 0;
     
     // Hiding Done Button in FCAlertView
     
-    if (![[[_alertViewOptions objectAtIndex:9] objectForKey:@"setting"] isEqual:@"OFF"])
+    if (![[[_alertViewOptions objectAtIndex:9] objectForKey:@"setting"] isEqual:@"Off"])
         alert.hideDoneButton = 1;
     else
         alert.hideDoneButton = 0;
     
     // Hiding All Buttons in FCAlertView
     
-    if (![[[_alertViewOptions objectAtIndex:10] objectForKey:@"setting"] isEqual:@"OFF"])
+    if (![[[_alertViewOptions objectAtIndex:10] objectForKey:@"setting"] isEqual:@"Off"])
         alert.hideAllButtons = 1;
     else
         alert.hideAllButtons = 0;
