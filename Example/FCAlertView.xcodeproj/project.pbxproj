@@ -107,6 +107,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C6F4CD31D70C17B003BAB36 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3CEC7EAA1D6831F8001B739E /* FCLogo.png */,
+				3C6F4CCF1D70B547003BAB36 /* closeBtn.png */,
+				3C6F4CD11D70BD41003BAB36 /* github-icon.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		47667416C1187041B46C962D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,9 +166,7 @@
 		6003F593195388D20070C39A /* Example for FCAlertView */ = {
 			isa = PBXGroup;
 			children = (
-				3CEC7EAA1D6831F8001B739E /* FCLogo.png */,
-				3C6F4CCF1D70B547003BAB36 /* closeBtn.png */,
-				3C6F4CD11D70BD41003BAB36 /* github-icon.png */,
+				3C6F4CD31D70C17B003BAB36 /* Images */,
 				6003F59C195388D20070C39A /* FCAppDelegate.h */,
 				6003F59D195388D20070C39A /* FCAppDelegate.m */,
 				3CEC7EA11D679EF6001B739E /* ExampleViewController.h */,
