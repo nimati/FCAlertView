@@ -160,7 +160,7 @@
     
     alertViewContents = [[UIView alloc] initWithFrame:alertViewFrame];
     [self addSubview:alertViewContents];
-        
+    
     alertView = [[UIView alloc] initWithFrame:CGRectMake(0,
                                                          0,
                                                          alertViewFrame.size.width,
@@ -304,6 +304,25 @@
         
         if (!_hideAllButtons && !_hideDoneButton)
             [alertView addSubview:doneButton];
+        
+        
+        UIView *horizontalSeparator = [[UIView alloc] initWithFrame:CGRectMake(alertViewFrame.size.width/2 - 1,
+                                                                               otherButton.frame.origin.y - 2,
+                                                                               2,
+                                                                               45)];
+        
+        horizontalSeparator.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
+        
+        UIVisualEffect *blurEffect;
+        blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+        
+        UIVisualEffectView *visualEffectView3;
+        visualEffectView3 = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        visualEffectView3.frame = horizontalSeparator.bounds;
+        visualEffectView3.userInteractionEnabled = NO;
+        [horizontalSeparator addSubview:visualEffectView3];
+        
+        [alertView addSubview:horizontalSeparator];
         
     } else if (_numberOfButtons >= 2) { // View  contains TWO OTHER Buttons - First & Second Button
         
