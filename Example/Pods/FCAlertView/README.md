@@ -31,6 +31,10 @@ pod 'FCAlertView'
 
 Simply drag ```FCAlertView.m``` and ```FCAlertView.h``` to your Xcode project.
 
+# Example
+
+FCAlertView comes with an example app that you can use to try out all of the customizations below. It's recommended that you go through all of the docs before using the example app. To use the example app, clone or download FCAlertView, open and run ```Example/FCAlertView.xcworkspace```.
+
 #Adding FCAlertView
 
 Start by adding the following to your desired View Controller:
@@ -277,6 +281,7 @@ and setting the delegate of your FCAlertView, as such:
 
 FCAlertView is an ongoing project with the goal of becoming the most used custom AlertView for iOS. Improvements and changes are on the way, and here are some of the things that are coming soon with it:
 
+- Swift Friendly
 - Adding TextFields
 - More Custom Animations
 - Blur Background 
@@ -286,6 +291,7 @@ FCAlertView is an ongoing project with the goal of becoming the most used custom
 - Frame Customizations
 - More Types of Alerts (including Progress Types)
 - iPad Friendly Alerts
+- Improved Button Highlight and Customizations
 - Something Missing? Email your suggestion [here](mailto:nima6tahami@gmail.com)
 
 About FCAlertView
