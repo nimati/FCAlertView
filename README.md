@@ -29,7 +29,7 @@ pod 'FCAlertView'
 
 ### Manually
 
-Simply drag ```FCAlertView.m``` and ```FCAlertView.h``` to your Xcode project.
+Clone or Download this Repo. Then simply drag the folder ```FCAlertView``` to your Xcode project. Please make sure to drag the whole folder, which includes assets needed for some alert types.
 
 # Example
 

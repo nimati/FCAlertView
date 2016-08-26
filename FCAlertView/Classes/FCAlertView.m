@@ -493,10 +493,20 @@
 
 -(UIImage *)loadImageFromResourceBundle:(NSString *)imageName
 {
-    NSBundle *bundle = [FCAlertView getResourcesBundle];
-    NSString *imageFileName = [NSString stringWithFormat:@"%@.png",imageName];
-    UIImage *image = [UIImage imageNamed:imageFileName inBundle:bundle compatibleWithTraitCollection:nil];
-    return image;
+    UIImage *icon = [UIImage imageNamed:imageName];
+    
+    CGImageRef cgref = [icon CGImage];
+    CIImage *cim = [icon CIImage];
+    
+    if (cim == nil && cgref == NULL)
+    {
+        NSBundle *bundle = [FCAlertView getResourcesBundle];
+        NSString *imageFileName = [NSString stringWithFormat:@"%@.png",imageName];
+        UIImage *image = [UIImage imageNamed:imageFileName inBundle:bundle compatibleWithTraitCollection:nil];
+        return image;
+    }
+    
+    return icon;
 }
 
 #pragma  mark - Default Types of Alerts
