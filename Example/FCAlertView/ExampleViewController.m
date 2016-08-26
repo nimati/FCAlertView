@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _headerHeight = 180;
+    
     // SETTING COLORS OF BUTTONS FOR THIS EXAMPLE VIEWCONTROLLER - Not related to FCAlertView
     
     self.redColor = [UIColor colorWithRed:190.0f/255.0f green:0.0f blue:0.0f alpha:1.0f];
@@ -275,11 +277,11 @@
     
     // Label for Instructions
     
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 0, headerView.frame.size.width - 60, headerView.frame.size.height)];
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 10, headerView.frame.size.width - 60, headerView.frame.size.height - 10)];
     headerLabel.font = [UIFont systemFontOfSize:16.0f];
-    headerLabel.textColor = [UIColor colorWithWhite:80.0f/255.0f alpha:1.0];
+    headerLabel.textColor = [UIColor colorWithWhite:40.0f/255.0f alpha:1.0];
     headerLabel.textAlignment = NSTextAlignmentCenter;
-    headerLabel.text = @"Welcome to FCAlertView's Example App\n Tap on cells to Toggle Customizations\n Hold to Reset to Default \n Enjoy!";
+    headerLabel.text = @"Tap on cells to Toggle Customizations\n Hold to Reset to Default \n Enjoy!";
     headerLabel.numberOfLines = 4;
     headerLabel.backgroundColor = [UIColor clearColor];
     
@@ -296,18 +298,42 @@
     suggestionBtn.layer.borderColor = suggestionBtn.titleLabel.textColor.CGColor;
     [suggestionBtn addTarget:self action:@selector(sendEmail) forControlEvents:UIControlEventTouchUpInside];
     
+    // Close Button
+
+    UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    closeBtn.frame = CGRectMake(tableView.frame.size.width - 40, 10, 30, 30);
+    closeBtn.tintColor = [UIColor colorWithWhite:120/255.0f alpha:1.0];
+    [closeBtn setImage:[UIImage imageNamed:@"closeBtn"] forState:UIControlStateNormal];
+    [closeBtn addTarget:self action:@selector(closeSuggestionBar) forControlEvents:UIControlEventTouchUpInside];
+    
     // Adding To HeaderView
     
     [headerView addSubview:headerLabel];
     [headerView addSubview:suggestionBtn];
+    [headerView addSubview:closeBtn];
     
     return headerView;
     
 }
 
+- (void) closeSuggestionBar {
+    
+    _headerHeight = 0;
+    
+    [UIView transitionWithView: self.tableView
+                      duration: 0.25f
+                       options: UIViewAnimationOptionTransitionCrossDissolve
+                    animations: ^(void)
+     {
+         [self.tableView reloadData];
+     }
+                    completion: nil];
+    
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    return  180.0;
+    return  _headerHeight;
 }
 
 #pragma mark - FCAlertViewExample Helper Methods

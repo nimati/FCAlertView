@@ -20,6 +20,7 @@
 @property UIColor *themeColor;
 @property UIColor *redColor;
 @property UIColor *greenColor;
+@property NSInteger headerHeight;
 
 @property (retain, nonatomic) NSString *alertTitle;
 @property (retain, nonatomic) NSArray *arrayOfButtonTitles;
