@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C6F4CD01D70B547003BAB36 /* closeBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C6F4CCF1D70B547003BAB36 /* closeBtn.png */; };
+		3C6F4CD21D70BD41003BAB36 /* github-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C6F4CD11D70BD41003BAB36 /* github-icon.png */; };
 		3CEC7EA31D679EF6001B739E /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEC7EA21D679EF6001B739E /* ExampleViewController.m */; };
 		3CEC7EA51D682868001B739E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CEC7EA41D682868001B739E /* MessageUI.framework */; };
 		3CEC7EA71D682D29001B739E /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CEC7EA61D682D29001B739E /* Launch.storyboard */; };
@@ -45,6 +46,7 @@
 		1B36D3DEFF1FAA57F633B043 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		321D7F606A0D672B57AFD6A9 /* Pods_FCAlertView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FCAlertView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C6F4CCF1D70B547003BAB36 /* closeBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeBtn.png; sourceTree = "<group>"; };
+		3C6F4CD11D70BD41003BAB36 /* github-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "github-icon.png"; sourceTree = "<group>"; };
 		3CEC7EA11D679EF6001B739E /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
 		3CEC7EA21D679EF6001B739E /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
 		3CEC7EA41D682868001B739E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -156,6 +158,7 @@
 			children = (
 				3CEC7EAA1D6831F8001B739E /* FCLogo.png */,
 				3C6F4CCF1D70B547003BAB36 /* closeBtn.png */,
+				3C6F4CD11D70BD41003BAB36 /* github-icon.png */,
 				6003F59C195388D20070C39A /* FCAppDelegate.h */,
 				6003F59D195388D20070C39A /* FCAppDelegate.m */,
 				3CEC7EA11D679EF6001B739E /* ExampleViewController.h */,
@@ -297,6 +300,7 @@
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				3C6F4CD21D70BD41003BAB36 /* github-icon.png in Resources */,
 				3C6F4CD01D70B547003BAB36 /* closeBtn.png in Resources */,
 				3CEC7EA71D682D29001B739E /* Launch.storyboard in Resources */,
 				3CEC7EAB1D6831F8001B739E /* FCLogo.png in Resources */,

@@ -22,6 +22,7 @@
 @property UIColor *greenColor;
 @property NSInteger headerHeight;
 
+@property (retain, nonatomic) UIImage *alertImage;
 @property (retain, nonatomic) NSString *alertTitle;
 @property (retain, nonatomic) NSArray *arrayOfButtonTitles;
 

@@ -29,7 +29,13 @@
     
     _alertViewOptions = [[NSMutableArray alloc] init];
     
-    _alertViewOptionsOriginal = @[@{@"title" : @"Color Scheme",
+    _alertViewOptionsOriginal = @[@{@"title" : @"Custom Image",
+                                    @"description" : @"Add a custom image to your alert.",
+                                    @"setting" : @"Off",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"Off", @"On"]},
+                                  @{@"title" : @"Color Scheme",
                                     @"description" : @"Choose your own color scheme or from one of included.",
                                     @"setting" : @"Off",
                                     @"status" : @0,
@@ -429,88 +435,96 @@
     // Go Through README.md or this example to understand how to use these customizations work and how to add them
     // It's best to include these customiztions before PRESENTING THE FCALERTVIEW
     
+    // Setting Custom Image
+    
+    if ([[[_alertViewOptions objectAtIndex:0] objectForKey:@"setting"] isEqual:@"Off"])
+        self.alertImage = nil;
+    
+    if ([[[_alertViewOptions objectAtIndex:0] objectForKey:@"setting"] isEqual:@"On"])
+        self.alertImage = [UIImage imageNamed:@"github-icon.png"];
+    
     // Setting FCAlertView's Color Scheme
     
-    NSString *selectedColor = [[_alertViewOptions objectAtIndex:0] objectForKey:@"setting"];
+    NSString *selectedColor = [[_alertViewOptions objectAtIndex:1] objectForKey:@"setting"];
     
     if (![selectedColor isEqual:@"Off"])
         alert.colorScheme = [self checkFlatColors:selectedColor];
     
     // Setting FCAlertView's Title Color
     
-    NSString *titleColor = [[_alertViewOptions objectAtIndex:1] objectForKey:@"setting"];
+    NSString *titleColor = [[_alertViewOptions objectAtIndex:2] objectForKey:@"setting"];
     
     if (![titleColor isEqual:@"Off"])
         alert.titleColor = [self checkFlatColors:titleColor];
     
     // Setting FCAlertView's Subtitle Color
     
-    NSString *subtitleColor = [[_alertViewOptions objectAtIndex:2] objectForKey:@"setting"];
+    NSString *subtitleColor = [[_alertViewOptions objectAtIndex:3] objectForKey:@"setting"];
     
     if (![subtitleColor isEqual:@"Off"])
         alert.subTitleColor = [self checkFlatColors:subtitleColor];
     
     // Setting FCAlertView's Rounded Corner Pixels - Use 0.05 to turn Off
     
-    if ([[[_alertViewOptions objectAtIndex:3] objectForKey:@"setting"] integerValue] > 0)
-        alert.cornerRadius = [[[_alertViewOptions objectAtIndex:3] objectForKey:@"status"] integerValue];
-    if ([[[_alertViewOptions objectAtIndex:3] objectForKey:@"setting"] isEqual:@"Off"])
+    if ([[[_alertViewOptions objectAtIndex:4] objectForKey:@"setting"] integerValue] > 0)
+        alert.cornerRadius = [[[_alertViewOptions objectAtIndex:4] objectForKey:@"status"] integerValue];
+    if ([[[_alertViewOptions objectAtIndex:4] objectForKey:@"setting"] isEqual:@"Off"])
         alert.cornerRadius = 0.05;
-    
-    // Setting FCAlertView's Alert Type
-    
-    if ([[[_alertViewOptions objectAtIndex:5] objectForKey:@"setting"] isEqual:@"Success"])
-        [alert makeAlertTypeSuccess];
-    
-    if ([[[_alertViewOptions objectAtIndex:5] objectForKey:@"setting"] isEqual:@"Caution"])
-        [alert makeAlertTypeCaution];
-    
-    if ([[[_alertViewOptions objectAtIndex:5] objectForKey:@"setting"] isEqual:@"Warning"])
-        [alert makeAlertTypeWarning];
     
     // Choosing the Title for FCAlertView
     
-    if ([[[_alertViewOptions objectAtIndex:4] objectForKey:@"setting"] isEqual:@"Off"])
+    if ([[[_alertViewOptions objectAtIndex:5] objectForKey:@"setting"] isEqual:@"Off"])
         self.alertTitle = nil;
     
-    if ([[[_alertViewOptions objectAtIndex:4] objectForKey:@"setting"] isEqual:@"On"])
+    if ([[[_alertViewOptions objectAtIndex:5] objectForKey:@"setting"] isEqual:@"On"])
         self.alertTitle = @"Alert Title";
+    
+    // Setting FCAlertView's Alert Type
+    
+    if ([[[_alertViewOptions objectAtIndex:6] objectForKey:@"setting"] isEqual:@"Success"])
+        [alert makeAlertTypeSuccess];
+    
+    if ([[[_alertViewOptions objectAtIndex:6] objectForKey:@"setting"] isEqual:@"Caution"])
+        [alert makeAlertTypeCaution];
+    
+    if ([[[_alertViewOptions objectAtIndex:6] objectForKey:@"setting"] isEqual:@"Warning"])
+        [alert makeAlertTypeWarning];
     
     // Adding Buttons to FCAlertView
     
-    if ([[[_alertViewOptions objectAtIndex:6] objectForKey:@"setting"] integerValue] == 0)
+    if ([[[_alertViewOptions objectAtIndex:7] objectForKey:@"setting"] integerValue] == 0)
         self.arrayOfButtonTitles = @[];
     
-    if ([[[_alertViewOptions objectAtIndex:6] objectForKey:@"setting"] integerValue] == 1)
+    if ([[[_alertViewOptions objectAtIndex:7] objectForKey:@"setting"] integerValue] == 1)
         self.arrayOfButtonTitles = @[@"First"];
     
-    if ([[[_alertViewOptions objectAtIndex:6] objectForKey:@"setting"] integerValue] == 2)
+    if ([[[_alertViewOptions objectAtIndex:7] objectForKey:@"setting"] integerValue] == 2)
         self.arrayOfButtonTitles = @[@"First", @"Second"];
     
     // Auto Closing FCAlertView based on time passed after presenting it
     
-    if (![[[_alertViewOptions objectAtIndex:7] objectForKey:@"setting"] isEqual:@"Off"])
-        alert.autoHideSeconds = [[[_alertViewOptions objectAtIndex:7] objectForKey:@"setting"] integerValue];
+    if (![[[_alertViewOptions objectAtIndex:8] objectForKey:@"setting"] isEqual:@"Off"])
+        alert.autoHideSeconds = [[[_alertViewOptions objectAtIndex:8] objectForKey:@"setting"] integerValue];
     else
         alert.autoHideSeconds = 0;
     
     // Dismissing FCAlertView with touch on outside of view
     
-    if (![[[_alertViewOptions objectAtIndex:8] objectForKey:@"setting"] isEqual:@"Off"])
+    if (![[[_alertViewOptions objectAtIndex:9] objectForKey:@"setting"] isEqual:@"Off"])
         alert.dismissOnOutsideTouch = 1;
     else
         alert.dismissOnOutsideTouch = 0;
     
     // Hiding Done Button in FCAlertView
     
-    if (![[[_alertViewOptions objectAtIndex:9] objectForKey:@"setting"] isEqual:@"Off"])
+    if (![[[_alertViewOptions objectAtIndex:10] objectForKey:@"setting"] isEqual:@"Off"])
         alert.hideDoneButton = 1;
     else
         alert.hideDoneButton = 0;
     
     // Hiding All Buttons in FCAlertView
     
-    if (![[[_alertViewOptions objectAtIndex:10] objectForKey:@"setting"] isEqual:@"Off"])
+    if (![[[_alertViewOptions objectAtIndex:11] objectForKey:@"setting"] isEqual:@"Off"])
         alert.hideAllButtons = 1;
     else
         alert.hideAllButtons = 0;
@@ -526,7 +540,7 @@
     [alert showAlertInView:self
                  withTitle:_alertTitle
               withSubtitle:@"This is my alert's subtitle. Keep it short and concise. 😜"
-           withCustomImage:nil
+           withCustomImage:_alertImage
        withDoneButtonTitle:nil
                 andButtons:self.arrayOfButtonTitles];
     

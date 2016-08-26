@@ -16,7 +16,7 @@
     if (self) {
         
         // INITIALIZATIONS - Setting Up Basic UI Adjustments
-
+        
         CGSize result = [[UIScreen mainScreen] bounds].size;
         
         self.frame = CGRectMake(0,
@@ -73,10 +73,10 @@
 #pragma mark - Customization Data Checkpoint
 
 - (void) checkCustomizationValid {
-        
+    
     if (_subTitle == nil || [_subTitle isEqualToString:@""])
         if (_title == nil || [_title isEqualToString:@""])
-        _subTitle = @"You need to have a title or subtitle to use FCAlertView 😀";
+            _subTitle = @"You need to have a title or subtitle to use FCAlertView 😀";
     
     if (doneTitle == nil || [doneTitle isEqualToString:@""]) {
         doneTitle = @"Ok";
@@ -242,7 +242,7 @@
     separatorLineView.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
     
     // BUTTON(S) VIEW - Section containing all Buttons
-
+    
     if (_numberOfButtons == 0) { // View only contains DONE/DISMISS Button
         
         UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -251,9 +251,9 @@
         else
             doneButton.backgroundColor = _colorScheme;
         doneButton.frame = CGRectMake(0,
-                                        alertViewFrame.size.height - 45,
-                                        alertViewFrame.size.width,
-                                        45);
+                                      alertViewFrame.size.height - 45,
+                                      alertViewFrame.size.width,
+                                      45);
         [doneButton setTitle:doneTitle forState:UIControlStateNormal];
         [doneButton addTarget:self action:@selector(donePressed) forControlEvents:UIControlEventTouchUpInside];
         doneButton.titleLabel.font = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
@@ -271,9 +271,9 @@
         else
             doneButton.backgroundColor = _colorScheme;
         doneButton.frame = CGRectMake(alertViewFrame.size.width/2,
-                                        alertViewFrame.size.height - 45,
-                                        alertViewFrame.size.width/2,
-                                        45);
+                                      alertViewFrame.size.height - 45,
+                                      alertViewFrame.size.width/2,
+                                      45);
         [doneButton setTitle:doneTitle forState:UIControlStateNormal];
         [doneButton addTarget:self action:@selector(donePressed) forControlEvents:UIControlEventTouchUpInside];
         doneButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightMedium];
@@ -305,7 +305,6 @@
         if (!_hideAllButtons && !_hideDoneButton)
             [alertView addSubview:doneButton];
         
-        
         UIView *horizontalSeparator = [[UIView alloc] initWithFrame:CGRectMake(alertViewFrame.size.width/2 - 1,
                                                                                otherButton.frame.origin.y - 2,
                                                                                2,
@@ -322,7 +321,9 @@
         visualEffectView3.userInteractionEnabled = NO;
         [horizontalSeparator addSubview:visualEffectView3];
         
-        [alertView addSubview:horizontalSeparator];
+        if (!_hideAllButtons && !_hideDoneButton) {
+            [alertView addSubview:horizontalSeparator];
+        }
         
     } else if (_numberOfButtons >= 2) { // View  contains TWO OTHER Buttons - First & Second Button
         
@@ -370,9 +371,9 @@
         else
             doneButton.backgroundColor = _colorScheme;
         doneButton.frame = CGRectMake(0,
-                                        alertViewFrame.size.height - 45,
-                                        alertViewFrame.size.width,
-                                        45);
+                                      alertViewFrame.size.height - 45,
+                                      alertViewFrame.size.width,
+                                      45);
         [doneButton setTitle:doneTitle forState:UIControlStateNormal];
         [doneButton addTarget:self action:@selector(donePressed) forControlEvents:UIControlEventTouchUpInside];
         doneButton.titleLabel.font = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
@@ -453,22 +454,24 @@
     alertView.layer.masksToBounds = YES;
     
     // ADDING CONTENTS - Contained in Header and Separator Views
-
+    
     [alertViewContents addSubview:titleLabel];
     [alertViewContents addSubview:descriptionLabel];
     
-    if (_numberOfButtons == 1)
-        [alertViewContents addSubview:separatorLineView];
-    else if (!_hideDoneButton)
-        [alertViewContents addSubview:separatorLineView];
-
+    if (!_hideAllButtons) {
+        if (_numberOfButtons == 1)
+            [alertViewContents addSubview:separatorLineView];
+        else if (!_hideDoneButton)
+            [alertViewContents addSubview:separatorLineView];
+    }
+    
     if (alertViewWithVector) {
         [alertViewContents.layer addSublayer:circleLayer];
         [alertViewContents addSubview:alertViewVector];
     }
     
     // SCALING ALERTVIEW - Before Animation
-
+    
     alertViewContents.transform = CGAffineTransformMakeScale(1.15, 1.15);
     
     // APPLYING SHADOW
@@ -589,7 +592,7 @@
     }
     
     [self dismissAlertView];
-
+    
 }
 
 - (void) donePressed {
