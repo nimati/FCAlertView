@@ -8,7 +8,11 @@
 
 import Foundation
 
-protocol FCAlertViewDelegate {
-  optional func FCAlertView(alertView: FCAlertView, clickedButtonIndex index: Int, buttonTitle title:String)
+protocol FCAlertViewDelegate: NSObjectProtocol {
+  func alertView(alertView: FCAlertView, clickedButtonIndex index: Int, buttonTitle title:String)
+  
+  func FCAlertViewDismissed(alertView: FCAlertView)
+  func FCAlertViewWillAppear(alertView: FCAlertView)
+  func FCAlertDoneButtonClicked(alertView: FCAlertView)
   
 }
