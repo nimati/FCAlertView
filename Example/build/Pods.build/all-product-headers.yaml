@@ -1,0 +1,38 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/Kris/git/FCAlertView/Example/build/Debug-iphonesimulator/FCAlertView/FCAlertView.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "FCAlertView-Swift.h",
+          'external-contents': "/Users/Kris/git/FCAlertView/Example/build/Debug-iphonesimulator/FCAlertView/FCAlertView.framework/Headers/FCAlertView-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "FCAlertView-umbrella.h",
+          'external-contents': "/Users/Kris/git/FCAlertView/Example/Pods/Target Support Files/FCAlertView/FCAlertView-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "FCAlertView.h",
+          'external-contents': "/Users/Kris/git/FCAlertView/Example/Pods/FCAlertView/FCAlertView/Classes/FCAlertView.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/Kris/git/FCAlertView/Example/build/Debug-iphonesimulator/FCAlertView/FCAlertView.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/Kris/git/FCAlertView/Example/build/Pods.build/Debug-iphonesimulator/FCAlertView.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}
