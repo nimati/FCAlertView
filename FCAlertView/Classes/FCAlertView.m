@@ -79,7 +79,7 @@
             _subTitle = @"You need to have a title or subtitle to use FCAlertView 😀";
     
     if (doneTitle == nil || [doneTitle isEqualToString:@""]) {
-        doneTitle = @"Ok";
+        doneTitle = @"OK";
     }
     
     if (_cornerRadius == 0.0f)
