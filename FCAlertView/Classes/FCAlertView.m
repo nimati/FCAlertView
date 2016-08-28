@@ -70,6 +70,7 @@
     
 }
 
+#pragma mark - FCAlertView Checks
 #pragma mark - Customization Data Checkpoint
 
 - (void) checkCustomizationValid {
@@ -87,6 +88,24 @@
     
     if (vectorImage != nil)
         alertViewWithVector = 1;
+    
+}
+
+#pragma mark - Safety Close Check
+
+- (void) safetyCloseCheck {
+    
+    if (_hideDoneButton || _hideAllButtons) {
+        
+        if (_autoHideSeconds == 0) {
+            
+            _dismissOnOutsideTouch = YES;
+            
+            NSLog(@"Forced Dismiss on Outside Touch");
+            
+        }
+        
+    }
     
 }
 
@@ -541,9 +560,12 @@
     
     if (!alertViewWithVector)
         vectorImage = image;
+
+    // Checks prior to presenting View
     
     [self checkCustomizationValid];
-    
+    [self safetyCloseCheck];
+
     [view.view.window addSubview:self];
     
 }

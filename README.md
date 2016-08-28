@@ -186,6 +186,8 @@ If you'd like to simply hide all buttons from your alert, you can do so by addin
 alert.hideAllButtons = YES;
 ```
 
+Please note that hiding Done/Dismiss Button and/or Hiding All Buttons would trigger a safety close mechanism by forcing Close on Outside Touch to stay ON.
+
 # Button Actions
 
 To add actions to your buttons, you have to first delegate your FCAlertView with your view, and then add a helper method which will detect button touches. Here's how you can add an alert with buttons and perform actions:
