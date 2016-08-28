@@ -74,7 +74,9 @@
 
 typedef void (^FCActionBlock)(void);
 @property (nonatomic, copy) FCActionBlock actionBlock;
+@property (nonatomic, copy) FCActionBlock doneBlock;
 - (void)addButton:(NSString *)title withActionBlock:(FCActionBlock)action;
+- (void)doneActionBlock:(FCActionBlock)action;
 
 // Color Schemes
 

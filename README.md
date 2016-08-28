@@ -77,7 +77,15 @@ Alternatively, you can add buttons to FCAlertView with action block like so:
 [alert addButton:@"Button" withActionBlock:^{
     // Put your action here
 }];
-``` 
+```
+
+### Action Block for Done Button
+
+```Objective-C
+[alert doneActionBlock:^{ 
+    // Put your action here
+}];
+```
 
 ## Extra Customizations 
 

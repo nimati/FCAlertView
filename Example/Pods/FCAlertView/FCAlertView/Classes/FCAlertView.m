@@ -628,6 +628,12 @@
     
 }
 
+- (void)doneActionBlock:(FCActionBlock)action {
+    
+    self.doneBlock = action;
+    
+}
+
 #pragma  mark - ACTIONS
 #pragma mark Button Selection
 
@@ -654,6 +660,9 @@
 }
 
 - (void) donePressed {
+    
+    if (self.doneBlock)
+        self.doneBlock();
     
     id<FCAlertViewDelegate> strongDelegate = self.delegate;
     
