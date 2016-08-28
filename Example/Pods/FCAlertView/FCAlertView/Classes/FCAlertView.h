@@ -26,7 +26,7 @@
     
     // Customizations made to UI
     
-    NSArray *buttonTitles;
+    NSMutableArray *alertButtons;
     NSInteger alertViewWithVector;
     NSString *doneTitle;
     UIImage *vectorImage;
@@ -69,6 +69,12 @@
 // Dismissing AlertView
 
 - (void) dismissAlertView;
+
+// Alert Action Block Method
+
+typedef void (^FCActionBlock)(void);
+@property (nonatomic, copy) FCActionBlock actionBlock;
+- (void)addButton:(NSString *)title withActionBlock:(FCActionBlock)action;
 
 // Color Schemes
 

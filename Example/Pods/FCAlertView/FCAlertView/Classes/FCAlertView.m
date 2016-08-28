@@ -51,6 +51,8 @@
         
         // CUSTOMIZATIONS - Setting Default Customization Settings & Checks
         
+        alertButtons = [[NSMutableArray alloc] init];
+        
         _numberOfButtons = 0;
         _autoHideSeconds = 0;
         _cornerRadius = 18.0f;
@@ -310,7 +312,7 @@
                                            alertViewFrame.size.height - 45,
                                            alertViewFrame.size.width,
                                            45);
-        [otherButton setTitle:[buttonTitles objectAtIndex:0] forState:UIControlStateNormal];
+        [otherButton setTitle:[[alertButtons objectAtIndex:0] objectForKey:@"title"] forState:UIControlStateNormal];
         [otherButton addTarget:self action:@selector(handleButton:) forControlEvents:UIControlEventTouchUpInside];
         otherButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
         otherButton.tintColor = self.colorScheme;
@@ -327,7 +329,7 @@
         UIView *horizontalSeparator = [[UIView alloc] initWithFrame:CGRectMake(alertViewFrame.size.width/2 - 1,
                                                                                otherButton.frame.origin.y - 2,
                                                                                2,
-                                                                               45)];
+                                                                               47)];
         
         horizontalSeparator.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
         
@@ -357,7 +359,7 @@
                                            alertViewFrame.size.height - 45,
                                            alertViewFrame.size.width/2,
                                            45);
-        [firstButton setTitle:[buttonTitles objectAtIndex:0] forState:UIControlStateNormal];
+        [firstButton setTitle:[[alertButtons objectAtIndex:0] objectForKey:@"title"] forState:UIControlStateNormal];
         [firstButton addTarget:self action:@selector(handleButton:) forControlEvents:UIControlEventTouchUpInside];
         firstButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
         firstButton.tintColor = self.colorScheme;
@@ -376,13 +378,13 @@
                                             alertViewFrame.size.height - 45,
                                             alertViewFrame.size.width/2,
                                             45);
-        [secondButton setTitle:[buttonTitles objectAtIndex:1] forState:UIControlStateNormal];
+        [secondButton setTitle:[[alertButtons objectAtIndex:1] objectForKey:@"title"] forState:UIControlStateNormal];
         [secondButton addTarget:self action:@selector(handleButton:) forControlEvents:UIControlEventTouchUpInside];
         secondButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
         secondButton.tintColor = self.colorScheme;
         secondButton.titleLabel.adjustsFontSizeToFitWidth = YES;
         secondButton.titleLabel.minimumScaleFactor = 0.8;
-        secondButton.tag = 0;
+        secondButton.tag = 1;
         
         UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
         if (_colorScheme == nil)
@@ -554,8 +556,14 @@
     
     self.title = title;
     self.subTitle = subTitle;
-    buttonTitles = buttons;
-    _numberOfButtons = buttonTitles.count;
+    
+    for (int i = 0; i < buttons.count; i++) {
+        NSDictionary *btnDict = @{@"title" : [buttons objectAtIndex:i],
+                                  @"action" : @0};
+        [alertButtons addObject:btnDict];
+    }
+    
+    _numberOfButtons = alertButtons.count;
     doneTitle = done;
     
     if (!alertViewWithVector)
@@ -610,14 +618,32 @@
     
 }
 
+- (void)addButton:(NSString *)title withActionBlock:(FCActionBlock)action {
+    
+    if (alertButtons.count < 2)
+        [alertButtons addObject:@{@"title" : title,
+                                  @"action" : action}];
+    
+    _numberOfButtons = alertButtons.count;
+    
+}
+
 #pragma  mark - ACTIONS
 #pragma mark Button Selection
 
 - (void)handleButton:(id)sender {
-    
+
     id<FCAlertViewDelegate> strongDelegate = self.delegate;
     
     UIButton *clickedButton = (UIButton*)sender;
+    
+    NSDictionary *btnDict = [alertButtons objectAtIndex:[sender tag]];
+    
+    if ([btnDict objectForKey:@"action"] != nil && ![[btnDict objectForKey:@"action"] isEqual:@0]) {
+    FCActionBlock block = [btnDict objectForKey:@"action"];
+        if (block)
+            block();
+    }
     
     if ([strongDelegate respondsToSelector:@selector(FCAlertView:clickedButtonIndex:buttonTitle:)]) {
         [strongDelegate FCAlertView:self clickedButtonIndex:[sender tag] buttonTitle:clickedButton.titleLabel.text];

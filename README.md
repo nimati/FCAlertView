@@ -69,6 +69,17 @@ FCAlertView *alert = [[FCAlertView alloc] init];
 
 - **Buttons (NSArray of NSStrings):** If you want to add buttons to your alert, simply add an array of 1 or 2 button titles as ```NSString``` here, anything more will be ignored as 2 is the max custom buttons you can add (aside from the done button). Read more about buttons and actions further down.
 
+## Adding Buttons With Action Blocks
+
+Alternatively, you can add buttons to FCAlertView with action block like so:
+
+```Objective-C
+[alert addButton:@"Block Button" withActionBlock:^{
+    NSLog(@"Block Button Clicked");
+    // Put your action here
+}];
+``` 
+
 ## Extra Customizations 
 
 This section includes all the tiny details that you can customize your alert with, which makes FCAlertView very customizable. Or leave it as is and enjoy the simplicity. 

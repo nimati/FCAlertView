@@ -537,6 +537,17 @@
     // DONE BUTTON TITLE: Alert's Main Close/Done Button Title, NSString, Default will be "Ok", Can be Nil
     // BUTTONS: Other Alert's Buttons Titles, NSArray of NSStrings, Can be Nil or max of 2 Buttons.
     
+    /* USING BLOCK ACTION TO ADD BUTTONS -- Uncomment to Try it out
+     
+     [alert addButton:@"Block Button" withActionBlock:^{
+        NSLog(@"Block Button Clicked");
+        // Put your action here
+    }];
+     
+     */
+    
+    alert.delegate = self;
+    
     [alert showAlertInView:self
                  withTitle:_alertTitle
               withSubtitle:@"This is my alert's subtitle. Keep it short and concise. 😜"
@@ -544,6 +555,34 @@
        withDoneButtonTitle:nil
                 andButtons:self.arrayOfButtonTitles];
     
+    
+    
+}
+
+#pragma mark - Helper Methods
+
+- (void)FCAlertView:(FCAlertView *)alertView clickedButtonIndex:(NSInteger)index buttonTitle:(NSString *)title {
+    
+    NSLog(@"Button Clicked: %ld Title:%@", (long)index, title);
+    
+}
+
+- (void)FCAlertDoneButtonClicked:(FCAlertView *)alertView {
+    
+    NSLog(@"Done Button Clicked");
+    
+}
+
+- (void)FCAlertViewDismissed:(FCAlertView *)alertView {
+    
+    NSLog(@"Alert Dismissed");
+
+}
+
+- (void)FCAlertViewWillAppear:(FCAlertView *)alertView {
+    
+    NSLog(@"Alert Will Appear");
+
 }
 
 @end
