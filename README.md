@@ -200,7 +200,7 @@ Please note that hiding Done/Dismiss Button and/or Hiding All Buttons would trig
 
 # Button Actions
 
-To add actions to your buttons, you have to first delegate your FCAlertView with your view, and then add a helper method which will detect button touches. Here's how you can add an alert with buttons and perform actions:
+To add actions to your buttons, if you're not adding buttons with action blocks, you have to first delegate your FCAlertView with your view, and then add a helper method which will detect button touches. Here's how you can add an alert with buttons and perform actions:
 
 First add ```FCAlertViewDelegate``` to your View Controller's ```@interface``` as such:
 
