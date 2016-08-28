@@ -69,6 +69,16 @@ FCAlertView *alert = [[FCAlertView alloc] init];
 
 - **Buttons (NSArray of NSStrings):** If you want to add buttons to your alert, simply add an array of 1 or 2 button titles as ```NSString``` here, anything more will be ignored as 2 is the max custom buttons you can add (aside from the done button). Read more about buttons and actions further down.
 
+## Adding Buttons With Action Blocks
+
+Alternatively, you can add buttons to FCAlertView with action block like so:
+
+```Objective-C
+[alert addButton:@"Button" withActionBlock:^{
+    // Put your action here
+}];
+``` 
+
 ## Extra Customizations 
 
 This section includes all the tiny details that you can customize your alert with, which makes FCAlertView very customizable. Or leave it as is and enjoy the simplicity. 
@@ -186,9 +196,11 @@ If you'd like to simply hide all buttons from your alert, you can do so by addin
 alert.hideAllButtons = YES;
 ```
 
+Please note that hiding Done/Dismiss Button and/or Hiding All Buttons would trigger a safety close mechanism by forcing Close on Outside Touch to stay ON.
+
 # Button Actions
 
-To add actions to your buttons, you have to first delegate your FCAlertView with your view, and then add a helper method which will detect button touches. Here's how you can add an alert with buttons and perform actions:
+To add actions to your buttons, if you're not adding buttons with action blocks, you have to first delegate your FCAlertView with your view, and then add a helper method which will detect button touches. Here's how you can add an alert with buttons and perform actions:
 
 First add ```FCAlertViewDelegate``` to your View Controller's ```@interface``` as such:
 
@@ -304,7 +316,7 @@ FCAlertView lets you do things such as specify the number of buttons, the color 
 The Vision for FC Libraries
 ---------------------------
 
-My goal is to create a set of different libraries, each targetting a certain UI element of iOS, with the goal to improve the design and add more customizations. As such, FCAlertView is a more Flat/Customizable AlertView. With this mindset, I'd like to create more FC libraries, such as FCActionSheet, FCNotification (for quick, in app alerts), FCGuideView (for guiding your users around your app). If you also have a suggestion for an FC Library, please send it [here](mailto:nima6tahami@gmail.com).
+My goal is to create a set of different libraries, each targetting a certain UI element of iOS, with the goal to improve the design and add more customizations. As such, FCAlertView is a more Flat/Customizable AlertView. With this mindset, I'd like to create more FC libraries, such as FCActionSheet, FCNotification (for quick, in app alerts), FCPopoverView, FCGuideView (for guiding your users around your app). If you also have a suggestion for an FC Library, please send it [here](mailto:nima6tahami@gmail.com).
 
 > Ultimately, FC Libraries is here to improve the look and feel of your app for your end users. So all improvements and suggestions are welcome.
 
