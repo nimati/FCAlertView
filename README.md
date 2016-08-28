@@ -74,8 +74,7 @@ FCAlertView *alert = [[FCAlertView alloc] init];
 Alternatively, you can add buttons to FCAlertView with action block like so:
 
 ```Objective-C
-[alert addButton:@"Block Button" withActionBlock:^{
-    NSLog(@"Block Button Clicked");
+[alert addButton:@"Button" withActionBlock:^{
     // Put your action here
 }];
 ``` 
