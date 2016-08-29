@@ -100,6 +100,12 @@
                                     @"setting" : @"Off",
                                     @"status" : @0,
                                     @"customIndicator" : @0,
+                                    @"selection" : @[@"Off", @"On"]},
+                                  @{@"title" : @"Avoid Image Tint",
+                                    @"description" : @"Turn off image tinting for the custom image.",
+                                    @"setting" : @"Off",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
                                     @"selection" : @[@"Off", @"On"]}];
     
     _alertViewOptions = [_alertViewOptionsOriginal mutableCopy];
@@ -528,6 +534,13 @@
         alert.hideAllButtons = 1;
     else
         alert.hideAllButtons = 0;
+    
+    // Avoiding Custom Image Tint
+    
+    if (![[[_alertViewOptions objectAtIndex:12] objectForKey:@"setting"] isEqual:@"Off"])
+        alert.avoidCustomImageTint = 1;
+    else
+        alert.avoidCustomImageTint = 0;
     
     // PRESENTING THE FCALERTVIEW // 4) Add This to finally present FCAlertView in your view's window
     

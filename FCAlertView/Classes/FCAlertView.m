@@ -460,7 +460,13 @@
     [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(alertViewContents.frame.size.width/2 - 30.0f, -30.0f, 60.0f, 60.0f)] CGPath]];
     [circleLayer setFillColor:[UIColor whiteColor].CGColor];
     
-    UIButton *alertViewVector = [UIButton buttonWithType:UIButtonTypeSystem];
+    UIButton *alertViewVector;
+    
+    if (_avoidCustomImageTint && alertType.length == 0)
+        alertViewVector = [UIButton buttonWithType:UIButtonTypeCustom];
+    else
+        alertViewVector = [UIButton buttonWithType:UIButtonTypeSystem];
+
     alertViewVector.frame = CGRectMake(alertViewContents.frame.size.width/2 - 15.0f,
                                        -15.0f,
                                        30.0f,
@@ -536,18 +542,21 @@
     vectorImage = [self loadImageFromResourceBundle:@"close-round.png"];
     alertViewWithVector = 1;
     self.colorScheme = self.flatRed;
+    alertType = @"Warning";
 }
 
 - (void) makeAlertTypeCaution {
     vectorImage = [self loadImageFromResourceBundle:@"alert-round.png"];
     alertViewWithVector = 1;
     self.colorScheme = self.flatOrange;
+    alertType = @"Caution";
 }
 
 - (void) makeAlertTypeSuccess {
     vectorImage = [self loadImageFromResourceBundle:@"checkmark-round.png"];
     alertViewWithVector = 1;
     self.colorScheme = self.flatGreen;
+    alertType = @"Success";
 }
 
 #pragma  mark - Presenting AlertView

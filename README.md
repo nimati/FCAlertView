@@ -63,7 +63,7 @@ FCAlertView *alert = [[FCAlertView alloc] init];
 
 - **Subtitle (NSString):** FCAlertView always requires a subtitle, even if you want just a few words, add it here instead of the title (then leave the title as nil). *Take a look at [Screenshot 2](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot2.png) for an example*.
 
--  **CustomImage (UIImage):** You can leave this image as ```nil``` or Give it a ```UIImage``` which will show at the top of the alert. *Take a look at [Screenshot 4](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot4.png) for an example*.
+-  **CustomImage (UIImage):** You can leave this image as ```nil``` or Give it a ```UIImage``` which will show at the top of the alert. *Take a look at [Screenshot 4](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot4.png) for an example*. 
 
 - **DoneButtonTitle (NSString):** You can leave this as ```nil``` to show "Ok" as the dismiss button for the AlertView, or Give it an ```NSString```.
 
@@ -97,6 +97,12 @@ By default, FCAlertView doesn't include a color scheme, much like UIAlertView, b
 
 ```Objective-C
 alert.colorScheme = [UIColor colorWithRed:150.0f/255.0f green:150.0f/255.0f blue:150.0f/255.0f alpha:1.0];
+```
+
+If you add a custom image to your alert, it will be tinted with the color scheme by default. To keep this from happening, add this:
+
+```Objective-C
+alert.avoidCustomImageTint = 1; // Off by default
 ```
 
 FCAlertView also comes with a set of pre-made colors that you can use:

@@ -30,6 +30,7 @@
     NSInteger alertViewWithVector;
     NSString *doneTitle;
     UIImage *vectorImage;
+    NSString *alertType;
     
 }
 
@@ -55,6 +56,7 @@
 @property BOOL dismissOnOutsideTouch;
 @property BOOL hideAllButtons;
 @property BOOL hideDoneButton;
+@property BOOL avoidCustomImageTint;
 
 // Default Types of Alerts
 
