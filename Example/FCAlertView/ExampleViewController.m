@@ -559,6 +559,8 @@
      
      */
     
+    [alert addButton:@"Block" withActionBlock:nil];
+    
     /* USING BLOCK ACTION FOR DONE BUTTON -- Uncomment to Try it out
 
      [alert doneActionBlock:^{

@@ -466,7 +466,7 @@
         alertViewVector = [UIButton buttonWithType:UIButtonTypeCustom];
     else
         alertViewVector = [UIButton buttonWithType:UIButtonTypeSystem];
-
+    
     alertViewVector.frame = CGRectMake(alertViewContents.frame.size.width/2 - 15.0f,
                                        -15.0f,
                                        30.0f,
@@ -577,12 +577,12 @@
     
     if (!alertViewWithVector)
         vectorImage = image;
-
+    
     // Checks prior to presenting View
     
     [self checkCustomizationValid];
     [self safetyCloseCheck];
-
+    
     [view.view.window addSubview:self];
     
 }
@@ -627,11 +627,18 @@
     
 }
 
+#pragma mark - Action Block Methods
+
 - (void)addButton:(NSString *)title withActionBlock:(FCActionBlock)action {
     
-    if (alertButtons.count < 2)
-        [alertButtons addObject:@{@"title" : title,
-                                  @"action" : action}];
+    if (alertButtons.count < 2) {
+        if (action != nil)
+            [alertButtons addObject:@{@"title" : title,
+                                      @"action" : action}];
+        else
+            [alertButtons addObject:@{@"title" : title,
+                                      @"action" : @0}];
+    }
     
     _numberOfButtons = alertButtons.count;
     
@@ -639,7 +646,8 @@
 
 - (void)doneActionBlock:(FCActionBlock)action {
     
-    self.doneBlock = action;
+    if (action != nil)
+        self.doneBlock = action;
     
 }
 
@@ -647,17 +655,19 @@
 #pragma mark Button Selection
 
 - (void)handleButton:(id)sender {
-
+    
     id<FCAlertViewDelegate> strongDelegate = self.delegate;
     
     UIButton *clickedButton = (UIButton*)sender;
     
     NSDictionary *btnDict = [alertButtons objectAtIndex:[sender tag]];
     
-    if ([btnDict objectForKey:@"action"] != nil && ![[btnDict objectForKey:@"action"] isEqual:@0]) {
-    FCActionBlock block = [btnDict objectForKey:@"action"];
-        if (block)
-            block();
+    if (btnDict != nil) {
+        if ([btnDict objectForKey:@"action"] != nil && ![[btnDict objectForKey:@"action"] isEqual:@0]) {
+            FCActionBlock block = [btnDict objectForKey:@"action"];
+            if (block)
+                block();
+        }
     }
     
     if ([strongDelegate respondsToSelector:@selector(FCAlertView:clickedButtonIndex:buttonTitle:)]) {
