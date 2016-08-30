@@ -36,7 +36,7 @@
 
 // Delegate
 
-@property (nonatomic, weak) id<FCAlertViewDelegate> delegate;
+@property (nonatomic, weak) _Null_unspecified id<FCAlertViewDelegate> delegate;
 
 // AlertView Title & Subtitle Text
 
