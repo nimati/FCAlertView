@@ -4,10 +4,10 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>FCAlertView-FCAlertView.xcscheme</key>
+		<key>FCAlertView-FCAlertView.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>FCAlertView.xcscheme</key>
 		<dict>
