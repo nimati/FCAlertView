@@ -77,34 +77,34 @@
 typedef void (^FCActionBlock)(void);
 @property (nonatomic, copy) FCActionBlock actionBlock;
 @property (nonatomic, copy) FCActionBlock doneBlock;
-- (void)addButton:(NSString *)title withActionBlock:(nullable FCActionBlock)action;
-- (void)doneActionBlock:(nullable FCActionBlock)action;
+- (void)addButton:(NSString *)title withActionBlock:(FCActionBlock)action;
+- (void)doneActionBlock:(FCActionBlock)action;
 
 // Color Schemes
 
-@property (nonatomic, retain) UIColor * __nullable colorScheme;
-@property (nonatomic, retain)  UIColor * __nullable titleColor;
-@property (nonatomic, retain)  UIColor * __nullable subTitleColor;
+@property (nonatomic, retain) UIColor * colorScheme;
+@property (nonatomic, retain)  UIColor * titleColor;
+@property (nonatomic, retain)  UIColor * subTitleColor;
 
 // Preset Flat Colors
 
-@property (nonatomic, retain) UIColor * __nullable flatTurquoise;
-@property (nonatomic, retain) UIColor * __nullable flatGreen;
-@property (nonatomic, retain) UIColor * __nullable flatBlue;
-@property (nonatomic, retain) UIColor * __nullable flatMidnight;
-@property (nonatomic, retain) UIColor * __nullable flatPurple;
-@property (nonatomic, retain) UIColor * __nullable flatOrange;
-@property (nonatomic, retain) UIColor * __nullable flatRed;
-@property (nonatomic, retain) UIColor * __nullable flatSilver;
-@property (nonatomic, retain) UIColor * __nullable flatGray;
+@property (nonatomic, retain) UIColor * flatTurquoise;
+@property (nonatomic, retain) UIColor * flatGreen;
+@property (nonatomic, retain) UIColor * flatBlue;
+@property (nonatomic, retain) UIColor * flatMidnight;
+@property (nonatomic, retain) UIColor * flatPurple;
+@property (nonatomic, retain) UIColor * flatOrange;
+@property (nonatomic, retain) UIColor * flatRed;
+@property (nonatomic, retain) UIColor * flatSilver;
+@property (nonatomic, retain) UIColor * flatGray;
 
 @end
 
 @protocol FCAlertViewDelegate <NSObject>
 @optional
-- (void)FCAlertView:( FCAlertView * _Null_unspecified )alertView clickedButtonIndex:(NSInteger)index buttonTitle:(NSString * _Null_unspecified)title;
-- (void)FCAlertViewDismissed:(FCAlertView * _Null_unspecified)alertView;
-- (void)FCAlertViewWillAppear:(FCAlertView * _Null_unspecified)alertView;
-- (void)FCAlertDoneButtonClicked:(FCAlertView * _Null_unspecified)alertView;
+- (void)FCAlertView:( FCAlertView *)alertView clickedButtonIndex:(NSInteger)index buttonTitle:(NSString *)title;
+- (void)FCAlertViewDismissed:(FCAlertView *)alertView;
+- (void)FCAlertViewWillAppear:(FCAlertView *)alertView;
+- (void)FCAlertDoneButtonClicked:(FCAlertView *)alertView;
 
 @end
