@@ -49,11 +49,11 @@ import FCAlertView
 let alert = FCAlertView()
 
 alert.showAlertInView(self,
-							withTitle: "Alert Title",
-							withSubtitle: "This is your alert's subtitle. Keep it short and concise. 😜👌",
-							withCustomImage: nil,
-							withDoneButtonTitle: nil,
-							andButtons: nil)
+				withTitle: "Alert Title",
+				withSubtitle: "This is your alert's subtitle. Keep it short and concise. 😜👌",
+				withCustomImage: nil,
+				withDoneButtonTitle: nil,
+				andButtons: nil)
 ```
 
 ## Base Customizations
@@ -77,7 +77,8 @@ This section includes all the tiny details that you can customize your alert wit
 By default, FCAlertView doesn't include a color scheme, much like UIAlertView, but you can add one by adding this line:
 
 ```Swift
-alert.colorScheme = [UIColor colorWithRed:150.0f/255.0f green:150.0f/255.0f blue:150.0f/255.0f alpha:1.0];
+
+alert.colorScheme = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)
 ```
 
 FCAlertView also comes with a set of pre-made colors that you can use:
@@ -89,7 +90,7 @@ FCAlertView also comes with a set of pre-made colors that you can use:
 Simply choose the color you'd like to use for your AlertView, and add:
 
 ```Swift
-alert.colorScheme = alert.flatBlue // Replace "Blue" with your preferred color from the image above
+alert.colorScheme = alert.Colors.flatBlue // Replace "Blue" with your preferred color from the image above
 ```
 
 ### Title and Subtitle Colors
@@ -112,7 +113,6 @@ Change the Rounding of the FCAlertView's corners as desired using:
 
 ```Colors
 alert.cornerRadius = 4 // Replace 4 with your desired corner radius amount (Set to 0.1 if you don't want rounding)
-
 ```
 
 ### Alert Types
@@ -202,16 +202,16 @@ class ViewController : FCAlertViewDelegate {...}
 Now add your FCAlertView with Buttons where you need to present it:
 
 ```Swift
-	let alert = FCAlertView();
+let alert = FCAlertView();
 
-	alert.delegate = self
+alert.delegate = self
 
-  alert.showAlertInView(self,
-               withTitle:"Alert Title",
-            withSubtitle:"This is your alert's subtitle. Keep it short and concise. 😜👌",
-         withCustomImage:nil,
-     withDoneButtonTitle:nil,
-              andButtons:["Button 1", "Button 2"]) // Set your button titles here
+alert.showAlertInView(self,
+             withTitle:"Alert Title",
+          withSubtitle:"This is your alert's subtitle. Keep it short and concise. 😜👌",
+       withCustomImage:nil,
+   withDoneButtonTitle:nil,
+            andButtons:["Button 1", "Button 2"]) // Set your button titles here
 
 ```
 
@@ -253,8 +253,8 @@ class ViewController: FCAlertViewDelegate {...}
 and setting the delegate of your FCAlertView, as such:
 
 ```Swift
-  let alert = FCAlertView()
-  alert.delegate = self
+let alert = FCAlertView()
+alert.delegate = self
 ```
 
 ### Detect when FCAlertView has been dismissed
