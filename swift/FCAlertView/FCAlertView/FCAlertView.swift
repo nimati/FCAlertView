@@ -13,24 +13,34 @@ class FCAlertView: UIView {
   var defaultHeight: CGFloat = 105
   var defaultSpacing: CGFloat = 200
   
-  var alertView: UIView
-  var alertViewContents: UIView
-  var circleLayer: CAShapeLayer
+  var alertView: UIView?
+  var alertViewContents: UIView?
+  let circleLayer: CAShapeLayer = {
+    let circle = CAShapeLayer()
+    circle.fillColor = UIColor.whiteColor().CGColor
+    return circle
+  }()
   
-  var buttonTitles: [String]
+  var buttonTitles: [String]?
   var alertViewWithVector = 0
   var doneTitle: String?
   var vectorImage: UIImage?
   
   //Delegate
-  var delegate: FCAlertViewDelegate
+  var delegate: FCAlertViewDelegate?
   
   //AlertView Title & Subtitle Text
   var title: String?
   var subTitle: String?
   
-  // AlertView Background
-  var alertBackground: UIView
+  // AlertView Background : Probably take frame out & make it constant
+  lazy var alertBackground: UIView = {
+    let alertBackgroundView = UIView()
+    alertBackgroundView.frame = CGRectMake(0, 0, self.frame.width, self.frame.height)
+    alertBackgroundView.backgroundColor = UIColor(white: 0, alpha: 0.35)
+    
+    return alertBackgroundView
+  }()
   
   // AlertView Customizations
   var numberOfButtons = 0
@@ -43,36 +53,40 @@ class FCAlertView: UIView {
  
   // Color Schemes
   var colorScheme: UIColor?
-  var titleColor: UIColor
-  var subTitleColor: UIColor
+  var titleColor: UIColor = .blackColor()
+  var subTitleColor: UIColor = .blackColor()
   
-  // Default Init
-  init() {
-    let result = UIScreen.mainScreen().bounds.size
+  override init(frame: CGRect) {
+    super.init(frame: frame)
     
-    frame = CGRectMake(0, 0, result.width, result.height)
     backgroundColor = .clearColor()
     
-//  Setting up Background View
-    
-    alertBackground = UIView()
-    alertBackground.frame = CGRectMake(0, 0, result.width, result.height)
-    alertBackground.backgroundColor = UIColor(white: 0, alpha: 0.35)
     addSubview(alertBackground)
     
-//  CUSTOMIZATIONS - Setting Default Customization Settings & Checks
-//    numberOfButtons = 0
-//    autoHideSeconds = 0
-//    cornerRadius = 18
-//    
-//    dismissOnOutsideTouch = false
-//    hideAllButtons = false
-//    hideDoneButton = false
-//    
-//    defaultSpacing = 105
-//    defaultHeight = 200
+    //  CUSTOMIZATIONS - Setting Default Customization Settings & Checks
+    //    numberOfButtons = 0
+    //    autoHideSeconds = 0
+    //    cornerRadius = 18
+    //
+    //    dismissOnOutsideTouch = false
+    //    hideAllButtons = false
+    //    hideDoneButton = false
+    //
+    //    defaultSpacing = 105
+    //    defaultHeight = 200
     
     checkCustomizationValid()
+  }
+  
+  // Default Init
+  convenience init() {
+    
+    let result = UIScreen.mainScreen().bounds.size
+    
+    let frame = CGRectMake(0, 0, result.width, result.height)
+    
+    self.init(frame: frame)
+    
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -106,7 +120,7 @@ class FCAlertView: UIView {
       let touchPoint2 = touch.locationInView(alertViewContents)
       
       let isPointInsideBackview = alertBackground.pointInside(touchPoint, withEvent: nil)
-      let isPointInsideAlertView = alertViewContents.pointInside(touchPoint2, withEvent: nil)
+      let isPointInsideAlertView = alertViewContents!.pointInside(touchPoint2, withEvent: nil)
       
       if dismissOnOutsideTouch && isPointInsideBackview && !isPointInsideAlertView {
         dismissAlertView()
@@ -166,27 +180,27 @@ class FCAlertView: UIView {
     
 //  Setting up contents of AlertView
     alertViewContents = UIView(frame: alertViewFrame)
-    addSubview(alertViewContents)
+    addSubview(alertViewContents!)
     
     alertView = UIView(frame: CGRectMake(0, 0, alertViewFrame.size.width, alertViewFrame.size.height))
     
 //  Setting Background Color of AlertView
     if alertViewWithVector == 1 {
-      alertView.backgroundColor = .clearColor()
+      alertView!.backgroundColor = .clearColor()
     }else{
-      alertView.backgroundColor = .whiteColor()
+      alertView!.backgroundColor = .whiteColor()
     }
     
-    alertViewContents.addSubview(alertView)
+    alertViewContents!.addSubview(alertView!)
     
     // CREATING ALERTVIEW
     // CUSTOM SHAPING - Displaying Cut out circle for Vector Type Alerts
     
-    let radius = alertView.frame.size.width
+    let radius = alertView!.frame.size.width
     let rectPath = UIBezierPath(roundedRect: CGRectMake(0,
                                                         0,
                                                         frame.size.width,
-                                                        alertView.frame.size.height),
+                                                        alertView!.frame.size.height),
                                 cornerRadius: 0)
     let circlePath = UIBezierPath(roundedRect: CGRectMake(alertViewFrame.size.width/2 - 33.75,
                                                           -33.75,
@@ -204,7 +218,7 @@ class FCAlertView: UIView {
       fillLayer.fillColor = UIColor.whiteColor().CGColor
       fillLayer.opacity = 1
       
-      alertView.layer.addSublayer(fillLayer)
+      alertView!.layer.addSublayer(fillLayer)
     }
     
 //  HEADER VIEW - With Title & Subtitle
@@ -261,7 +275,7 @@ class FCAlertView: UIView {
       doneButton.titleLabel!.font = UIFont.systemFontOfSize(18, weight: UIFontWeightMedium)
       
       if !hideAllButtons && !hideDoneButton {
-        alertView.addSubview(doneButton)
+        alertView!.addSubview(doneButton)
       }
       
     }else if numberOfButtons == 1 { // View also contains OTHER (One) Button
@@ -297,7 +311,7 @@ class FCAlertView: UIView {
                                        45)
       }
       
-      otherButton.setTitle(buttonTitles[0], forState: .Normal)
+      otherButton.setTitle(buttonTitles![0], forState: .Normal)
       otherButton.addTarget(self, action: #selector(handleButton(_:)), forControlEvents: .TouchUpInside)
       otherButton.titleLabel?.font = UIFont.systemFontOfSize(16, weight: UIFontWeightRegular)
       otherButton.tintColor = colorScheme
@@ -319,11 +333,11 @@ class FCAlertView: UIView {
       horizontalSeparator.addSubview(visualEffectView)
       
       if !hideAllButtons {
-        alertView.addSubview(otherButton)
+        alertView!.addSubview(otherButton)
         
         if !hideDoneButton {
-          alertView.addSubview(doneButton)
-          alertView.addSubview(horizontalSeparator)
+          alertView!.addSubview(doneButton)
+          alertView!.addSubview(horizontalSeparator)
         }
       }
       
@@ -343,7 +357,7 @@ class FCAlertView: UIView {
                                        45)
       }
       
-      firstButton.setTitle(buttonTitles[0], forState: .Normal)
+      firstButton.setTitle(buttonTitles![0], forState: .Normal)
       firstButton.addTarget(self, action: #selector(handleButton(_:)), forControlEvents: .TouchUpInside)
       firstButton.titleLabel?.font = UIFont.systemFontOfSize(16, weight: UIFontWeightRegular)
       firstButton.tintColor = colorScheme
@@ -366,7 +380,7 @@ class FCAlertView: UIView {
                                        45)
       }
       
-      secondButton.setTitle(buttonTitles[1], forState: .Normal)
+      secondButton.setTitle(buttonTitles![1], forState: .Normal)
       secondButton.addTarget(self, action: #selector(handleButton(_:)), forControlEvents: .TouchUpInside)
       secondButton.titleLabel?.font = UIFont.systemFontOfSize(16, weight: UIFontWeightRegular)
       secondButton.tintColor = colorScheme
@@ -392,11 +406,11 @@ class FCAlertView: UIView {
       doneButton.titleLabel?.font = UIFont.systemFontOfSize(18, weight: UIFontWeightMedium)
       
       if !hideAllButtons {
-        alertView.addSubview(firstButton)
-        alertView.addSubview(secondButton)
+        alertView!.addSubview(firstButton)
+        alertView!.addSubview(secondButton)
         
         if !hideDoneButton {
-          alertView.addSubview(doneButton)
+          alertView!.addSubview(doneButton)
         }
       }
       
@@ -431,8 +445,8 @@ class FCAlertView: UIView {
       secondSeparator.addSubview(visualEffectView2)
       
       if !hideAllButtons {
-        alertView.addSubview(firstSeparator)
-        alertView.addSubview(secondSeparator)
+        alertView!.addSubview(firstSeparator)
+        alertView!.addSubview(secondSeparator)
       }
     }
     
@@ -444,12 +458,11 @@ class FCAlertView: UIView {
     
     separatorLineView.addSubview(visualEffectView)
     
-    circleLayer = CAShapeLayer()
-    circleLayer.path = UIBezierPath(ovalInRect: CGRectMake(alertViewContents.frame.size.width/2 - 30.0, -30.0, 60.0, 60.0)).CGPath
-    circleLayer.fillColor = UIColor.whiteColor().CGColor
+    circleLayer.path = UIBezierPath(ovalInRect: CGRectMake(alertViewContents!.frame.size.width/2 - 30.0, -30.0, 60.0, 60.0)).CGPath
+    
     
     let alertViewVector = UIButton(type: .System)
-    alertViewVector.frame = CGRectMake(alertViewContents.frame.size.width/2 - 15.0,
+    alertViewVector.frame = CGRectMake(alertViewContents!.frame.size.width/2 - 15.0,
                                        -15.0,
                                        30.0,
                                        30.0)
@@ -458,24 +471,24 @@ class FCAlertView: UIView {
     alertViewVector.tintColor = colorScheme
     
 //  VIEW Border - Rounding Corners of AlertView
-    alertView.layer.cornerRadius = cornerRadius
+    alertView!.layer.cornerRadius = cornerRadius
     alertViewVector.layer.masksToBounds = true
 
 //  Adding Contents - Conteained in Header and Separator Views
-    alertViewContents.addSubview(titleLabel)
-    alertViewContents.addSubview(descriptionLabel)
+    alertViewContents!.addSubview(titleLabel)
+    alertViewContents!.addSubview(descriptionLabel)
     
     if !hideAllButtons && (numberOfButtons == 1 || !hideDoneButton) {
-      alertViewContents.addSubview(separatorLineView)
+      alertViewContents!.addSubview(separatorLineView)
     }
     
     if alertViewWithVector == 1 {
-      alertViewContents.layer.addSublayer(circleLayer)
-      alertViewContents.addSubview(alertViewVector)
+      alertViewContents!.layer.addSublayer(circleLayer)
+      alertViewContents!.addSubview(alertViewVector)
     }
     
 //  Scaling AlertView - Before Animation
-    alertViewContents.transform = CGAffineTransformMakeScale(1.15, 1.15)
+    alertViewContents!.transform = CGAffineTransformMakeScale(1.15, 1.15)
     
 //  Applying Shadow
     layer.shadowColor = UIColor.blackColor().CGColor
