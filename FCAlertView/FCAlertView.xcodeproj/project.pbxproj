@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011461B41D7C9AAB0078A3BE /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011461B31D7C9AAB0078A3BE /* Media.xcassets */; };
 		013CA5F91D7C973E003B6EE4 /* FCAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 013CA5F81D7C973E003B6EE4 /* FCAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		013CA6031D7C976A003B6EE4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013CA6001D7C976A003B6EE4 /* Colors.swift */; };
 		013CA6041D7C976A003B6EE4 /* FCAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013CA6011D7C976A003B6EE4 /* FCAlertView.swift */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		011461B31D7C9AAB0078A3BE /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		013CA5F51D7C973E003B6EE4 /* FCAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FCAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		013CA5F81D7C973E003B6EE4 /* FCAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCAlertView.h; sourceTree = "<group>"; };
 		013CA5FA1D7C973E003B6EE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			children = (
 				013CA6001D7C976A003B6EE4 /* Colors.swift */,
 				013CA6011D7C976A003B6EE4 /* FCAlertView.swift */,
+				011461B31D7C9AAB0078A3BE /* Media.xcassets */,
 				013CA6021D7C976A003B6EE4 /* FCAlertViewDelegate.swift */,
 				013CA5F81D7C973E003B6EE4 /* FCAlertView.h */,
 				013CA5FA1D7C973E003B6EE4 /* Info.plist */,
@@ -130,6 +133,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				011461B41D7C9AAB0078A3BE /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +298,7 @@
 				013CA5FF1D7C973E003B6EE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

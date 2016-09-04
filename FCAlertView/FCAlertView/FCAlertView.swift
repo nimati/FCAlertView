@@ -58,9 +58,9 @@ public class FCAlertView: UIView {
   var hideDoneButton = false
   
   // Color Schemes
-  var colorScheme: UIColor?
-  var titleColor: UIColor = .blackColor()
-  var subTitleColor: UIColor = .blackColor()
+  public var colorScheme: UIColor?
+  public var titleColor: UIColor = .blackColor()
+  public var subTitleColor: UIColor = .blackColor()
   
   public override init(frame: CGRect) {
     super.init(frame: frame)
@@ -515,7 +515,6 @@ public class FCAlertView: UIView {
   
   
   // Default Types of Alerts
-  // TODO: Use some sort of enum to choose type
   private func makeAlertTypeWarning() {
     self.vectorImage = UIImage(named: "close-round")
     alertViewWithVector = 1
@@ -605,6 +604,8 @@ public class FCAlertView: UIView {
     
     self.dismissAlertView()
   }
+  
+  
   
 }
 
