@@ -7,23 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01DAEA571D71233B003F6D7C /* FCAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 01DAEA561D71233B003F6D7C /* FCAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		01DAEA5F1D71235E003F6D7C /* FCAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DAEA5E1D71235E003F6D7C /* FCAlertView.swift */; };
-		01DAEA611D7123A1003F6D7C /* FCAlertViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DAEA601D7123A1003F6D7C /* FCAlertViewDelegate.swift */; };
-		01DAEA631D712935003F6D7C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DAEA621D712935003F6D7C /* Colors.swift */; };
+		013CA5F91D7C973E003B6EE4 /* FCAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 013CA5F81D7C973E003B6EE4 /* FCAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		013CA6031D7C976A003B6EE4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013CA6001D7C976A003B6EE4 /* Colors.swift */; };
+		013CA6041D7C976A003B6EE4 /* FCAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013CA6011D7C976A003B6EE4 /* FCAlertView.swift */; };
+		013CA6051D7C976A003B6EE4 /* FCAlertViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013CA6021D7C976A003B6EE4 /* FCAlertViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		01DAEA531D71233B003F6D7C /* FCAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FCAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		01DAEA561D71233B003F6D7C /* FCAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCAlertView.h; sourceTree = "<group>"; };
-		01DAEA581D71233B003F6D7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		01DAEA5E1D71235E003F6D7C /* FCAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCAlertView.swift; sourceTree = "<group>"; };
-		01DAEA601D7123A1003F6D7C /* FCAlertViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCAlertViewDelegate.swift; sourceTree = "<group>"; };
-		01DAEA621D712935003F6D7C /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		013CA5F51D7C973E003B6EE4 /* FCAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FCAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		013CA5F81D7C973E003B6EE4 /* FCAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCAlertView.h; sourceTree = "<group>"; };
+		013CA5FA1D7C973E003B6EE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		013CA6001D7C976A003B6EE4 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		013CA6011D7C976A003B6EE4 /* FCAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCAlertView.swift; sourceTree = "<group>"; };
+		013CA6021D7C976A003B6EE4 /* FCAlertViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCAlertViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		01DAEA4F1D71233B003F6D7C /* Frameworks */ = {
+		013CA5F11D7C973E003B6EE4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,30 +33,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01DAEA491D71233B003F6D7C = {
+		013CA5EB1D7C973E003B6EE4 = {
 			isa = PBXGroup;
 			children = (
-				01DAEA551D71233B003F6D7C /* FCAlertView */,
-				01DAEA541D71233B003F6D7C /* Products */,
+				013CA5F71D7C973E003B6EE4 /* FCAlertView */,
+				013CA5F61D7C973E003B6EE4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		01DAEA541D71233B003F6D7C /* Products */ = {
+		013CA5F61D7C973E003B6EE4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				01DAEA531D71233B003F6D7C /* FCAlertView.framework */,
+				013CA5F51D7C973E003B6EE4 /* FCAlertView.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		01DAEA551D71233B003F6D7C /* FCAlertView */ = {
+		013CA5F71D7C973E003B6EE4 /* FCAlertView */ = {
 			isa = PBXGroup;
 			children = (
-				01DAEA561D71233B003F6D7C /* FCAlertView.h */,
-				01DAEA5E1D71235E003F6D7C /* FCAlertView.swift */,
-				01DAEA601D7123A1003F6D7C /* FCAlertViewDelegate.swift */,
-				01DAEA581D71233B003F6D7C /* Info.plist */,
-				01DAEA621D712935003F6D7C /* Colors.swift */,
+				013CA6001D7C976A003B6EE4 /* Colors.swift */,
+				013CA6011D7C976A003B6EE4 /* FCAlertView.swift */,
+				013CA6021D7C976A003B6EE4 /* FCAlertViewDelegate.swift */,
+				013CA5F81D7C973E003B6EE4 /* FCAlertView.h */,
+				013CA5FA1D7C973E003B6EE4 /* Info.plist */,
 			);
 			path = FCAlertView;
 			sourceTree = "<group>";
@@ -64,25 +64,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		01DAEA501D71233B003F6D7C /* Headers */ = {
+		013CA5F21D7C973E003B6EE4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01DAEA571D71233B003F6D7C /* FCAlertView.h in Headers */,
+				013CA5F91D7C973E003B6EE4 /* FCAlertView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		01DAEA521D71233B003F6D7C /* FCAlertView */ = {
+		013CA5F41D7C973E003B6EE4 /* FCAlertView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 01DAEA5B1D71233B003F6D7C /* Build configuration list for PBXNativeTarget "FCAlertView" */;
+			buildConfigurationList = 013CA5FD1D7C973E003B6EE4 /* Build configuration list for PBXNativeTarget "FCAlertView" */;
 			buildPhases = (
-				01DAEA4E1D71233B003F6D7C /* Sources */,
-				01DAEA4F1D71233B003F6D7C /* Frameworks */,
-				01DAEA501D71233B003F6D7C /* Headers */,
-				01DAEA511D71233B003F6D7C /* Resources */,
+				013CA5F01D7C973E003B6EE4 /* Sources */,
+				013CA5F11D7C973E003B6EE4 /* Frameworks */,
+				013CA5F21D7C973E003B6EE4 /* Headers */,
+				013CA5F31D7C973E003B6EE4 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -90,43 +90,43 @@
 			);
 			name = FCAlertView;
 			productName = FCAlertView;
-			productReference = 01DAEA531D71233B003F6D7C /* FCAlertView.framework */;
+			productReference = 013CA5F51D7C973E003B6EE4 /* FCAlertView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		01DAEA4A1D71233B003F6D7C /* Project object */ = {
+		013CA5EC1D7C973E003B6EE4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Kris Penney";
 				TargetAttributes = {
-					01DAEA521D71233B003F6D7C = {
+					013CA5F41D7C973E003B6EE4 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = J76Z9QD47W;
 					};
 				};
 			};
-			buildConfigurationList = 01DAEA4D1D71233B003F6D7C /* Build configuration list for PBXProject "FCAlertView" */;
+			buildConfigurationList = 013CA5EF1D7C973E003B6EE4 /* Build configuration list for PBXProject "FCAlertView" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 01DAEA491D71233B003F6D7C;
-			productRefGroup = 01DAEA541D71233B003F6D7C /* Products */;
+			mainGroup = 013CA5EB1D7C973E003B6EE4;
+			productRefGroup = 013CA5F61D7C973E003B6EE4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				01DAEA521D71233B003F6D7C /* FCAlertView */,
+				013CA5F41D7C973E003B6EE4 /* FCAlertView */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		01DAEA511D71233B003F6D7C /* Resources */ = {
+		013CA5F31D7C973E003B6EE4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -136,20 +136,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		01DAEA4E1D71233B003F6D7C /* Sources */ = {
+		013CA5F01D7C973E003B6EE4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01DAEA5F1D71235E003F6D7C /* FCAlertView.swift in Sources */,
-				01DAEA631D712935003F6D7C /* Colors.swift in Sources */,
-				01DAEA611D7123A1003F6D7C /* FCAlertViewDelegate.swift in Sources */,
+				013CA6051D7C976A003B6EE4 /* FCAlertViewDelegate.swift in Sources */,
+				013CA6041D7C976A003B6EE4 /* FCAlertView.swift in Sources */,
+				013CA6031D7C976A003B6EE4 /* Colors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		01DAEA591D71233B003F6D7C /* Debug */ = {
+		013CA5FB1D7C973E003B6EE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -198,7 +198,7 @@
 			};
 			name = Debug;
 		};
-		01DAEA5A1D71233B003F6D7C /* Release */ = {
+		013CA5FC1D7C973E003B6EE4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -240,7 +240,7 @@
 			};
 			name = Release;
 		};
-		01DAEA5C1D71233B003F6D7C /* Debug */ = {
+		013CA5FE1D7C973E003B6EE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -258,7 +258,7 @@
 			};
 			name = Debug;
 		};
-		01DAEA5D1D71233B003F6D7C /* Release */ = {
+		013CA5FF1D7C973E003B6EE4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -278,25 +278,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		01DAEA4D1D71233B003F6D7C /* Build configuration list for PBXProject "FCAlertView" */ = {
+		013CA5EF1D7C973E003B6EE4 /* Build configuration list for PBXProject "FCAlertView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				01DAEA591D71233B003F6D7C /* Debug */,
-				01DAEA5A1D71233B003F6D7C /* Release */,
+				013CA5FB1D7C973E003B6EE4 /* Debug */,
+				013CA5FC1D7C973E003B6EE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		01DAEA5B1D71233B003F6D7C /* Build configuration list for PBXNativeTarget "FCAlertView" */ = {
+		013CA5FD1D7C973E003B6EE4 /* Build configuration list for PBXNativeTarget "FCAlertView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				01DAEA5C1D71233B003F6D7C /* Debug */,
-				01DAEA5D1D71233B003F6D7C /* Release */,
+				013CA5FE1D7C973E003B6EE4 /* Debug */,
+				013CA5FF1D7C973E003B6EE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 01DAEA4A1D71233B003F6D7C /* Project object */;
+	rootObject = 013CA5EC1D7C973E003B6EE4 /* Project object */;
 }

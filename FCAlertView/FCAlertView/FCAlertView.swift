@@ -8,6 +8,12 @@
 
 import UIKit
 
+public enum FCAlertType {
+  case caution
+  case success
+  case warning
+}
+
 public class FCAlertView: UIView {
   
   var defaultHeight: CGFloat = 200
@@ -27,7 +33,7 @@ public class FCAlertView: UIView {
   var vectorImage: UIImage?
   
   //Delegate
-  var delegate: FCAlertViewDelegate?
+  public var delegate: FCAlertViewDelegate?
   
   //AlertView Title & Subtitle Text
   var title: String?
@@ -75,6 +81,23 @@ public class FCAlertView: UIView {
     
     self.init(frame: frame)
     
+  }
+  
+  // Initialize with a default theme
+  public convenience init(type: FCAlertType){
+    let result = UIScreen.mainScreen().bounds.size
+    
+    let frame = CGRectMake(0, 0, result.width, result.height)
+    self.init(frame: frame)
+    
+    switch type {
+    case .caution:
+      makeAlertTypeCaution()
+    case .success:
+      makeAlertTypeSuccess()
+    case .warning:
+      makeAlertTypeWarning()
+    }
   }
   
   public required init?(coder aDecoder: NSCoder) {
@@ -462,7 +485,7 @@ public class FCAlertView: UIView {
     alertViewVector.tintColor = colorScheme
     
     //  VIEW Border - Rounding Corners of AlertView
-    alertView!.layer.cornerRadius = cornerRadius
+    alertView?.layer.cornerRadius = cornerRadius
     alertView?.clipsToBounds = true
     
     //  Adding Contents - Conteained in Header and Separator Views
@@ -493,19 +516,19 @@ public class FCAlertView: UIView {
   
   // Default Types of Alerts
   // TODO: Use some sort of enum to choose type
-  func makeAlertTypeWarning() {
+  private func makeAlertTypeWarning() {
     self.vectorImage = UIImage(named: "close-round")
     alertViewWithVector = 1
     self.colorScheme = Colors.flatRed
   }
   
-  func makeAlertTypeCaution() {
+  private func makeAlertTypeCaution() {
     vectorImage = UIImage(named: "alert-round")
     alertViewWithVector = 1
     self.colorScheme = Colors.flatOrange
   }
   
-  func makeAlertTypeSuccess(){
+  private func makeAlertTypeSuccess(){
     vectorImage = UIImage(named: "checkmark-round")
     alertViewWithVector = 1
     self.colorScheme = Colors.flatGreen
@@ -513,7 +536,7 @@ public class FCAlertView: UIView {
   }
   
   //Presenting AlertView
-  func showAlertInView(view: UIViewController, withTitle title: String?, withSubtitle subTitle: String, withCustomImage image: UIImage?, withDoneButtonTitle done: String?, andButtons buttons: [String]?) {
+  public func showAlert(inView view: UIViewController, withTitle title: String?, withSubtitle subTitle: String, withCustomImage image: UIImage?, withDoneButtonTitle done: String?, andButtons buttons: [String]?) {
     
     self.title = title
     self.subTitle = subTitle

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "01DAEA521D71233B003F6D7C"
+               BlueprintIdentifier = "013CA5F41D7C973E003B6EE4"
                BuildableName = "FCAlertView.framework"
                BlueprintName = "FCAlertView"
                ReferencedContainer = "container:FCAlertView.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "01DAEA521D71233B003F6D7C"
+            BlueprintIdentifier = "013CA5F41D7C973E003B6EE4"
             BuildableName = "FCAlertView.framework"
             BlueprintName = "FCAlertView"
             ReferencedContainer = "container:FCAlertView.xcodeproj">
@@ -63,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "01DAEA521D71233B003F6D7C"
+            BlueprintIdentifier = "013CA5F41D7C973E003B6EE4"
             BuildableName = "FCAlertView.framework"
             BlueprintName = "FCAlertView"
             ReferencedContainer = "container:FCAlertView.xcodeproj">
