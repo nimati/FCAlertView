@@ -62,6 +62,7 @@ public class FCAlertView: UIView {
   public var titleColor: UIColor = .blackColor()
   public var subTitleColor: UIColor = .blackColor()
   
+  
   public override init(frame: CGRect) {
     super.init(frame: frame)
     
@@ -140,13 +141,7 @@ public class FCAlertView: UIView {
   }
   
   // MARK: Drawing AlertView
-  
-  override public func drawRect(rect: CGRect) {
-    
-    let result = UIScreen.mainScreen().bounds.size
-    var alertViewFrame: CGRect
-    alpha = 0
-    
+  private func setupAlertViewFrame() {
     //  Adjusting AlertView Frames
     if alertViewWithVector == 1 {
       alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
@@ -189,26 +184,9 @@ public class FCAlertView: UIView {
                                     alertViewFrame.size.height - 50 + 140)
       }
     }
-    
-    //  Setting up contents of AlertView
-    alertViewContents = UIView(frame: alertViewFrame)
-    alertViewContents?.backgroundColor = .clearColor()
-    addSubview(alertViewContents!)
-    
-    alertView = UIView(frame: CGRectMake(0, 0, alertViewFrame.size.width, alertViewFrame.size.height))
-    
-    //  Setting Background Color of AlertView
-    if alertViewWithVector == 1 {
-      alertView!.backgroundColor = .clearColor()
-    }else{
-      alertView!.backgroundColor = .whiteColor()
-    }
-    
-    alertViewContents!.addSubview(alertView!)
-    
-    // CREATING ALERTVIEW
-    // CUSTOM SHAPING - Displaying Cut out circle for Vector Type Alerts
-    
+  }
+  
+  private func renderCircleCutout(){
     let radius = alertView!.frame.size.width
     let rectPath = UIBezierPath(roundedRect: CGRectMake(0,
       0,
@@ -224,17 +202,16 @@ public class FCAlertView: UIView {
     rectPath.appendPath(circlePath)
     rectPath.usesEvenOddFillRule = true
     
-    if alertViewWithVector == 1 {
-      let fillLayer = CAShapeLayer()
-      fillLayer.path = rectPath.CGPath
-      fillLayer.fillRule = kCAFillRuleEvenOdd
-      fillLayer.fillColor = UIColor.whiteColor().CGColor
-      fillLayer.opacity = 1
-      
-      alertView!.layer.addSublayer(fillLayer)
-    }
+    let fillLayer = CAShapeLayer()
+    fillLayer.path = rectPath.CGPath
+    fillLayer.fillRule = kCAFillRuleEvenOdd
+    fillLayer.fillColor = UIColor.whiteColor().CGColor
+    fillLayer.opacity = 1
     
-    //  HEADER VIEW - With Title & Subtitle
+    alertView!.layer.addSublayer(fillLayer)
+  }
+  
+  private func renderHeader(){
     let titleLabel = UILabel(frame: CGRectMake(15.0,
       20.0 + CGFloat(alertViewWithVector * 30),
       alertViewFrame.size.width - 30.0,
@@ -266,6 +243,49 @@ public class FCAlertView: UIView {
       alertViewFrame.size.width,
       2))
     separatorLineView.backgroundColor = UIColor(white: 100/255, alpha: 1)
+    
+    //  Adding Contents - Conteained in Header and Separator Views
+    alertViewContents!.addSubview(titleLabel)
+    alertViewContents!.addSubview(descriptionLabel)
+    
+    if numberOfButtons == 1 || !hideDoneButton {
+      alertViewContents!.addSubview(separatorLineView)
+    }
+  }
+  
+  override public func drawRect(rect: CGRect) {
+    
+    let result = UIScreen.mainScreen().bounds.size
+    var alertViewFrame: CGRect
+    alpha = 0
+    
+    setupAlertViewFrame()
+    
+    //  Setting up contents of AlertView
+    alertViewContents = UIView(frame: alertViewFrame)
+    alertViewContents!.backgroundColor = .clearColor()
+    addSubview(alertViewContents!)
+    
+    alertView = UIView(frame: CGRectMake(0, 0, alertViewFrame.size.width, alertViewFrame.size.height))
+    
+    //  Setting Background Color of AlertView
+    if alertViewWithVector == 1 {
+      alertView!.backgroundColor = .clearColor()
+    }else{
+      alertView!.backgroundColor = .whiteColor()
+    }
+    
+    alertViewContents!.addSubview(alertView!)
+    
+    // CREATING ALERTVIEW
+    // CUSTOM SHAPING - Displaying Cut out circle for Vector Type Alerts
+    
+    if alertViewWithVector == 1 {
+      renderCircleCutout()
+    }
+    
+    //  HEADER VIEW - With Title & Subtitle
+    renderHeader()
     
     //  Button(s) View - Section containing all Buttons
     
@@ -487,14 +507,6 @@ public class FCAlertView: UIView {
     //  VIEW Border - Rounding Corners of AlertView
     alertView?.layer.cornerRadius = cornerRadius
     alertView?.clipsToBounds = true
-    
-    //  Adding Contents - Conteained in Header and Separator Views
-    alertViewContents!.addSubview(titleLabel)
-    alertViewContents!.addSubview(descriptionLabel)
-    
-    if numberOfButtons == 1 || !hideDoneButton {
-      alertViewContents!.addSubview(separatorLineView)
-    }
     
     if alertViewWithVector == 1 {
       alertViewContents!.layer.addSublayer(circleLayer)
