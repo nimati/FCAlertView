@@ -302,7 +302,7 @@ public class FCAlertView: UIView {
     //  Button(s) View - Section containing all Buttons
     
     // View only contains DONE/DISMISS Button
-    if(numberOfButtons == 0) {
+    if(!hideAllButtons && !hideDoneButton && numberOfButtons == 0) {
       let doneButton = UIButton(type: .System)
       if let colorScheme = self.colorScheme {
         doneButton.backgroundColor = colorScheme
@@ -319,43 +319,14 @@ public class FCAlertView: UIView {
       doneButton.addTarget(self, action: #selector(donePressed(_:)), forControlEvents: .TouchUpInside)
       doneButton.titleLabel!.font = UIFont.systemFontOfSize(18, weight: UIFontWeightMedium)
       
-      if !hideAllButtons && !hideDoneButton {
-        alertView!.addSubview(doneButton)
-      }
       
+      alertView!.addSubview(doneButton)
     }
-    else if numberOfButtons == 1 { // View also contains OTHER (One) Button
-      let doneButton = UIButton(type: .System)
+    else if !hideAllButtons && numberOfButtons == 1 { // View also contains OTHER (One) Button
       
-      if let colorScheme = self.colorScheme {
-        doneButton.backgroundColor = colorScheme
-        doneButton.tintColor = .whiteColor()
-      }else{
-        doneButton.backgroundColor = .whiteColor()
-      }
-      
-      doneButton.frame = CGRectMake(alertViewFrame.size.width/2,
-                                    alertViewFrame.size.height - 45,
-                                    alertViewFrame.size.width/2,
-                                    45)
-      doneButton.setTitle(doneTitle, forState: .Normal)
-      doneButton.addTarget(self, action: #selector(donePressed(_:)), forControlEvents: .TouchUpInside)
-      doneButton.titleLabel?.font = UIFont.systemFontOfSize(16, weight: UIFontWeightMedium)
-      
+      // Render user button
       let otherButton = UIButton(type: .System)
       otherButton.backgroundColor = .whiteColor()
-      
-      if hideDoneButton {
-        otherButton.frame = CGRectMake(0,
-                                       alertViewFrame.size.height - 45,
-                                       alertViewFrame.size.width,
-                                       45)
-      }else{
-        otherButton.frame = CGRectMake(0,
-                                       alertViewFrame.size.height - 45,
-                                       alertViewFrame.size.width/2,
-                                       45)
-      }
       
       otherButton.setTitle(buttonTitles![0], forState: .Normal)
       otherButton.addTarget(self, action: #selector(handleButton(_:)), forControlEvents: .TouchUpInside)
@@ -363,31 +334,58 @@ public class FCAlertView: UIView {
       otherButton.tintColor = colorScheme
       otherButton.titleLabel?.adjustsFontSizeToFitWidth = true
       otherButton.titleLabel?.minimumScaleFactor = 0.8
+
       
-      
-      let horizontalSeparator = UIView(frame: CGRectMake(alertViewFrame.size.width/2 - 1,
-        otherButton.frame.origin.y - 2,
-        2,
-        45))
-      horizontalSeparator.backgroundColor = UIColor(white: 100/255, alpha: 1)
-      
-      let blurEffect = UIBlurEffect(style: .ExtraLight)
-      
-      let visualEffectView = UIVisualEffectView(effect: blurEffect)
-      visualEffectView.frame = horizontalSeparator.bounds
-      visualEffectView.userInteractionEnabled = false
-      horizontalSeparator.addSubview(visualEffectView)
-      
-      if !hideAllButtons {
-        alertView!.addSubview(otherButton)
+      if !hideDoneButton {
         
-        if !hideDoneButton {
-          alertView!.addSubview(doneButton)
-          alertView!.addSubview(horizontalSeparator)
+        otherButton.frame = CGRectMake(0,
+                                       alertViewFrame.size.height - 45,
+                                       alertViewFrame.size.width/2,
+                                       45)
+        
+        //Render Done buttons
+        let doneButton = UIButton(type: .System)
+        
+        if let colorScheme = self.colorScheme {
+          doneButton.backgroundColor = colorScheme
+          doneButton.tintColor = .whiteColor()
+        }else{
+          doneButton.backgroundColor = .whiteColor()
         }
+        
+        doneButton.frame = CGRectMake(alertViewFrame.size.width/2,
+                                      alertViewFrame.size.height - 45,
+                                      alertViewFrame.size.width/2,
+                                      45)
+        doneButton.setTitle(doneTitle, forState: .Normal)
+        doneButton.addTarget(self, action: #selector(donePressed(_:)), forControlEvents: .TouchUpInside)
+        doneButton.titleLabel?.font = UIFont.systemFontOfSize(16, weight: UIFontWeightMedium)
+        
+        let horizontalSeparator = UIView(frame: CGRectMake(alertViewFrame.size.width/2 - 1,
+          otherButton.frame.origin.y - 2,
+          2,
+          45))
+        horizontalSeparator.backgroundColor = UIColor(white: 100/255, alpha: 1)
+        
+        let blurEffect = UIBlurEffect(style: .ExtraLight)
+        
+        let visualEffectView = UIVisualEffectView(effect: blurEffect)
+        visualEffectView.frame = horizontalSeparator.bounds
+        visualEffectView.userInteractionEnabled = false
+        horizontalSeparator.addSubview(visualEffectView)
+        
+        alertView!.addSubview(doneButton)
+        alertView!.addSubview(horizontalSeparator)
+      }else{
+        otherButton.frame = CGRectMake(0,
+                                       alertViewFrame.size.height - 45,
+                                       alertViewFrame.size.width,
+                                       45)
       }
       
-    }else if(numberOfButtons >= 2){
+      alertView!.addSubview(otherButton)
+      
+    }else if(!hideAllButtons && numberOfButtons >= 2){
       let firstButton = UIButton(type: .System)
       firstButton.backgroundColor = .whiteColor()
       
