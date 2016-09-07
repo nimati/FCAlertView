@@ -50,7 +50,7 @@ public class FCAlertView: UIView {
   // AlertView Customizations
   var numberOfButtons = 0
   public var autoHideSeconds = 0
-  var cornerRadius: CGFloat = 18
+  public var cornerRadius: CGFloat = 18
   
   public var dismissOnOutsideTouch = false
   public var hideAllButtons = false
