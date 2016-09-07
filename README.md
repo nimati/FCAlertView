@@ -58,15 +58,15 @@ alert.showAlert(inView: self,
 
 ## Base Customizations
 
-- **Title (String?):** You can leave the Title as ```nil``` or Give it an ```NSString```.
+- **Title (String?):** You can leave the Title as ```nil``` or Give it a ```String```.
 
 - **Subtitle (String):** FCAlertView always requires a subtitle, even if you want just a few words, add it here instead of the title (then leave the title as nil). *Take a look at [Screenshot 2](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot2.png) for an example*.
 
 -  **CustomImage (UIImage?):** You can leave this image as ```nil``` or Give it a ```UIImage``` which will show at the top of the alert. *Take a look at [Screenshot 4](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot4.png) for an example*.
 
-- **DoneButtonTitle (String?):** You can leave this as ```nil``` to show "Ok" as the dismiss button for the AlertView, or Give it an ```NSString```.
+- **DoneButtonTitle (String?):** You can leave this as ```nil``` to show "Ok" as the dismiss button for the AlertView, or Give it an ```String```.
 
-- **Buttons ([String]?):** If you want to add buttons to your alert, simply add an array of 1 or 2 button titles as ```NSString``` here, anything more will be ignored as 2 is the max custom buttons you can add (aside from the done button). Read more about buttons and actions further down.
+- **Buttons ([String]?):** If you want to add buttons to your alert, simply add an array of 1 or 2 button titles as ```String``` here, anything more will be ignored as 2 is the max custom buttons you can add (aside from the done button). Read more about buttons and actions further down.
 
 ## Extra Customizations
 
