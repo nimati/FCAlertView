@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension FCAlertView {
+extension UIColor {
   // Preset Flat Colors
   
   @nonobjc public static let flatTurquoise = UIColor(red: 26/255, green: 188/255, blue: 156/255, alpha: 1)

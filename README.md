@@ -48,7 +48,7 @@ import FCAlertView
 ```Swift
 let alert = FCAlertView()
 
-alert.showAlert(InView: self,
+alert.showAlert(inView: self,
 				withTitle: "Alert Title",
 				withSubtitle: "This is your alert's subtitle. Keep it short and concise. 😜👌",
 				withCustomImage: nil,
@@ -90,21 +90,24 @@ FCAlertView also comes with a set of pre-made colors that you can use:
 Simply choose the color you'd like to use for your AlertView, and add:
 
 ```Swift
-alert.colorScheme = FCAlertView.flatBlue // Replace "Blue" with your preferred color from the image above
+alert.colorScheme = UIColor.flatBlue // Replace "Blue" with your preferred color from the image above
+alert.colorScheme = .flatBlue // Alternative
 ```
 
 ### Title and Subtitle Colors
 
-#### Change Title Color by Adding
+#### Change Title Color by Adding one of:
 
 ```Swift
-alert.titleColor = FCAlertView.flatPurple
+alert.titleColor = UIColor.flatPurple
+alert.titleColor = .flatPurple
 ```
 
-#### Change SubTitle Color by Adding
+#### Change SubTitle Color by Adding one of
 
 ```Swift
-alert.subTitleColor = FCAlertView.flatBlue
+alert.subTitleColor = UIColor.flatBlue
+alert.subTitleColor = .flatBlue
 ```
 
 ### AlertView Rounded Corners
@@ -206,7 +209,7 @@ let alert = FCAlertView();
 
 alert.delegate = self
 
-alert.showAlert(InView: self,
+alert.showAlert(inView: self,
              withTitle:"Alert Title",
           withSubtitle:"This is your alert's subtitle. Keep it short and concise. 😜👌",
        withCustomImage:nil,

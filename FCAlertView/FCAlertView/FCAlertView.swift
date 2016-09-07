@@ -527,19 +527,19 @@ public class FCAlertView: UIView {
   // Default Types of Alerts
   private func makeAlertTypeWarning() {
     if let path = NSBundle(forClass: FCAlertView.self).pathForResource("close-round", ofType: "png") {
-      setTheme(iconPath: path, tintColor: FCAlertView.flatRed)
+      setTheme(iconPath: path, tintColor: .flatRed)
     }
   }
   
   private func makeAlertTypeCaution() {
     if let path = NSBundle(forClass: FCAlertView.self).pathForResource("alert-round", ofType: "png") {
-      setTheme(iconPath: path, tintColor: FCAlertView.flatOrange)
+      setTheme(iconPath: path, tintColor: .flatOrange)
     }
   }
   
   private func makeAlertTypeSuccess(){
     if let path = NSBundle(forClass: FCAlertView.self).pathForResource("checkmark-round", ofType: "png") {
-      setTheme(iconPath: path, tintColor: FCAlertView.flatGreen)
+      setTheme(iconPath: path, tintColor: .flatGreen)
     }
   }
   
@@ -589,7 +589,7 @@ public class FCAlertView: UIView {
   }
   
   // Dismissing AlertView
-  func dismissAlertView() {
+  public func dismissAlertView() {
     UIView.animateWithDuration(0.175, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseInOut, animations: {
       self.alpha = 0
       self.alertViewContents?.transform = CGAffineTransformMakeScale(0.9, 0.9)
