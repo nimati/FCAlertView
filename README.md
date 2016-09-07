@@ -90,7 +90,7 @@ FCAlertView also comes with a set of pre-made colors that you can use:
 Simply choose the color you'd like to use for your AlertView, and add:
 
 ```Swift
-alert.colorScheme = alert.Colors.flatBlue // Replace "Blue" with your preferred color from the image above
+alert.colorScheme = FCAlertView.flatBlue // Replace "Blue" with your preferred color from the image above
 ```
 
 ### Title and Subtitle Colors
@@ -98,13 +98,13 @@ alert.colorScheme = alert.Colors.flatBlue // Replace "Blue" with your preferred 
 #### Change Title Color by Adding
 
 ```Swift
-alert.titleColor = alertView.Colors.flatPurple
+alert.titleColor = FCAlertView.flatPurple
 ```
 
 #### Change SubTitle Color by Adding
 
 ```Swift
-alert.subTitleColor = alertView.Colors.flatBlue
+alert.subTitleColor = FCAlertView.flatBlue
 ```
 
 ### AlertView Rounded Corners

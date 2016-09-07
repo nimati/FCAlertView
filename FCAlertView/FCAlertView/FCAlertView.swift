@@ -530,19 +530,19 @@ public class FCAlertView: UIView {
   private func makeAlertTypeWarning() {
     self.vectorImage = UIImage(named: "close-round")
     alertViewWithVector = 1
-    self.colorScheme = Colors.flatRed
+    self.colorScheme = Self.flatRed
   }
   
   private func makeAlertTypeCaution() {
     vectorImage = UIImage(named: "alert-round")
     alertViewWithVector = 1
-    self.colorScheme = Colors.flatOrange
+    self.colorScheme = Self.flatOrange
   }
   
   private func makeAlertTypeSuccess(){
     vectorImage = UIImage(named: "checkmark-round")
     alertViewWithVector = 1
-    self.colorScheme = Colors.flatGreen
+    self.colorScheme = Self.flatGreen
     
   }
   
