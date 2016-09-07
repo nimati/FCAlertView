@@ -7,21 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		011461B41D7C9AAB0078A3BE /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011461B31D7C9AAB0078A3BE /* Media.xcassets */; };
 		013CA5F91D7C973E003B6EE4 /* FCAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 013CA5F81D7C973E003B6EE4 /* FCAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		013CA6031D7C976A003B6EE4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013CA6001D7C976A003B6EE4 /* Colors.swift */; };
 		013CA6041D7C976A003B6EE4 /* FCAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013CA6011D7C976A003B6EE4 /* FCAlertView.swift */; };
 		013CA6051D7C976A003B6EE4 /* FCAlertViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013CA6021D7C976A003B6EE4 /* FCAlertViewDelegate.swift */; };
+		01BB58A61D7F9B56006C3586 /* alert-round.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BB58A31D7F9B56006C3586 /* alert-round.png */; };
+		01BB58A71D7F9B56006C3586 /* checkmark-round.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BB58A41D7F9B56006C3586 /* checkmark-round.png */; };
+		01BB58A81D7F9B56006C3586 /* close-round.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BB58A51D7F9B56006C3586 /* close-round.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		011461B31D7C9AAB0078A3BE /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		013CA5F51D7C973E003B6EE4 /* FCAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FCAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		013CA5F81D7C973E003B6EE4 /* FCAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCAlertView.h; sourceTree = "<group>"; };
 		013CA5FA1D7C973E003B6EE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		013CA6001D7C976A003B6EE4 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		013CA6011D7C976A003B6EE4 /* FCAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCAlertView.swift; sourceTree = "<group>"; };
 		013CA6021D7C976A003B6EE4 /* FCAlertViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCAlertViewDelegate.swift; sourceTree = "<group>"; };
+		01BB58A31D7F9B56006C3586 /* alert-round.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-round.png"; sourceTree = "<group>"; };
+		01BB58A41D7F9B56006C3586 /* checkmark-round.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark-round.png"; sourceTree = "<group>"; };
+		01BB58A51D7F9B56006C3586 /* close-round.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-round.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +60,10 @@
 			children = (
 				013CA6001D7C976A003B6EE4 /* Colors.swift */,
 				013CA6011D7C976A003B6EE4 /* FCAlertView.swift */,
-				011461B31D7C9AAB0078A3BE /* Media.xcassets */,
 				013CA6021D7C976A003B6EE4 /* FCAlertViewDelegate.swift */,
+				01BB58A31D7F9B56006C3586 /* alert-round.png */,
+				01BB58A41D7F9B56006C3586 /* checkmark-round.png */,
+				01BB58A51D7F9B56006C3586 /* close-round.png */,
 				013CA5F81D7C973E003B6EE4 /* FCAlertView.h */,
 				013CA5FA1D7C973E003B6EE4 /* Info.plist */,
 			);
@@ -102,6 +108,9 @@
 		013CA5EC1D7C973E003B6EE4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Kris Penney";
 				TargetAttributes = {
@@ -133,7 +142,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				011461B41D7C9AAB0078A3BE /* Media.xcassets in Resources */,
+				01BB58A81D7F9B56006C3586 /* close-round.png in Resources */,
+				01BB58A71D7F9B56006C3586 /* checkmark-round.png in Resources */,
+				01BB58A61D7F9B56006C3586 /* alert-round.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -50,12 +50,12 @@ public class FCAlertView: UIView {
   
   // AlertView Customizations
   var numberOfButtons = 0
-  var autoHideSeconds = 0
+  public var autoHideSeconds = 0
   var cornerRadius: CGFloat = 18
   
-  var dismissOnOutsideTouch = false
-  var hideAllButtons = false
-  var hideDoneButton = false
+  public var dismissOnOutsideTouch = false
+  public var hideAllButtons = false
+  public var hideDoneButton = false
   
   // Color Schemes
   public var colorScheme: UIColor?
@@ -141,7 +141,10 @@ public class FCAlertView: UIView {
   }
   
   // MARK: Drawing AlertView
-  private func setupAlertViewFrame() {
+  private func setupAlertViewFrame() -> CGRect {
+    let result = UIScreen.mainScreen().bounds.size
+    var alertViewFrame: CGRect
+
     //  Adjusting AlertView Frames
     if alertViewWithVector == 1 {
       alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
@@ -184,9 +187,10 @@ public class FCAlertView: UIView {
                                     alertViewFrame.size.height - 50 + 140)
       }
     }
+    return alertViewFrame
   }
   
-  private func renderCircleCutout(){
+  private func renderCircleCutout(withAlertViewFrame alertViewFrame: CGRect){
     let radius = alertView!.frame.size.width
     let rectPath = UIBezierPath(roundedRect: CGRectMake(0,
       0,
@@ -211,7 +215,8 @@ public class FCAlertView: UIView {
     alertView!.layer.addSublayer(fillLayer)
   }
   
-  private func renderHeader(){
+  private func renderHeader(withAlertViewFrame alertViewFrame: CGRect){
+
     let titleLabel = UILabel(frame: CGRectMake(15.0,
       20.0 + CGFloat(alertViewWithVector * 30),
       alertViewFrame.size.width - 30.0,
@@ -244,22 +249,29 @@ public class FCAlertView: UIView {
       2))
     separatorLineView.backgroundColor = UIColor(white: 100/255, alpha: 1)
     
+    let blurEffect = UIBlurEffect(style: .ExtraLight)
+    
+    let visualEffectView = UIVisualEffectView(effect: blurEffect)
+    visualEffectView.frame = separatorLineView.bounds
+    visualEffectView.userInteractionEnabled = false
+    
+    separatorLineView.addSubview(visualEffectView)
+    
     //  Adding Contents - Conteained in Header and Separator Views
     alertViewContents!.addSubview(titleLabel)
     alertViewContents!.addSubview(descriptionLabel)
     
-    if numberOfButtons == 1 || !hideDoneButton {
+//     numberOfButtons == 1 && !hideDoneButton &&
+    if !hideAllButtons {
       alertViewContents!.addSubview(separatorLineView)
     }
   }
   
   override public func drawRect(rect: CGRect) {
     
-    let result = UIScreen.mainScreen().bounds.size
-    var alertViewFrame: CGRect
     alpha = 0
     
-    setupAlertViewFrame()
+    let alertViewFrame = setupAlertViewFrame()
     
     //  Setting up contents of AlertView
     alertViewContents = UIView(frame: alertViewFrame)
@@ -281,11 +293,11 @@ public class FCAlertView: UIView {
     // CUSTOM SHAPING - Displaying Cut out circle for Vector Type Alerts
     
     if alertViewWithVector == 1 {
-      renderCircleCutout()
+      renderCircleCutout(withAlertViewFrame: alertViewFrame)
     }
     
     //  HEADER VIEW - With Title & Subtitle
-    renderHeader()
+    renderHeader(withAlertViewFrame: alertViewFrame)
     
     //  Button(s) View - Section containing all Buttons
     
@@ -483,14 +495,7 @@ public class FCAlertView: UIView {
         alertView!.addSubview(secondSeparator)
       }
     }
-    
-    let blurEffect = UIBlurEffect(style: .ExtraLight)
-    
-    let visualEffectView = UIVisualEffectView(effect: blurEffect)
-    visualEffectView.frame = separatorLineView.bounds
-    visualEffectView.userInteractionEnabled = false
-    
-    separatorLineView.addSubview(visualEffectView)
+
     
     circleLayer.path = UIBezierPath(ovalInRect: CGRectMake(alertViewContents!.frame.size.width/2 - 30.0, -30.0, 60.0, 60.0)).CGPath
     
@@ -528,22 +533,27 @@ public class FCAlertView: UIView {
   
   // Default Types of Alerts
   private func makeAlertTypeWarning() {
-    self.vectorImage = UIImage(named: "close-round")
-    alertViewWithVector = 1
-    self.colorScheme = Self.flatRed
+    if let path = NSBundle(forClass: FCAlertView.self).pathForResource("close-round", ofType: "png") {
+      setTheme(iconPath: path, tintColor: FCAlertView.flatRed)
+    }
   }
   
   private func makeAlertTypeCaution() {
-    vectorImage = UIImage(named: "alert-round")
-    alertViewWithVector = 1
-    self.colorScheme = Self.flatOrange
+    if let path = NSBundle(forClass: FCAlertView.self).pathForResource("alert-round", ofType: "png") {
+      setTheme(iconPath: path, tintColor: FCAlertView.flatOrange)
+    }
   }
   
   private func makeAlertTypeSuccess(){
-    vectorImage = UIImage(named: "checkmark-round")
+    if let path = NSBundle(forClass: FCAlertView.self).pathForResource("checkmark-round", ofType: "png") {
+      setTheme(iconPath: path, tintColor: FCAlertView.flatGreen)
+    }
+  }
+  
+  private func setTheme(iconPath path: String, tintColor color: UIColor){
+    vectorImage = UIImage(contentsOfFile: path)
     alertViewWithVector = 1
-    self.colorScheme = Self.flatGreen
-    
+    self.colorScheme = color
   }
   
   //Presenting AlertView
@@ -621,3 +631,6 @@ public class FCAlertView: UIView {
   
 }
 
+extension FCAlertView {
+  
+}

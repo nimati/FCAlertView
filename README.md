@@ -48,7 +48,7 @@ import FCAlertView
 ```Swift
 let alert = FCAlertView()
 
-alert.showAlertInView(self,
+alert.showAlert(InView: self,
 				withTitle: "Alert Title",
 				withSubtitle: "This is your alert's subtitle. Keep it short and concise. 😜👌",
 				withCustomImage: nil,
@@ -117,24 +117,24 @@ alert.cornerRadius = 4 // Replace 4 with your desired corner radius amount (Set 
 
 ### Alert Types
 
-FCAlertView comes with 3 pre-designed custom alert types. Success, Caution, or Warning, simply add the one line after initializing FCAlertView.
+FCAlertView comes with 3 pre-designed custom alert types. Success, Caution, or Warning, simply add the type while initializing the FCAlertView.
 
 #### Success
 
 ```Swift
-alert.makeAlertTypeSuccess()
+let alert = FCAlertView(type: .success)
 ```
 
 #### Caution
 
 ```Swift
-alert.makeAlertTypeCaution()
+let alert = FCAlertView(type: .caution)
 ```
 
 #### Warning
 
 ```Swift
-alert.makeAlertTypeWarning()
+let alert = FCAlertView(type: .warning)
 ```
 
 ### Dismissing FCAlertView
@@ -206,7 +206,7 @@ let alert = FCAlertView();
 
 alert.delegate = self
 
-alert.showAlertInView(self,
+alert.showAlert(InView: self,
              withTitle:"Alert Title",
           withSubtitle:"This is your alert's subtitle. Keep it short and concise. 😜👌",
        withCustomImage:nil,
