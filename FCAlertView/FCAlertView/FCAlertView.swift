@@ -32,6 +32,8 @@ public class FCAlertView: UIView {
   var doneTitle: String?
   var vectorImage: UIImage?
   
+  var firstRun = true
+  
   //Delegate
   public var delegate: FCAlertViewDelegate?
   
@@ -64,6 +66,7 @@ public class FCAlertView: UIView {
   
   public override init(frame: CGRect) {
     super.init(frame: frame)
+    firstRun = true
     
     backgroundColor = .clearColor()
     
@@ -520,6 +523,7 @@ public class FCAlertView: UIView {
     layer.shadowRadius = 10
     layer.shadowOffset = CGSizeMake(0, 0)
     
+    
     showAlertView()
   }
   
@@ -567,6 +571,12 @@ public class FCAlertView: UIView {
     
     checkCustomizationValid()
     view.view.window?.addSubview(self)
+    
+    if !firstRun {
+      showAlertView()
+    }else{
+      firstRun = false
+    }
     
   }
   
