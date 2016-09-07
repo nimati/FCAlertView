@@ -616,6 +616,8 @@ public class FCAlertView: UIView {
     }
     
     delegate.alertView(self, clickedButtonIndex: sender.tag, buttonTitle: sender.titleLabel!.text!)
+    
+    self.dismissAlertView()
   }
   
   @objc private func donePressed(sender: UIButton){
@@ -626,11 +628,4 @@ public class FCAlertView: UIView {
     
     self.dismissAlertView()
   }
-  
-  
-  
-}
-
-extension FCAlertView {
-  
 }
