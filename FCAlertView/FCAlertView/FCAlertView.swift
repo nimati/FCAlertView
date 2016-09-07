@@ -415,7 +415,7 @@ public class FCAlertView: UIView {
       secondButton.backgroundColor = .whiteColor()
       
       if hideDoneButton {
-        secondButton.frame = CGRectMake(0,
+        secondButton.frame = CGRectMake(alertViewFrame.size.width/2,
                                         alertViewFrame.size.height - 45,
                                         alertViewFrame.size.width/2,
                                         45)
