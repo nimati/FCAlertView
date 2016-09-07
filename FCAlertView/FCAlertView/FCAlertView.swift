@@ -40,9 +40,8 @@ public class FCAlertView: UIView {
   var subTitle: String = "You need to have a title or subtitle to use FCAlertView 😀"
   
   // AlertView Background : Probably take frame out & make it constant
-  lazy var alertBackground: UIView = {
+  let alertBackground: UIView = {
     let alertBackgroundView = UIView()
-    alertBackgroundView.frame = CGRectMake(0, 0, self.frame.width, self.frame.height)
     alertBackgroundView.backgroundColor = UIColor(white: 0, alpha: 0.35)
     
     return alertBackgroundView
@@ -145,6 +144,8 @@ public class FCAlertView: UIView {
     let result = UIScreen.mainScreen().bounds.size
     var alertViewFrame: CGRect
 
+    alertBackground.frame = CGRectMake(0, 0, self.frame.width, self.frame.height)
+    
     //  Adjusting AlertView Frames
     if alertViewWithVector == 1 {
       alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
@@ -411,19 +412,6 @@ public class FCAlertView: UIView {
       
       let secondButton = UIButton(type: .System)
       secondButton.backgroundColor = .whiteColor()
-      
-      if hideDoneButton {
-        secondButton.frame = CGRectMake(alertViewFrame.size.width/2,
-                                        alertViewFrame.size.height - 45,
-                                        alertViewFrame.size.width/2,
-                                        45)
-      }else {
-        secondButton.frame = CGRectMake(0,
-                                        alertViewFrame.size.height - 90,
-                                        alertViewFrame.size.width,
-                                        45)
-      }
-      
       secondButton.setTitle(buttonTitles![1], forState: .Normal)
       secondButton.addTarget(self, action: #selector(handleButton(_:)), forControlEvents: .TouchUpInside)
       secondButton.titleLabel?.font = UIFont.systemFontOfSize(16, weight: UIFontWeightRegular)
@@ -432,49 +420,14 @@ public class FCAlertView: UIView {
       secondButton.titleLabel?.minimumScaleFactor = 0.8
       secondButton.tag = 0
       
-      let doneButton = UIButton(type: .System)
-      
-      if let colorScheme = colorScheme {
-        doneButton.backgroundColor = colorScheme
-        doneButton.tintColor = .whiteColor()
-      }else{
-        doneButton.backgroundColor = .whiteColor()
-      }
-      
-      doneButton.frame = CGRectMake(0,
-                                    alertViewFrame.size.height - 45,
-                                    alertViewFrame.size.width,
-                                    45)
-      doneButton.setTitle(doneTitle, forState: .Normal)
-      doneButton.addTarget(self, action: #selector(donePressed(_:)), forControlEvents: .TouchUpInside)
-      doneButton.titleLabel?.font = UIFont.systemFontOfSize(18, weight: UIFontWeightMedium)
-      
-      if !hideAllButtons {
-        alertView!.addSubview(firstButton)
-        alertView!.addSubview(secondButton)
-        
-        if !hideDoneButton {
-          alertView!.addSubview(doneButton)
-        }
-      }
-      
       let firstSeparator = UIView(frame: CGRectMake(0,
         firstButton.frame.origin.y - 2,
         alertViewFrame.size.width,
         2))
       firstSeparator.backgroundColor = UIColor(white: 100/255, alpha: 1)
       
-      let secondSeparator = UIView(frame: CGRectMake(0,
-        secondButton.frame.origin.y - 2,
-        alertViewFrame.size.width,
-        2))
+      let secondSeparator = UIView(frame: CGRectMake(0, 0, 0, 0))
       secondSeparator.backgroundColor = UIColor(white: 100/255, alpha: 1)
-      if hideDoneButton {
-        secondSeparator.frame = CGRectMake(alertViewFrame.size.width/2 - 1,
-                                           secondButton.frame.origin.y,
-                                           2,
-                                           45)
-      }
       
       let blurEffect = UIBlurEffect(style: .ExtraLight)
       
@@ -484,14 +437,56 @@ public class FCAlertView: UIView {
       firstSeparator.addSubview(visualEffectView)
       
       let visualEffectView2 = UIVisualEffectView(effect: blurEffect)
-      visualEffectView2.frame = secondSeparator.bounds
       visualEffectView2.userInteractionEnabled = false
       secondSeparator.addSubview(visualEffectView2)
       
-      if !hideAllButtons {
-        alertView!.addSubview(firstSeparator)
-        alertView!.addSubview(secondSeparator)
+      if !hideDoneButton {
+        secondButton.frame = CGRectMake(0,
+                                        alertViewFrame.size.height - 90,
+                                        alertViewFrame.size.width,
+                                        45)
+        secondSeparator.frame = CGRectMake(0,
+                                        secondButton.frame.origin.y - 2,
+                                        alertViewFrame.size.width,
+                                        2)
+        let doneButton = UIButton(type: .System)
+        
+        if let colorScheme = colorScheme {
+          doneButton.backgroundColor = colorScheme
+          doneButton.tintColor = .whiteColor()
+        }else{
+          doneButton.backgroundColor = .whiteColor()
+        }
+        
+        doneButton.frame = CGRectMake(0,
+                                      alertViewFrame.size.height - 45,
+                                      alertViewFrame.size.width,
+                                      45)
+        doneButton.setTitle(doneTitle, forState: .Normal)
+        doneButton.addTarget(self, action: #selector(donePressed(_:)), forControlEvents: .TouchUpInside)
+        doneButton.titleLabel?.font = UIFont.systemFontOfSize(18, weight: UIFontWeightMedium)
+        
+        alertView!.addSubview(doneButton)
+      }else {
+        // Set proper frames for no donebutton
+        secondButton.frame = CGRectMake(alertViewFrame.size.width/2,
+                                        alertViewFrame.size.height - 45,
+                                        alertViewFrame.size.width/2,
+                                        45)
+        
+        secondSeparator.frame = CGRectMake(alertViewFrame.size.width/2 - 1,
+                                           secondButton.frame.origin.y,
+                                           2,
+                                           45)
       }
+      
+      visualEffectView2.frame = secondSeparator.bounds
+      
+      
+      alertView!.addSubview(firstButton)
+      alertView!.addSubview(secondButton)
+      alertView!.addSubview(firstSeparator)
+      alertView!.addSubview(secondSeparator)
     }
 
     
