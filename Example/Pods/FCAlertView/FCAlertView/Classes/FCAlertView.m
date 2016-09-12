@@ -578,7 +578,9 @@
 - (void) showAlertWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons{
     
     [self setAlertViewAttributes:title withSubtitle:subTitle withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
-    [[[UIApplication sharedApplication]keyWindow] addSubview:self];
+    UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+    [window addSubview:self];
+    [window bringSubviewToFront:self];
     
 }
 
