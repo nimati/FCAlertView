@@ -61,6 +61,31 @@ FCAlertView *alert = [[FCAlertView alloc] init];
 
 ```
 
+#### Showing Options
+
+You can also present your FCAlertView using the following:
+
+##### By Selecting a specific UIWindow
+
+```Objective-C
+[alert showAlertInWidnow:self.view.window
+             withTitle:@"Alert Title"
+          withSubtitle:@"This is your alert's subtitle. Keep it short and concise. 😜👌"
+       withCustomImage:nil
+   withDoneButtonTitle:nil
+            andButtons:nil];
+```            
+
+##### Or just by presenting it on the current UIApplication Window (this will also bring your alert to the front so that keyboard or any other element don't cover it)
+
+```Objective-C
+[alert showAlertWithTitle:@"Alert Title"
+          withSubtitle:@"This is your alert's subtitle. Keep it short and concise. 😜👌"
+       withCustomImage:nil
+   withDoneButtonTitle:nil
+            andButtons:nil];
+```    
+
 ## Base Customizations 
 
 - **Title (NSString):** You can leave the Title as ```nil``` or Give it an ```NSString```.
