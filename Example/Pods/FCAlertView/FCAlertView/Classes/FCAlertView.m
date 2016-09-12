@@ -140,6 +140,9 @@
     
     // Adjusting AlertView Frames
     
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        defaultSpacing += 350;
+    
     if (alertViewWithVector) // Frames for when AlertView contains an image
         alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
                                     self.frame.size.height/2 - (200.0f/2),
