@@ -276,6 +276,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Nima Tahami";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = ZL289U74HM;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -546,6 +549,7 @@
 			baseConfigurationReference = CFB214F5045001FCE1FECCFE /* Pods-FCAlertView_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZL289U74HM;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FCAlertView/FCAlertView-Prefix.pch";
 				INFOPLIST_FILE = "FCAlertView/FCAlertView-Info.plist";
@@ -562,6 +566,7 @@
 			baseConfigurationReference = 8A17B1DD47225084EB8243FF /* Pods-FCAlertView_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZL289U74HM;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FCAlertView/FCAlertView-Prefix.pch";
 				INFOPLIST_FILE = "FCAlertView/FCAlertView-Info.plist";
