@@ -22,7 +22,7 @@ For the Objective C version of FCAlertView, [click here](https://github.com/nima
 
 #Installation
 
-### Using CocoaPods
+### Using CocoaPods - Coming Soon
 
 FCAlertView is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
