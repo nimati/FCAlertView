@@ -106,6 +106,12 @@
                                     @"setting" : @"Off",
                                     @"status" : @0,
                                     @"customIndicator" : @0,
+                                    @"selection" : @[@"Off", @"On"]},
+                                  @{@"title" : @"Blur Background",
+                                    @"description" : @"Turn on to add a blur effect to your view's background.",
+                                    @"setting" : @"Off",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
                                     @"selection" : @[@"Off", @"On"]}];
     
     _alertViewOptions = [_alertViewOptionsOriginal mutableCopy];
@@ -541,6 +547,13 @@
         alert.avoidCustomImageTint = 1;
     else
         alert.avoidCustomImageTint = 0;
+    
+    // Blur Background Effect
+    
+    if (![[[_alertViewOptions objectAtIndex:13] objectForKey:@"setting"] isEqual:@"Off"])
+        alert.blurBackground = 1;
+    else
+        alert.blurBackground = 0;
     
     // PRESENTING THE FCALERTVIEW // 4) Add This to finally present FCAlertView in your view's window
     
