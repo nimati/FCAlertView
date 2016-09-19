@@ -35,7 +35,7 @@
                                             result.height);
         _alertBackground.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.35]; // set color as you want.
         
-        [self addSubview:_alertBackground];
+       [self addSubview:_alertBackground];
         
         // PRESET FLAT COLORS - Setting up RGB of Flat Colors - Put in another file? REMOVE
         
@@ -566,6 +566,18 @@
 
 - (void) showAlertInView:(UIViewController *)view withTitle:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons {
     
+    // Blur Effect
+
+    if (_blurBackground && NSClassFromString(@"UIVisualEffectView") != nil) {
+    UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    backgroundVisualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    backgroundVisualEffectView.frame = view.view.bounds;
+    _alertBackground.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.5];
+    [view.view addSubview:backgroundVisualEffectView];
+    }
+    
+    // Adding Alert
+
     [self setAlertViewAttributes:title withSubtitle:subTitle withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
     [view.view.window addSubview:self];
     
@@ -573,6 +585,18 @@
 
 - (void) showAlertInWindow:(UIWindow *)window withTitle:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons {
     
+    // Blur Effect
+
+    if (_blurBackground && NSClassFromString(@"UIVisualEffectView") != nil) {
+    UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    backgroundVisualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    backgroundVisualEffectView.frame = window.bounds;
+    _alertBackground.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.5];
+    [window addSubview:backgroundVisualEffectView];
+    }
+    
+    // Adding Alert
+
     [self setAlertViewAttributes:title withSubtitle:subTitle withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
     [window addSubview:self];
     
@@ -582,6 +606,18 @@
     
     [self setAlertViewAttributes:title withSubtitle:subTitle withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
     UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+    
+    // Blur Effect
+    if (_blurBackground && NSClassFromString(@"UIVisualEffectView") != nil) {
+    UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    backgroundVisualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    backgroundVisualEffectView.frame = window.bounds;
+    _alertBackground.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.5];
+    [window addSubview:backgroundVisualEffectView];
+    }
+    
+    // Adding Alert
+    
     [window addSubview:self];
     [window bringSubviewToFront:self];
     
@@ -636,6 +672,7 @@
     
     [UIView animateWithDuration:0.175 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.alpha = 0;
+        backgroundVisualEffectView.alpha = 0;
         alertViewContents.transform = CGAffineTransformMakeScale(0.9, 0.9);
     } completion:^(BOOL finished) {
         
@@ -645,6 +682,7 @@
             [strongDelegate FCAlertViewDismissed:self];
         }
         
+        [backgroundVisualEffectView removeFromSuperview];
         [self removeFromSuperview];
         
     }];

@@ -13,6 +13,10 @@
 
 @interface FCAlertView : UIView {
     
+    // Blur
+    
+    UIVisualEffectView *backgroundVisualEffectView;
+    
     // Default UI adjustments
     
     CGFloat defaultHeight;
@@ -57,6 +61,7 @@
 @property BOOL hideAllButtons;
 @property BOOL hideDoneButton;
 @property BOOL avoidCustomImageTint;
+@property BOOL blurBackground;
 
 // Default Types of Alerts
 
