@@ -61,8 +61,8 @@
         _hideAllButtons = NO;
         _hideDoneButton = NO;
         
-        defaultSpacing = 105.0f;
-        defaultHeight = 200.0f;
+        defaultSpacing = [self configureAVWidth];
+        defaultHeight = [self configureAVHeight];
         
         [self checkCustomizationValid];
         
@@ -70,6 +70,52 @@
     
     return self;
     
+}
+
+#pragma mark - Frame Configuration
+
+- (CGFloat) configureAVWidth {
+    
+    if (_customSpacing == 0) {
+        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+        {
+            CGSize result = [[UIScreen mainScreen] bounds].size;
+            if(result.height == 480)
+            {
+                // iPhone Classic
+                return 55.0f;
+                
+            }
+            if(result.height == 568)
+            {
+                // iPhone 5
+                return 65.0f;
+                
+            }
+            if (result.height == 736)
+            {
+                // iPhone 6/7 Plus
+                return 130.0f;
+            }
+            else
+            {
+                return 105.0f;
+            }
+            
+        }
+    } else {
+        return _customSpacing;
+    }
+    
+}
+
+- (CGFloat) configureAVHeight {
+
+    if (_customHeight == 0) {
+        return 200.0f;
+    } else {
+        return _customHeight;
+    }
 }
 
 #pragma mark - FCAlertView Checks
@@ -126,11 +172,17 @@
     if (_dismissOnOutsideTouch && isPointInsideBackview && !isPointInsideAlertView)
         [self dismissAlertView];
     
+    if (_addTextField && isPointInsideBackview && !isPointInsideAlertView)
+        [self endEditing:YES];
+    
 }
 
 #pragma mark - Drawing AlertView
 
 - (void)drawRect:(CGRect)rect {
+    
+    defaultSpacing = [self configureAVWidth];
+    defaultHeight = [self configureAVHeight];
     
     CGSize result = [[UIScreen mainScreen] bounds].size;
     
@@ -289,6 +341,7 @@
         UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
         textField.leftView = paddingView;
         textField.leftViewMode = UITextFieldViewModeAlways;
+        textField.delegate = self;
         
         textField.placeholder = @"Hi";
         [alertView addSubview:textField];
@@ -552,7 +605,7 @@
     [self.layer setShadowOffset:CGSizeMake(0.0f, 0.0f)];
     
     if (_bounceAnimations) {
-    
+        
         UIInterpolatingMotionEffect *horizontalMotionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
         horizontalMotionEffect.minimumRelativeValue = @(-22.5);
         horizontalMotionEffect.maximumRelativeValue = @(22.5);
@@ -563,7 +616,7 @@
         
         [alertViewContents addMotionEffect:horizontalMotionEffect];
         [alertViewContents addMotionEffect:verticalMotionEffect];
-    
+        
     }
     
     [self showAlertView];
@@ -823,7 +876,7 @@
     if (_bounceAnimations) {
         
         [UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-                alertViewContents.transform = CGAffineTransformMakeScale(1.05, 1.05);
+            alertViewContents.transform = CGAffineTransformMakeScale(1.05, 1.05);
         }completion:^(BOOL finished) {
             [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 alertViewContents.transform = CGAffineTransformMakeScale(1.00, 1.00);
@@ -848,5 +901,63 @@
     [self dismissAlertView];
     
 }
+
+#pragma mark - TEXT FIELD METHODS
+#pragma mark - Text Field Begin Editing
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    currentAVCFrames = alertViewContents.frame;
+    
+    [UIView animateWithDuration:0.30 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        alertViewContents.frame = CGRectMake(currentAVCFrames.origin.x,
+                                             currentAVCFrames.origin.y - 80,
+                                             currentAVCFrames.size.width,
+                                             currentAVCFrames.size.height);
+    } completion:nil];
+    
+}
+
+-(void)updateTextField:(UIDatePicker *)sender
+{
+    
+    
+}
+
+#pragma mark - Text Field End Editing
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    [UIView animateWithDuration:0.30 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        alertViewContents.frame = CGRectMake(currentAVCFrames.origin.x,
+                                             currentAVCFrames.origin.y,
+                                             currentAVCFrames.size.width,
+                                             currentAVCFrames.size.height);
+    } completion:nil];
+    
+}
+
+#pragma mark - Text Field Returned
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [textField endEditing:YES];
+    
+}
+
+#pragma mark - Text Field Changed
+
+-(void)textChanged:(UITextField *)textField
+{
+    
+    
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    return YES;
+    
+}
+
 
 @end

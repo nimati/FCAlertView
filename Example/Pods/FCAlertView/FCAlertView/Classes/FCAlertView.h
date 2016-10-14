@@ -11,7 +11,7 @@
 
 @protocol FCAlertViewDelegate;
 
-@interface FCAlertView : UIView {
+@interface FCAlertView : UIView <UITextFieldDelegate> {
     
     // Blur
     
@@ -36,6 +36,8 @@
     UIImage *vectorImage;
     NSString *alertType;
     
+    CGRect currentAVCFrames;
+    
 }
 
 // Delegate
@@ -52,6 +54,9 @@
 @property (nonatomic, retain) UIView *alertBackground;
 
 // AlertView Customizations
+
+@property CGFloat customHeight;
+@property CGFloat customSpacing;
 
 @property NSInteger numberOfButtons;
 @property NSInteger autoHideSeconds;
