@@ -112,6 +112,12 @@
                                     @"setting" : @"Off",
                                     @"status" : @0,
                                     @"customIndicator" : @0,
+                                    @"selection" : @[@"Off", @"On"]},
+                                  @{@"title" : @"Bounce Animation",
+                                    @"description" : @"Turn on to add more natural animations to the alert.",
+                                    @"setting" : @"Off",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
                                     @"selection" : @[@"Off", @"On"]}];
     
     _alertViewOptions = [_alertViewOptionsOriginal mutableCopy];
@@ -554,6 +560,15 @@
         alert.blurBackground = 1;
     else
         alert.blurBackground = 0;
+    
+    // Bounce Animations Effect
+    
+    if (![[[_alertViewOptions objectAtIndex:14] objectForKey:@"setting"] isEqual:@"Off"])
+        alert.bounceAnimations = 1;
+    else
+        alert.bounceAnimations = 0;
+    
+    // alert.addTextField = 1;
     
     // PRESENTING THE FCALERTVIEW // 4) Add This to finally present FCAlertView in your view's window
     

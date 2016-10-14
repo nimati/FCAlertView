@@ -62,6 +62,8 @@
 @property BOOL hideDoneButton;
 @property BOOL avoidCustomImageTint;
 @property BOOL blurBackground;
+@property BOOL addTextField;
+@property BOOL bounceAnimations;
 
 // Default Types of Alerts
 
