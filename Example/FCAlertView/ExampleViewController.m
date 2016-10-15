@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _headerHeight = 180;
+    _headerHeight = 230;
     
     // SETTING COLORS OF BUTTONS FOR THIS EXAMPLE VIEWCONTROLLER - Not related to FCAlertView
     
@@ -28,6 +28,31 @@
     // LIST OF ALL CUSTOMIZATION YOU CAN MAKE - Used For this Example App
     
     _alertViewOptions = [[NSMutableArray alloc] init];
+    
+    _alertViewLatestOptionsOriginal = @[@{@"title" : @"Blur Background",
+                                          @"description" : @"Turn on to add a blur effect to your view's background.",
+                                          @"setting" : @"Off",
+                                          @"status" : @0,
+                                          @"customIndicator" : @0,
+                                          @"selection" : @[@"Off", @"On"]},
+                                        @{@"title" : @"Bounce Animation",
+                                          @"description" : @"Turn on to add more natural animations to the alert.",
+                                          @"setting" : @"Off",
+                                          @"status" : @0,
+                                          @"customIndicator" : @0,
+                                          @"selection" : @[@"Off", @"On"]},
+                                        @{@"title" : @"Text Field",
+                                          @"description" : @"Turn on to add a textfield to the alert for input.",
+                                          @"setting" : @"Off",
+                                          @"status" : @0,
+                                          @"customIndicator" : @0,
+                                          @"selection" : @[@"Off", @"On"]},
+                                        @{@"title" : @"Alert Sound",
+                                          @"description" : @"Turn on to play a custom sound when the alert opens.",
+                                          @"setting" : @"Off",
+                                          @"status" : @0,
+                                          @"customIndicator" : @0,
+                                          @"selection" : @[@"Off", @"On"]}];
     
     _alertViewOptionsOriginal = @[@{@"title" : @"Custom Image",
                                     @"description" : @"Add a custom image to your alert.",
@@ -106,33 +131,10 @@
                                     @"setting" : @"Off",
                                     @"status" : @0,
                                     @"customIndicator" : @0,
-                                    @"selection" : @[@"Off", @"On"]},
-                                  @{@"title" : @"Blur Background",
-                                    @"description" : @"Turn on to add a blur effect to your view's background.",
-                                    @"setting" : @"Off",
-                                    @"status" : @0,
-                                    @"customIndicator" : @0,
-                                    @"selection" : @[@"Off", @"On"]},
-                                  @{@"title" : @"Bounce Animation",
-                                    @"description" : @"Turn on to add more natural animations to the alert.",
-                                    @"setting" : @"Off",
-                                    @"status" : @0,
-                                    @"customIndicator" : @0,
-                                    @"selection" : @[@"Off", @"On"]},
-                                  @{@"title" : @"Text Field",
-                                    @"description" : @"Turn on to add a textfield to the alert for input.",
-                                    @"setting" : @"Off",
-                                    @"status" : @0,
-                                    @"customIndicator" : @0,
-                                    @"selection" : @[@"Off", @"On"]},
-                                  @{@"title" : @"Alert Sound",
-                                    @"description" : @"Turn on to play a custom sound when the alert opens.",
-                                    @"setting" : @"Off",
-                                    @"status" : @0,
-                                    @"customIndicator" : @0,
                                     @"selection" : @[@"Off", @"On"]}];
     
     _alertViewOptions = [_alertViewOptionsOriginal mutableCopy];
+    _alertViewLatestOptions = [_alertViewLatestOptionsOriginal mutableCopy];
     
     // NAV BAR SETTINGS
     
@@ -150,7 +152,7 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    CGFloat dummyViewHeight = 180;
+    CGFloat dummyViewHeight = _headerHeight;
     UIView *dummyView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, dummyViewHeight)];
     self.tableView.tableHeaderView = dummyView;
     self.tableView.contentInset = UIEdgeInsetsMake(-dummyViewHeight, 0, 0, 0);
@@ -160,11 +162,16 @@
 #pragma mark - TableView Datasource Changes
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _alertViewOptions.count;
+    if (section == 0)
+        return _alertViewLatestOptions.count;
+    else if (section == 1)
+        return _alertViewOptions.count;
+    else
+        return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -193,16 +200,35 @@
         CAShapeLayer *circleLayer = [CAShapeLayer layer];
         [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(self.tableView.frame.size.width - 27, 80/2 - 8/2, 8, 8)] CGPath]];
         
-        if (![[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"customIndicator"] isEqual:@1]) {
-            if ([[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"status"] isEqual:@0])
-                [circleLayer setFillColor:[_redColor CGColor]];
-            else
-                [circleLayer setFillColor:[_greenColor CGColor]];
-        } else {
-            NSString *selectedColor = [[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"selection"]
-                                       objectAtIndex:[[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"status"] integerValue]];
+        if (indexPath.section == 0) {
             
-            [circleLayer setFillColor:[[self checkFlatColors:selectedColor] CGColor]];
+            if (![[[_alertViewLatestOptions objectAtIndex:indexPath.row] objectForKey:@"customIndicator"] isEqual:@1]) {
+                if ([[[_alertViewLatestOptions objectAtIndex:indexPath.row] objectForKey:@"status"] isEqual:@0])
+                    [circleLayer setFillColor:[_redColor CGColor]];
+                else
+                    [circleLayer setFillColor:[_greenColor CGColor]];
+            } else {
+                NSString *selectedColor = [[[_alertViewLatestOptions objectAtIndex:indexPath.row] objectForKey:@"selection"]
+                                           objectAtIndex:[[[_alertViewLatestOptions objectAtIndex:indexPath.row] objectForKey:@"status"] integerValue]];
+                
+                [circleLayer setFillColor:[[self checkFlatColors:selectedColor] CGColor]];
+                
+            }
+            
+        } else if (indexPath.section == 1) {
+            
+            if (![[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"customIndicator"] isEqual:@1]) {
+                if ([[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"status"] isEqual:@0])
+                    [circleLayer setFillColor:[_redColor CGColor]];
+                else
+                    [circleLayer setFillColor:[_greenColor CGColor]];
+            } else {
+                NSString *selectedColor = [[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"selection"]
+                                           objectAtIndex:[[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"status"] integerValue]];
+                
+                [circleLayer setFillColor:[[self checkFlatColors:selectedColor] CGColor]];
+                
+            }
             
         }
         
@@ -213,7 +239,10 @@
         optionTitle.font = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
         optionTitle.textColor = [UIColor colorWithWhite:80.0f/255.0f alpha:1.0];
         optionTitle.textAlignment = NSTextAlignmentLeft;
-        optionTitle.text = [[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"title"];
+        if (indexPath.section == 0)
+            optionTitle.text = [[_alertViewLatestOptions objectAtIndex:indexPath.row] objectForKey:@"title"];
+        else if (indexPath.section == 1)
+            optionTitle.text = [[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"title"];
         
         // Option Description Label
         
@@ -222,11 +251,19 @@
         optionDesc.font = [UIFont systemFontOfSize:14.0f weight:UIFontWeightRegular];
         optionDesc.textColor = [UIColor colorWithWhite:120.0f/255.0f alpha:1.0];
         optionDesc.textAlignment = NSTextAlignmentLeft;
-        optionDesc.text = [[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"description"];
+        if (indexPath.section == 0)
+            optionDesc.text = [[_alertViewLatestOptions objectAtIndex:indexPath.row] objectForKey:@"description"];
+        else if (indexPath.section == 1)
+            optionDesc.text = [[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"description"];
         
         // Option Setting Label
         
-        NSString *selectedSetting = [[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"setting"];
+        NSString *selectedSetting;
+        
+        if (indexPath.section == 0)
+            selectedSetting = [[_alertViewLatestOptions objectAtIndex:indexPath.row] objectForKey:@"setting"];
+        else if (indexPath.section == 1)
+            selectedSetting = [[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"setting"];
         
         UILabel *optionSetting = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width - 35.0f, 80.0f)];
         optionSetting.numberOfLines = 1;
@@ -255,7 +292,12 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSMutableDictionary *selectedCell = [[_alertViewOptions objectAtIndex:indexPath.row] mutableCopy];
+    NSMutableDictionary *selectedCell;
+    
+    if (indexPath.section == 0)
+        selectedCell = [[_alertViewLatestOptions objectAtIndex:indexPath.row] mutableCopy];
+    else if (indexPath.section == 1)
+        selectedCell = [[_alertViewOptions objectAtIndex:indexPath.row] mutableCopy];
     
     NSInteger status = [[selectedCell objectForKey:@"status"] integerValue];
     NSArray *selection = [selectedCell objectForKey:@"selection"];
@@ -264,11 +306,19 @@
     
     [selectedCell setObject:[NSNumber numberWithInteger:status] forKey:@"status"];
     
-    NSString *selectedSetting = [[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"selection"] objectAtIndex:status];
+    NSString *selectedSetting;
+    
+    if (indexPath.section == 0)
+        selectedSetting = [[[_alertViewLatestOptions objectAtIndex:indexPath.row] objectForKey:@"selection"] objectAtIndex:status];
+    else if (indexPath.section == 1)
+        selectedSetting = [[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"selection"] objectAtIndex:status];
     
     [selectedCell setObject:selectedSetting forKey:@"setting"];
     
-    [_alertViewOptions replaceObjectAtIndex:indexPath.row withObject:selectedCell];
+    if (indexPath.section == 0)
+        [_alertViewLatestOptions replaceObjectAtIndex:indexPath.row withObject:selectedCell];
+    else if (indexPath.section == 1)
+        [_alertViewOptions replaceObjectAtIndex:indexPath.row withObject:selectedCell];
     
     NSLog(@"For: %@ Now Selected: %@", [selectedCell objectForKey:@"title"], [selection objectAtIndex:status]);
     
@@ -285,14 +335,30 @@
         CGPoint pressPoint = [longPress locationInView:self.tableView];
         NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:pressPoint];
         
-        NSMutableDictionary *selectedCell = [[_alertViewOptions objectAtIndex:indexPath.row] mutableCopy];
-        [selectedCell setObject:[[_alertViewOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"status"] forKey:@"status"];
-        [selectedCell setObject:[[_alertViewOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"setting"] forKey:@"setting"];
-        [_alertViewOptions replaceObjectAtIndex:indexPath.row withObject:selectedCell];
+        NSMutableDictionary *selectedCell;
         
-        NSLog(@"For: %@ Reset to: %@",
-              [selectedCell objectForKey:@"title"],
-              [[_alertViewOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"setting"]);
+        if (indexPath.section == 0) {
+            
+            selectedCell = [[_alertViewLatestOptions objectAtIndex:indexPath.row] mutableCopy];
+            [selectedCell setObject:[[_alertViewLatestOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"status"] forKey:@"status"];
+            [selectedCell setObject:[[_alertViewLatestOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"setting"] forKey:@"setting"];
+            [_alertViewLatestOptions replaceObjectAtIndex:indexPath.row withObject:selectedCell];
+            
+            NSLog(@"For: %@ Reset to: %@",
+                  [selectedCell objectForKey:@"title"],
+                  [[_alertViewLatestOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"setting"]);
+            
+        } else if (indexPath.section == 1) {
+            
+            selectedCell = [[_alertViewOptions objectAtIndex:indexPath.row] mutableCopy];
+            [selectedCell setObject:[[_alertViewOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"status"] forKey:@"status"];
+            [selectedCell setObject:[[_alertViewOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"setting"] forKey:@"setting"];
+            [_alertViewOptions replaceObjectAtIndex:indexPath.row withObject:selectedCell];
+            
+            NSLog(@"For: %@ Reset to: %@",
+                  [selectedCell objectForKey:@"title"],
+                  [[_alertViewOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"setting"]);
+        }
         
         [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
         
@@ -302,59 +368,137 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 120)];
-    headerView.backgroundColor = [UIColor colorWithWhite:239.0f/255.0f alpha:1.0];
-    
-    // Separator Line View
-    
-    UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 177, self.view.frame.size.width, 3)];
-    separatorLineView.backgroundColor = [UIColor colorWithWhite:225.0f/255.0f alpha:1.0];
-    [headerView addSubview:separatorLineView];
-    
-    // Label for Instructions
-    
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 10, headerView.frame.size.width - 60, headerView.frame.size.height - 10)];
-    headerLabel.font = [UIFont systemFontOfSize:16.0f];
-    headerLabel.textColor = [UIColor colorWithWhite:40.0f/255.0f alpha:1.0];
-    headerLabel.textAlignment = NSTextAlignmentCenter;
-    headerLabel.text = @"Tap on cells to Toggle Customizations\n Hold to Reset to Default \n Enjoy!";
-    headerLabel.numberOfLines = 4;
-    headerLabel.backgroundColor = [UIColor clearColor];
-    
-    // Suggestion Button
-    
-    UIButton *suggestionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    suggestionBtn.frame = CGRectMake(tableView.frame.size.width/2 - (tableView.frame.size.width - 140)/2, 118, tableView.frame.size.width - 140, 40);
-    suggestionBtn.titleLabel.font = [UIFont systemFontOfSize:16.0f];
-    [suggestionBtn setTitle:@"Got Suggestions?" forState:UIControlStateNormal];
-    [suggestionBtn setTitleColor:self.themeColor forState:UIControlStateNormal];
-    suggestionBtn.layer.cornerRadius = 4;
-    suggestionBtn.clipsToBounds = YES;
-    suggestionBtn.layer.borderWidth = 1.5;
-    suggestionBtn.layer.borderColor = suggestionBtn.titleLabel.textColor.CGColor;
-    [suggestionBtn addTarget:self action:@selector(sendEmail) forControlEvents:UIControlEventTouchUpInside];
-    
-    // Close Button
-
-    UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    closeBtn.frame = CGRectMake(tableView.frame.size.width - 40, 10, 30, 30);
-    closeBtn.tintColor = [UIColor colorWithWhite:120/255.0f alpha:1.0];
-    [closeBtn setImage:[UIImage imageNamed:@"closeBtn"] forState:UIControlStateNormal];
-    [closeBtn addTarget:self action:@selector(closeSuggestionBar) forControlEvents:UIControlEventTouchUpInside];
-    
-    // Adding To HeaderView
-    
-    [headerView addSubview:headerLabel];
-    [headerView addSubview:suggestionBtn];
-    [headerView addSubview:closeBtn];
-    
-    return headerView;
+    if (section == 0) {
+        
+        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 120)];
+        headerView.backgroundColor = [UIColor colorWithWhite:239.0f/255.0f alpha:1.0];
+        
+        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, headerView.frame.size.width - 60, 20)];
+        headerLabel.text = @"NEW FEATURES • V1.1.0";
+        
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"NEW FEATURES • V1.1.0"];
+        [attributedString addAttribute:NSKernAttributeName
+                                 value:@(3.0)
+                                 range:NSMakeRange(0, headerLabel.text.length)];
+        
+        headerLabel.attributedText = attributedString;
+        
+        headerLabel.font = [UIFont systemFontOfSize:14.0f weight:UIFontWeightMedium];
+        headerLabel.textColor = [UIColor colorWithWhite:150.0f/255.0f alpha:1.0];
+        headerLabel.textAlignment = NSTextAlignmentLeft;
+        headerLabel.numberOfLines = 1;
+        headerLabel.backgroundColor = [UIColor clearColor];
+        
+        [headerView addSubview:headerLabel];
+        
+        return headerView;
+        
+    } else {
+        
+        if (!_suggestionBarClosed) {
+            
+            UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 120)];
+            headerView.backgroundColor = [UIColor colorWithWhite:239.0f/255.0f alpha:1.0];
+            
+            // Separator Line View
+            
+            UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 3)];
+            separatorLineView.backgroundColor = [UIColor colorWithWhite:225.0f/255.0f alpha:1.0];
+            [headerView addSubview:separatorLineView];
+            
+            // Label for Instructions
+            
+            UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 10, headerView.frame.size.width - 60, headerView.frame.size.height - 10)];
+            headerLabel.font = [UIFont systemFontOfSize:16.0f];
+            headerLabel.textColor = [UIColor colorWithWhite:40.0f/255.0f alpha:1.0];
+            headerLabel.textAlignment = NSTextAlignmentCenter;
+            headerLabel.text = @"Tap on cells to Toggle Customizations\n Hold to Reset to Default \n Enjoy!";
+            headerLabel.numberOfLines = 4;
+            headerLabel.backgroundColor = [UIColor clearColor];
+            
+            // Suggestion Button
+            
+            UIButton *suggestionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            suggestionBtn.frame = CGRectMake(tableView.frame.size.width/2 - (tableView.frame.size.width - 140)/2, 118, tableView.frame.size.width - 140, 40);
+            suggestionBtn.titleLabel.font = [UIFont systemFontOfSize:16.0f];
+            [suggestionBtn setTitle:@"Got Suggestions?" forState:UIControlStateNormal];
+            [suggestionBtn setTitleColor:self.themeColor forState:UIControlStateNormal];
+            suggestionBtn.layer.cornerRadius = 4;
+            suggestionBtn.clipsToBounds = YES;
+            suggestionBtn.layer.borderWidth = 1.5;
+            suggestionBtn.layer.borderColor = suggestionBtn.titleLabel.textColor.CGColor;
+            [suggestionBtn addTarget:self action:@selector(sendEmail) forControlEvents:UIControlEventTouchUpInside];
+            
+            // Close Button
+            
+            UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+            closeBtn.frame = CGRectMake(tableView.frame.size.width - 40, 10, 30, 30);
+            closeBtn.tintColor = [UIColor colorWithWhite:120/255.0f alpha:1.0];
+            [closeBtn setImage:[UIImage imageNamed:@"closeBtn"] forState:UIControlStateNormal];
+            [closeBtn addTarget:self action:@selector(closeSuggestionBar) forControlEvents:UIControlEventTouchUpInside];
+            
+            // Adding To HeaderView
+            
+            [headerView addSubview:headerLabel];
+            [headerView addSubview:suggestionBtn];
+            [headerView addSubview:closeBtn];
+            
+            UILabel *headerLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(20, 200, headerView.frame.size.width - 60, 20)];
+            headerLabel2.text = @"ALL CUSTOMIZATIONS";
+            
+            NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"ALL CUSTOMIZATIONS"];
+            [attributedString addAttribute:NSKernAttributeName
+                                     value:@(3.0)
+                                     range:NSMakeRange(0, headerLabel2.text.length)];
+            
+            headerLabel2.attributedText = attributedString;
+            
+            headerLabel2.font = [UIFont systemFontOfSize:14.0f weight:UIFontWeightMedium];
+            headerLabel2.textColor = [UIColor colorWithWhite:150.0f/255.0f alpha:1.0];
+            headerLabel2.textAlignment = NSTextAlignmentLeft;
+            headerLabel2.numberOfLines = 1;
+            headerLabel2.backgroundColor = [UIColor clearColor];
+            
+            [headerView addSubview:headerLabel2];
+            
+            return headerView;
+            
+        } else {
+            
+            UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 120)];
+            headerView.backgroundColor = [UIColor colorWithWhite:239.0f/255.0f alpha:1.0];
+            
+            UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, headerView.frame.size.width - 60, 20)];
+            headerLabel.text = @"ALL CUSTOMIZATIONS";
+            
+            NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"ALL CUSTOMIZATIONS"];
+            [attributedString addAttribute:NSKernAttributeName
+                                     value:@(3.0)
+                                     range:NSMakeRange(0, headerLabel.text.length)];
+            
+            headerLabel.attributedText = attributedString;
+            
+            headerLabel.font = [UIFont systemFontOfSize:14.0f weight:UIFontWeightMedium];
+            headerLabel.textColor = [UIColor colorWithWhite:150.0f/255.0f alpha:1.0];
+            headerLabel.textAlignment = NSTextAlignmentLeft;
+            headerLabel.numberOfLines = 1;
+            headerLabel.backgroundColor = [UIColor clearColor];
+            
+            [headerView addSubview:headerLabel];
+            
+            return headerView;
+            
+        }
+        
+    }
     
 }
 
 - (void) closeSuggestionBar {
     
-    _headerHeight = 0;
+    _suggestionBarClosed = 1;
+    
+    _headerHeight = 50;
     
     [UIView transitionWithView: self.tableView
                       duration: 0.25f
@@ -369,7 +513,13 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    return  _headerHeight;
+    
+    if (section == 0)
+        return 50;
+    else
+        return  _headerHeight;
+    
+    
 }
 
 #pragma mark - FCAlertViewExample Helper Methods
@@ -414,18 +564,31 @@
 #pragma mark - Send Suggestions
 
 - (void) sendEmail {
-
+    
     NSString *emailTitle = @"FCAlertView Suggestion";
     NSString *messageBody = @"Hey Nima,\n\nI got a suggestion for FCAlertView:\n";
     NSArray *toRecipents = [NSArray arrayWithObject:@"nima6tahami@gmail.com"];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
-    mc.mailComposeDelegate = self;
-    [mc setSubject:emailTitle];
-    [mc setMessageBody:messageBody isHTML:NO];
-    [mc setToRecipients:toRecipents];
+    if ([MFMailComposeViewController canSendMail]) {
+        mc.mailComposeDelegate = self;
+        [mc setSubject:emailTitle];
+        [mc setMessageBody:messageBody isHTML:NO];
+        [mc setToRecipients:toRecipents];
+        
+        [self presentViewController:mc animated:YES completion:NULL];
+
+    } else {
+        
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        pasteboard.string = @"nima6tahami@gmail.com";
+        
+        FCAlertView *alert = [[FCAlertView alloc] init];
+        [alert showAlertWithTitle:nil withSubtitle:@"Email Copied to Clipboard" withCustomImage:nil withDoneButtonTitle:nil andButtons:nil];
+        [alert makeAlertTypeSuccess];
+        
+    }
     
-    [self presentViewController:mc animated:YES completion:NULL];
     
 }
 
@@ -566,16 +729,17 @@
     else
         alert.avoidCustomImageTint = 0;
     
+    // NEW FEATURES SECTION
     // Blur Background Effect
     
-    if (![[[_alertViewOptions objectAtIndex:13] objectForKey:@"setting"] isEqual:@"Off"])
+    if (![[[_alertViewLatestOptions objectAtIndex:0] objectForKey:@"setting"] isEqual:@"Off"])
         alert.blurBackground = 1;
     else
         alert.blurBackground = 0;
     
     // Bounce Animations Effect
     
-    if (![[[_alertViewOptions objectAtIndex:14] objectForKey:@"setting"] isEqual:@"Off"])
+    if (![[[_alertViewLatestOptions objectAtIndex:1] objectForKey:@"setting"] isEqual:@"Off"])
         alert.bounceAnimations = 1;
     else
         alert.bounceAnimations = 0;
@@ -583,16 +747,37 @@
     // Adding TextField
     
     alert.textField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
-
-    if (![[[_alertViewOptions objectAtIndex:15] objectForKey:@"setting"] isEqual:@"Off"])
+    
+    if (![[[_alertViewLatestOptions objectAtIndex:2] objectForKey:@"setting"] isEqual:@"Off"])
         [alert addTextFieldWithPlaceholder:@"Email Address" andTextReturnBlock:^(NSString *text) {
             NSLog(@"TextField Returns: %@", text); // Do what you'd like with the text returned from the field
         }];
     
     // Alert Sound
     
-    if (![[[_alertViewOptions objectAtIndex:16] objectForKey:@"setting"] isEqual:@"Off"])
+    if (![[[_alertViewLatestOptions objectAtIndex:3] objectForKey:@"setting"] isEqual:@"Off"])
         [alert setAlertSoundWithFileName:@"Elevator Ding.mp3"];
+    
+    // ***** THIS SECTION IS FOR ADDING BUTTONS TO THE ALERT USING THE BLOCK ACTION METHOD *****
+    
+    /* USING BLOCK ACTION TO ADD BUTTONS -- Uncomment to Try it out
+     
+     [alert addButton:@"Block Button" withActionBlock:^{
+     NSLog(@"Block Button Clicked");
+     // Put your action here
+     }];
+     
+     */
+    
+    /* USING BLOCK ACTION FOR DONE BUTTON -- Uncomment to Try it out
+     
+     [alert doneActionBlock:^{
+     NSLog(@"Done Action");
+     }];
+     
+     */
+    
+    // ***** END OF BLOCK ACTION METHOD OF ADDING BUTTONS *****
     
     // PRESENTING THE FCALERTVIEW // 4) Add This to finally present FCAlertView in your view's window
     
@@ -602,24 +787,7 @@
     // DONE BUTTON TITLE: Alert's Main Close/Done Button Title, NSString, Default will be "Ok", Can be Nil
     // BUTTONS: Other Alert's Buttons Titles, NSArray of NSStrings, Can be Nil or max of 2 Buttons.
     
-    /* USING BLOCK ACTION TO ADD BUTTONS -- Uncomment to Try it out
-     
-     [alert addButton:@"Block Button" withActionBlock:^{
-        NSLog(@"Block Button Clicked");
-        // Put your action here
-    }];
-     
-     */
-        
-    /* USING BLOCK ACTION FOR DONE BUTTON -- Uncomment to Try it out
-
-     [alert doneActionBlock:^{
-        NSLog(@"Done Action");
-    }];
-    
-     */
-    
-    alert.delegate = self;
+    alert.delegate = self; // 5) Add This is You Would like to Use Buttons without Action Blocks
     
     [alert showAlertInView:self
                  withTitle:_alertTitle
@@ -649,13 +817,13 @@
 - (void)FCAlertViewDismissed:(FCAlertView *)alertView {
     
     NSLog(@"Alert Dismissed");
-
+    
 }
 
 - (void)FCAlertViewWillAppear:(FCAlertView *)alertView {
     
     NSLog(@"Alert Will Appear");
-
+    
 }
 
 @end

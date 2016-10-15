@@ -337,12 +337,12 @@ and setting the delegate of your FCAlertView, as such:
 FCAlertView is an ongoing project with the goal of becoming the most used custom AlertView for iOS. Improvements and changes are on the way, and here are some of the things that are coming soon with it:
 
 - Swift Friendly ✓
-- Adding TextFields
+- Adding TextFields ✓
+- Blur Background ✓
+- Frame Customizations ✓
+- Alert Sounds ✓
+- Landscape Orientation ✓
 - More Custom Animations
-- Blur Background
-- Frame Customizations
-- Alert Sounds
-- Landscape Orientation
 - More Types of Alerts (including Progress Types)
 - iPad Friendly Alerts
 - Improved Button Highlighting and Customizations
