@@ -86,7 +86,7 @@ You can also present your FCAlertView using the following:
             andButtons:nil];
 ```    
 
-## Base Customizations 
+# Base Customizations 
 
 - **Title (NSString):** You can leave the Title as ```nil``` or Give it an ```NSString```.
 
@@ -116,7 +116,7 @@ Alternatively, you can add buttons to FCAlertView with action block like so:
 }];
 ```
 
-## Extra Customizations 
+# Extra Customizations 
 
 This section includes all the tiny details that you can customize your alert with, which makes FCAlertView very customizable. Or leave it as is and enjoy the simplicity. 
 
