@@ -275,7 +275,7 @@ Add the following line to play an audio when the alert opens, simply pass it the
 [alert setAlertSoundWithFileName:@"Ding.mp3"];
 ```
 
-Note: It's best to add these Frameworks to your project: ```AVFoundation``` and ```AudioToolbox```.
+*Note:* It's best to add these Frameworks to your project for this to work: ```AVFoundation``` and ```AudioToolbox```.
 
 # Button Actions
 
