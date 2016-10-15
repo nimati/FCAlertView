@@ -52,6 +52,7 @@
         // CUSTOMIZATIONS - Setting Default Customization Settings & Checks
         
         alertButtons = [[NSMutableArray alloc] init];
+        alertTextFields = [[NSMutableArray alloc] init];
         
         _numberOfButtons = 0;
         _autoHideSeconds = 0;
@@ -110,7 +111,7 @@
 }
 
 - (CGFloat) configureAVHeight {
-
+    
     if (_customHeight == 0) {
         return 200.0f;
     } else {
@@ -172,7 +173,7 @@
     if (_dismissOnOutsideTouch && isPointInsideBackview && !isPointInsideAlertView)
         [self dismissAlertView];
     
-    if (_addTextField && isPointInsideBackview && !isPointInsideAlertView)
+    if (alertTextFields.count > 0 && isPointInsideBackview && !isPointInsideAlertView)
         [self endEditing:YES];
     
 }
@@ -232,7 +233,7 @@
                                         alertViewFrame.size.height - 50 + 140);
     }
     
-    if (_addTextField)
+    if (alertTextFields.count > 0)
         alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
                                     self.frame.size.height/2 - ((alertViewFrame.size.height - 50 + 140)/2),
                                     result.width - defaultSpacing,
@@ -316,6 +317,8 @@
     descriptionLabel.textAlignment = NSTextAlignmentCenter;
     descriptionLabel.adjustsFontSizeToFitWidth = YES;
     
+    descriptionLabelFrames = descriptionLabel.frame;
+    
     if (_title == nil) {
         descriptionLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
     }
@@ -330,21 +333,22 @@
     
     // TEXTFIELD VIEW - Section with TextField
     
-    if (_addTextField) {
+    if (alertTextFields.count > 0) {
         
-        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(12.5, descriptionLabel.frame.size.height + descriptionLabel.frame.origin.y + 3, alertViewFrame.size.width - 25, 40)];
+        _textField = [[UITextField alloc] initWithFrame:CGRectMake(12.5, descriptionLabel.frame.size.height + descriptionLabel.frame.origin.y + 3, alertViewFrame.size.width - 25, 40)];
         
-        textField.layer.cornerRadius = 3.0f;
-        textField.layer.masksToBounds = YES;
-        textField.layer.borderColor = [[UIColor colorWithWhite:217.0f/255.0f alpha:1.0] CGColor];
-        textField.layer.borderWidth = 1.0f;
+        _textField.layer.cornerRadius = 3.0f;
+        _textField.layer.masksToBounds = YES;
+        _textField.layer.borderColor = [[UIColor colorWithWhite:217.0f/255.0f alpha:1.0] CGColor];
+        _textField.layer.borderWidth = 1.0f;
+        _textField.delegate = self;
+        _textField.placeholder = [[alertTextFields firstObject] objectForKey:@"placeholder"];
+
         UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
-        textField.leftView = paddingView;
-        textField.leftViewMode = UITextFieldViewModeAlways;
-        textField.delegate = self;
+        _textField.leftView = paddingView;
+        _textField.leftViewMode = UITextFieldViewModeAlways;
         
-        textField.placeholder = @"Hi";
-        [alertView addSubview:textField];
+        [alertView addSubview:_textField];
         
     }
     
@@ -851,6 +855,12 @@
         [strongDelegate FCAlertView:self clickedButtonIndex:[sender tag] buttonTitle:clickedButton.titleLabel.text];
     }
     
+    // Rertun Text from TextField to Block
+    
+    FCTextReturnBlock textReturnBlock = [[alertTextFields firstObject] objectForKey:@"action"];
+    if (textReturnBlock)
+        textReturnBlock(_textField.text);
+    
     [self dismissAlertView];
     
 }
@@ -871,6 +881,26 @@
     
 }
 
+- (void) donePressed {
+    
+    if (self.doneBlock)
+        self.doneBlock();
+    
+    id<FCAlertViewDelegate> strongDelegate = self.delegate;
+    
+    if ([strongDelegate respondsToSelector:@selector(FCAlertDoneButtonClicked:)]) {
+        [strongDelegate FCAlertDoneButtonClicked:self];
+    }
+    
+    FCTextReturnBlock textReturnBlock = [[alertTextFields firstObject] objectForKey:@"action"];
+    NSString *textF = _textField.text;
+    if (textReturnBlock)
+        textReturnBlock(_textField.text);
+    
+    [self dismissAlertView];
+    
+}
+
 - (void) btnReleased {
     
     if (_bounceAnimations) {
@@ -887,23 +917,21 @@
     
 }
 
-- (void) donePressed {
-    
-    if (self.doneBlock)
-        self.doneBlock();
-    
-    id<FCAlertViewDelegate> strongDelegate = self.delegate;
-    
-    if ([strongDelegate respondsToSelector:@selector(FCAlertDoneButtonClicked:)]) {
-        [strongDelegate FCAlertDoneButtonClicked:self];
-    }
-    
-    [self dismissAlertView];
-    
-}
-
 #pragma mark - TEXT FIELD METHODS
 #pragma mark - Text Field Begin Editing
+
+#pragma mark - Adding Alert TextField Block Method
+
+- (void)addTextFieldWithPlaceholder:(NSString *)placeholder andTextReturnBlock:(FCTextReturnBlock)textReturn {
+    
+    if (textReturn != nil)
+        [alertTextFields addObject:@{@"placeholder" : placeholder,
+                                     @"action" : textReturn}];
+    else
+        [alertTextFields addObject:@{@"placeholder" : placeholder,
+                                     @"action" : @0}];
+    
+}
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     
@@ -918,15 +946,11 @@
     
 }
 
--(void)updateTextField:(UIDatePicker *)sender
-{
-    
-    
-}
-
 #pragma mark - Text Field End Editing
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    NSString *text = textField.text;
     
     [UIView animateWithDuration:0.30 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         alertViewContents.frame = CGRectMake(currentAVCFrames.origin.x,
@@ -952,12 +976,5 @@
     
     
 }
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    
-    return YES;
-    
-}
-
 
 @end

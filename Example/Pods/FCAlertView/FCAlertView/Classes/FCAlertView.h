@@ -31,13 +31,20 @@
     // Customizations made to UI
     
     NSMutableArray *alertButtons;
+    NSMutableArray *alertTextFields;
     NSInteger alertViewWithVector;
     NSString *doneTitle;
     UIImage *vectorImage;
     NSString *alertType;
     
-    CGRect currentAVCFrames;
+    // Frames
     
+    CGRect alertViewFrame;
+    CGRect currentAVCFrames;
+    CGRect descriptionLabelFrames;
+    
+    // Alert TextField
+
 }
 
 // Delegate
@@ -53,6 +60,10 @@
 
 @property (nonatomic, retain) UIView *alertBackground;
 
+// AlertView TextView
+
+@property (nonatomic, retain) UITextField *textField;
+
 // AlertView Customizations
 
 @property CGFloat customHeight;
@@ -67,7 +78,6 @@
 @property BOOL hideDoneButton;
 @property BOOL avoidCustomImageTint;
 @property BOOL blurBackground;
-@property BOOL addTextField;
 @property BOOL bounceAnimations;
 
 // Default Types of Alerts
@@ -97,6 +107,12 @@ typedef void (^FCActionBlock)(void);
 @property (nonatomic, copy) FCActionBlock doneBlock;
 - (void)addButton:(NSString *)title withActionBlock:(FCActionBlock)action;
 - (void)doneActionBlock:(FCActionBlock)action;
+
+// Alert TextField Block Method
+
+typedef void (^FCTextReturnBlock)(NSString *text);
+@property (nonatomic, copy) FCTextReturnBlock textReturnBlock;
+- (void)addTextFieldWithPlaceholder:(NSString *)placeholder andTextReturnBlock:(FCTextReturnBlock)textReturn;
 
 // Color Schemes
 

@@ -118,6 +118,12 @@
                                     @"setting" : @"Off",
                                     @"status" : @0,
                                     @"customIndicator" : @0,
+                                    @"selection" : @[@"Off", @"On"]},
+                                  @{@"title" : @"Text Field",
+                                    @"description" : @"Turn on to add a textfield to the alert for input.",
+                                    @"setting" : @"Off",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
                                     @"selection" : @[@"Off", @"On"]}];
     
     _alertViewOptions = [_alertViewOptionsOriginal mutableCopy];
@@ -568,7 +574,14 @@
     else
         alert.bounceAnimations = 0;
     
-    // alert.addTextField = 1;
+    // Adding TextField
+    
+    alert.textField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+
+    if (![[[_alertViewOptions objectAtIndex:15] objectForKey:@"setting"] isEqual:@"Off"])
+        [alert addTextFieldWithPlaceholder:@"Email Address" andTextReturnBlock:^(NSString *text) {
+            NSLog(@"TextField Returns: %@", text); // Do what you'd like with the text returned from the field
+        }];
     
     // PRESENTING THE FCALERTVIEW // 4) Add This to finally present FCAlertView in your view's window
     

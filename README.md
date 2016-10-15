@@ -339,14 +339,13 @@ FCAlertView is an ongoing project with the goal of becoming the most used custom
 - Swift Friendly ✓
 - Adding TextFields
 - More Custom Animations
-- Blur Background 
-- Alert Sounds 
-- Big and Beautiful Full Screen Alerts
-- Landscape Orientation
+- Blur Background
 - Frame Customizations
+- Alert Sounds
+- Landscape Orientation
 - More Types of Alerts (including Progress Types)
-- iPad Friendly Alertsgit 
-- Improved Button Highlight and Customizations
+- iPad Friendly Alerts
+- Improved Button Highlighting and Customizations
 - Something Missing? Email your suggestion [here](mailto:nima6tahami@gmail.com)
 
 About FCAlertView
