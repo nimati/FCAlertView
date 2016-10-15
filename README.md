@@ -244,7 +244,7 @@ Please note that hiding Done/Dismiss Button and/or Hiding All Buttons would trig
 ## New Customizations (after V1.1.0)
 ### Blur Background
 
-Simply blurs the background of the window/view behind the alertview, add the following:
+Simply adds a blur to the background of the window/view behind the alertview:
 
 ```Objective-C
 alert.blurBackground = 1;
@@ -259,7 +259,7 @@ alert.bounceAnimations = 1;
 ```
 ### Adding TextFields
 
-Simply add a single textfield to your alert, by adding this line and get the returned text when the AlertView's buttons are pressed:
+Simply add a single textfield to your alert, by adding this line and get the returned text when any of the AlertView's buttons are pressed:
 
 ```Objective-C
 [alert addTextFieldWithPlaceholder:@"Email Address" andTextReturnBlock:^(NSString *text) {
@@ -274,6 +274,8 @@ Add the following line to play an audio when the alert opens, simply pass it the
 ```Objective-C
 [alert setAlertSoundWithFileName:@"Ding.mp3"];
 ```
+
+Note: It's best to add these Frameworks to your project: ```AVFoundation``` and ```AudioToolbox```.
 
 # Button Actions
 
@@ -375,7 +377,7 @@ FCAlertView is an ongoing project with the goal of becoming the most used custom
 - Blur Background ✓
 - Frame Customizations ✓
 - Alert Sounds ✓
-- Landscape Orientation ✓
+- Landscape Orientation
 - More Custom Animations
 - More Types of Alerts (including Progress Types)
 - iPad Friendly Alerts
