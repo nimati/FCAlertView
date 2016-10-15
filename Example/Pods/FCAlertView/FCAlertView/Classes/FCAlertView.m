@@ -674,6 +674,19 @@
     alertType = @"Success";
 }
 
+#pragma mark - Play Sound with Alert
+
+- (void) setAlertSoundWithFileName:(NSString *)filename {
+    
+    NSString *soundFilePath = [NSString stringWithFormat:@"%@/%@",
+                               [[NSBundle mainBundle] resourcePath], filename];
+    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL
+                                                     error:nil];
+    player.numberOfLoops = 0;
+    
+}
+
 #pragma  mark - Presenting AlertView
 
 - (void) showAlertInView:(UIViewController *)view withTitle:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons {
@@ -784,6 +797,10 @@
             [self performSelector:@selector(dismissAlertView) withObject:nil afterDelay:self.autoHideSeconds];
         }
     }];
+
+    // Playing Sound for Alert (when there is one)
+    
+    [player play];
     
 }
 

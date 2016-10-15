@@ -124,6 +124,12 @@
                                     @"setting" : @"Off",
                                     @"status" : @0,
                                     @"customIndicator" : @0,
+                                    @"selection" : @[@"Off", @"On"]},
+                                  @{@"title" : @"Alert Sound",
+                                    @"description" : @"Turn on to play a custom sound when the alert opens.",
+                                    @"setting" : @"Off",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
                                     @"selection" : @[@"Off", @"On"]}];
     
     _alertViewOptions = [_alertViewOptionsOriginal mutableCopy];
@@ -582,6 +588,11 @@
         [alert addTextFieldWithPlaceholder:@"Email Address" andTextReturnBlock:^(NSString *text) {
             NSLog(@"TextField Returns: %@", text); // Do what you'd like with the text returned from the field
         }];
+    
+    // Alert Sound
+    
+    if (![[[_alertViewOptions objectAtIndex:16] objectForKey:@"setting"] isEqual:@"Off"])
+        [alert setAlertSoundWithFileName:@"Elevator Ding.mp3"];
     
     // PRESENTING THE FCALERTVIEW // 4) Add This to finally present FCAlertView in your view's window
     

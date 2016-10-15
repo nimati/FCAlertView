@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
+
 @protocol FCAlertViewDelegate;
 
 @interface FCAlertView : UIView <UITextFieldDelegate> {
@@ -43,7 +46,9 @@
     CGRect currentAVCFrames;
     CGRect descriptionLabelFrames;
     
-    // Alert TextField
+    // Alert AudioPlayer
+    
+    AVAudioPlayer *player;
 
 }
 
@@ -85,6 +90,10 @@
 - (void) makeAlertTypeWarning;
 - (void) makeAlertTypeCaution;
 - (void) makeAlertTypeSuccess;
+
+// Play Sound with Alert
+
+- (void) setAlertSoundWithFileName:(NSString *)filename;
 
 // Presenting AlertView
 
