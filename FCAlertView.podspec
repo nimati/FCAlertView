@@ -22,7 +22,7 @@ FCAlertView is a fully customizable and beautifully designed AlertView. I design
                        DESC
 
   s.homepage         = 'https://github.com/nimati/FCAlertView'
-  s.screenshots     = 'https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot.png?raw=true', 'https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot2.png?raw=true'
+#  s.screenshots     = 'https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot.png?raw=true', 'https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot2.png?raw=true'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Nima Tahami' => 'nimat6462@yahoo.ca' }
   s.source           = { :git => 'https://github.com/nimati/FCAlertView.git', :tag => s.version.to_s }
