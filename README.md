@@ -241,6 +241,40 @@ alert.hideAllButtons = YES;
 
 Please note that hiding Done/Dismiss Button and/or Hiding All Buttons would trigger a safety close mechanism by forcing Close on Outside Touch to stay ON.
 
+## New Customizations (after V1.1.0)
+### Blur Background
+
+Simply blurs the background of the window/view behind the alertview, add the following:
+
+```Objective-C
+alert.blurBackground = 1;
+```
+
+### Bounce/Natural Animations
+
+Adds more natural animations to the alertview, such as reactive bounce buttons and more. Add this line:
+
+```Objective-C
+alert.bounceAnimations = 1;
+```
+### Adding TextFields
+
+Simply add a single textfield to your alert, by adding this line and get the returned text when the AlertView's buttons are pressed:
+
+```Objective-C
+[alert addTextFieldWithPlaceholder:@"Email Address" andTextReturnBlock:^(NSString *text) {
+    NSLog(@"The Email Address is: %@", text); // Do what you'd like with the text returned from the field
+}];
+```
+
+### Sounds
+
+Add the following line to play an audio when the alert opens, simply pass it the name of your audiofile:
+
+```Objective-C
+[alert setAlertSoundWithFileName:@"Ding.mp3"];
+```
+
 # Button Actions
 
 To add actions to your buttons, if you're not adding buttons with action blocks, you have to first delegate your FCAlertView with your view, and then add a helper method which will detect button touches. Here's how you can add an alert with buttons and perform actions:

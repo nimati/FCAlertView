@@ -746,8 +746,6 @@
     
     // Adding TextField
     
-    alert.textField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
-    
     if (![[[_alertViewLatestOptions objectAtIndex:2] objectForKey:@"setting"] isEqual:@"Off"])
         [alert addTextFieldWithPlaceholder:@"Email Address" andTextReturnBlock:^(NSString *text) {
             NSLog(@"TextField Returns: %@", text); // Do what you'd like with the text returned from the field
