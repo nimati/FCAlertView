@@ -252,10 +252,10 @@
     
     if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
     {
-            alertViewFrame = CGRectMake(self.frame.size.width/2 - (300/2),
-                                        self.frame.size.height/2 - (alertViewFrame.size.height/2),
-                                        300,
-                                        alertViewFrame.size.height);
+        alertViewFrame = CGRectMake(self.frame.size.width/2 - (300/2),
+                                    self.frame.size.height/2 - (alertViewFrame.size.height/2),
+                                    300,
+                                    alertViewFrame.size.height);
     }
     
     // Description Label
@@ -917,40 +917,111 @@
 - (void) dismissAlertView {
     
     [UIView animateWithDuration:0.175 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.alpha = 0;
-        backgroundVisualEffectView.alpha = 0;
-        if (!_animateAlertInFromTop && !_animateAlertInFromLeft && !_animateAlertInFromRight && !_animateAlertInFromBottom)
-        alertViewContents.transform = CGAffineTransformMakeScale(0.9, 0.9);
-        if (_animateAlertOutToTop)
-            alertViewContents.frame = CGRectMake(alertViewFrame.origin.x,
-                                                 0 - alertViewFrame.size.height - 15,
-                                                 alertViewFrame.size.width,
-                                                 alertViewFrame.size.height);
-        if (_animateAlertOutToRight)
-            alertViewContents.frame = CGRectMake(self.frame.size.width + alertViewFrame.size.width + 15,
-                                                 alertViewFrame.origin.y,
-                                                 alertViewFrame.size.width,
-                                                 alertViewFrame.size.height);
-        if (_animateAlertOutToBottom)
-            alertViewContents.frame = CGRectMake(alertViewFrame.origin.x,
-                                                 self.frame.size.height + alertViewFrame.size.height + 15,
-                                                 alertViewFrame.size.width,
-                                                 alertViewFrame.size.height);
-        if (_animateAlertOutToLeft)
-            alertViewContents.frame = CGRectMake(0 - alertViewFrame.size.width - 15,
-                                                 alertViewFrame.origin.y,
-                                                 alertViewFrame.size.width,
-                                                 alertViewFrame.size.height);
-    } completion:^(BOOL finished) {
         
-        id<FCAlertViewDelegate> strongDelegate = self.delegate;
-        
-        if ([strongDelegate respondsToSelector:@selector(FCAlertViewDismissed:)]) {
-            [strongDelegate FCAlertViewDismissed:self];
+        if (!_animateAlertOutToTop && !_animateAlertOutToLeft && !_animateAlertOutToRight && !_animateAlertOutToBottom) {
+            self.alpha = 0;
+            backgroundVisualEffectView.alpha = 0;
+            alertViewContents.transform = CGAffineTransformMakeScale(0.9, 0.9);
+        } else {
+            
+            if (_bounceAnimations) {
+                if (_animateAlertOutToTop)
+                    alertViewContents.frame = CGRectMake(alertViewFrame.origin.x,
+                                                         alertViewFrame.origin.y + 7.5,
+                                                         alertViewFrame.size.width,
+                                                         alertViewFrame.size.height);
+                if (_animateAlertOutToRight)
+                    alertViewContents.frame = CGRectMake(alertViewFrame.origin.x - 7.5,
+                                                         alertViewFrame.origin.y,
+                                                         alertViewFrame.size.width,
+                                                         alertViewFrame.size.height);
+                if (_animateAlertOutToBottom)
+                    alertViewContents.frame = CGRectMake(alertViewFrame.origin.x,
+                                                         alertViewFrame.origin.y - 7.5,
+                                                         alertViewFrame.size.width,
+                                                         alertViewFrame.size.height);
+                if (_animateAlertOutToLeft)
+                    alertViewContents.frame = CGRectMake(alertViewFrame.origin.x + 7.5,
+                                                         alertViewFrame.origin.y,
+                                                         alertViewFrame.size.width,
+                                                         alertViewFrame.size.height);
+            } else {
+                self.alpha = 0;
+                backgroundVisualEffectView.alpha = 0;
+                
+                if (_animateAlertOutToTop)
+                    alertViewContents.frame = CGRectMake(alertViewFrame.origin.x,
+                                                         0 - alertViewFrame.size.height - 15,
+                                                         alertViewFrame.size.width,
+                                                         alertViewFrame.size.height);
+                if (_animateAlertOutToRight)
+                    alertViewContents.frame = CGRectMake(self.frame.size.width + alertViewFrame.size.width + 15,
+                                                         alertViewFrame.origin.y,
+                                                         alertViewFrame.size.width,
+                                                         alertViewFrame.size.height);
+                if (_animateAlertOutToBottom)
+                    alertViewContents.frame = CGRectMake(alertViewFrame.origin.x,
+                                                         self.frame.size.height + alertViewFrame.size.height + 15,
+                                                         alertViewFrame.size.width,
+                                                         alertViewFrame.size.height);
+                if (_animateAlertOutToLeft)
+                    alertViewContents.frame = CGRectMake(0 - alertViewFrame.size.width - 15,
+                                                         alertViewFrame.origin.y,
+                                                         alertViewFrame.size.width,
+                                                         alertViewFrame.size.height);
+            }
         }
         
-        [backgroundVisualEffectView removeFromSuperview];
-        [self removeFromSuperview];
+    } completion:^(BOOL finished) {
+        
+        if (!_animateAlertOutToTop && !_animateAlertOutToLeft && !_animateAlertOutToRight && !_animateAlertOutToBottom) {
+            id<FCAlertViewDelegate> strongDelegate = self.delegate;
+            
+            if ([strongDelegate respondsToSelector:@selector(FCAlertViewDismissed:)]) {
+                [strongDelegate FCAlertViewDismissed:self];
+            }
+            
+            [backgroundVisualEffectView removeFromSuperview];
+            [self removeFromSuperview];
+        } else {
+            if (_bounceAnimations) {
+                [UIView animateWithDuration:0.175 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                    
+                    self.alpha = 0;
+                    backgroundVisualEffectView.alpha = 0;
+                    
+                    if (_animateAlertOutToTop)
+                        alertViewContents.frame = CGRectMake(alertViewFrame.origin.x,
+                                                             0 - alertViewFrame.size.height - 15,
+                                                             alertViewFrame.size.width,
+                                                             alertViewFrame.size.height);
+                    if (_animateAlertOutToRight)
+                        alertViewContents.frame = CGRectMake(self.frame.size.width + alertViewFrame.size.width + 15,
+                                                             alertViewFrame.origin.y,
+                                                             alertViewFrame.size.width,
+                                                             alertViewFrame.size.height);
+                    if (_animateAlertOutToBottom)
+                        alertViewContents.frame = CGRectMake(alertViewFrame.origin.x,
+                                                             self.frame.size.height + alertViewFrame.size.height + 15,
+                                                             alertViewFrame.size.width,
+                                                             alertViewFrame.size.height);
+                    if (_animateAlertOutToLeft)
+                        alertViewContents.frame = CGRectMake(0 - alertViewFrame.size.width - 15,
+                                                             alertViewFrame.origin.y,
+                                                             alertViewFrame.size.width,
+                                                             alertViewFrame.size.height);
+                }completion:^(BOOL finished) {
+                    id<FCAlertViewDelegate> strongDelegate = self.delegate;
+                    
+                    if ([strongDelegate respondsToSelector:@selector(FCAlertViewDismissed:)]) {
+                        [strongDelegate FCAlertViewDismissed:self];
+                    }
+                    
+                    [backgroundVisualEffectView removeFromSuperview];
+                    [self removeFromSuperview];
+                }];
+            }
+        }
         
     }];
     

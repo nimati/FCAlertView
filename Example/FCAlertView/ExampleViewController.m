@@ -797,8 +797,6 @@
        withDoneButtonTitle:nil
                 andButtons:self.arrayOfButtonTitles];
     
-    
-    
 }
 
 #pragma mark - Handling Orientation Change for Example App
