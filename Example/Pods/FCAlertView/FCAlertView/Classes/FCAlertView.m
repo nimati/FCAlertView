@@ -33,7 +33,7 @@
                                             0,
                                             result.width,
                                             result.height);
-        _alertBackground.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.35]; // set color as you want.
+        _alertBackground.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.35];
         
         [self addSubview:_alertBackground];
         
@@ -132,6 +132,15 @@
 #pragma mark - Customization Data Checkpoint
 
 - (void) checkCustomizationValid {
+    
+    if (_darkTheme) {
+        if (self.titleColor == nil) {
+            self.titleColor = [UIColor whiteColor];
+        }
+        if (self.subTitleColor == nil) {
+            self.subTitleColor = [UIColor whiteColor];
+        }
+    }
     
     if (_subTitle == nil || [_subTitle isEqualToString:@""])
         if (_title == nil || [_title isEqualToString:@""])
@@ -315,10 +324,13 @@
     
     // Setting Background Color of AlertView
     
-    if (alertViewWithVector)
+    if (alertViewWithVector) {
         alertView.backgroundColor = [UIColor clearColor];
-    else
+    } else {
         alertView.backgroundColor = [UIColor whiteColor];
+        if (_darkTheme)
+            alertView.backgroundColor = [UIColor colorWithWhite:48.0f/255.0f alpha:1.0];
+    }
     
     [alertViewContents addSubview:alertView];
     
@@ -343,6 +355,8 @@
     fillLayer.path = rectPath.CGPath;
     fillLayer.fillRule = kCAFillRuleEvenOdd;
     fillLayer.fillColor = [UIColor whiteColor].CGColor;
+    if (_darkTheme)
+        fillLayer.fillColor = [UIColor colorWithWhite:48.0f/255.0f alpha:1.0].CGColor;
     fillLayer.opacity = 1.0;
     
     if (alertViewWithVector)
@@ -367,6 +381,8 @@
                                                                          alertViewFrame.size.width,
                                                                          2)];
     separatorLineView.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
+    if (_darkTheme)
+        separatorLineView.backgroundColor = [UIColor colorWithWhite:58.0f/255.0f alpha:1.0];
     
     // TEXTFIELD VIEW - Section with TextField
     
@@ -394,10 +410,14 @@
     if (_numberOfButtons == 0) { // View only contains DONE/DISMISS Button
         
         UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        if (_colorScheme == nil)
+        if (_colorScheme == nil) {
             doneButton.backgroundColor = [UIColor whiteColor];
-        else
+            if (_darkTheme)
+                doneButton.backgroundColor = [UIColor colorWithWhite:78.0f/255.0f alpha:1.0];
+        } else {
             doneButton.backgroundColor = _colorScheme;
+        }
+        
         doneButton.frame = CGRectMake(0,
                                       alertViewFrame.size.height - 45,
                                       alertViewFrame.size.width,
@@ -407,7 +427,7 @@
         [doneButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
         [doneButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
         doneButton.titleLabel.font = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
-        if (_colorScheme != nil)
+        if (_colorScheme != nil || _darkTheme)
             doneButton.tintColor = [UIColor whiteColor];
         
         if (!_hideAllButtons && !_hideDoneButton)
@@ -416,10 +436,14 @@
     } else if (_numberOfButtons == 1) { // View also contains OTHER (One) Button
         
         UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        if (_colorScheme == nil)
+        if (_colorScheme == nil) {
             doneButton.backgroundColor = [UIColor whiteColor];
-        else
+            if (_darkTheme)
+                doneButton.backgroundColor = [UIColor colorWithWhite:78.0f/255.0f alpha:1.0];
+        } else {
             doneButton.backgroundColor = _colorScheme;
+        }
+        
         doneButton.frame = CGRectMake(alertViewFrame.size.width/2,
                                       alertViewFrame.size.height - 45,
                                       alertViewFrame.size.width/2,
@@ -429,11 +453,13 @@
         [doneButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
         [doneButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
         doneButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightMedium];
-        if (_colorScheme != nil)
+        if (_colorScheme != nil || _darkTheme)
             doneButton.tintColor = [UIColor whiteColor];
         
         UIButton *otherButton = [UIButton buttonWithType:UIButtonTypeSystem];
         otherButton.backgroundColor = [UIColor whiteColor];
+        if (_darkTheme)
+            otherButton.backgroundColor = [UIColor colorWithWhite:78.0f/255.0f alpha:1.0];
         otherButton.frame = CGRectMake(0,
                                        alertViewFrame.size.height - 45,
                                        alertViewFrame.size.width/2,
@@ -449,6 +475,8 @@
         [otherButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
         otherButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
         otherButton.tintColor = self.colorScheme;
+        if (self.colorScheme == nil && _darkTheme)
+            otherButton.tintColor = [UIColor whiteColor];
         otherButton.titleLabel.adjustsFontSizeToFitWidth = YES;
         otherButton.titleLabel.minimumScaleFactor = 0.8;
         
@@ -465,10 +493,14 @@
                                                                                47)];
         
         horizontalSeparator.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
-        
+        if (_darkTheme)
+            horizontalSeparator.backgroundColor = [UIColor colorWithWhite:58.0f/255.0f alpha:1.0];
+            
         UIVisualEffect *blurEffect;
         blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
-        
+        if (_darkTheme)
+            blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+
         UIVisualEffectView *visualEffectView3;
         visualEffectView3 = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
         visualEffectView3.frame = horizontalSeparator.bounds;
@@ -483,6 +515,8 @@
         
         UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeSystem];
         firstButton.backgroundColor = [UIColor whiteColor];
+        if (_darkTheme)
+            firstButton.backgroundColor = [UIColor colorWithWhite:78.0f/255.0f alpha:1.0];
         firstButton.frame = CGRectMake(0,
                                        alertViewFrame.size.height - 135,
                                        alertViewFrame.size.width,
@@ -498,12 +532,16 @@
         [firstButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
         firstButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
         firstButton.tintColor = self.colorScheme;
+        if (self.colorScheme == nil && _darkTheme)
+            firstButton.tintColor = [UIColor whiteColor];
         firstButton.titleLabel.adjustsFontSizeToFitWidth = YES;
         firstButton.titleLabel.minimumScaleFactor = 0.8;
         firstButton.tag = 0;
         
         UIButton *secondButton = [UIButton buttonWithType:UIButtonTypeSystem];
         secondButton.backgroundColor = [UIColor whiteColor];
+        if (_darkTheme)
+            secondButton.backgroundColor = [UIColor colorWithWhite:78.0f/255.0f alpha:1.0];
         secondButton.frame = CGRectMake(0,
                                         alertViewFrame.size.height - 90,
                                         alertViewFrame.size.width,
@@ -519,15 +557,21 @@
         [secondButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
         secondButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
         secondButton.tintColor = self.colorScheme;
+        if (self.colorScheme == nil && _darkTheme)
+            secondButton.tintColor = [UIColor whiteColor];
         secondButton.titleLabel.adjustsFontSizeToFitWidth = YES;
         secondButton.titleLabel.minimumScaleFactor = 0.8;
         secondButton.tag = 1;
         
         UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        if (_colorScheme == nil)
+        if (_colorScheme == nil) {
             doneButton.backgroundColor = [UIColor whiteColor];
-        else
+            if (_darkTheme)
+                doneButton.backgroundColor = [UIColor colorWithWhite:78.0f/255.0f alpha:1.0];
+        } else {
             doneButton.backgroundColor = _colorScheme;
+        }
+        
         doneButton.frame = CGRectMake(0,
                                       alertViewFrame.size.height - 45,
                                       alertViewFrame.size.width,
@@ -535,7 +579,7 @@
         [doneButton setTitle:doneTitle forState:UIControlStateNormal];
         [doneButton addTarget:self action:@selector(donePressed) forControlEvents:UIControlEventTouchUpInside];
         doneButton.titleLabel.font = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
-        if (_colorScheme != nil)
+        if (_colorScheme != nil || _darkTheme)
             doneButton.tintColor = [UIColor whiteColor];
         
         if (!_hideAllButtons) {
@@ -551,7 +595,9 @@
                                                                           alertViewFrame.size.width,
                                                                           2)];
         firstSeparator.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
-        
+        if (_darkTheme)
+            firstSeparator.backgroundColor = [UIColor colorWithWhite:58.0f/255.0f alpha:1.0];
+            
         UIView *secondSeparator = [[UIView alloc] initWithFrame:CGRectMake(0,
                                                                            secondButton.frame.origin.y - 2,
                                                                            alertViewFrame.size.width,
@@ -562,10 +608,14 @@
                                                2,
                                                45);
         secondSeparator.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
-        
+            if (_darkTheme)
+                secondSeparator.backgroundColor = [UIColor colorWithWhite:58.0f/255.0f alpha:1.0];
+                
         UIVisualEffect *blurEffect;
         blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
-        
+        if (_darkTheme)
+            blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+
         UIVisualEffectView *visualEffectView;
         visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
         visualEffectView.frame = firstSeparator.bounds;
@@ -587,6 +637,8 @@
     
     UIVisualEffect *blurEffect;
     blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+    if (_darkTheme)
+        blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     UIVisualEffectView *visualEffectView;
     visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     visualEffectView.frame = separatorLineView.bounds;
@@ -596,6 +648,8 @@
     circleLayer = [CAShapeLayer layer];
     [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(alertViewContents.frame.size.width/2 - 30.0f, -30.0f, 60.0f, 60.0f)] CGPath]];
     [circleLayer setFillColor:[UIColor whiteColor].CGColor];
+    if (_darkTheme)
+        circleLayer.fillColor = [UIColor colorWithWhite:48.0f/255.0f alpha:1.0].CGColor;
     if ([alertType isEqualToString:@"Progress"] && _colorScheme != nil)
         [circleLayer setFillColor:[self.colorScheme CGColor]];
     

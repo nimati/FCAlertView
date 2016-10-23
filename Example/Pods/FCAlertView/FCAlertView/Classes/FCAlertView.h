@@ -84,6 +84,7 @@
 @property BOOL avoidCustomImageTint;
 @property BOOL blurBackground;
 @property BOOL bounceAnimations;
+@property BOOL darkTheme;
 
 // Default Types of Alerts
 
