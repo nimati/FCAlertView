@@ -78,6 +78,15 @@
 - (CGFloat) configureAVWidth {
     
     if (_customSpacing == 0) {
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        {
+            CGSize result = [[UIScreen mainScreen] bounds].size;
+            
+            if(result.height == 1366)
+                return 105.0f + 600.0f;
+            else
+                return 105.0f + 350.0f;
+        }
         if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
         {
             CGSize result = [[UIScreen mainScreen] bounds].size;
@@ -191,9 +200,6 @@
     
     // Adjusting AlertView Frames
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        defaultSpacing += 350;
-    
     if (alertViewWithVector) // Frames for when AlertView contains an image
         alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
                                     self.frame.size.height/2 - (200.0f/2),
@@ -242,12 +248,14 @@
                                     result.width - defaultSpacing,
                                     alertViewFrame.size.height);
     
+    // Landscape Orientation Width Fix
+    
     if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
     {
-        alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing*3.65)/2),
-                                    self.frame.size.height/2 - (alertViewFrame.size.height/2),
-                                    result.width - defaultSpacing*3.65,
-                                    alertViewFrame.size.height);
+            alertViewFrame = CGRectMake(self.frame.size.width/2 - (300/2),
+                                        self.frame.size.height/2 - (alertViewFrame.size.height/2),
+                                        300,
+                                        alertViewFrame.size.height);
     }
     
     // Description Label
@@ -256,9 +264,9 @@
     
     if (_title == nil) {
         descriptionLevel = 15.0f;
-        alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
-                                    self.frame.size.height/2 - ((alertViewFrame.size.height - 50 + 140)/2),
-                                    result.width - defaultSpacing,
+        alertViewFrame = CGRectMake(alertViewFrame.origin.x,
+                                    alertViewFrame.origin.y,
+                                    alertViewFrame.size.width,
                                     alertViewFrame.size.height - 20);
     }
     
@@ -283,9 +291,9 @@
                                             descriptionLabel.frame.origin.y,
                                             descriptionLabel.frame.size.width,
                                             descriptionLabel.frame.size.height - 20);
-        alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
-                                    self.frame.size.height/2 - ((alertViewFrame.size.height - 50 + 140)/2),
-                                    result.width - defaultSpacing,
+        alertViewFrame = CGRectMake(alertViewFrame.origin.x,
+                                    alertViewFrame.origin.y,
+                                    alertViewFrame.size.width,
                                     alertViewFrame.size.height - 20);
     }
     

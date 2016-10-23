@@ -377,11 +377,11 @@ FCAlertView is an ongoing project with the goal of becoming the most used custom
 - Blur Background ✓
 - Frame Customizations ✓
 - Alert Sounds ✓
-- Landscape Orientation
-- More Custom Animations
-- More Types of Alerts (including Progress Types)
-- iPad Friendly Alerts
-- Improved Button Highlighting and Customizations
+- Landscape Orientation ✓
+- More Custom Animations ✓
+- More Types of Alerts (including Progress Types) ✓
+- iPad Friendly Alerts (tested on all devices) ✓
+- Improved Button Highlighting and Customizations 
 - Something Missing? Email your suggestion [here](mailto:nima6tahami@gmail.com)
 
 About FCAlertView
