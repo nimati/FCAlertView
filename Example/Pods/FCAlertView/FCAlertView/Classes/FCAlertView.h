@@ -90,6 +90,21 @@
 - (void) makeAlertTypeWarning;
 - (void) makeAlertTypeCaution;
 - (void) makeAlertTypeSuccess;
+- (void) makeAlertTypeProgress;
+
+// Alert Animation Types
+
+@property BOOL animateAlertInFromTop;
+@property BOOL animateAlertOutToTop;
+
+@property BOOL animateAlertInFromRight;
+@property BOOL animateAlertOutToRight;
+
+@property BOOL animateAlertInFromBottom;
+@property BOOL animateAlertOutToBottom;
+
+@property BOOL animateAlertInFromLeft;
+@property BOOL animateAlertOutToLeft;
 
 // Play Sound with Alert
 

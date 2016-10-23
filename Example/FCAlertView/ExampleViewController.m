@@ -787,6 +787,8 @@
     
     alert.delegate = self; // 5) Add This is You Would like to Use Buttons without Action Blocks
     
+    [alert makeAlertTypeProgress];
+    
     [alert showAlertInView:self
                  withTitle:_alertTitle
               withSubtitle:@"This is my alert's subtitle. Keep it short and concise. 😜"

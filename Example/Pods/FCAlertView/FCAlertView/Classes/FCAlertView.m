@@ -366,7 +366,7 @@
         _textField.layer.borderWidth = 1.0f;
         _textField.delegate = self;
         _textField.placeholder = [[alertTextFields firstObject] objectForKey:@"placeholder"];
-
+        
         UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
         _textField.leftView = paddingView;
         _textField.leftViewMode = UITextFieldViewModeAlways;
@@ -582,6 +582,15 @@
     circleLayer = [CAShapeLayer layer];
     [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(alertViewContents.frame.size.width/2 - 30.0f, -30.0f, 60.0f, 60.0f)] CGPath]];
     [circleLayer setFillColor:[UIColor whiteColor].CGColor];
+    if ([alertType isEqualToString:@"Progress"] && _colorScheme != nil)
+            [circleLayer setFillColor:[self.colorScheme CGColor]];
+
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(alertViewContents.frame.size.width/2 - 30.0f, -30.0f, 60.0f, 60.0f)];
+    if (circleLayer.fillColor == [UIColor whiteColor].CGColor)
+        [spinner setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+    else
+        [spinner setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
+    [spinner startAnimating];
     
     UIButton *alertViewVector;
     
@@ -618,6 +627,9 @@
     if (alertViewWithVector) {
         [alertViewContents.layer addSublayer:circleLayer];
         [alertViewContents addSubview:alertViewVector];
+        if ([alertType isEqualToString:@"Progress"])
+            [alertViewContents addSubview:spinner];
+        
     }
     
     // SCALING ALERTVIEW - Before Animation
@@ -697,6 +709,12 @@
     alertType = @"Success";
 }
 
+- (void) makeAlertTypeProgress {
+    [circleLayer setFillColor:[self.colorScheme CGColor]];
+    alertViewWithVector = 1;
+    alertType = @"Progress";
+}
+
 #pragma mark - Play Sound with Alert
 
 - (void) setAlertSoundWithFileName:(NSString *)filename {
@@ -705,7 +723,7 @@
                                [[NSBundle mainBundle] resourcePath], filename];
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL
-                                                     error:nil];
+                                                    error:nil];
     player.numberOfLoops = 0;
     
 }
@@ -820,7 +838,7 @@
             [self performSelector:@selector(dismissAlertView) withObject:nil afterDelay:self.autoHideSeconds];
         }
     }];
-
+    
     // Playing Sound for Alert (when there is one)
     
     [player play];
