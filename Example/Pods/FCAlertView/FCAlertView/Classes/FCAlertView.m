@@ -244,6 +244,51 @@
                                     result.width - defaultSpacing,
                                     alertViewFrame.size.height);
     
+    // Description Label
+    
+    NSInteger descriptionLevel = 45.0f;
+    
+    if (_title == nil) {
+        descriptionLevel = 15.0f;
+        alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
+                                    self.frame.size.height/2 - ((alertViewFrame.size.height - 50 + 140)/2),
+                                    result.width - defaultSpacing,
+                                    alertViewFrame.size.height - 20);
+    }
+    
+    UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(25.0f,
+                                                                          descriptionLevel + (alertViewWithVector * 30),
+                                                                          alertViewFrame.size.width - 50.0f,
+                                                                          60.0f)];
+    descriptionLabel.font = [UIFont systemFontOfSize:15.0f weight:UIFontWeightLight];
+    descriptionLabel.numberOfLines = 4;
+    descriptionLabel.textColor = self.subTitleColor;
+    descriptionLabel.text = self.subTitle;
+    descriptionLabel.textAlignment = NSTextAlignmentCenter;
+    descriptionLabel.adjustsFontSizeToFitWidth = YES;
+    
+    CGSize sizeOfText = [descriptionLabel.text sizeWithFont:descriptionLabel.font
+                                          constrainedToSize:descriptionLabel.frame.size
+                                              lineBreakMode:UILineBreakModeWordWrap];
+    int numberOfLines = sizeOfText.height /descriptionLabel.font.pointSize;
+    
+    if (numberOfLines == 1) {
+        descriptionLabel.frame = CGRectMake(descriptionLabel.frame.origin.x,
+                                            descriptionLabel.frame.origin.y,
+                                            descriptionLabel.frame.size.width,
+                                            descriptionLabel.frame.size.height - 20);
+        alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
+                                    self.frame.size.height/2 - ((alertViewFrame.size.height - 50 + 140)/2),
+                                    result.width - defaultSpacing,
+                                    alertViewFrame.size.height - 20);
+    }
+    
+    descriptionLabelFrames = descriptionLabel.frame;
+    
+    if (_title == nil) {
+        descriptionLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
+    }
+    
     // Setting Up Contents of AlertView
     
     alertViewContents = [[UIView alloc] initWithFrame:alertViewFrame];
@@ -300,28 +345,6 @@
     titleLabel.textColor = self.titleColor;
     titleLabel.text = self.title;
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    
-    NSInteger descriptionLevel = 45.0f;
-    
-    if (_title == nil)
-        descriptionLevel = 25.0f;
-    
-    UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(25.0f,
-                                                                          descriptionLevel + (alertViewWithVector * 30),
-                                                                          alertViewFrame.size.width - 50.0f,
-                                                                          60.0f)];
-    descriptionLabel.font = [UIFont systemFontOfSize:15.0f weight:UIFontWeightLight];
-    descriptionLabel.numberOfLines = 4;
-    descriptionLabel.textColor = self.subTitleColor;
-    descriptionLabel.text = self.subTitle;
-    descriptionLabel.textAlignment = NSTextAlignmentCenter;
-    descriptionLabel.adjustsFontSizeToFitWidth = YES;
-    
-    descriptionLabelFrames = descriptionLabel.frame;
-    
-    if (_title == nil) {
-        descriptionLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
-    }
     
     // SEPARATOR LINE - Seperating Header View with Button View
     
