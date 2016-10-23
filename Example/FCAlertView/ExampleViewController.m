@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(orientationChanged:)    name:UIDeviceOrientationDidChangeNotification  object:nil];
+
+    
     _headerHeight = 230;
     
     // SETTING COLORS OF BUTTONS FOR THIS EXAMPLE VIEWCONTROLLER - Not related to FCAlertView
@@ -796,6 +799,33 @@
     
     
     
+}
+
+#pragma mark - Handling Orientation Change for Example App
+
+- (void)orientationChanged:(NSNotification *)notification{
+    [self adjustViewsForOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
+}
+
+- (void) adjustViewsForOrientation:(UIInterfaceOrientation) orientation {
+    
+    [self.tableView reloadData];
+    
+    switch (orientation)
+    {
+        case UIInterfaceOrientationPortrait:
+        case UIInterfaceOrientationPortraitUpsideDown:
+        {
+        }
+            
+            break;
+        case UIInterfaceOrientationLandscapeLeft:
+        case UIInterfaceOrientationLandscapeRight:
+        {
+        }
+            break;
+        case UIInterfaceOrientationUnknown:break;
+    }
 }
 
 #pragma mark - Helper Methods

@@ -242,6 +242,14 @@
                                     result.width - defaultSpacing,
                                     alertViewFrame.size.height);
     
+    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
+    {
+        alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing*3.65)/2),
+                                    self.frame.size.height/2 - (alertViewFrame.size.height/2),
+                                    result.width - defaultSpacing*3.65,
+                                    alertViewFrame.size.height);
+    }
+    
     // Description Label
     
     NSInteger descriptionLevel = 45.0f;
