@@ -10,6 +10,6 @@
 
 @interface ReadmeViewController : UIViewController <UIWebViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) UIWebView *webView;
 
 @end

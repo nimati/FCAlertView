@@ -23,6 +23,7 @@
     
     // WEBVIEW SETTINGS
     
+    self.webView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     NSString *urlString = @"https://github.com/nimati/FCAlertView/blob/master/README.md";
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
