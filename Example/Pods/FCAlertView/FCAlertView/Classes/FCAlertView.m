@@ -187,8 +187,6 @@
     
     CGSize result = [[UIScreen mainScreen] bounds].size;
     
-    CGRect alertViewFrame;
-    
     self.alpha = 0;
     
     // Adjusting AlertView Frames
@@ -583,8 +581,8 @@
     [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(alertViewContents.frame.size.width/2 - 30.0f, -30.0f, 60.0f, 60.0f)] CGPath]];
     [circleLayer setFillColor:[UIColor whiteColor].CGColor];
     if ([alertType isEqualToString:@"Progress"] && _colorScheme != nil)
-            [circleLayer setFillColor:[self.colorScheme CGColor]];
-
+        [circleLayer setFillColor:[self.colorScheme CGColor]];
+    
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(alertViewContents.frame.size.width/2 - 30.0f, -30.0f, 60.0f, 60.0f)];
     if (circleLayer.fillColor == [UIColor whiteColor].CGColor)
         [spinner setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
@@ -634,7 +632,30 @@
     
     // SCALING ALERTVIEW - Before Animation
     
-    alertViewContents.transform = CGAffineTransformMakeScale(1.15, 1.15);
+    if (!_animateAlertInFromTop && !_animateAlertInFromLeft && !_animateAlertInFromRight && !_animateAlertInFromBottom) {
+        alertViewContents.transform = CGAffineTransformMakeScale(1.15, 1.15);
+    } else {
+        if (_animateAlertInFromTop)
+            alertViewContents.frame = CGRectMake(alertViewFrame.origin.x,
+                                                 0 - alertViewFrame.size.height - 15,
+                                                 alertViewFrame.size.width,
+                                                 alertViewFrame.size.height);
+        if (_animateAlertInFromRight)
+            alertViewContents.frame = CGRectMake(self.frame.size.width + alertViewFrame.size.width + 15,
+                                                 alertViewFrame.origin.y,
+                                                 alertViewFrame.size.width,
+                                                 alertViewFrame.size.height);
+        if (_animateAlertInFromBottom)
+            alertViewContents.frame = CGRectMake(alertViewFrame.origin.x,
+                                                 self.frame.size.height + alertViewFrame.size.height + 15,
+                                                 alertViewFrame.size.width,
+                                                 alertViewFrame.size.height);
+        if (_animateAlertInFromLeft)
+            alertViewContents.frame = CGRectMake(0 - alertViewFrame.size.width - 15,
+                                                 alertViewFrame.origin.y,
+                                                 alertViewFrame.size.width,
+                                                 alertViewFrame.size.height);
+    }
     
     // APPLYING SHADOW
     
@@ -813,7 +834,7 @@
     
 }
 
-#pragma  mark - Showing and Hiding AlertView
+#pragma  mark - Showing and Hiding AlertView Animations
 
 - (void) showAlertView {
     
@@ -825,14 +846,46 @@
     
     [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.alpha = 1;
-        if (_bounceAnimations)
-            alertViewContents.transform = CGAffineTransformMakeScale(0.95, 0.95);
-        else
+        if (_bounceAnimations) {
+            if (!_animateAlertInFromTop && !_animateAlertInFromLeft && !_animateAlertInFromRight && !_animateAlertInFromBottom)
+                alertViewContents.transform = CGAffineTransformMakeScale(0.95, 0.95);
+            if (_animateAlertInFromTop)
+                alertViewContents.frame = CGRectMake(alertViewFrame.origin.x,
+                                                     alertViewFrame.origin.y + 7.5,
+                                                     alertViewFrame.size.width,
+                                                     alertViewFrame.size.height);
+            if (_animateAlertInFromRight)
+                alertViewContents.frame = CGRectMake(alertViewFrame.origin.x - 7.5,
+                                                     alertViewFrame.origin.y,
+                                                     alertViewFrame.size.width,
+                                                     alertViewFrame.size.height);
+            if (_animateAlertInFromBottom)
+                alertViewContents.frame = CGRectMake(alertViewFrame.origin.x,
+                                                     alertViewFrame.origin.y - 7.5,
+                                                     alertViewFrame.size.width,
+                                                     alertViewFrame.size.height);
+            if (_animateAlertInFromLeft)
+                alertViewContents.frame = CGRectMake(alertViewFrame.origin.x + 7.5,
+                                                     alertViewFrame.origin.y,
+                                                     alertViewFrame.size.width,
+                                                     alertViewFrame.size.height);
+        } else {
             alertViewContents.transform = CGAffineTransformMakeScale(1.0, 1.0);
+            alertViewContents.frame = CGRectMake(alertViewFrame.origin.x,
+                                                 alertViewFrame.origin.y,
+                                                 alertViewFrame.size.width,
+                                                 alertViewFrame.size.height);
+        }
+        
     } completion:^(BOOL finished) {
         if (_bounceAnimations)
             [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-                alertViewContents.transform = CGAffineTransformMakeScale(1.00, 1.00);
+                if (!_animateAlertInFromTop && !_animateAlertInFromLeft && !_animateAlertInFromRight && !_animateAlertInFromBottom)
+                    alertViewContents.transform = CGAffineTransformMakeScale(1.00, 1.00);
+                alertViewContents.frame = CGRectMake(alertViewFrame.origin.x,
+                                                     alertViewFrame.origin.y,
+                                                     alertViewFrame.size.width,
+                                                     alertViewFrame.size.height);
             } completion:nil];
         if (self.autoHideSeconds != 0) {
             [self performSelector:@selector(dismissAlertView) withObject:nil afterDelay:self.autoHideSeconds];
@@ -850,7 +903,28 @@
     [UIView animateWithDuration:0.175 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.alpha = 0;
         backgroundVisualEffectView.alpha = 0;
+        if (!_animateAlertInFromTop && !_animateAlertInFromLeft && !_animateAlertInFromRight && !_animateAlertInFromBottom)
         alertViewContents.transform = CGAffineTransformMakeScale(0.9, 0.9);
+        if (_animateAlertOutToTop)
+            alertViewContents.frame = CGRectMake(alertViewFrame.origin.x,
+                                                 0 - alertViewFrame.size.height - 15,
+                                                 alertViewFrame.size.width,
+                                                 alertViewFrame.size.height);
+        if (_animateAlertOutToRight)
+            alertViewContents.frame = CGRectMake(self.frame.size.width + alertViewFrame.size.width + 15,
+                                                 alertViewFrame.origin.y,
+                                                 alertViewFrame.size.width,
+                                                 alertViewFrame.size.height);
+        if (_animateAlertOutToBottom)
+            alertViewContents.frame = CGRectMake(alertViewFrame.origin.x,
+                                                 self.frame.size.height + alertViewFrame.size.height + 15,
+                                                 alertViewFrame.size.width,
+                                                 alertViewFrame.size.height);
+        if (_animateAlertOutToLeft)
+            alertViewContents.frame = CGRectMake(0 - alertViewFrame.size.width - 15,
+                                                 alertViewFrame.origin.y,
+                                                 alertViewFrame.size.width,
+                                                 alertViewFrame.size.height);
     } completion:^(BOOL finished) {
         
         id<FCAlertViewDelegate> strongDelegate = self.delegate;
