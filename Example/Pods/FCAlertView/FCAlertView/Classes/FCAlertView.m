@@ -380,6 +380,7 @@
                                                                          alertViewFrame.size.height - 47,
                                                                          alertViewFrame.size.width,
                                                                          2)];
+
     separatorLineView.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
     if (_darkTheme)
         separatorLineView.backgroundColor = [UIColor colorWithWhite:58.0f/255.0f alpha:1.0];
@@ -412,6 +413,8 @@
         UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
         if (_colorScheme == nil) {
             doneButton.backgroundColor = [UIColor whiteColor];
+            if (_detachButtons)
+                doneButton.backgroundColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
             if (_darkTheme)
                 doneButton.backgroundColor = [UIColor colorWithWhite:78.0f/255.0f alpha:1.0];
         } else {
@@ -422,6 +425,15 @@
                                       alertViewFrame.size.height - 45,
                                       alertViewFrame.size.width,
                                       45);
+        if (_detachButtons) {
+            doneButton.frame = CGRectMake(8,
+                                          alertViewFrame.size.height - 50,
+                                          alertViewFrame.size.width - 16,
+                                          40);
+            doneButton.layer.cornerRadius = self.cornerRadius;
+            doneButton.layer.masksToBounds = YES;
+        }
+        
         [doneButton setTitle:doneTitle forState:UIControlStateNormal];
         [doneButton addTarget:self action:@selector(donePressed) forControlEvents:UIControlEventTouchUpInside];
         [doneButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
@@ -438,6 +450,8 @@
         UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
         if (_colorScheme == nil) {
             doneButton.backgroundColor = [UIColor whiteColor];
+            if (_detachButtons)
+                doneButton.backgroundColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
             if (_darkTheme)
                 doneButton.backgroundColor = [UIColor colorWithWhite:78.0f/255.0f alpha:1.0];
         } else {
@@ -448,6 +462,15 @@
                                       alertViewFrame.size.height - 45,
                                       alertViewFrame.size.width/2,
                                       45);
+        if (_detachButtons) {
+            doneButton.frame = CGRectMake(alertViewFrame.size.width/2 + 6,
+                                          doneButton.frame.origin.y - 5,
+                                          doneButton.frame.size.width - 16,
+                                          40);
+            doneButton.layer.cornerRadius = self.cornerRadius;
+            doneButton.layer.masksToBounds = YES;
+        }
+        
         [doneButton setTitle:doneTitle forState:UIControlStateNormal];
         [doneButton addTarget:self action:@selector(donePressed) forControlEvents:UIControlEventTouchUpInside];
         [doneButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
@@ -458,6 +481,8 @@
         
         UIButton *otherButton = [UIButton buttonWithType:UIButtonTypeSystem];
         otherButton.backgroundColor = [UIColor whiteColor];
+        if (_detachButtons)
+            otherButton.backgroundColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
         if (_darkTheme)
             otherButton.backgroundColor = [UIColor colorWithWhite:78.0f/255.0f alpha:1.0];
         otherButton.frame = CGRectMake(0,
@@ -469,6 +494,16 @@
                                            alertViewFrame.size.height - 45,
                                            alertViewFrame.size.width,
                                            45);
+        
+        if (_detachButtons) {
+            otherButton.frame = CGRectMake(alertViewFrame.size.width/2 - otherButton.frame.size.width + 16 - 6,
+                                          otherButton.frame.origin.y - 5,
+                                          otherButton.frame.size.width - 16,
+                                          40);
+            otherButton.layer.cornerRadius = self.cornerRadius;
+            otherButton.layer.masksToBounds = YES;
+        }
+        
         [otherButton setTitle:[[alertButtons objectAtIndex:0] objectForKey:@"title"] forState:UIControlStateNormal];
         [otherButton addTarget:self action:@selector(handleButton:) forControlEvents:UIControlEventTouchUpInside];
         [otherButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
@@ -507,7 +542,7 @@
         visualEffectView3.userInteractionEnabled = NO;
         [horizontalSeparator addSubview:visualEffectView3];
         
-        if (!_hideAllButtons && !_hideDoneButton) {
+        if (!_hideAllButtons && !_hideDoneButton && !_detachButtons) {
             [alertView addSubview:horizontalSeparator];
         }
         
@@ -515,17 +550,30 @@
         
         UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeSystem];
         firstButton.backgroundColor = [UIColor whiteColor];
+        if (_detachButtons)
+            firstButton.backgroundColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
         if (_darkTheme)
             firstButton.backgroundColor = [UIColor colorWithWhite:78.0f/255.0f alpha:1.0];
         firstButton.frame = CGRectMake(0,
                                        alertViewFrame.size.height - 135,
                                        alertViewFrame.size.width,
                                        45);
+            
         if (_hideDoneButton)
             firstButton.frame = CGRectMake(0,
                                            alertViewFrame.size.height - 45,
                                            alertViewFrame.size.width/2,
                                            45);
+        
+        if (_detachButtons) {
+            firstButton.frame = CGRectMake(firstButton.frame.origin.x + 8,
+                                           firstButton.frame.origin.y - 5,
+                                           firstButton.frame.size.width - 16,
+                                           40);
+            firstButton.layer.cornerRadius = self.cornerRadius;
+            firstButton.layer.masksToBounds = YES;
+        }
+        
         [firstButton setTitle:[[alertButtons objectAtIndex:0] objectForKey:@"title"] forState:UIControlStateNormal];
         [firstButton addTarget:self action:@selector(handleButton:) forControlEvents:UIControlEventTouchUpInside];
         [firstButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
@@ -540,6 +588,8 @@
         
         UIButton *secondButton = [UIButton buttonWithType:UIButtonTypeSystem];
         secondButton.backgroundColor = [UIColor whiteColor];
+        if (_detachButtons)
+            secondButton.backgroundColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
         if (_darkTheme)
             secondButton.backgroundColor = [UIColor colorWithWhite:78.0f/255.0f alpha:1.0];
         secondButton.frame = CGRectMake(0,
@@ -551,6 +601,16 @@
                                             alertViewFrame.size.height - 45,
                                             alertViewFrame.size.width/2,
                                             45);
+        
+        if (_detachButtons) {
+            secondButton.frame = CGRectMake(secondButton.frame.origin.x + 8,
+                                           secondButton.frame.origin.y - 5,
+                                           secondButton.frame.size.width - 16,
+                                           40);
+            secondButton.layer.cornerRadius = self.cornerRadius;
+            secondButton.layer.masksToBounds = YES;
+        }
+        
         [secondButton setTitle:[[alertButtons objectAtIndex:1] objectForKey:@"title"] forState:UIControlStateNormal];
         [secondButton addTarget:self action:@selector(handleButton:) forControlEvents:UIControlEventTouchUpInside];
         [secondButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
@@ -566,6 +626,8 @@
         UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
         if (_colorScheme == nil) {
             doneButton.backgroundColor = [UIColor whiteColor];
+            if (_detachButtons)
+                doneButton.backgroundColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
             if (_darkTheme)
                 doneButton.backgroundColor = [UIColor colorWithWhite:78.0f/255.0f alpha:1.0];
         } else {
@@ -576,8 +638,19 @@
                                       alertViewFrame.size.height - 45,
                                       alertViewFrame.size.width,
                                       45);
+        if (_detachButtons) {
+            doneButton.frame = CGRectMake(8,
+                                          alertViewFrame.size.height - 50,
+                                          alertViewFrame.size.width - 16,
+                                          40);
+            doneButton.layer.cornerRadius = self.cornerRadius;
+            doneButton.layer.masksToBounds = YES;
+        }
+        
         [doneButton setTitle:doneTitle forState:UIControlStateNormal];
         [doneButton addTarget:self action:@selector(donePressed) forControlEvents:UIControlEventTouchUpInside];
+        [doneButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
+        [doneButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
         doneButton.titleLabel.font = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
         if (_colorScheme != nil || _darkTheme)
             doneButton.tintColor = [UIColor whiteColor];
@@ -628,7 +701,7 @@
         visualEffectView2.userInteractionEnabled = NO;
         [secondSeparator addSubview:visualEffectView2];
         
-        if (!_hideAllButtons) {
+        if (!_hideAllButtons && !_detachButtons) {
             [alertView addSubview:firstSeparator];
             [alertView addSubview:secondSeparator];
         }
@@ -686,9 +759,9 @@
     [alertViewContents addSubview:descriptionLabel];
     
     if (!_hideAllButtons) {
-        if (_numberOfButtons == 1)
+        if (_numberOfButtons == 1 && !_detachButtons)
             [alertViewContents addSubview:separatorLineView];
-        else if (!_hideDoneButton)
+        else if (!_hideDoneButton && !_detachButtons)
             [alertViewContents addSubview:separatorLineView];
     }
     

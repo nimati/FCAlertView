@@ -85,6 +85,7 @@
 @property BOOL blurBackground;
 @property BOOL bounceAnimations;
 @property BOOL darkTheme;
+@property BOOL detachButtons;
 
 // Default Types of Alerts
 
