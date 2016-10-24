@@ -13,7 +13,7 @@
 @interface ExampleViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, FCAlertViewDelegate, MFMailComposeViewControllerDelegate>
 
 // Thank You for checking out this example app for FCAlertView!
-// TO GET SET UP: Follow Steps 1), 2), 3) and 4) in Example.h and Example.m
+// TO GET SET UP: Follow Steps 1), 2), 3), 4) and 5) in Example.h and Example.m
 // Run the App on the Simulator or Your Device to Get an idea of what you could do with FCAlertView
 
 // Customizations
