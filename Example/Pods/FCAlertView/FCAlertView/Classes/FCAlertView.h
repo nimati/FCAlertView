@@ -166,6 +166,13 @@ typedef void (^FCTextReturnBlock)(NSString *text);
 @property (nonatomic, retain)  UIColor * titleColor;
 @property (nonatomic, retain)  UIColor * subTitleColor;
 
+@property (nonatomic, retain)  UIColor * doneButtonTitleColor;
+
+@property (nonatomic, retain)  UIColor * firstButtonTitleColor;
+@property (nonatomic, retain)  UIColor * firstButtonBackgroundColor;
+
+@property (nonatomic, retain)  UIColor * secondButtonTitleColor;
+@property (nonatomic, retain)  UIColor * secondButtonBackgroundColor;
 // Preset Flat Colors
 
 @property (nonatomic, retain) UIColor * flatTurquoise;

@@ -131,7 +131,7 @@ alert.colorScheme = [UIColor colorWithRed:150.0f/255.0f green:150.0f/255.0f blue
 If you add a custom image to your alert, it will be tinted with the color scheme by default. To keep this from happening, add this:
 
 ```Objective-C
-alert.avoidCustomImageTint = 1; // Off by default
+alert.avoidCustomImageTint = YES; // Off by default
 ```
 
 FCAlertView also comes with a set of pre-made colors that you can use:
@@ -247,7 +247,7 @@ Please note that hiding Done/Dismiss Button and/or Hiding All Buttons would trig
 Simply adds a blur to the background of the window/view behind the alertview:
 
 ```Objective-C
-alert.blurBackground = 1;
+alert.blurBackground = YES;
 ```
 
 ### Bounce/Natural Animations
@@ -255,7 +255,7 @@ alert.blurBackground = 1;
 Adds more natural animations to the alertview, such as reactive bounce buttons and more. Add this line:
 
 ```Objective-C
-alert.bounceAnimations = 1;
+alert.bounceAnimations = YES;
 ```
 ### Adding TextFields
 

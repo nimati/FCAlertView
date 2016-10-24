@@ -794,6 +794,8 @@
         NSLog(@"Rating Returned:%ld", (long)rating);
     }];
     
+    alert.detachButtons = 1;
+    
     [alert showAlertInView:self
                  withTitle:_alertTitle
               withSubtitle:@"This is my alert's subtitle. Keep it short and concise. 😜"

@@ -491,6 +491,8 @@
         doneButton.titleLabel.font = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
         if (_colorScheme != nil || _darkTheme)
             doneButton.tintColor = [UIColor whiteColor];
+        if (self.doneButtonTitleColor != nil)
+            doneButton.tintColor = self.doneButtonTitleColor;
         
         if (!_hideAllButtons && !_hideDoneButton)
             [alertView addSubview:doneButton];
@@ -528,6 +530,8 @@
         doneButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightMedium];
         if (_colorScheme != nil || _darkTheme)
             doneButton.tintColor = [UIColor whiteColor];
+        if (self.doneButtonTitleColor != nil)
+            doneButton.tintColor = self.doneButtonTitleColor;
         
         UIButton *otherButton = [UIButton buttonWithType:UIButtonTypeSystem];
         otherButton.backgroundColor = [UIColor whiteColor];
@@ -535,6 +539,9 @@
             otherButton.backgroundColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
         if (_darkTheme)
             otherButton.backgroundColor = [UIColor colorWithWhite:78.0f/255.0f alpha:1.0];
+        if (self.firstButtonBackgroundColor != nil)
+            otherButton.backgroundColor = self.firstButtonBackgroundColor;
+
         otherButton.frame = CGRectMake(0,
                                        alertViewFrame.size.height - 45,
                                        alertViewFrame.size.width/2,
@@ -562,6 +569,9 @@
         otherButton.tintColor = self.colorScheme;
         if (self.colorScheme == nil && _darkTheme)
             otherButton.tintColor = [UIColor whiteColor];
+        if (self.firstButtonTitleColor != nil)
+            otherButton.tintColor = self.firstButtonTitleColor;
+
         otherButton.titleLabel.adjustsFontSizeToFitWidth = YES;
         otherButton.titleLabel.minimumScaleFactor = 0.8;
         
@@ -604,6 +614,9 @@
             firstButton.backgroundColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
         if (_darkTheme)
             firstButton.backgroundColor = [UIColor colorWithWhite:78.0f/255.0f alpha:1.0];
+        if (self.firstButtonBackgroundColor != nil)
+            firstButton.backgroundColor = self.firstButtonBackgroundColor;
+        
         firstButton.frame = CGRectMake(0,
                                        alertViewFrame.size.height - 135,
                                        alertViewFrame.size.width,
@@ -632,6 +645,9 @@
         firstButton.tintColor = self.colorScheme;
         if (self.colorScheme == nil && _darkTheme)
             firstButton.tintColor = [UIColor whiteColor];
+        if (self.firstButtonTitleColor != nil)
+            firstButton.tintColor = self.firstButtonTitleColor;
+        
         firstButton.titleLabel.adjustsFontSizeToFitWidth = YES;
         firstButton.titleLabel.minimumScaleFactor = 0.8;
         firstButton.tag = 0;
@@ -642,6 +658,9 @@
             secondButton.backgroundColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
         if (_darkTheme)
             secondButton.backgroundColor = [UIColor colorWithWhite:78.0f/255.0f alpha:1.0];
+        if (self.secondButtonBackgroundColor != nil)
+            secondButton.backgroundColor = self.secondButtonBackgroundColor;
+        
         secondButton.frame = CGRectMake(0,
                                         alertViewFrame.size.height - 90,
                                         alertViewFrame.size.width,
@@ -669,6 +688,9 @@
         secondButton.tintColor = self.colorScheme;
         if (self.colorScheme == nil && _darkTheme)
             secondButton.tintColor = [UIColor whiteColor];
+        if (self.secondButtonTitleColor != nil)
+            secondButton.tintColor = self.secondButtonTitleColor;
+        
         secondButton.titleLabel.adjustsFontSizeToFitWidth = YES;
         secondButton.titleLabel.minimumScaleFactor = 0.8;
         secondButton.tag = 1;
@@ -704,6 +726,8 @@
         doneButton.titleLabel.font = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
         if (_colorScheme != nil || _darkTheme)
             doneButton.tintColor = [UIColor whiteColor];
+        if (self.doneButtonTitleColor != nil)
+            doneButton.tintColor = self.doneButtonTitleColor;
         
         if (!_hideAllButtons) {
             [alertView addSubview:firstButton];
