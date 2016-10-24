@@ -49,6 +49,20 @@
     // Alert AudioPlayer
     
     AVAudioPlayer *player;
+    
+    // Alert Rating Types
+    
+    NSInteger alertTypeRatingHearts;
+    NSInteger alertTypeRatingStars;
+    
+    UIView *ratingController;
+    UIButton *item1;
+    UIButton *item2;
+    UIButton *item3;
+    UIButton *item4;
+    UIButton *item5;
+    
+    NSInteger currentRating;
 
 }
 
@@ -93,6 +107,12 @@
 - (void) makeAlertTypeCaution;
 - (void) makeAlertTypeSuccess;
 - (void) makeAlertTypeProgress;
+
+typedef void (^FCRatingBlock)(NSInteger rating);
+@property (nonatomic, copy) FCRatingBlock ratingBlock;
+
+- (void) makeAlertTypeRateHearts:(FCRatingBlock)ratingBlock;
+- (void) makeAlertTypeRateStars:(FCRatingBlock)ratingBlock;
 
 // Alert Animation Types
 

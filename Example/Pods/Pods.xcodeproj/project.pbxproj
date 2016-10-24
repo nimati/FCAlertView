@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0298F253C2A203ED34767414369F0911 /* checkmark-round.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA6B542F46B6E63D836A7E233C24C34 /* checkmark-round.png */; };
+		3C890FF61DBD9B6F00A0E639 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C890FF21DBD9B4200A0E639 /* heart.png */; };
+		3C890FF71DBD9B6F00A0E639 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C890FF31DBD9B4200A0E639 /* star.png */; };
 		4857C596162532B48BC78AA5C9BE49A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		53F5CAC83BCB432C59463B43959E63B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		5EF5AB086B2A5B2F8B97B26842D87CD3 /* FCAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A152DB51EEEB3091759892581A0B14FC /* FCAlertView.bundle */; };
@@ -49,6 +51,8 @@
 		265E0A616E04F91972A8CD2566C1DC93 /* Pods_FCAlertView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FCAlertView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EA3A1A89026B910FDEB1B146CABAB3C /* Pods-FCAlertView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FCAlertView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		398F88D5DEE81F449D1C6E77875CF98A /* Pods-FCAlertView_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FCAlertView_Example-resources.sh"; sourceTree = "<group>"; };
+		3C890FF21DBD9B4200A0E639 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heart.png; path = FCAlertView/Assets/heart.png; sourceTree = "<group>"; };
+		3C890FF31DBD9B4200A0E639 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = FCAlertView/Assets/star.png; sourceTree = "<group>"; };
 		41A8F02FB2F6ACCA7DEE48931012C27D /* Pods-FCAlertView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FCAlertView_Tests-umbrella.h"; sourceTree = "<group>"; };
 		4C31D5AC0965C827B99B817ED68F9DEA /* Pods-FCAlertView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FCAlertView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		4ED6C93DC0911243662AB9037F22F832 /* Pods-FCAlertView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FCAlertView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				DEDE75F091FD35392BBD1A8157EEF72F /* alert-round.png */,
+				3C890FF21DBD9B4200A0E639 /* heart.png */,
+				3C890FF31DBD9B4200A0E639 /* star.png */,
 				DFA6B542F46B6E63D836A7E233C24C34 /* checkmark-round.png */,
 				0EA62431B0ECAE02C03BD8888DD12851 /* close-round.png */,
 			);
@@ -380,6 +386,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C890FF61DBD9B6F00A0E639 /* heart.png in Resources */,
+				3C890FF71DBD9B6F00A0E639 /* star.png in Resources */,
 				C9544876EE83B9F175CA4CEFA97585F3 /* alert-round.png in Resources */,
 				0298F253C2A203ED34767414369F0911 /* checkmark-round.png in Resources */,
 				FC98690F19EFB5193D209491CA6464DB /* close-round.png in Resources */,

@@ -178,6 +178,50 @@
 
 #pragma mark - Touch Events
 
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [touches anyObject];
+    
+    if([item1 pointInside:[touch locationInView:item1] withEvent:nil]){
+        [self rate1Triggered];
+    }
+    if([item2 pointInside:[touch locationInView:item2] withEvent:nil]){
+        [self rate2Triggered];
+    }
+    if([item3 pointInside:[touch locationInView:item3] withEvent:nil]){
+        [self rate3Triggered];
+    }
+    if([item4 pointInside:[touch locationInView:item4] withEvent:nil]){
+        [self rate4Triggered];
+    }
+    if([item5 pointInside:[touch locationInView:item5] withEvent:nil]){
+        [self rate5Triggered];
+    }
+    
+}
+
+-(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [touches anyObject];
+    
+    if([item1 pointInside:[touch locationInView:item1] withEvent:nil]){
+        [self rate1Triggered];
+    }
+    if([item2 pointInside:[touch locationInView:item2] withEvent:nil]){
+        [self rate2Triggered];
+    }
+    if([item3 pointInside:[touch locationInView:item3] withEvent:nil]){
+        [self rate3Triggered];
+    }
+    if([item4 pointInside:[touch locationInView:item4] withEvent:nil]){
+        [self rate4Triggered];
+    }
+    if([item5 pointInside:[touch locationInView:item5] withEvent:nil]){
+        [self rate5Triggered];
+    }
+    
+}
+
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
     UITouch *touch = [touches anyObject];
@@ -256,6 +300,12 @@
                                     self.frame.size.height/2 - ((alertViewFrame.size.height - 50 + 140)/2),
                                     result.width - defaultSpacing,
                                     alertViewFrame.size.height);
+    
+    if (alertTypeRatingStars || alertTypeRatingHearts)
+        alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
+                                    self.frame.size.height/2 - ((alertViewFrame.size.height - 50 + 140)/2),
+                                    result.width - defaultSpacing,
+                                    alertViewFrame.size.height + 40);
     
     // Landscape Orientation Width Fix
     
@@ -800,6 +850,83 @@
                                                  alertViewFrame.size.height);
     }
     
+    // ADDING RATING SYSTEM
+    
+     ratingController = [[UIView alloc] initWithFrame:CGRectMake(20,
+                                                                        descriptionLevel + descriptionLabelFrames.size.height + 32.5,
+                                                                        alertViewFrame.size.width - 40,
+                                                                        40)];
+    
+    CGFloat spacingBetween = (ratingController.frame.size.width - (40*4))/5;
+    
+    UIImage *starImage = [[self loadImageFromResourceBundle:@"star.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *heartImage = [[self loadImageFromResourceBundle:@"heart.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+
+    item1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    item1.tintColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
+    item1.frame = CGRectMake(40*0 + spacingBetween, 0, 40.0f, 40.0f);
+    item1.userInteractionEnabled = 0;
+    
+    item2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    item2.tintColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
+    item2.frame = CGRectMake(40*1 + spacingBetween, 0, 40.0f, 40.0f);
+    item2.userInteractionEnabled = 0;
+
+    item3 = [UIButton buttonWithType:UIButtonTypeCustom];
+    item3.tintColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
+    item3.frame = CGRectMake(40*2 + spacingBetween, 0, 40.0f, 40.0f);
+    item3.userInteractionEnabled = 0;
+
+    item4 = [UIButton buttonWithType:UIButtonTypeCustom];
+    item4.tintColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
+    item4.frame = CGRectMake(40*3 + spacingBetween, 0, 40.0f, 40.0f);
+    item4.userInteractionEnabled = 0;
+
+    item5 = [UIButton buttonWithType:UIButtonTypeCustom];
+    item5.tintColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
+    item5.frame = CGRectMake(40*4 + spacingBetween, 0, 40.0f, 40.0f);
+    item5.userInteractionEnabled = 0;
+
+    if (alertTypeRatingHearts) {
+        [item1 setImage:heartImage forState:UIControlStateNormal];
+        [item2 setImage:heartImage forState:UIControlStateNormal];
+        [item3 setImage:heartImage forState:UIControlStateNormal];
+        [item4 setImage:heartImage forState:UIControlStateNormal];
+        [item5 setImage:heartImage forState:UIControlStateNormal];
+    }
+    
+    if (alertTypeRatingStars) {
+        [item1 setImage:starImage forState:UIControlStateNormal];
+        [item2 setImage:starImage forState:UIControlStateNormal];
+        [item3 setImage:starImage forState:UIControlStateNormal];
+        [item4 setImage:starImage forState:UIControlStateNormal];
+        [item5 setImage:starImage forState:UIControlStateNormal];
+    }
+    
+//    [item1 addTarget:self action:@selector(rate1Triggered) forControlEvents:UIControlEventTouchUpInside];
+//    
+//    [item2 addTarget:self action:@selector(rate2Triggered) forControlEvents:UIControlEventTouchUpInside];
+//
+//    [item3 addTarget:self action:@selector(rate3Triggered) forControlEvents:UIControlEventTouchUpInside];
+//
+//    [item4 addTarget:self action:@selector(rate4Triggered) forControlEvents:UIControlEventTouchUpInside];
+//
+//    [item5 addTarget:self action:@selector(rate5Triggered) forControlEvents:UIControlEventTouchUpInside];
+
+    item1.adjustsImageWhenHighlighted = NO;
+    item2.adjustsImageWhenHighlighted = NO;
+    item3.adjustsImageWhenHighlighted = NO;
+    item4.adjustsImageWhenHighlighted = NO;
+    item5.adjustsImageWhenHighlighted = NO;
+    
+    [ratingController addSubview:item1];
+    [ratingController addSubview:item2];
+    [ratingController addSubview:item3];
+    [ratingController addSubview:item4];
+    [ratingController addSubview:item5];
+
+    [alertViewContents addSubview:ratingController];
+    
     // APPLYING SHADOW
     
     [self.layer setShadowColor:[UIColor blackColor].CGColor];
@@ -825,6 +952,8 @@
     [self showAlertView];
     
 }
+
+#pragma mark - Getting Resources from Bundle
 
 +(NSBundle *)getResourcesBundle
 {
@@ -877,6 +1006,24 @@
     [circleLayer setFillColor:[self.colorScheme CGColor]];
     alertViewWithVector = 1;
     alertType = @"Progress";
+}
+
+- (void) makeAlertTypeRateHearts:(FCRatingBlock)ratingBlock {
+    _ratingBlock = ratingBlock;
+    vectorImage = [self loadImageFromResourceBundle:@"heart.png"];
+    alertViewWithVector = 1;
+    alertTypeRatingHearts = 1;
+    alertTypeRatingStars = 0;
+    self.colorScheme = [UIColor colorWithRed:228.0f/255.0f green:77.0f/255.0f blue:65.0f/255.0f alpha:1.0];
+}
+
+- (void) makeAlertTypeRateStars:(FCRatingBlock)ratingBlock {
+    _ratingBlock = ratingBlock;
+    vectorImage = [self loadImageFromResourceBundle:@"star.png"];
+    alertViewWithVector = 1;
+    alertTypeRatingStars = 1;
+    alertTypeRatingHearts = 0;
+    self.colorScheme = [UIColor colorWithRed:234.0f/255.0f green:201.0f/255.0f blue:77.0f/255.0f alpha:1.0];
 }
 
 #pragma mark - Play Sound with Alert
@@ -1207,6 +1354,11 @@
     if (textReturnBlock)
         textReturnBlock(_textField.text);
     
+    // Return Rating from Rating Controller
+    
+    if (_ratingBlock)
+        _ratingBlock(currentRating);
+    
     [self dismissAlertView];
     
 }
@@ -1242,6 +1394,11 @@
     NSString *textF = _textField.text;
     if (textReturnBlock)
         textReturnBlock(_textField.text);
+    
+    // Return Rating from Rating Controller
+    
+    if (_ratingBlock)
+        _ratingBlock(currentRating);
     
     [self dismissAlertView];
     
@@ -1320,6 +1477,79 @@
 -(void)textChanged:(UITextField *)textField
 {
     
+    
+}
+
+
+#pragma mark - Rating System Trigger Methods
+
+- (void) rate1Triggered {
+    if (currentRating != 1) {
+        currentRating = 1;
+        [self setActiveRating:currentRating];
+    } else {
+        currentRating = 0;
+        [self setActiveRating:currentRating];
+    }
+}
+
+- (void) rate2Triggered {
+    currentRating = 2;
+    [self setActiveRating:currentRating];
+}
+
+- (void) rate3Triggered {
+    currentRating = 3;
+    [self setActiveRating:currentRating];
+}
+
+- (void) rate4Triggered {
+    currentRating = 4;
+    [self setActiveRating:currentRating];
+}
+
+- (void) rate5Triggered {
+    currentRating = 5;
+    [self setActiveRating:currentRating];
+}
+
+- (void) setActiveRating:(NSInteger)rating {
+    
+    item1.tintColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
+    item2.tintColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
+    item3.tintColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
+    item4.tintColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
+    item5.tintColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
+    
+    if (rating == 1) {
+        item1.tintColor = self.colorScheme;
+    }
+    
+    if (rating == 2) {
+        item1.tintColor = self.colorScheme;
+        item2.tintColor = self.colorScheme;
+    }
+    
+    if (rating == 3) {
+        item1.tintColor = self.colorScheme;
+        item2.tintColor = self.colorScheme;
+        item3.tintColor = self.colorScheme;
+    }
+    
+    if (rating == 4) {
+        item1.tintColor = self.colorScheme;
+        item2.tintColor = self.colorScheme;
+        item3.tintColor = self.colorScheme;
+        item4.tintColor = self.colorScheme;
+    }
+    
+    if (rating == 5) {
+        item1.tintColor = self.colorScheme;
+        item2.tintColor = self.colorScheme;
+        item3.tintColor = self.colorScheme;
+        item4.tintColor = self.colorScheme;
+        item5.tintColor = self.colorScheme;
+    }
     
 }
 
