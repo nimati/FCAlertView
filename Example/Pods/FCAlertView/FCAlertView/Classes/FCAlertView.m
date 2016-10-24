@@ -926,16 +926,6 @@
         [item4 setImage:starImage forState:UIControlStateNormal];
         [item5 setImage:starImage forState:UIControlStateNormal];
     }
-    
-//    [item1 addTarget:self action:@selector(rate1Triggered) forControlEvents:UIControlEventTouchUpInside];
-//    
-//    [item2 addTarget:self action:@selector(rate2Triggered) forControlEvents:UIControlEventTouchUpInside];
-//
-//    [item3 addTarget:self action:@selector(rate3Triggered) forControlEvents:UIControlEventTouchUpInside];
-//
-//    [item4 addTarget:self action:@selector(rate4Triggered) forControlEvents:UIControlEventTouchUpInside];
-//
-//    [item5 addTarget:self action:@selector(rate5Triggered) forControlEvents:UIControlEventTouchUpInside];
 
     item1.adjustsImageWhenHighlighted = NO;
     item2.adjustsImageWhenHighlighted = NO;
