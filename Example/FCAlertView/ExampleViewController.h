@@ -19,9 +19,13 @@
 // Customizations
 
 @property (strong, nonatomic) NSMutableArray *alertViewOptions;
-@property (strong, nonatomic) NSMutableArray *alertViewLatestOptions;
 @property (strong, nonatomic) NSArray *alertViewOptionsOriginal;
+
+@property (strong, nonatomic) NSMutableArray *alertViewLatestOptions;
 @property (strong, nonatomic) NSArray *alertViewLatestOptionsOriginal;
+
+@property (strong, nonatomic) NSMutableArray *alertViewAnimationOptions;
+@property (strong, nonatomic) NSArray *alertViewAnimationOptionsOriginal;
 
 @property UIColor *themeColor;
 @property UIColor *redColor;

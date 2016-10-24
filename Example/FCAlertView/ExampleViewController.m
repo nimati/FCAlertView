@@ -17,11 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _headerHeight = 230;
+
+    // Orientation Detection for Example App
+    
     [[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(orientationChanged:)    name:UIDeviceOrientationDidChangeNotification  object:nil];
 
-    
-    _headerHeight = 230;
-    
     // SETTING COLORS OF BUTTONS FOR THIS EXAMPLE VIEWCONTROLLER - Not related to FCAlertView
     
     self.redColor = [UIColor colorWithRed:190.0f/255.0f green:0.0f blue:0.0f alpha:1.0f];
@@ -31,6 +32,8 @@
     // LIST OF ALL CUSTOMIZATION YOU CAN MAKE - Used For this Example App
     
     _alertViewOptions = [[NSMutableArray alloc] init];
+    _alertViewLatestOptions = [[NSMutableArray alloc] init];
+    _alertViewAnimationOptions = [[NSMutableArray alloc] init];
     
     _alertViewLatestOptionsOriginal = @[@{@"title" : @"Blur Background",
                                           @"description" : @"Turn on to add a blur effect to your view's background.",
@@ -52,6 +55,18 @@
                                           @"selection" : @[@"Off", @"On"]},
                                         @{@"title" : @"Alert Sound",
                                           @"description" : @"Turn on to play a custom sound when the alert opens.",
+                                          @"setting" : @"Off",
+                                          @"status" : @0,
+                                          @"customIndicator" : @0,
+                                          @"selection" : @[@"Off", @"On"]},
+                                        @{@"title" : @"Dark Theme",
+                                          @"description" : @"Turn the alert into a dark color scheme to match the app.",
+                                          @"setting" : @"Off",
+                                          @"status" : @0,
+                                          @"customIndicator" : @0,
+                                          @"selection" : @[@"Off", @"On"]},
+                                        @{@"title" : @"Round Buttons",
+                                          @"description" : @"Detach Buttons from alert and make them more round.",
                                           @"setting" : @"Off",
                                           @"status" : @0,
                                           @"customIndicator" : @0,
@@ -136,8 +151,22 @@
                                     @"customIndicator" : @0,
                                     @"selection" : @[@"Off", @"On"]}];
     
+    _alertViewAnimationOptionsOriginal = @[@{@"title" : @"Animate In",
+                                             @"description" : @"Animate the Alert In from Top, Right, Bottom, or Left.",
+                                             @"setting" : @"Off",
+                                             @"status" : @0,
+                                             @"customIndicator" : @0,
+                                             @"selection" : @[@"Off", @"Top", @"Right", @"Bottom", @"Left"]},
+                                           @{@"title" : @"Animate Out",
+                                             @"description" : @"Animate the Alert Out to Top, Right, Bottom, or Left.",
+                                             @"setting" : @"Off",
+                                             @"status" : @0,
+                                             @"customIndicator" : @0,
+                                             @"selection" : @[@"Off", @"Top", @"Right", @"Bottom", @"Left"]}];
+    
     _alertViewOptions = [_alertViewOptionsOriginal mutableCopy];
     _alertViewLatestOptions = [_alertViewLatestOptionsOriginal mutableCopy];
+    _alertViewAnimationOptions = [_alertViewAnimationOptionsOriginal mutableCopy];
     
     // NAV BAR SETTINGS
     
@@ -165,7 +194,7 @@
 #pragma mark - TableView Datasource Changes
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -173,6 +202,8 @@
         return _alertViewLatestOptions.count;
     else if (section == 1)
         return _alertViewOptions.count;
+    else if (section == 2)
+        return _alertViewAnimationOptions.count;
     else
         return 0;
 }
@@ -233,6 +264,21 @@
                 
             }
             
+        } else if (indexPath.section == 2) {
+            
+            if (![[[_alertViewAnimationOptions objectAtIndex:indexPath.row] objectForKey:@"customIndicator"] isEqual:@1]) {
+                if ([[[_alertViewAnimationOptions objectAtIndex:indexPath.row] objectForKey:@"status"] isEqual:@0])
+                    [circleLayer setFillColor:[_redColor CGColor]];
+                else
+                    [circleLayer setFillColor:[_greenColor CGColor]];
+            } else {
+                NSString *selectedColor = [[[_alertViewAnimationOptions objectAtIndex:indexPath.row] objectForKey:@"selection"]
+                                           objectAtIndex:[[[_alertViewAnimationOptions objectAtIndex:indexPath.row] objectForKey:@"status"] integerValue]];
+                
+                [circleLayer setFillColor:[[self checkFlatColors:selectedColor] CGColor]];
+                
+            }
+            
         }
         
         // Option Title Label
@@ -246,7 +292,9 @@
             optionTitle.text = [[_alertViewLatestOptions objectAtIndex:indexPath.row] objectForKey:@"title"];
         else if (indexPath.section == 1)
             optionTitle.text = [[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"title"];
-        
+        else if (indexPath.section == 2)
+            optionTitle.text = [[_alertViewAnimationOptions objectAtIndex:indexPath.row] objectForKey:@"title"];
+
         // Option Description Label
         
         UILabel *optionDesc = [[UILabel alloc] initWithFrame:CGRectMake(25.0f, 25.0f, self.tableView.frame.size.width - 160.0f, 50.0f)];
@@ -258,7 +306,9 @@
             optionDesc.text = [[_alertViewLatestOptions objectAtIndex:indexPath.row] objectForKey:@"description"];
         else if (indexPath.section == 1)
             optionDesc.text = [[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"description"];
-        
+        else if (indexPath.section == 2)
+            optionDesc.text = [[_alertViewAnimationOptions objectAtIndex:indexPath.row] objectForKey:@"description"];
+
         // Option Setting Label
         
         NSString *selectedSetting;
@@ -267,7 +317,9 @@
             selectedSetting = [[_alertViewLatestOptions objectAtIndex:indexPath.row] objectForKey:@"setting"];
         else if (indexPath.section == 1)
             selectedSetting = [[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"setting"];
-        
+        else if (indexPath.section == 2)
+            selectedSetting = [[_alertViewAnimationOptions objectAtIndex:indexPath.row] objectForKey:@"setting"];
+
         UILabel *optionSetting = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width - 35.0f, 80.0f)];
         optionSetting.numberOfLines = 1;
         optionSetting.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
@@ -301,7 +353,9 @@
         selectedCell = [[_alertViewLatestOptions objectAtIndex:indexPath.row] mutableCopy];
     else if (indexPath.section == 1)
         selectedCell = [[_alertViewOptions objectAtIndex:indexPath.row] mutableCopy];
-    
+    else if (indexPath.section == 2)
+        selectedCell = [[_alertViewAnimationOptions objectAtIndex:indexPath.row] mutableCopy];
+
     NSInteger status = [[selectedCell objectForKey:@"status"] integerValue];
     NSArray *selection = [selectedCell objectForKey:@"selection"];
     
@@ -315,14 +369,18 @@
         selectedSetting = [[[_alertViewLatestOptions objectAtIndex:indexPath.row] objectForKey:@"selection"] objectAtIndex:status];
     else if (indexPath.section == 1)
         selectedSetting = [[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"selection"] objectAtIndex:status];
-    
+    else if (indexPath.section == 2)
+        selectedSetting = [[[_alertViewAnimationOptions objectAtIndex:indexPath.row] objectForKey:@"selection"] objectAtIndex:status];
+
     [selectedCell setObject:selectedSetting forKey:@"setting"];
     
     if (indexPath.section == 0)
         [_alertViewLatestOptions replaceObjectAtIndex:indexPath.row withObject:selectedCell];
     else if (indexPath.section == 1)
         [_alertViewOptions replaceObjectAtIndex:indexPath.row withObject:selectedCell];
-    
+    else if (indexPath.section == 2)
+        [_alertViewAnimationOptions replaceObjectAtIndex:indexPath.row withObject:selectedCell];
+
     NSLog(@"For: %@ Now Selected: %@", [selectedCell objectForKey:@"title"], [selection objectAtIndex:status]);
     
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
@@ -361,6 +419,18 @@
             NSLog(@"For: %@ Reset to: %@",
                   [selectedCell objectForKey:@"title"],
                   [[_alertViewOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"setting"]);
+        
+        } else if (indexPath.section == 2) {
+            
+            selectedCell = [[_alertViewAnimationOptions objectAtIndex:indexPath.row] mutableCopy];
+            [selectedCell setObject:[[_alertViewAnimationOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"status"] forKey:@"status"];
+            [selectedCell setObject:[[_alertViewAnimationOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"setting"] forKey:@"setting"];
+            [_alertViewAnimationOptions replaceObjectAtIndex:indexPath.row withObject:selectedCell];
+            
+            NSLog(@"For: %@ Reset to: %@",
+                  [selectedCell objectForKey:@"title"],
+                  [[_alertViewAnimationOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"setting"]);
+            
         }
         
         [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
@@ -377,9 +447,36 @@
         headerView.backgroundColor = [UIColor colorWithWhite:239.0f/255.0f alpha:1.0];
         
         UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, headerView.frame.size.width - 60, 20)];
-        headerLabel.text = @"NEW FEATURES • V1.1.0";
+        headerLabel.text = @"NEW FEATURES • V1.2.0";
         
-        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"NEW FEATURES • V1.1.0"];
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"NEW FEATURES • V1.2.0"];
+        [attributedString addAttribute:NSKernAttributeName
+                                 value:@(3.0)
+                                 range:NSMakeRange(0, headerLabel.text.length)];
+        
+        headerLabel.attributedText = attributedString;
+        
+        headerLabel.font = [UIFont systemFontOfSize:14.0f weight:UIFontWeightMedium];
+        headerLabel.textColor = [UIColor colorWithWhite:150.0f/255.0f alpha:1.0];
+        headerLabel.textAlignment = NSTextAlignmentLeft;
+        headerLabel.numberOfLines = 1;
+        headerLabel.backgroundColor = [UIColor clearColor];
+        
+        [headerView addSubview:headerLabel];
+        
+        return headerView;
+     
+    }
+    
+    if (section == 2) {
+    
+        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 120)];
+        headerView.backgroundColor = [UIColor colorWithWhite:239.0f/255.0f alpha:1.0];
+        
+        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, headerView.frame.size.width - 60, 20)];
+        headerLabel.text = @"ANIMATION OPTIONS";
+        
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"ANIMATION OPTIONS"];
         [attributedString addAttribute:NSKernAttributeName
                                  value:@(3.0)
                                  range:NSMakeRange(0, headerLabel.text.length)];
@@ -516,8 +613,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    
-    if (section == 0)
+    if (section == 0 || section == 2)
         return 50;
     else
         return  _headerHeight;
@@ -771,6 +867,53 @@
     
     if (![[[_alertViewLatestOptions objectAtIndex:3] objectForKey:@"setting"] isEqual:@"Off"])
         [alert setAlertSoundWithFileName:@"Elevator Ding.mp3"];
+    
+    // Alert Dark Theme
+    
+    if (![[[_alertViewLatestOptions objectAtIndex:4] objectForKey:@"setting"] isEqual:@"Off"])
+        alert.darkTheme = YES;
+    
+    // Alert Round/Detach Buttons
+    
+    if (![[[_alertViewLatestOptions objectAtIndex:5] objectForKey:@"setting"] isEqual:@"Off"])
+        alert.detachButtons = YES;
+    
+    // ALERT ANIMATIONS SECTION
+    // Animate In Options
+    
+    if ([[[_alertViewAnimationOptions objectAtIndex:0] objectForKey:@"setting"] isEqual:@"Top"]) {
+        alert.animateAlertInFromTop = YES;
+    }
+    
+    if ([[[_alertViewAnimationOptions objectAtIndex:0] objectForKey:@"setting"] isEqual:@"Right"]) {
+        alert.animateAlertInFromRight = YES;
+    }
+    
+    if ([[[_alertViewAnimationOptions objectAtIndex:0] objectForKey:@"setting"] isEqual:@"Bottom"]) {
+        alert.animateAlertInFromBottom = YES;
+    }
+    
+    if ([[[_alertViewAnimationOptions objectAtIndex:0] objectForKey:@"setting"] isEqual:@"Left"]) {
+        alert.animateAlertInFromLeft = YES;
+    }
+    
+    // Animate Out Options
+        
+    if ([[[_alertViewAnimationOptions objectAtIndex:1] objectForKey:@"setting"] isEqual:@"Top"]) {
+        alert.animateAlertOutToTop = YES;
+    }
+    
+    if ([[[_alertViewAnimationOptions objectAtIndex:1] objectForKey:@"setting"] isEqual:@"Right"]) {
+        alert.animateAlertOutToRight = YES;
+    }
+    
+    if ([[[_alertViewAnimationOptions objectAtIndex:1] objectForKey:@"setting"] isEqual:@"Bottom"]) {
+        alert.animateAlertOutToBottom = YES;
+    }
+    
+    if ([[[_alertViewAnimationOptions objectAtIndex:1] objectForKey:@"setting"] isEqual:@"Left"]) {
+        alert.animateAlertOutToLeft = YES;
+    }
     
     // ***** THIS SECTION IS FOR ADDING BUTTONS TO THE ALERT USING THE BLOCK ACTION METHOD *****
     
