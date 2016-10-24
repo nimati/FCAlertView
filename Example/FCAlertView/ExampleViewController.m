@@ -94,11 +94,11 @@
                                     @"customIndicator" : @0,
                                     @"selection" : @[@"Off", @"On"]},
                                   @{@"title" : @"Alert Type",
-                                    @"description" : @"Choose from Pre-Set Success, Caution, and Warning.",
+                                    @"description" : @"Choose from Pre-Set Success, Warning, Heart Rating and more.",
                                     @"setting" : @"Off",
                                     @"status" : @0,
                                     @"customIndicator" : @0,
-                                    @"selection" : @[@"Off", @"Success", @"Caution", @"Warning"]},
+                                    @"selection" : @[@"Off", @"Success", @"Caution", @"Warning", @"Progress", @"Hearts", @"Stars"]},
                                   @{@"title" : @"Number of Buttons",
                                     @"description" : @"You can have upto 2 extra buttons in your alert.",
                                     @"setting" : @"0",
@@ -685,6 +685,19 @@
     
     if ([[[_alertViewOptions objectAtIndex:6] objectForKey:@"setting"] isEqual:@"Warning"])
         [alert makeAlertTypeWarning];
+    
+    if ([[[_alertViewOptions objectAtIndex:6] objectForKey:@"setting"] isEqual:@"Progress"])
+        [alert makeAlertTypeProgress];
+    
+    if ([[[_alertViewOptions objectAtIndex:6] objectForKey:@"setting"] isEqual:@"Hearts"])
+        [alert makeAlertTypeRateHearts:^(NSInteger rating) {
+            NSLog(@"Your Rating: %ld", (long)rating); // Use the Rating as you'd like
+        }];
+    
+    if ([[[_alertViewOptions objectAtIndex:6] objectForKey:@"setting"] isEqual:@"Stars"])
+        [alert makeAlertTypeRateStars:^(NSInteger rating) {
+            NSLog(@"Your Rating: %ld", (long)rating); // Use the Rating as you'd like
+        }];
     
     // Adding Buttons to FCAlertView
     

@@ -180,44 +180,47 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-    UITouch *touch = [touches anyObject];
-    
-    if([item1 pointInside:[touch locationInView:item1] withEvent:nil]){
-        [self rate1Triggered];
+    if (alertTypeRatingStars || alertTypeRatingHearts) {
+        UITouch *touch = [touches anyObject];
+        
+        if([item1 pointInside:[touch locationInView:item1] withEvent:nil]){
+            [self rate1Triggered];
+        }
+        if([item2 pointInside:[touch locationInView:item2] withEvent:nil]){
+            [self rate2Triggered];
+        }
+        if([item3 pointInside:[touch locationInView:item3] withEvent:nil]){
+            [self rate3Triggered];
+        }
+        if([item4 pointInside:[touch locationInView:item4] withEvent:nil]){
+            [self rate4Triggered];
+        }
+        if([item5 pointInside:[touch locationInView:item5] withEvent:nil]){
+            [self rate5Triggered];
+        }
     }
-    if([item2 pointInside:[touch locationInView:item2] withEvent:nil]){
-        [self rate2Triggered];
-    }
-    if([item3 pointInside:[touch locationInView:item3] withEvent:nil]){
-        [self rate3Triggered];
-    }
-    if([item4 pointInside:[touch locationInView:item4] withEvent:nil]){
-        [self rate4Triggered];
-    }
-    if([item5 pointInside:[touch locationInView:item5] withEvent:nil]){
-        [self rate5Triggered];
-    }
-    
 }
 
 -(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-    UITouch *touch = [touches anyObject];
-    
-    if([item1 pointInside:[touch locationInView:item1] withEvent:nil]){
-        [self rate1Triggered];
-    }
-    if([item2 pointInside:[touch locationInView:item2] withEvent:nil]){
-        [self rate2Triggered];
-    }
-    if([item3 pointInside:[touch locationInView:item3] withEvent:nil]){
-        [self rate3Triggered];
-    }
-    if([item4 pointInside:[touch locationInView:item4] withEvent:nil]){
-        [self rate4Triggered];
-    }
-    if([item5 pointInside:[touch locationInView:item5] withEvent:nil]){
-        [self rate5Triggered];
+    if (alertTypeRatingStars || alertTypeRatingHearts) {
+        UITouch *touch = [touches anyObject];
+        
+        if([item1 pointInside:[touch locationInView:item1] withEvent:nil]){
+            [self rate1Triggered];
+        }
+        if([item2 pointInside:[touch locationInView:item2] withEvent:nil]){
+            [self rate2Triggered];
+        }
+        if([item3 pointInside:[touch locationInView:item3] withEvent:nil]){
+            [self rate3Triggered];
+        }
+        if([item4 pointInside:[touch locationInView:item4] withEvent:nil]){
+            [self rate4Triggered];
+        }
+        if([item5 pointInside:[touch locationInView:item5] withEvent:nil]){
+            [self rate5Triggered];
+        }
     }
     
 }
@@ -430,7 +433,7 @@
                                                                          alertViewFrame.size.height - 47,
                                                                          alertViewFrame.size.width,
                                                                          2)];
-
+    
     separatorLineView.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
     if (_darkTheme)
         separatorLineView.backgroundColor = [UIColor colorWithWhite:58.0f/255.0f alpha:1.0];
@@ -541,7 +544,7 @@
             otherButton.backgroundColor = [UIColor colorWithWhite:78.0f/255.0f alpha:1.0];
         if (self.firstButtonBackgroundColor != nil)
             otherButton.backgroundColor = self.firstButtonBackgroundColor;
-
+        
         otherButton.frame = CGRectMake(0,
                                        alertViewFrame.size.height - 45,
                                        alertViewFrame.size.width/2,
@@ -554,9 +557,9 @@
         
         if (_detachButtons) {
             otherButton.frame = CGRectMake(alertViewFrame.size.width/2 - otherButton.frame.size.width + 16 - 6,
-                                          otherButton.frame.origin.y - 5,
-                                          otherButton.frame.size.width - 16,
-                                          40);
+                                           otherButton.frame.origin.y - 5,
+                                           otherButton.frame.size.width - 16,
+                                           40);
             otherButton.layer.cornerRadius = self.cornerRadius;
             otherButton.layer.masksToBounds = YES;
         }
@@ -571,7 +574,7 @@
             otherButton.tintColor = [UIColor whiteColor];
         if (self.firstButtonTitleColor != nil)
             otherButton.tintColor = self.firstButtonTitleColor;
-
+        
         otherButton.titleLabel.adjustsFontSizeToFitWidth = YES;
         otherButton.titleLabel.minimumScaleFactor = 0.8;
         
@@ -590,12 +593,12 @@
         horizontalSeparator.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
         if (_darkTheme)
             horizontalSeparator.backgroundColor = [UIColor colorWithWhite:58.0f/255.0f alpha:1.0];
-            
+        
         UIVisualEffect *blurEffect;
         blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
         if (_darkTheme)
             blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-
+        
         UIVisualEffectView *visualEffectView3;
         visualEffectView3 = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
         visualEffectView3.frame = horizontalSeparator.bounds;
@@ -621,7 +624,7 @@
                                        alertViewFrame.size.height - 135,
                                        alertViewFrame.size.width,
                                        45);
-            
+        
         if (_hideDoneButton)
             firstButton.frame = CGRectMake(0,
                                            alertViewFrame.size.height - 45,
@@ -673,9 +676,9 @@
         
         if (_detachButtons) {
             secondButton.frame = CGRectMake(secondButton.frame.origin.x + 8,
-                                           secondButton.frame.origin.y - 5,
-                                           secondButton.frame.size.width - 16,
-                                           40);
+                                            secondButton.frame.origin.y - 5,
+                                            secondButton.frame.size.width - 16,
+                                            40);
             secondButton.layer.cornerRadius = self.cornerRadius;
             secondButton.layer.masksToBounds = YES;
         }
@@ -744,7 +747,7 @@
         firstSeparator.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
         if (_darkTheme)
             firstSeparator.backgroundColor = [UIColor colorWithWhite:58.0f/255.0f alpha:1.0];
-            
+        
         UIView *secondSeparator = [[UIView alloc] initWithFrame:CGRectMake(0,
                                                                            secondButton.frame.origin.y - 2,
                                                                            alertViewFrame.size.width,
@@ -755,14 +758,14 @@
                                                2,
                                                45);
         secondSeparator.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
-            if (_darkTheme)
-                secondSeparator.backgroundColor = [UIColor colorWithWhite:58.0f/255.0f alpha:1.0];
-                
+        if (_darkTheme)
+            secondSeparator.backgroundColor = [UIColor colorWithWhite:58.0f/255.0f alpha:1.0];
+        
         UIVisualEffect *blurEffect;
         blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
         if (_darkTheme)
             blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-
+        
         UIVisualEffectView *visualEffectView;
         visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
         visualEffectView.frame = firstSeparator.bounds;
@@ -876,16 +879,16 @@
     
     // ADDING RATING SYSTEM
     
-     ratingController = [[UIView alloc] initWithFrame:CGRectMake(20,
-                                                                        descriptionLevel + descriptionLabelFrames.size.height + 32.5,
-                                                                        alertViewFrame.size.width - 40,
-                                                                        40)];
+    ratingController = [[UIView alloc] initWithFrame:CGRectMake(20,
+                                                                descriptionLevel + descriptionLabelFrames.size.height + 32.5,
+                                                                alertViewFrame.size.width - 40,
+                                                                40)];
     
     CGFloat spacingBetween = (ratingController.frame.size.width - (40*4))/5;
     
     UIImage *starImage = [[self loadImageFromResourceBundle:@"star.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     UIImage *heartImage = [[self loadImageFromResourceBundle:@"heart.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-
+    
     item1 = [UIButton buttonWithType:UIButtonTypeCustom];
     item1.tintColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
     item1.frame = CGRectMake(40*0 + spacingBetween, 0, 40.0f, 40.0f);
@@ -895,22 +898,22 @@
     item2.tintColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
     item2.frame = CGRectMake(40*1 + spacingBetween, 0, 40.0f, 40.0f);
     item2.userInteractionEnabled = 0;
-
+    
     item3 = [UIButton buttonWithType:UIButtonTypeCustom];
     item3.tintColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
     item3.frame = CGRectMake(40*2 + spacingBetween, 0, 40.0f, 40.0f);
     item3.userInteractionEnabled = 0;
-
+    
     item4 = [UIButton buttonWithType:UIButtonTypeCustom];
     item4.tintColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
     item4.frame = CGRectMake(40*3 + spacingBetween, 0, 40.0f, 40.0f);
     item4.userInteractionEnabled = 0;
-
+    
     item5 = [UIButton buttonWithType:UIButtonTypeCustom];
     item5.tintColor = [UIColor colorWithWhite:228.0f/255.0f alpha:1.0];
     item5.frame = CGRectMake(40*4 + spacingBetween, 0, 40.0f, 40.0f);
     item5.userInteractionEnabled = 0;
-
+    
     if (alertTypeRatingHearts) {
         [item1 setImage:heartImage forState:UIControlStateNormal];
         [item2 setImage:heartImage forState:UIControlStateNormal];
@@ -926,7 +929,7 @@
         [item4 setImage:starImage forState:UIControlStateNormal];
         [item5 setImage:starImage forState:UIControlStateNormal];
     }
-
+    
     item1.adjustsImageWhenHighlighted = NO;
     item2.adjustsImageWhenHighlighted = NO;
     item3.adjustsImageWhenHighlighted = NO;
@@ -938,8 +941,9 @@
     [ratingController addSubview:item3];
     [ratingController addSubview:item4];
     [ratingController addSubview:item5];
-
-    [alertViewContents addSubview:ratingController];
+    
+    if (alertTypeRatingHearts || alertTypeRatingStars)
+        [alertViewContents addSubview:ratingController];
     
     // APPLYING SHADOW
     
