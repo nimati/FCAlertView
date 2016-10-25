@@ -17,60 +17,19 @@ FCAlertView is a Flat Customizable AlertView, written in Objective C
 ![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot5.png)
 ![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot6.png)
 
-# Full Docs
+# Quick Links
 
 [1. Swift](https://github.com/nimati/FCAlertView#swift)<br />
 [2. Installation](https://github.com/nimati/FCAlertView#installation)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Using Cocoapods](https://github.com/nimati/FCAlertView#using-cocoapods)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Manually](https://github.com/nimati/FCAlertView#manually)<br />
 [3. Example App](https://github.com/nimati/FCAlertView#example)<br />
 [4. Adding FCAlertView](https://github.com/nimati/FCAlertView#adding-fcalertview)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Presenting an FCAlertView](https://github.com/nimati/FCAlertView#presenting-an-fcalertview)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Showing Options](https://github.com/nimati/FCAlertView#showing-options)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[i. By Selecting a specific UIWindow](https://github.com/nimati/FCAlertView#by-selecting-a-specific-uiwindow)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ii. Using UIApplication Window](https://github.com/nimati/FCAlertView#or-just-by-presenting-it-on-the-current-uiapplication-window-this-will-also-bring-your-alert-to-the-front-so-that-keyboard-or-any-other-element-dont-cover-it)<br />
 [5. Base Customizations](https://github.com/nimati/FCAlertView#base-customizations)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Adding Buttons With Action Blocks](https://github.com/nimati/FCAlertView#adding-buttons-with-action-blocks)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Action Block for Done Button](https://github.com/nimati/FCAlertView#action-block-for-done-button)<br />
 [6. Extra Customizations](https://github.com/nimati/FCAlertView#extra-customizations)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Color Scheme](https://github.com/nimati/FCAlertView#color-scheme)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[i. Dark Mode](https://github.com/nimati/FCAlertView#dark-mode)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ii. Title and Subtitle Colors](https://github.com/nimati/FCAlertView#title-and-subtitle-colors)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[iii. Button Colors](https://github.com/nimati/FCAlertView#button-colors)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Rounded Corners](https://github.com/nimati/FCAlertView#rounded-corners)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[c. Alert Types](https://github.com/nimati/FCAlertView#alert-types)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[i. Success](https://github.com/nimati/FCAlertView#success)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ii. Caution](https://github.com/nimati/FCAlertView#caution)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[iii. Warning](https://github.com/nimati/FCAlertView#warning)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[iv. Progress](https://github.com/nimati/FCAlertView#progress)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[v. Rating with Hearts](https://github.com/nimati/FCAlertView#rating-with-hearts)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[vi. Rating with Stars](https://github.com/nimati/FCAlertView#rating-with-stars)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[d. Dismissing FCAlertView](https://github.com/nimati/FCAlertView#dismissing-fcalertview)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[i. Close on Outside Touch](https://github.com/nimati/FCAlertView#close-on-outside-touch)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ii. Auto-Close the Alert](https://github.com/nimati/FCAlertView#close-on-outside-touch)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[iii. Done Button or Any Custom Buttons](https://github.com/nimati/FCAlertView#done-button-or-any-custom-buttons)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[iv. Dismissing it yourself](https://github.com/nimati/FCAlertView#dismissing-it-yourself)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[e. Hiding Done/Dismiss Button](https://github.com/nimati/FCAlertView#hiding-donedismiss-button)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[f. Hiding All Button](https://github.com/nimati/FCAlertView#hiding-all-button)<br />
 [7. New Customizations (after V1.1.0)](https://github.com/nimati/FCAlertView#new-customizations-after-v110)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Blur Background](https://github.com/nimati/FCAlertView#blur-background)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Round Buttons](https://github.com/nimati/FCAlertView#round-buttons)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[c. Sounds](https://github.com/nimati/FCAlertView#sounds)<br />
 [8. Animations](https://github.com/nimati/FCAlertView#animations)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Bounce/Natural Animations](https://github.com/nimati/FCAlertView#bouncenatural-animations)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Animating Alert Into View](https://github.com/nimati/FCAlertView#animating-alert-into-view)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[c. Animating Alert Out of View](https://github.com/nimati/FCAlertView#animating-alert-out-of-view)<br />
 [9. Adding TextFields](https://github.com/nimati/FCAlertView#adding-textfields)<br />
 [10. Button Actions](https://github.com/nimati/FCAlertView#adding-textfields)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Done Button Method](https://github.com/nimati/FCAlertView#done-button-method)<br />
 [11. Other Helper Methods](https://github.com/nimati/FCAlertView#other-helper-methods)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Detect when FCAlertView has been dismissed](https://github.com/nimati/FCAlertView#detect-when-fcalertview-has-been-dismissed)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Detect when FCAlertView is about to present](https://github.com/nimati/FCAlertView#detect-when-fcalertview-is-about-to-present)<br />
-[11. Future Customizations](https://github.com/nimati/FCAlertView#future-customizations)<br />
-[12. About FCAlertView](https://github.com/nimati/FCAlertView#future-customizations)<br />
-[13. The Vision for FC Libraries](https://github.com/nimati/FCAlertView#the-vision-for-fc-libraries)<br />
-[14. Author](https://github.com/nimati/FCAlertView#author)<br />
-[15. License](https://github.com/nimati/FCAlertView#license)<br />
 
 ##Swift
 
