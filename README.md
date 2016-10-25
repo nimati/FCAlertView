@@ -147,6 +147,14 @@ Simply choose the color you'd like to use for your AlertView, and add:
 alert.colorScheme = alert.flatBlue; // Replace "Blue" with your preferred color from the image above
 ```
 
+### Dark Mode
+
+Developers who are working with a dark color scheme app could use one line to turn their FCAlerts into a beautiful dark style of alert with this line:
+
+```Objective-C
+alert.darkTheme = YES;
+```
+
 ### Title and Subtitle Colors
 
 #### Change Title Color by Adding
@@ -159,6 +167,22 @@ alert.titleColor = alertView.flatPurple;
 
 ```Objective-C
 alert.subTitleColor = alertView.flatBlue;
+```
+
+### Button Colors
+
+#### Change Title Color of Buttons
+
+```Objective-C
+alert.firstButtonTitleColor = [UIColor blueColor];
+alert.secondButtonTitleColor = [UIColor blueColor];
+```
+
+#### Change Background Color of Buttons
+
+```Objective-C
+alert.firstButtonBackgroundColor = [UIColor whiteColor];
+alert.secondButtonBackgroundColor = [UIColor blackColor];
 ```
 
 ### AlertView Rounded Corners
@@ -251,6 +275,16 @@ Simply adds a blur to the background of the window/view behind the alertview:
 alert.blurBackground = YES;
 ```
 
+### Round Buttons
+
+If you prefer the buttons to be detached from the box of the alert and look more round, use:
+
+```Objective-C
+alert.detachButtons = YES;
+```
+
+## Animations
+
 ### Bounce/Natural Animations
 
 Adds more natural animations to the alertview, such as reactive bounce buttons and more. Add this line:
@@ -258,6 +292,25 @@ Adds more natural animations to the alertview, such as reactive bounce buttons a
 ```Objective-C
 alert.bounceAnimations = YES;
 ```
+
+### Animating Alert Into View
+
+Have the alert animate in from different directions when presented, instead of the default appear animation.
+
+```Objective-C
+alert.animateAlertInFromTop = YES; // Change "Top" to "Bottom", "Left", or "Right" as you desire
+```
+
+### Animating Alert Out of View
+
+Have the alert animate out to different directions when dismissed, instead of the default disappear animation.
+
+```Objective-C
+alert.animateAlertOutToTop = YES; // Change "Top" to "Bottom", "Left", or "Right" as you desire
+```
+
+## TextFields
+
 ### Adding TextFields
 
 Simply add a single textfield to your alert, by adding this line and get the returned text when any of the AlertView's buttons are pressed:
@@ -382,7 +435,7 @@ FCAlertView is an ongoing project with the goal of becoming the most used custom
 - More Custom Animations ✓
 - More Types of Alerts (including Progress Types) ✓
 - iPad Friendly Alerts (tested on all devices) ✓
-- Improved Button Highlighting and Customizations 
+- Improved Button Highlighting and Customizations ✓
 - Something Missing? Email your suggestion [here](mailto:nima6tahami@gmail.com)
 
 About FCAlertView
