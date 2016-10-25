@@ -216,6 +216,32 @@ FCAlertView comes with 3 pre-designed custom alert types. Success, Caution, or W
 [alert makeAlertTypeWarning];
 ```
 
+#### Progress
+
+```Objective-C
+[alert makeAlertTypeProgress];
+```
+
+#### Rating with Hearts
+
+Simply turns your alert into a rating alert to allow users to rate using hearts.
+
+```Objective-C
+[alert makeAlertTypeRateHearts:^(NSInteger rating) {
+    NSLog(@"Your Hearts Rating: %ld", (long)rating); // Use the Rating as you'd like
+}];
+```
+
+#### Rating with Stars
+
+Simply turns your alert into a rating alert to allow users to rate using stars.
+
+```Objective-C
+[alert makeAlertTypeRateStars:^(NSInteger rating) {
+    NSLog(@"Your Stars Rating: %ld", (long)rating); // Use the Rating as you'd like
+}];
+```
+
 ### Dismissing FCAlertView
 
 There are multiple ways you can dismiss an FCAlertView
@@ -283,6 +309,16 @@ If you prefer the buttons to be detached from the box of the alert and look more
 alert.detachButtons = YES;
 ```
 
+### Sounds
+
+Add the following line to play an audio when the alert opens, simply pass it the name of your audiofile:
+
+```Objective-C
+[alert setAlertSoundWithFileName:@"Ding.mp3"];
+```
+
+**Note:** It's best to add these Frameworks to your project for this to work: ```AVFoundation``` and ```AudioToolbox```.
+
 ## Animations
 
 ### Bounce/Natural Animations
@@ -309,8 +345,6 @@ Have the alert animate out to different directions when dismissed, instead of th
 alert.animateAlertOutToTop = YES; // Change "Top" to "Bottom", "Left", or "Right" as you desire
 ```
 
-## TextFields
-
 ### Adding TextFields
 
 Simply add a single textfield to your alert, by adding this line and get the returned text when any of the AlertView's buttons are pressed:
@@ -320,16 +354,6 @@ Simply add a single textfield to your alert, by adding this line and get the ret
     NSLog(@"The Email Address is: %@", text); // Do what you'd like with the text returned from the field
 }];
 ```
-
-### Sounds
-
-Add the following line to play an audio when the alert opens, simply pass it the name of your audiofile:
-
-```Objective-C
-[alert setAlertSoundWithFileName:@"Ding.mp3"];
-```
-
-**Note:** It's best to add these Frameworks to your project for this to work: ```AVFoundation``` and ```AudioToolbox```.
 
 # Button Actions
 
