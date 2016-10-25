@@ -17,6 +17,14 @@ FCAlertView is a Flat Customizable AlertView, written in Objective C
 ![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot5.png)
 ![BackgroundImage](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot6.png)
 
+# Full Docs
+
+[1. Swift](https://github.com/nimati/FCAlertView#swift)
+[2. Installation](https://github.com/nimati/FCAlertView#installation)
+&nbsp;[a. Using Cocoapods](https://github.com/nimati/FCAlertView#using-cocoapods)
+&nbsp;[b. Manually](https://github.com/nimati/FCAlertView#manually)
+[3. Example App](https://github.com/nimati/FCAlertView#example)
+
 #Swift
 
 For the swift version of FCAlertView, [Click Here](https://github.com/k9101/FCAlertView). Credits to [Kris Penney](https://github.com/k9101) for writting the swift library.
