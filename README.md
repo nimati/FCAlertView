@@ -24,12 +24,59 @@ FCAlertView is a Flat Customizable AlertView, written in Objective C
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Using Cocoapods](https://github.com/nimati/FCAlertView#using-cocoapods)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Manually](https://github.com/nimati/FCAlertView#manually)<br />
 [3. Example App](https://github.com/nimati/FCAlertView#example)<br />
+[4. Adding FCAlertView](https://github.com/nimati/FCAlertView#adding-fcalertview)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Presenting an FCAlertView](https://github.com/nimati/FCAlertView#presenting-an-fcalertview)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Showing Options](https://github.com/nimati/FCAlertView#showing-options)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[i. By Selecting a specific UIWindow](https://github.com/nimati/FCAlertView#by-selecting-a-specific-uiwindow)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ii. Using UIApplication Window](https://github.com/nimati/FCAlertView#or-just-by-presenting-it-on-the-current-uiapplication-window-this-will-also-bring-your-alert-to-the-front-so-that-keyboard-or-any-other-element-dont-cover-it)<br />
+[5. Base Customizations](https://github.com/nimati/FCAlertView#base-customizations)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Adding Buttons With Action Blocks](https://github.com/nimati/FCAlertView#adding-buttons-with-action-blocks)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Action Block for Done Button](https://github.com/nimati/FCAlertView#action-block-for-done-button)<br />
+[6. Extra Customizations](https://github.com/nimati/FCAlertView#extra-customizations)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Color Scheme](https://github.com/nimati/FCAlertView#color-scheme)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[i. Dark Mode](https://github.com/nimati/FCAlertView#dark-mode)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ii. Title and Subtitle Colors](https://github.com/nimati/FCAlertView#title-and-subtitle-colors)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[iii. Button Colors](https://github.com/nimati/FCAlertView#button-colors)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Rounded Corners](https://github.com/nimati/FCAlertView#rounded-corners)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[c. Alert Types](https://github.com/nimati/FCAlertView#alert-types)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[i. Success](https://github.com/nimati/FCAlertView#success)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ii. Caution](https://github.com/nimati/FCAlertView#caution)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[iii. Warning](https://github.com/nimati/FCAlertView#warning)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[iv. Progress](https://github.com/nimati/FCAlertView#progress)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[v. Rating with Hearts](https://github.com/nimati/FCAlertView#rating-with-hearts)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[vi. Rating with Stars](https://github.com/nimati/FCAlertView#rating-with-stars)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[d. Dismissing FCAlertView](https://github.com/nimati/FCAlertView#dismissing-fcalertview)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[i. Close on Outside Touch](https://github.com/nimati/FCAlertView#close-on-outside-touch)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ii. Auto-Close the Alert](https://github.com/nimati/FCAlertView#close-on-outside-touch)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[iii. Done Button or Any Custom Buttons](https://github.com/nimati/FCAlertView#done-button-or-any-custom-buttons)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[iv. Dismissing it yourself](https://github.com/nimati/FCAlertView#dismissing-it-yourself)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[e. Hiding Done/Dismiss Button](https://github.com/nimati/FCAlertView#hiding-donedismiss-button)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[f. Hiding All Button](https://github.com/nimati/FCAlertView#hiding-all-button)<br />
+[7. New Customizations (after V1.1.0)](https://github.com/nimati/FCAlertView#new-customizations-after-v110)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Blur Background](https://github.com/nimati/FCAlertView#blur-background)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Round Buttons](https://github.com/nimati/FCAlertView#round-buttons)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[c. Sounds](https://github.com/nimati/FCAlertView#sounds)<br />
+[8. Animations](https://github.com/nimati/FCAlertView#animations)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Bounce/Natural Animations](https://github.com/nimati/FCAlertView#bouncenatural-animations)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Animating Alert Into View](https://github.com/nimati/FCAlertView#animating-alert-into-view)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[c. Animating Alert Out of View](https://github.com/nimati/FCAlertView#animating-alert-out-of-view)<br />
+[9. Adding TextFields](https://github.com/nimati/FCAlertView#adding-textfields)<br />
+[10. Button Actions](https://github.com/nimati/FCAlertView#adding-textfields)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Done Button Method](https://github.com/nimati/FCAlertView#done-button-method)<br />
+[11. Other Helper Methods](https://github.com/nimati/FCAlertView#other-helper-methods)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Detect when FCAlertView has been dismissed](https://github.com/nimati/FCAlertView#detect-when-fcalertview-has-been-dismissed)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Detect when FCAlertView is about to present](https://github.com/nimati/FCAlertView#detect-when-fcalertview-is-about-to-present)<br />
+[11. Future Customizations](https://github.com/nimati/FCAlertView#future-customizations)<br />
+[12. About FCAlertView](https://github.com/nimati/FCAlertView#future-customizations)<br />
+[13. The Vision for FC Libraries](https://github.com/nimati/FCAlertView#the-vision-for-fc-libraries)<br />
+[14. Author](https://github.com/nimati/FCAlertView#author)<br />
+[15. License](https://github.com/nimati/FCAlertView#license)<br />
 
-#Swift
+##Swift
 
 For the swift version of FCAlertView, [Click Here](https://github.com/k9101/FCAlertView). Credits to [Kris Penney](https://github.com/k9101) for writting the swift library.
 
-#Installation
+##Installation
 
 ### Using CocoaPods
 
@@ -44,11 +91,11 @@ pod 'FCAlertView'
 
 Clone or Download this Repo. Then simply drag the folder ```FCAlertView``` to your Xcode project. Please make sure to drag the whole folder, which includes assets needed for some alert types.
 
-# Example
+## Example
 
 FCAlertView comes with an example app that you can use to try out all of the customizations below. It's recommended that you go through all of the docs before using the example app. To use the example app, clone or download FCAlertView, open and run ```Example/FCAlertView.xcworkspace```.
 
-#Adding FCAlertView
+## Adding FCAlertView
 
 Start by adding the following to your desired View Controller:
 
@@ -70,11 +117,11 @@ FCAlertView *alert = [[FCAlertView alloc] init];
 
 ```
 
-#### Showing Options
+### Showing Options
 
 You can also present your FCAlertView using the following:
 
-##### By Selecting a specific UIWindow
+#### By Selecting a specific UIWindow
 
 ```Objective-C
 [alert showAlertInWidnow:self.view.window
@@ -85,7 +132,9 @@ You can also present your FCAlertView using the following:
             andButtons:nil];
 ```            
 
-##### Or just by presenting it on the current UIApplication Window (this will also bring your alert to the front so that keyboard or any other element don't cover it)
+#### Using UIApplication Window
+
+This method will also bring your alert to the front so that keyboard or any other element don't cover it.
 
 ```Objective-C
 [alert showAlertWithTitle:@"Alert Title"
@@ -95,7 +144,7 @@ You can also present your FCAlertView using the following:
             andButtons:nil];
 ```    
 
-# Base Customizations 
+## Base Customizations 
 
 - **Title (NSString):** You can leave the Title as ```nil``` or Give it an ```NSString```.
 
@@ -107,7 +156,7 @@ You can also present your FCAlertView using the following:
 
 - **Buttons (NSArray of NSStrings):** If you want to add buttons to your alert, simply add an array of 1 or 2 button titles as ```NSString``` here, anything more will be ignored as 2 is the max custom buttons you can add (aside from the done button). Read more about buttons and actions further down.
 
-## Adding Buttons With Action Blocks
+### Adding Buttons With Action Blocks
 
 Alternatively, you can add buttons to FCAlertView with action block like so:
 
@@ -125,7 +174,7 @@ Alternatively, you can add buttons to FCAlertView with action block like so:
 }];
 ```
 
-# Extra Customizations 
+## Extra Customizations 
 
 This section includes all the tiny details that you can customize your alert with, which makes FCAlertView very customizable. Or leave it as is and enjoy the simplicity. 
 
@@ -155,7 +204,7 @@ Simply choose the color you'd like to use for your AlertView, and add:
 alert.colorScheme = alert.flatBlue; // Replace "Blue" with your preferred color from the image above
 ```
 
-### Dark Mode
+#### Dark Mode
 
 Developers who are working with a dark color scheme app could use one line to turn their FCAlerts into a beautiful dark style of alert with this line:
 
@@ -163,37 +212,37 @@ Developers who are working with a dark color scheme app could use one line to tu
 alert.darkTheme = YES;
 ```
 
-### Title and Subtitle Colors
+#### Title and Subtitle Colors
 
-#### Change Title Color by Adding
+Change Title Color by Adding
 
 ```Objective-C
 alert.titleColor = alertView.flatPurple;
 ```
 
-#### Change SubTitle Color by Adding
+Change SubTitle Color by Adding
 
 ```Objective-C
 alert.subTitleColor = alertView.flatBlue;
 ```
 
-### Button Colors
+#### Button Colors
 
-#### Change Title Color of Buttons
+Change Title Color of Buttons
 
 ```Objective-C
 alert.firstButtonTitleColor = [UIColor blueColor];
 alert.secondButtonTitleColor = [UIColor blueColor];
 ```
 
-#### Change Background Color of Buttons
+Change Background Color of Buttons
 
 ```Objective-C
 alert.firstButtonBackgroundColor = [UIColor whiteColor];
 alert.secondButtonBackgroundColor = [UIColor blackColor];
 ```
 
-### AlertView Rounded Corners
+### Rounded Corners
 
 Change the Rounding of the FCAlertView's corners as desired using:
 
@@ -301,6 +350,7 @@ alert.hideAllButtons = YES;
 Please note that hiding Done/Dismiss Button and/or Hiding All Buttons would trigger a safety close mechanism by forcing Close on Outside Touch to stay ON.
 
 ## New Customizations (after V1.1.0)
+
 ### Blur Background
 
 Simply adds a blur to the background of the window/view behind the alertview:
@@ -353,7 +403,7 @@ Have the alert animate out to different directions when dismissed, instead of th
 alert.animateAlertOutToTop = YES; // Change "Top" to "Bottom", "Left", or "Right" as you desire
 ```
 
-### Adding TextFields
+## Adding TextFields
 
 Simply add a single textfield to your alert, by adding this line and get the returned text when any of the AlertView's buttons are pressed:
 
@@ -363,7 +413,7 @@ Simply add a single textfield to your alert, by adding this line and get the ret
 }];
 ```
 
-# Button Actions
+## Button Actions
 
 To add actions to your buttons, if you're not adding buttons with action blocks, you have to first delegate your FCAlertView with your view, and then add a helper method which will detect button touches. Here's how you can add an alert with buttons and perform actions:
 
@@ -418,7 +468,7 @@ If you'd also like to detect button touch for the Done/Dismiss button, simply ad
 }
 ```
 
-# Other Helper Methods
+## Other Helper Methods
 
 Make sure to add ```FCAlertViewDelegate``` to your View Controller's ```@interface``` as such:
 
@@ -454,7 +504,7 @@ and setting the delegate of your FCAlertView, as such:
 }
 ```
 
-# More Customizations
+## Future Customizations
 
 FCAlertView is an ongoing project with the goal of becoming the most used custom AlertView for iOS. Improvements and changes are on the way, and here are some of the things that are coming soon with it:
 
