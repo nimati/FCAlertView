@@ -33,7 +33,7 @@ FCAlertView is a Flat Customizable AlertView, written in Objective C
 
 ##Swift
 
-For the swift version of FCAlertView, [Click Here](https://github.com/k9101/FCAlertView). Credits to [Kris Penney](https://github.com/k9101) for writting the swift library.
+For the swift version of FCAlertView, [Click Here](https://github.com/k9101/FCAlertView). Credits to [Kris Penney](https://github.com/k9101) for writing the swift library.
 
 ##Installation
 
@@ -107,9 +107,9 @@ This method will also bring your alert to the front so that keyboard or any othe
 
 - **Title (NSString):** You can leave the Title as ```nil``` or Give it an ```NSString```.
 
-- **Subtitle (NSString):** FCAlertView always requires a subtitle, even if you want just a few words, add it here instead of the title (then leave the title as nil). *Take a look at [Screenshot 2](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot2.png) for an example*.
+- **Subtitle (NSString):** FCAlertView always requires a subtitle, even if you want just a few words, add it here instead of the title (then leave the title as nil). *Take a look at [this screenshot for an example](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot2.png)*.
 
--  **CustomImage (UIImage):** You can leave this image as ```nil``` or Give it a ```UIImage``` which will show at the top of the alert. *Take a look at [Screenshot 4](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot4.png) for an example*. 
+-  **CustomImage (UIImage):** You can leave this image as ```nil``` or Give it a ```UIImage``` which will show at the top of the alert. *Take a look at [this screenshot for an example](https://github.com/nimati/FCAlertView/blob/master/Images/ScreenShots/ScreenShot4.png) for an example*. 
 
 - **DoneButtonTitle (NSString):** You can leave this as ```nil``` to show "Ok" as the dismiss button for the AlertView, or Give it an ```NSString```.
 
@@ -165,7 +165,7 @@ alert.colorScheme = alert.flatBlue; // Replace "Blue" with your preferred color 
 
 #### Dark Mode
 
-Developers who are working with a dark color scheme app could use one line to turn their FCAlerts into a beautiful dark style of alert with this line:
+Use this line to apply a beautiful dark theme to your FCAlert:
 
 ```Objective-C
 alert.darkTheme = YES;
@@ -212,7 +212,7 @@ alert.cornerRadius = 4; // Replace 4 with your desired corner radius amount (Set
 
 ### Alert Types
 
-FCAlertView comes with 3 pre-designed custom alert types. Success, Caution, or Warning, simply add the one line after initializing FCAlertView.
+FCAlertView comes with 6 pre-designed alert types: Success, Caution, Warning, Progress, Rating with Hearts, or Rating with Stars, simply add the one line after initializing FCAlertView.
 
 #### Success
 
@@ -240,7 +240,7 @@ FCAlertView comes with 3 pre-designed custom alert types. Success, Caution, or W
 
 #### Rating with Hearts
 
-Simply turns your alert into a rating alert to allow users to rate using hearts.
+Turns your alert into a rating alert to allow users to rate using hearts.
 
 ```Objective-C
 [alert makeAlertTypeRateHearts:^(NSInteger rating) {
@@ -250,7 +250,7 @@ Simply turns your alert into a rating alert to allow users to rate using hearts.
 
 #### Rating with Stars
 
-Simply turns your alert into a rating alert to allow users to rate using stars.
+Turns your alert into a rating alert to allow users to rate using stars.
 
 ```Objective-C
 [alert makeAlertTypeRateStars:^(NSInteger rating) {
@@ -334,7 +334,7 @@ Add the following line to play an audio when the alert opens, simply pass it the
 [alert setAlertSoundWithFileName:@"Ding.mp3"];
 ```
 
-**Note:** It's best to add these Frameworks to your project for this to work: ```AVFoundation``` and ```AudioToolbox```.
+**Note:** Add these Frameworks to your project for this to work: ```AVFoundation``` and ```AudioToolbox```.
 
 ## Animations
 
@@ -374,7 +374,7 @@ Simply add a single textfield to your alert, by adding this line and get the ret
 
 ## Button Actions
 
-To add actions to your buttons, if you're not adding buttons with action blocks, you have to first delegate your FCAlertView with your view, and then add a helper method which will detect button touches. Here's how you can add an alert with buttons and perform actions:
+To add methods for detecting actions on your buttons, do the following:
 
 First add ```FCAlertViewDelegate``` to your View Controller's ```@interface``` as such:
 
@@ -477,21 +477,21 @@ FCAlertView is an ongoing project with the goal of becoming the most used custom
 - More Types of Alerts (including Progress Types) ✓
 - iPad Friendly Alerts (tested on all devices) ✓
 - Improved Button Highlighting and Customizations ✓
-- Something Missing? Email your suggestion [here](mailto:nima6tahami@gmail.com)
+- Something Missing? Create a pull request or issue with your suggestion.
 
 About FCAlertView
 -----------------
 
-FCAlertView is a fully customizable and beautifully designed AlertView. I designed FCAlertView because I've always wanted to have access to change the different attributes of the default UIAlertView. Design wise, FCAlertView is similar looking to the default AlertView, however, as you start customizing it for your specific need, you realize it can do a lot more while looking flat and sharp. 
+FCAlertView is a fully customizable and beautifully designed AlertView. I designed FCAlertView because I've always wanted to have access to change the different attributes of the default UIAlertView. In terms of design, FCAlertView looks similar to the default AlertView, however, as you start customizing it for your specific need, you realize it can do a lot more while looking flat and sharp. 
 
 FCAlertView lets you do things such as specify the number of buttons, the color scheme of the view, adding a small image to it, hide the view after a certain time, and more. A full description of how to customize FCAlertView to fit your alert can be found on http://github.com/nimati/FCAlertView.
 
 The Vision for FC Libraries
 ---------------------------
 
-My goal is to create a set of different libraries, each targetting a certain UI element of iOS, with the goal to improve the design and add more customizations. As such, FCAlertView is a more Flat/Customizable AlertView. With this mindset, I'd like to create more FC libraries, such as FCActionSheet, FCNotification (for quick, in app alerts), FCPopoverView, FCGuideView (for guiding your users around your app). If you also have a suggestion for an FC Library, please send it [here](mailto:nima6tahami@gmail.com).
+My goal is to create a set of different libraries, each targetting a certain UI element of iOS, with the goal to improve the design and add more customizations. As such, FCAlertView is a more Flat/Customizable AlertView. With this mindset, I'd like to create more FC libraries, such as FCActionSheet, FCNotification (for quick, in app alerts), FCPopoverView, FCGuideView (for guiding your users around your app). If you also have a suggestion for an FC Library, please open an issue and tell me about it.
 
-> Ultimately, FC Libraries is here to improve the look and feel of your app for your end users. So all improvements and suggestions are welcome.
+Ultimately, FCLibraries is here to improve the look and feel of your app for your end users. So all improvements and suggestions are welcome.
 
 Cheers 🍻
 
