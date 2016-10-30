@@ -337,27 +337,38 @@
                                                                           alertViewFrame.size.width - 50.0f,
                                                                           60.0f)];
     descriptionLabel.font = [UIFont systemFontOfSize:15.0f weight:UIFontWeightLight];
-    descriptionLabel.numberOfLines = 4;
+    descriptionLabel.numberOfLines = 6;
     descriptionLabel.textColor = self.subTitleColor;
     descriptionLabel.text = self.subTitle;
     descriptionLabel.textAlignment = NSTextAlignmentCenter;
-    descriptionLabel.adjustsFontSizeToFitWidth = YES;
+    descriptionLabel.adjustsFontSizeToFitWidth = NO;
     
-    CGSize sizeOfText = [descriptionLabel.text sizeWithFont:descriptionLabel.font
-                                          constrainedToSize:descriptionLabel.frame.size
-                                              lineBreakMode:UILineBreakModeWordWrap];
+    // Re-adjusting Frames based on height of text - Requirement is to not have over 6 lines of text
+    
+    CGSize constraint = CGSizeMake(descriptionLabel.frame.size.width, CGFLOAT_MAX);
+    CGSize sizeOfText;
+    
+    NSStringDrawingContext *context = [[NSStringDrawingContext alloc] init];
+    CGSize boundingBox = [descriptionLabel.text boundingRectWithSize:constraint
+                                                             options:NSStringDrawingUsesLineFragmentOrigin
+                                                          attributes:@{NSFontAttributeName:descriptionLabel.font}
+                                                             context:context].size;
+    
+    sizeOfText = CGSizeMake(ceil(boundingBox.width), MIN(ceil(boundingBox.height), 108));
+    
     int numberOfLines = sizeOfText.height /descriptionLabel.font.pointSize;
     
-    if (numberOfLines == 1) {
-        descriptionLabel.frame = CGRectMake(descriptionLabel.frame.origin.x,
-                                            descriptionLabel.frame.origin.y,
-                                            descriptionLabel.frame.size.width,
-                                            descriptionLabel.frame.size.height - 20);
-        alertViewFrame = CGRectMake(alertViewFrame.origin.x,
-                                    alertViewFrame.origin.y,
-                                    alertViewFrame.size.width,
-                                    alertViewFrame.size.height - 20);
-    }
+    CGFloat heightDiff = descriptionLabel.frame.size.height - sizeOfText.height;
+    
+    descriptionLabel.frame = CGRectMake(descriptionLabel.frame.origin.x,
+                                        descriptionLabel.frame.origin.y + 7.5,
+                                        descriptionLabel.frame.size.width,
+                                        sizeOfText.height);
+    
+    alertViewFrame = CGRectMake(alertViewFrame.origin.x,
+                                alertViewFrame.origin.y,
+                                alertViewFrame.size.width,
+                                alertViewFrame.size.height - heightDiff + 15);
     
     descriptionLabelFrames = descriptionLabel.frame;
     
