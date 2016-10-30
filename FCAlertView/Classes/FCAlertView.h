@@ -49,6 +49,20 @@
     // Alert AudioPlayer
     
     AVAudioPlayer *player;
+    
+    // Alert Rating Types
+    
+    NSInteger alertTypeRatingHearts;
+    NSInteger alertTypeRatingStars;
+    
+    UIView *ratingController;
+    UIButton *item1;
+    UIButton *item2;
+    UIButton *item3;
+    UIButton *item4;
+    UIButton *item5;
+    
+    NSInteger currentRating;
 
 }
 
@@ -84,12 +98,35 @@
 @property BOOL avoidCustomImageTint;
 @property BOOL blurBackground;
 @property BOOL bounceAnimations;
+@property BOOL darkTheme;
+@property BOOL detachButtons;
 
 // Default Types of Alerts
 
 - (void) makeAlertTypeWarning;
 - (void) makeAlertTypeCaution;
 - (void) makeAlertTypeSuccess;
+- (void) makeAlertTypeProgress;
+
+typedef void (^FCRatingBlock)(NSInteger rating);
+@property (nonatomic, copy) FCRatingBlock ratingBlock;
+
+- (void) makeAlertTypeRateHearts:(FCRatingBlock)ratingBlock;
+- (void) makeAlertTypeRateStars:(FCRatingBlock)ratingBlock;
+
+// Alert Animation Types
+
+@property BOOL animateAlertInFromTop;
+@property BOOL animateAlertOutToTop;
+
+@property BOOL animateAlertInFromRight;
+@property BOOL animateAlertOutToRight;
+
+@property BOOL animateAlertInFromBottom;
+@property BOOL animateAlertOutToBottom;
+
+@property BOOL animateAlertInFromLeft;
+@property BOOL animateAlertOutToLeft;
 
 // Play Sound with Alert
 
@@ -129,6 +166,13 @@ typedef void (^FCTextReturnBlock)(NSString *text);
 @property (nonatomic, retain)  UIColor * titleColor;
 @property (nonatomic, retain)  UIColor * subTitleColor;
 
+@property (nonatomic, retain)  UIColor * doneButtonTitleColor;
+
+@property (nonatomic, retain)  UIColor * firstButtonTitleColor;
+@property (nonatomic, retain)  UIColor * firstButtonBackgroundColor;
+
+@property (nonatomic, retain)  UIColor * secondButtonTitleColor;
+@property (nonatomic, retain)  UIColor * secondButtonBackgroundColor;
 // Preset Flat Colors
 
 @property (nonatomic, retain) UIColor * flatTurquoise;
