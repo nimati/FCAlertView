@@ -451,7 +451,7 @@
     
     if (alertTextFields.count > 0) {
         
-        _textField = [[UITextField alloc] initWithFrame:CGRectMake(12.5, descriptionLabel.frame.size.height + descriptionLabel.frame.origin.y + 3, alertViewFrame.size.width - 25, 40)];
+        _textField = [[UITextField alloc] initWithFrame:CGRectMake(12.5, descriptionLabel.frame.size.height + descriptionLabel.frame.origin.y + 10.5, alertViewFrame.size.width - 25, 40)];
         
         _textField.layer.cornerRadius = 3.0f;
         _textField.layer.masksToBounds = YES;
@@ -1497,6 +1497,7 @@
     
     [textField endEditing:YES];
     
+    return TRUE;
 }
 
 #pragma mark - Rating System Trigger Methods
