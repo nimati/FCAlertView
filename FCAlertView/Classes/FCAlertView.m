@@ -113,9 +113,9 @@
             }
             
         }
-    } else {
-        return _customSpacing;
     }
+    
+    return _customSpacing;
     
 }
 
@@ -355,8 +355,6 @@
                                                              context:context].size;
     
     sizeOfText = CGSizeMake(ceil(boundingBox.width), MIN(ceil(boundingBox.height), 108));
-    
-    int numberOfLines = sizeOfText.height /descriptionLabel.font.pointSize;
     
     CGFloat heightDiff = descriptionLabel.frame.size.height - sizeOfText.height;
     
@@ -1422,7 +1420,7 @@
     }
     
     FCTextReturnBlock textReturnBlock = [[alertTextFields firstObject] objectForKey:@"action"];
-    NSString *textF = _textField.text;
+
     if (textReturnBlock)
         textReturnBlock(_textField.text);
     
@@ -1484,8 +1482,6 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     
-    NSString *text = textField.text;
-    
     [UIView animateWithDuration:0.30 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         alertViewContents.frame = CGRectMake(currentAVCFrames.origin.x,
                                              currentAVCFrames.origin.y,
@@ -1502,15 +1498,6 @@
     [textField endEditing:YES];
     
 }
-
-#pragma mark - Text Field Changed
-
--(void)textChanged:(UITextField *)textField
-{
-    
-    
-}
-
 
 #pragma mark - Rating System Trigger Methods
 
