@@ -810,18 +810,20 @@
         [spinner setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
     [spinner startAnimating];
     
-    UIButton *alertViewVector;
+    UIImageView *alertViewVector;
     
-    if (_avoidCustomImageTint && alertType.length == 0)
-        alertViewVector = [UIButton buttonWithType:UIButtonTypeCustom];
-    else
-        alertViewVector = [UIButton buttonWithType:UIButtonTypeSystem];
-    
+    if (_avoidCustomImageTint && alertType.length == 0) {
+        alertViewVector = [[UIImageView alloc] init];
+        alertViewVector.image = vectorImage;
+    } else {
+        alertViewVector = [[UIImageView alloc] init];
+        alertViewVector.image = [vectorImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    }
     alertViewVector.frame = CGRectMake(alertViewContents.frame.size.width/2 - 15.0f,
                                        -15.0f,
                                        30.0f,
                                        30.0f);
-    [alertViewVector setImage:vectorImage forState:UIControlStateNormal];
+    alertViewVector.contentMode = UIViewContentModeScaleAspectFit;
     alertViewVector.userInteractionEnabled = 0;
     alertViewVector.tintColor = _colorScheme;
     
