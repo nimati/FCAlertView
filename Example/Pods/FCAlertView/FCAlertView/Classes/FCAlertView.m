@@ -183,21 +183,24 @@
     if (alertTypeRatingStars || alertTypeRatingHearts) {
         UITouch *touch = [touches anyObject];
         
-        if([item1 pointInside:[touch locationInView:item1] withEvent:nil]){
+        if([item1 pointInside:[touch locationInView:item1] withEvent:nil])
             [self rate1Triggered];
-        }
-        if([item2 pointInside:[touch locationInView:item2] withEvent:nil]){
+          
+        
+        if([item2 pointInside:[touch locationInView:item2] withEvent:nil])
             [self rate2Triggered];
-        }
-        if([item3 pointInside:[touch locationInView:item3] withEvent:nil]){
+        
+        
+        if([item3 pointInside:[touch locationInView:item3] withEvent:nil])
             [self rate3Triggered];
-        }
-        if([item4 pointInside:[touch locationInView:item4] withEvent:nil]){
+            
+        
+        if([item4 pointInside:[touch locationInView:item4] withEvent:nil])
             [self rate4Triggered];
-        }
-        if([item5 pointInside:[touch locationInView:item5] withEvent:nil]){
+        
+        if([item5 pointInside:[touch locationInView:item5] withEvent:nil])
             [self rate5Triggered];
-        }
+            
     }
 }
 
@@ -893,7 +896,7 @@
     // ADDING RATING SYSTEM
     
     ratingController = [[UIView alloc] initWithFrame:CGRectMake(20,
-                                                                descriptionLevel + descriptionLabelFrames.size.height + 32.5,
+                                                                descriptionLevel + descriptionLabelFrames.size.height + 32.5 + 15,
                                                                 alertViewFrame.size.width - 40,
                                                                 40)];
     
@@ -1512,26 +1515,77 @@
         currentRating = 0;
         [self setActiveRating:currentRating];
     }
+    
+    if (_bounceAnimations) {
+        [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            item1.transform = CGAffineTransformMakeScale(0.9, 0.9);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.35 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                item1.transform = CGAffineTransformMakeScale(1.0, 1.0);
+            } completion:nil];
+        }];
+    }
+    
 }
 
 - (void) rate2Triggered {
     currentRating = 2;
     [self setActiveRating:currentRating];
+    
+    if (_bounceAnimations) {
+        [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            item2.transform = CGAffineTransformMakeScale(0.9, 0.9);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.35 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                item2.transform = CGAffineTransformMakeScale(1.0, 1.0);
+            } completion:nil];
+        }];
+    }
 }
 
 - (void) rate3Triggered {
     currentRating = 3;
     [self setActiveRating:currentRating];
+    
+    if (_bounceAnimations) {
+        [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            item3.transform = CGAffineTransformMakeScale(0.9, 0.9);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.35 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                item3.transform = CGAffineTransformMakeScale(1.0, 1.0);
+            } completion:nil];
+        }];
+    }
 }
 
 - (void) rate4Triggered {
     currentRating = 4;
     [self setActiveRating:currentRating];
+    
+    if (_bounceAnimations) {
+        [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            item4.transform = CGAffineTransformMakeScale(0.9, 0.9);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.35 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                item4.transform = CGAffineTransformMakeScale(1.0, 1.0);
+            } completion:nil];
+        }];
+    }
 }
 
 - (void) rate5Triggered {
     currentRating = 5;
     [self setActiveRating:currentRating];
+    
+    if (_bounceAnimations) {
+        [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            item5.transform = CGAffineTransformMakeScale(0.9, 0.9);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.35 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                item5.transform = CGAffineTransformMakeScale(1.0, 1.0);
+            } completion:nil];
+        }];
+    }
 }
 
 - (void) setActiveRating:(NSInteger)rating {
