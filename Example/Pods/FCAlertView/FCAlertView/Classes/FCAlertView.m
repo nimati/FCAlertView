@@ -325,6 +325,7 @@
     NSInteger descriptionLevel = 45.0f;
     
     if (_title == nil) {
+        
         descriptionLevel = 15.0f;
         alertViewFrame = CGRectMake(alertViewFrame.origin.x,
                                     alertViewFrame.origin.y,
@@ -336,7 +337,12 @@
                                                                           descriptionLevel + (alertViewWithVector * 30),
                                                                           alertViewFrame.size.width - 50.0f,
                                                                           60.0f)];
-    descriptionLabel.font = [UIFont systemFontOfSize:15.0f weight:UIFontWeightLight];
+    
+    if (_title != nil)
+        descriptionLabel.font = [UIFont systemFontOfSize:15.0f weight:UIFontWeightLight];
+    else
+        descriptionLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
+
     descriptionLabel.numberOfLines = 6;
     descriptionLabel.textColor = self.subTitleColor;
     descriptionLabel.text = self.subTitle;
@@ -369,10 +375,6 @@
                                 alertViewFrame.size.height - heightDiff + 15);
     
     descriptionLabelFrames = descriptionLabel.frame;
-    
-    if (_title == nil) {
-        descriptionLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
-    }
     
     // Setting Up Contents of AlertView
     

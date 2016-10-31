@@ -948,7 +948,7 @@
     
     [alert showAlertInView:self
                  withTitle:_alertTitle
-              withSubtitle:@"This is my alert's subtitle. Keep it short and concise. 😜 This is my alert's subtitle. Keep it short and concise. 😜"
+              withSubtitle:@"This is my alert's subtitle. Keep it short and concise. 😜"
            withCustomImage:_alertImage
        withDoneButtonTitle:nil
                 andButtons:self.arrayOfButtonTitles];
