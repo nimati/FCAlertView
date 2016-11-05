@@ -61,6 +61,11 @@
         _dismissOnOutsideTouch = NO;
         _hideAllButtons = NO;
         _hideDoneButton = NO;
+        _avoidCustomImageTint = NO;
+        _blurBackground = NO;
+        _bounceAnimations = NO;
+        _darkTheme = NO;
+        _detachButtons = NO;
         _fullCircleCustomImage = NO;
         _hideSeparatorLineView = NO;
         
