@@ -61,6 +61,8 @@
         _dismissOnOutsideTouch = NO;
         _hideAllButtons = NO;
         _hideDoneButton = NO;
+        _fullCircleCustomImage = NO;
+        _hideSeparatorLineView = NO;
         
         defaultSpacing = [self configureAVWidth];
         defaultHeight = [self configureAVHeight];
@@ -809,9 +811,12 @@
     visualEffectView.userInteractionEnabled = NO;
     [separatorLineView addSubview:visualEffectView];
     
-    circleLayer = [CAShapeLayer layer];
-    [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(alertViewContents.frame.size.width/2 - 30.0f, -30.0f, 60.0f, 60.0f)] CGPath]];
-    [circleLayer setFillColor:[UIColor whiteColor].CGColor];
+    if (!_fullCircleCustomImage) {
+        circleLayer = [CAShapeLayer layer];
+        [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(alertViewContents.frame.size.width/2 - 30.0f, -30.0f, 60.0f, 60.0f)] CGPath]];
+        [circleLayer setFillColor:[UIColor whiteColor].CGColor];
+    }
+    
     if (_darkTheme)
         circleLayer.fillColor = [UIColor colorWithWhite:48.0f/255.0f alpha:1.0].CGColor;
     if ([alertType isEqualToString:@"Progress"] && _colorScheme != nil)
@@ -833,10 +838,19 @@
         alertViewVector = [[UIImageView alloc] init];
         alertViewVector.image = [vectorImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
-    alertViewVector.frame = CGRectMake(alertViewContents.frame.size.width/2 - 15.0f,
-                                       -15.0f,
-                                       30.0f,
-                                       30.0f);
+    
+    if (_fullCircleCustomImage) {
+        alertViewVector.frame = CGRectMake(alertViewContents.frame.size.width/2 - 30.0f,
+                                           -30.0f,
+                                           60.0f,
+                                           60.0f);
+    } else {
+        alertViewVector.frame = CGRectMake(alertViewContents.frame.size.width/2 - 15.0f,
+                                           -15.0f,
+                                           30.0f,
+                                           30.0f);
+    }
+    
     alertViewVector.contentMode = UIViewContentModeScaleAspectFit;
     alertViewVector.userInteractionEnabled = 0;
     alertViewVector.tintColor = _colorScheme;
@@ -851,7 +865,7 @@
     [alertViewContents addSubview:titleLabel];
     [alertViewContents addSubview:descriptionLabel];
     
-    if (!_hideAllButtons) {
+    if (!_hideAllButtons && !_hideSeparatorLineView) {
         if (_numberOfButtons == 1 && !_detachButtons)
             [alertViewContents addSubview:separatorLineView];
         else if (!_hideDoneButton && !_detachButtons)
