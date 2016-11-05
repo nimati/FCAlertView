@@ -100,6 +100,8 @@
 @property BOOL bounceAnimations;
 @property BOOL darkTheme;
 @property BOOL detachButtons;
+@property BOOL fullCircleCustomImage;
+@property BOOL hideSeparatorLineView;
 
 // Default Types of Alerts
 
