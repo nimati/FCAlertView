@@ -326,6 +326,22 @@ If you prefer the buttons to be detached from the box of the alert and look more
 alert.detachButtons = YES;
 ```
 
+### Full Circle Custom Image
+
+If you prefer the custom image for you alert to be full width of the image circle, use:
+
+```Objective-C
+alert.fullCircleCustomImage = YES;
+```
+
+### Hiding Separator Lines
+
+To hide the separator lines that appear between the done and custom buttons of the alert, add:
+
+```Objective-C
+alert.hideSeparatorLineView = YES;
+```
+
 ### Sounds
 
 Add the following line to play an audio when the alert opens, simply pass it the name of your audiofile:
