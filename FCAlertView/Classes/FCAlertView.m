@@ -187,7 +187,7 @@
         
         if([item1 pointInside:[touch locationInView:item1] withEvent:nil])
             [self rate1Triggered];
-          
+        
         
         if([item2 pointInside:[touch locationInView:item2] withEvent:nil])
             [self rate2Triggered];
@@ -195,14 +195,14 @@
         
         if([item3 pointInside:[touch locationInView:item3] withEvent:nil])
             [self rate3Triggered];
-            
+        
         
         if([item4 pointInside:[touch locationInView:item4] withEvent:nil])
             [self rate4Triggered];
         
         if([item5 pointInside:[touch locationInView:item5] withEvent:nil])
             [self rate5Triggered];
-            
+        
     }
 }
 
@@ -347,7 +347,7 @@
         descriptionLabel.font = [UIFont systemFontOfSize:15.0f weight:UIFontWeightLight];
     else
         descriptionLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
-
+    
     descriptionLabel.numberOfLines = 6;
     descriptionLabel.textColor = self.subTitleColor;
     descriptionLabel.text = self.subTitle;
@@ -621,7 +621,7 @@
         visualEffectView3.userInteractionEnabled = NO;
         [horizontalSeparator addSubview:visualEffectView3];
         
-        if (!_hideAllButtons && !_hideDoneButton && !_detachButtons) {
+        if (!_hideAllButtons && !_hideDoneButton && !_detachButtons && !_hideSeparatorLineView) {
             [alertView addSubview:horizontalSeparator];
         }
         
@@ -794,7 +794,7 @@
         visualEffectView2.userInteractionEnabled = NO;
         [secondSeparator addSubview:visualEffectView2];
         
-        if (!_hideAllButtons && !_detachButtons) {
+        if (!_hideAllButtons && !_detachButtons && !_hideSeparatorLineView) {
             [alertView addSubview:firstSeparator];
             [alertView addSubview:secondSeparator];
         }
@@ -1439,7 +1439,7 @@
     }
     
     FCTextReturnBlock textReturnBlock = [[alertTextFields firstObject] objectForKey:@"action"];
-
+    
     if (textReturnBlock)
         textReturnBlock(_textField.text);
     

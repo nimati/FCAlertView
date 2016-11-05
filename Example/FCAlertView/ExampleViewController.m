@@ -70,6 +70,18 @@
                                           @"setting" : @"Off",
                                           @"status" : @0,
                                           @"customIndicator" : @0,
+                                          @"selection" : @[@"Off", @"On"]},
+                                        @{@"title" : @"Full Circle Custom Image",
+                                          @"description" : @"Makes the custom image of the alert full circle if there is one.",
+                                          @"setting" : @"Off",
+                                          @"status" : @0,
+                                          @"customIndicator" : @0,
+                                          @"selection" : @[@"Off", @"On"]},
+                                        @{@"title" : @"Hide Separator Lines",
+                                          @"description" : @"Hides all separator lines of the alert.",
+                                          @"setting" : @"Off",
+                                          @"status" : @0,
+                                          @"customIndicator" : @0,
                                           @"selection" : @[@"Off", @"On"]}];
     
     _alertViewOptionsOriginal = @[@{@"title" : @"Custom Image",
@@ -877,6 +889,16 @@
     
     if (![[[_alertViewLatestOptions objectAtIndex:5] objectForKey:@"setting"] isEqual:@"Off"])
         alert.detachButtons = YES;
+    
+    // Alert Full Circle Custom Image
+    
+    if (![[[_alertViewLatestOptions objectAtIndex:6] objectForKey:@"setting"] isEqual:@"Off"])
+        alert.fullCircleCustomImage = YES;
+    
+    // Hide Alert's Separator Lines
+    
+    if (![[[_alertViewLatestOptions objectAtIndex:7] objectForKey:@"setting"] isEqual:@"Off"])
+        alert.hideSeparatorLineView = YES;
     
     // ALERT ANIMATIONS SECTION
     // Animate In Options
