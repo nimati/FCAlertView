@@ -151,7 +151,7 @@
     
     if (_subTitle == nil || [_subTitle isEqualToString:@""])
         if (_title == nil || [_title isEqualToString:@""])
-            _subTitle = @"You need to have a title or subtitle to use FCAlertView 😀";
+            NSLog(@"FCAlertView Warning: Your Alert should have a title and/or subtitle.");
     
     if (doneTitle == nil || [doneTitle isEqualToString:@""]) {
         doneTitle = @"OK";
@@ -277,7 +277,7 @@
                                     result.width - defaultSpacing,
                                     defaultHeight - 30);
     
-    if (self.title == nil) // Frames for when AlertView doesn't contain a title
+    if (_title == nil || _title.length == 0) // Frames for when AlertView doesn't contain a title
         alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
                                     self.frame.size.height/2 - ((alertViewFrame.size.height - 50)/2),
                                     result.width - defaultSpacing,
@@ -334,7 +334,7 @@
     
     NSInteger descriptionLevel = 45.0f;
     
-    if (_title == nil) {
+    if (_title == nil || _title.length == 0) {
         
         descriptionLevel = 15.0f;
         alertViewFrame = CGRectMake(alertViewFrame.origin.x,
