@@ -72,9 +72,7 @@
         
         defaultSpacing = [self configureAVWidth];
         defaultHeight = [self configureAVHeight];
-        
-        [self checkCustomizationValid];
-        
+                
     }
     
     return self;
