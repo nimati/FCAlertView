@@ -68,6 +68,7 @@
         _detachButtons = NO;
         _fullCircleCustomImage = NO;
         _hideSeparatorLineView = NO;
+        _customImageScale = 1;
         
         defaultSpacing = [self configureAVWidth];
         defaultHeight = [self configureAVHeight];
@@ -151,7 +152,7 @@
     
     if (_subTitle == nil || [_subTitle isEqualToString:@""])
         if (_title == nil || [_title isEqualToString:@""])
-            _subTitle = @"You need to have a title or subtitle to use FCAlertView 😀";
+            NSLog(@"FCAlertView Warning: Your Alert should have a title and/or subtitle.");
     
     if (doneTitle == nil || [doneTitle isEqualToString:@""]) {
         doneTitle = @"OK";
@@ -277,7 +278,7 @@
                                     result.width - defaultSpacing,
                                     defaultHeight - 30);
     
-    if (self.title == nil) // Frames for when AlertView doesn't contain a title
+    if (_title == nil || _title.length == 0) // Frames for when AlertView doesn't contain a title
         alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
                                     self.frame.size.height/2 - ((alertViewFrame.size.height - 50)/2),
                                     result.width - defaultSpacing,
@@ -334,7 +335,7 @@
     
     NSInteger descriptionLevel = 45.0f;
     
-    if (_title == nil) {
+    if (_title == nil || _title.length == 0) {
         
         descriptionLevel = 15.0f;
         alertViewFrame = CGRectMake(alertViewFrame.origin.x,
@@ -844,17 +845,19 @@
         alertViewVector.image = [vectorImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
     
-    if (_fullCircleCustomImage) {
-        alertViewVector.frame = CGRectMake(alertViewContents.frame.size.width/2 - 30.0f,
-                                           -30.0f,
-                                           60.0f,
-                                           60.0f);
-    } else {
-        alertViewVector.frame = CGRectMake(alertViewContents.frame.size.width/2 - 15.0f,
-                                           -15.0f,
-                                           30.0f,
-                                           30.0f);
+    if (_fullCircleCustomImage)
+        _customImageScale = 2;
+    
+    if (_customImageScale <= 0) {
+        _customImageScale = 1;
     }
+    
+    CGFloat vectorSize = 30.0f * MIN(2, _customImageScale);
+
+    alertViewVector.frame = CGRectMake(alertViewContents.frame.size.width/2 - (vectorSize/2),
+                                       -(vectorSize/2) - 0.5,
+                                       vectorSize,
+                                       vectorSize);
     
     alertViewVector.contentMode = UIViewContentModeScaleAspectFit;
     alertViewVector.userInteractionEnabled = 0;
@@ -915,7 +918,7 @@
     // ADDING RATING SYSTEM
     
     ratingController = [[UIView alloc] initWithFrame:CGRectMake(20,
-                                                                descriptionLevel + descriptionLabelFrames.size.height + 32.5 + 15,
+                                                                descriptionLevel + descriptionLabelFrames.size.height + 32.5 + 15+ (MIN(1, alertTextFields.count)*(_textField.frame.size.height + 7.5)),
                                                                 alertViewFrame.size.width - 40,
                                                                 40)];
     

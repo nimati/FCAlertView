@@ -334,6 +334,14 @@ If you prefer the custom image for you alert to be full width of the image circl
 alert.fullCircleCustomImage = YES;
 ```
 
+### Custom Image Scaling
+
+If you prefer the custom image for you alert to be scaled up or down to a certain size, use:
+
+```Objective-C
+alert.customImageScale = 1.5; // Change 1.5 to how big or small you want to scale your custom alert image ranged from 0 to 2
+```
+
 ### Hiding Separator Lines
 
 To hide the separator lines that appear between the done and custom buttons of the alert, add:

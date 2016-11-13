@@ -63,7 +63,7 @@
     UIButton *item5;
     
     NSInteger currentRating;
-
+    
 }
 
 // Delegate
@@ -102,6 +102,7 @@
 @property BOOL detachButtons;
 @property BOOL fullCircleCustomImage;
 @property BOOL hideSeparatorLineView;
+@property CGFloat customImageScale;
 
 // Default Types of Alerts
 
