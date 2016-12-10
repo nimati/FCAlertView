@@ -72,9 +72,7 @@
         
         defaultSpacing = [self configureAVWidth];
         defaultHeight = [self configureAVHeight];
-        
-        [self checkCustomizationValid];
-        
+                
     }
     
     return self;
@@ -354,12 +352,14 @@
     else
         descriptionLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
     
-    descriptionLabel.numberOfLines = 6;
     descriptionLabel.textColor = self.subTitleColor;
     descriptionLabel.text = self.subTitle;
     descriptionLabel.textAlignment = NSTextAlignmentCenter;
     descriptionLabel.adjustsFontSizeToFitWidth = NO;
     
+    descriptionLabel.numberOfLines = 0;
+    descriptionLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        
     // Re-adjusting Frames based on height of text - Requirement is to not have over 6 lines of text
     
     CGSize constraint = CGSizeMake(descriptionLabel.frame.size.width, CGFLOAT_MAX);
@@ -370,18 +370,16 @@
                                                              options:NSStringDrawingUsesLineFragmentOrigin
                                                           attributes:@{NSFontAttributeName:descriptionLabel.font}
                                                              context:context].size;
-    
-    sizeOfText = CGSizeMake(ceil(boundingBox.width), MIN(ceil(boundingBox.height), 108));
-    
-    CGFloat heightDiff = descriptionLabel.frame.size.height - sizeOfText.height;
+
+    CGFloat heightDiff = descriptionLabel.frame.size.height - boundingBox.height;
     
     descriptionLabel.frame = CGRectMake(descriptionLabel.frame.origin.x,
                                         descriptionLabel.frame.origin.y + 7.5,
                                         descriptionLabel.frame.size.width,
-                                        sizeOfText.height);
+                                        boundingBox.height);
     
     alertViewFrame = CGRectMake(alertViewFrame.origin.x,
-                                alertViewFrame.origin.y,
+                                alertViewFrame.origin.y + ((heightDiff + 15)/2),
                                 alertViewFrame.size.width,
                                 alertViewFrame.size.height - heightDiff + 15);
     

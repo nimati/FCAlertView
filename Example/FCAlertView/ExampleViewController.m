@@ -459,7 +459,7 @@
         headerView.backgroundColor = [UIColor colorWithWhite:239.0f/255.0f alpha:1.0];
         
         UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, headerView.frame.size.width - 60, 20)];
-        headerLabel.text = @"NEW FEATURES • V1.2.0";
+        headerLabel.text = @"NEW FEATURES • V1.2.0+";
         
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"NEW FEATURES • V1.2.0"];
         [attributedString addAttribute:NSKernAttributeName
