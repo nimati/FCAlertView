@@ -94,6 +94,18 @@
                                           @"setting" : @"Off",
                                           @"status" : @0,
                                           @"customIndicator" : @0,
+                                          @"selection" : @[@"Off", @"On"]},
+                                        @{@"title" : @"Title Attributed Text",
+                                          @"description" : @"Specify formatted text in the title.",
+                                          @"setting" : @"Off",
+                                          @"status" : @0,
+                                          @"customIndicator" : @0,
+                                          @"selection" : @[@"Off", @"On"]},
+                                        @{@"title" : @"Title Custom Font",
+                                          @"description" : @"Specify formatted text in the subtitle.",
+                                          @"setting" : @"Off",
+                                          @"status" : @0,
+                                          @"customIndicator" : @0,
                                           @"selection" : @[@"Off", @"On"]}];
     
     _alertViewOptionsOriginal = @[@{@"title" : @"Custom Image",
@@ -747,6 +759,10 @@
     
     FCAlertView *alert = [[FCAlertView alloc] init]; // 2) Add This Where you Want to Create an FCAlertView
     
+    //For use with Attributed Text demo
+    BOOL useAttributedTitle = NO;
+    BOOL useAttributedSubTitle = NO;
+    
     // ALL CUSTOMIZATIONS - DON'T COPY THIS TO YOUR CODE // 3) Customize as you need to
     // Go Through README.md or this example to understand how to use these customizations work and how to add them
     // It's best to include these customiztions before PRESENTING THE FCALERTVIEW
@@ -921,7 +937,17 @@
     
     if (![[[_alertViewLatestOptions objectAtIndex:9] objectForKey:@"setting"] isEqual:@"Off"])
         alert.subtitleFont = [UIFont fontWithName:@"Avenir" size:15.0];
+
+    // Set Title to Attributed Text
     
+    if (![[[_alertViewLatestOptions objectAtIndex:10] objectForKey:@"setting"] isEqual:@"Off"])
+        useAttributedTitle = YES;
+
+    // Set Subtitle to Attributed Text
+    
+    if (![[[_alertViewLatestOptions objectAtIndex:11] objectForKey:@"setting"] isEqual:@"Off"])
+        useAttributedSubTitle = YES;
+
     // ALERT ANIMATIONS SECTION
     // Animate In Options
     
@@ -990,13 +1016,72 @@
     
     alert.delegate = self; // 5) Add This is You Would like to Use Buttons without Action Blocks
     
-    [alert showAlertInView:self
-                 withTitle:_alertTitle
-              withSubtitle:@"This is my alert's subtitle. Keep it short and concise. 😜"
-           withCustomImage:_alertImage
-       withDoneButtonTitle:nil
-                andButtons:self.arrayOfButtonTitles];
+    if (useAttributedSubTitle && useAttributedTitle) {
+        [alert showAlertWithAttributedTitle:[self getAttributedTitle]
+                  withAttributedSubtitle:[self getAttributedSubtitle]
+               withCustomImage:_alertImage
+           withDoneButtonTitle:nil
+                    andButtons:self.arrayOfButtonTitles];
+    } else if (useAttributedTitle) {
+        [alert showAlertWithAttributedTitle:[self getAttributedTitle]
+                  withSubtitle:@"This is my alert's subtitle. Keep it short and concise. 😜"
+               withCustomImage:_alertImage
+           withDoneButtonTitle:nil
+                    andButtons:self.arrayOfButtonTitles];
+    } else if (useAttributedSubTitle) {
+        [alert showAlertWithTitle:_alertTitle
+                  withAttributedSubtitle:[self getAttributedSubtitle]
+               withCustomImage:_alertImage
+           withDoneButtonTitle:nil
+                    andButtons:self.arrayOfButtonTitles];
+    } else {
+        [alert showAlertInView:self
+                     withTitle:_alertTitle
+                  withSubtitle:@"This is my alert's subtitle. Keep it short and concise. 😜"
+               withCustomImage:_alertImage
+           withDoneButtonTitle:nil
+                    andButtons:self.arrayOfButtonTitles];
+    }
+}
+
+-(NSAttributedString *)getAttributedTitle {
+    NSString *text = @"Alert Title";
     
+    NSDictionary *attrib = @{
+                             NSForegroundColorAttributeName: [UIColor blackColor],
+                             NSFontAttributeName: [UIFont systemFontOfSize:18.0 weight:UIFontWeightRegular]
+                             };
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:text attributes:attrib];
+    
+    NSRange nameRange = [text rangeOfString:@"Title"];
+    UIFont *italics = [UIFont systemFontOfSize:18.0 weight:UIFontWeightHeavy];
+    [str setAttributes:@{NSFontAttributeName:italics} range:nameRange];
+    
+    return str;
+}
+
+-(NSAttributedString *)getAttributedSubtitle {
+    NSString *text = @"This is my alert's subtitle. Keep it short and concise. 😜";
+    
+    NSDictionary *attrib = @{
+                             NSForegroundColorAttributeName: [UIColor blackColor],
+                             NSFontAttributeName: [UIFont systemFontOfSize:15.0 weight:UIFontWeightRegular]
+                             };
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:text attributes:attrib];
+    
+    NSRange nameRange = [text rangeOfString:@"my"];
+    UIFont *newFont = [UIFont systemFontOfSize:15.0 weight:UIFontWeightHeavy];
+    [str setAttributes:@{NSFontAttributeName:newFont} range:nameRange];
+
+    nameRange = [text rangeOfString:@"short"];
+    newFont = [UIFont systemFontOfSize:15.0 weight:UIFontWeightThin];
+    [str setAttributes:@{NSFontAttributeName:newFont} range:nameRange];
+
+    nameRange = [text rangeOfString:@"concise"];
+    newFont = [UIFont systemFontOfSize:15.0 weight:UIFontWeightHeavy];
+    [str setAttributes:@{NSFontAttributeName:newFont} range:nameRange];
+
+    return str;
 }
 
 #pragma mark - Handling Orientation Change for Example App

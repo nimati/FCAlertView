@@ -149,8 +149,8 @@
         }
     }
     
-    if (_subTitle == nil || [_subTitle isEqualToString:@""])
-        if (_title == nil || [_title isEqualToString:@""])
+    if (![self hasSubTitle])
+        if (![self hasTitle])
             NSLog(@"FCAlertView Warning: Your Alert should have a title and/or subtitle.");
     
     if (doneTitle == nil || [doneTitle isEqualToString:@""]) {
@@ -181,6 +181,17 @@
         
     }
     
+}
+
+#pragma mark - Title Validation
+-(BOOL)hasTitle {
+    return (_title != nil && _title.length > 0) ||
+           (_attributedTitle != nil && _attributedTitle.length > 0);
+}
+
+-(BOOL)hasSubTitle {
+    return (_subTitle != nil && _subTitle.length > 0) ||
+           (_attributedSubTitle != nil && _attributedSubTitle.length > 0);
 }
 
 #pragma mark - Touch Events
@@ -277,7 +288,7 @@
                                     result.width - defaultSpacing,
                                     defaultHeight - 30);
     
-    if (_title == nil || _title.length == 0) // Frames for when AlertView doesn't contain a title
+    if (![self hasTitle]) // Frames for when AlertView doesn't contain a title
         alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
                                     self.frame.size.height/2 - ((alertViewFrame.size.height - 50)/2),
                                     result.width - defaultSpacing,
@@ -334,7 +345,7 @@
     
     NSInteger descriptionLevel = 45.0f;
     
-    if (_title == nil || _title.length == 0) {
+    if (![self hasTitle]) {
         
         descriptionLevel = 15.0f;
         alertViewFrame = CGRectMake(alertViewFrame.origin.x,
@@ -355,7 +366,10 @@
         descriptionLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
     
     descriptionLabel.textColor = self.subTitleColor;
-    descriptionLabel.text = self.subTitle;
+    if (_subTitle == nil)
+        descriptionLabel.attributedText = self.attributedSubTitle;
+    else
+        descriptionLabel.text = self.subTitle;
     descriptionLabel.textAlignment = NSTextAlignmentCenter;
     descriptionLabel.adjustsFontSizeToFitWidth = NO;
     
@@ -446,7 +460,10 @@
     titleLabel.font = self.titleFont;
     titleLabel.numberOfLines = 1;
     titleLabel.textColor = self.titleColor;
-    titleLabel.text = self.title;
+    if (_title == nil)
+        titleLabel.attributedText = self.attributedTitle;
+    else
+        titleLabel.text = self.title;
     titleLabel.textAlignment = NSTextAlignmentCenter;
     
     // SEPARATOR LINE - Seperating Header View with Button View
@@ -1155,6 +1172,71 @@
     [window bringSubviewToFront:self];
     
 }
+
+- (void) showAlertWithAttributedTitle:(NSAttributedString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons {
+    
+    self.attributedTitle = title;
+    [self setAlertViewAttributes:nil withSubtitle:subTitle withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
+    UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+    
+    // Blur Effect
+    if (_blurBackground && NSClassFromString(@"UIVisualEffectView") != nil) {
+        UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        backgroundVisualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        backgroundVisualEffectView.frame = window.bounds;
+        _alertBackground.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.5];
+        [window addSubview:backgroundVisualEffectView];
+    }
+    
+    // Adding Alert
+    
+    [window addSubview:self];
+    [window bringSubviewToFront:self];
+}
+
+- (void) showAlertWithTitle:(NSString *)title withAttributedSubtitle:(NSAttributedString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons {
+    
+    self.attributedSubTitle = subTitle;
+    [self setAlertViewAttributes:title withSubtitle:nil withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
+    UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+    
+    // Blur Effect
+    if (_blurBackground && NSClassFromString(@"UIVisualEffectView") != nil) {
+        UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        backgroundVisualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        backgroundVisualEffectView.frame = window.bounds;
+        _alertBackground.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.5];
+        [window addSubview:backgroundVisualEffectView];
+    }
+    
+    // Adding Alert
+    
+    [window addSubview:self];
+    [window bringSubviewToFront:self];
+}
+
+- (void) showAlertWithAttributedTitle:(NSAttributedString *)title withAttributedSubtitle:(NSAttributedString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons {
+    
+    self.attributedTitle = title;
+    self.attributedSubTitle = subTitle;
+    [self setAlertViewAttributes:nil withSubtitle:nil withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
+    UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+    
+    // Blur Effect
+    if (_blurBackground && NSClassFromString(@"UIVisualEffectView") != nil) {
+        UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        backgroundVisualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        backgroundVisualEffectView.frame = window.bounds;
+        _alertBackground.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.5];
+        [window addSubview:backgroundVisualEffectView];
+    }
+    
+    // Adding Alert
+    
+    [window addSubview:self];
+    [window bringSubviewToFront:self];
+}
+
 
 - (void)setAlertViewAttributes:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons{
     

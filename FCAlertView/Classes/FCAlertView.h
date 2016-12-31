@@ -74,6 +74,8 @@
 
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSString *subTitle;
+@property (nonatomic, retain) NSAttributedString *attributedTitle;
+@property (nonatomic, retain) NSAttributedString *attributedSubTitle;
 @property (nonatomic, retain) UIFont *titleFont;
 @property (nonatomic, retain) UIFont *subtitleFont;
 
@@ -144,6 +146,13 @@ typedef void (^FCRatingBlock)(NSInteger rating);
 - (void) showAlertInWindow:(UIWindow *)window withTitle:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons;
 
 - (void) showAlertWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons;
+
+- (void) showAlertWithAttributedTitle:(NSAttributedString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons;
+
+- (void) showAlertWithTitle:(NSString *)title withAttributedSubtitle:(NSAttributedString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons;
+
+- (void) showAlertWithAttributedTitle:(NSAttributedString *)title withAttributedSubtitle:(NSAttributedString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons;
+
 
 - (void)setAlertViewAttributes:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons;
 
