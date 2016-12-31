@@ -69,7 +69,8 @@
         _fullCircleCustomImage = NO;
         _hideSeparatorLineView = NO;
         _customImageScale = 1;
-        
+        _titleFont = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
+        _subtitleFont = nil;        
         defaultSpacing = [self configureAVWidth];
         defaultHeight = [self configureAVHeight];
                 
@@ -346,8 +347,9 @@
                                                                           descriptionLevel + (alertViewWithVector * 30),
                                                                           alertViewFrame.size.width - 50.0f,
                                                                           60.0f)];
-    
-    if (_title != nil)
+    if (_subtitleFont != nil)
+        descriptionLabel.font = self.subtitleFont;
+    else if (_title != nil)
         descriptionLabel.font = [UIFont systemFontOfSize:15.0f weight:UIFontWeightLight];
     else
         descriptionLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
@@ -441,7 +443,7 @@
                                                                     20.0f + (alertViewWithVector * 30),
                                                                     alertViewFrame.size.width - 30.0f,
                                                                     20.0f)];
-    titleLabel.font = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
+    titleLabel.font = self.titleFont;
     titleLabel.numberOfLines = 1;
     titleLabel.textColor = self.titleColor;
     titleLabel.text = self.title;

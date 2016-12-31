@@ -74,6 +74,8 @@
 
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSString *subTitle;
+@property (nonatomic, retain) UIFont *titleFont;
+@property (nonatomic, retain) UIFont *subtitleFont;
 
 // AlertView Background
 

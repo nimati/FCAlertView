@@ -82,6 +82,18 @@
                                           @"setting" : @"Off",
                                           @"status" : @0,
                                           @"customIndicator" : @0,
+                                          @"selection" : @[@"Off", @"On"]},
+                                        @{@"title" : @"Title Custom Font",
+                                          @"description" : @"Specify a different font for the title - such as Avenir!",
+                                          @"setting" : @"Off",
+                                          @"status" : @0,
+                                          @"customIndicator" : @0,
+                                          @"selection" : @[@"Off", @"On"]},
+                                        @{@"title" : @"Subtitle Custom Font",
+                                          @"description" : @"Specify a different font for the subtitle - such as Avenir!",
+                                          @"setting" : @"Off",
+                                          @"status" : @0,
+                                          @"customIndicator" : @0,
                                           @"selection" : @[@"Off", @"On"]}];
     
     _alertViewOptionsOriginal = @[@{@"title" : @"Custom Image",
@@ -461,7 +473,7 @@
         UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, headerView.frame.size.width - 60, 20)];
         headerLabel.text = @"NEW FEATURES • V1.2.0+";
         
-        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"NEW FEATURES • V1.2.0"];
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"NEW FEATURES • V1.2.0+"];
         [attributedString addAttribute:NSKernAttributeName
                                  value:@(3.0)
                                  range:NSMakeRange(0, headerLabel.text.length)];
@@ -899,6 +911,16 @@
     
     if (![[[_alertViewLatestOptions objectAtIndex:7] objectForKey:@"setting"] isEqual:@"Off"])
         alert.hideSeparatorLineView = YES;
+    
+    // Set Title Font to Avenir
+    
+    if (![[[_alertViewLatestOptions objectAtIndex:8] objectForKey:@"setting"] isEqual:@"Off"])
+        alert.titleFont = [UIFont fontWithName:@"Avenir" size:18.0];
+    
+    // Set Subtitle Font to Avenir
+    
+    if (![[[_alertViewLatestOptions objectAtIndex:9] objectForKey:@"setting"] isEqual:@"Off"])
+        alert.subtitleFont = [UIFont fontWithName:@"Avenir" size:15.0];
     
     // ALERT ANIMATIONS SECTION
     // Animate In Options
