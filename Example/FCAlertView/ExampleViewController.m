@@ -461,7 +461,7 @@
         UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, headerView.frame.size.width - 60, 20)];
         headerLabel.text = @"NEW FEATURES • V1.2.0+";
         
-        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"NEW FEATURES • V1.2.0"];
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"NEW FEATURES • V1.2.0+"];
         [attributedString addAttribute:NSKernAttributeName
                                  value:@(3.0)
                                  range:NSMakeRange(0, headerLabel.text.length)];
