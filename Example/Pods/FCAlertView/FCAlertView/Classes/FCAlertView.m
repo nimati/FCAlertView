@@ -400,7 +400,10 @@
     if (alertViewWithVector) {
         alertView.backgroundColor = [UIColor clearColor];
     } else {
-        alertView.backgroundColor = [UIColor whiteColor];
+        if (!self.alertBackgroundColor)
+            alertView.backgroundColor = [UIColor whiteColor];
+        else
+            alertView.backgroundColor = _alertBackgroundColor;
         if (_darkTheme)
             alertView.backgroundColor = [UIColor colorWithWhite:48.0f/255.0f alpha:1.0];
     }
@@ -427,7 +430,10 @@
     CAShapeLayer *fillLayer = [CAShapeLayer layer];
     fillLayer.path = rectPath.CGPath;
     fillLayer.fillRule = kCAFillRuleEvenOdd;
-    fillLayer.fillColor = [UIColor whiteColor].CGColor;
+    if (!self.alertBackgroundColor)
+        fillLayer.fillColor = [UIColor whiteColor].CGColor;
+    else
+        fillLayer.fillColor = _alertBackgroundColor.CGColor;
     if (_darkTheme)
         fillLayer.fillColor = [UIColor colorWithWhite:48.0f/255.0f alpha:1.0].CGColor;
     fillLayer.opacity = 1.0;
@@ -822,7 +828,10 @@
     if (!_fullCircleCustomImage) {
         circleLayer = [CAShapeLayer layer];
         [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(alertViewContents.frame.size.width/2 - 30.0f, -30.0f, 60.0f, 60.0f)] CGPath]];
-        [circleLayer setFillColor:[UIColor whiteColor].CGColor];
+        if (!self.alertBackgroundColor)
+            [circleLayer setFillColor:[UIColor whiteColor].CGColor];
+        else
+            [circleLayer setFillColor:_alertBackgroundColor.CGColor];
     }
     
     if (_darkTheme)
