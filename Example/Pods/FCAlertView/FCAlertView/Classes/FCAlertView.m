@@ -1361,6 +1361,15 @@
                     [backgroundVisualEffectView removeFromSuperview];
                     [self removeFromSuperview];
                 }];
+            } else {
+                id<FCAlertViewDelegate> strongDelegate = self.delegate;
+
+                if ([strongDelegate respondsToSelector:@selector(FCAlertViewDismissed:)]) {
+                    [strongDelegate FCAlertViewDismissed:self];
+                }
+                
+                [backgroundVisualEffectView removeFromSuperview];
+                [self removeFromSuperview];
             }
         }
         
