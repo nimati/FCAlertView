@@ -470,6 +470,10 @@
         _textField.layer.borderWidth = 1.0f;
         _textField.delegate = self;
         _textField.placeholder = [[alertTextFields firstObject] objectForKey:@"placeholder"];
+        if (self.darkTheme)
+            _textField.backgroundColor = [UIColor colorWithWhite:227.0f/255.0f alpha:1.0];
+        else
+            _textField.backgroundColor = [UIColor whiteColor];
         
         UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
         _textField.leftView = paddingView;
