@@ -363,7 +363,6 @@
     // Re-adjusting Frames based on height of text - Requirement is to not have over 6 lines of text
     
     CGSize constraint = CGSizeMake(descriptionLabel.frame.size.width, CGFLOAT_MAX);
-    CGSize sizeOfText;
     
     NSStringDrawingContext *context = [[NSStringDrawingContext alloc] init];
     CGSize boundingBox = [descriptionLabel.text boundingRectWithSize:constraint
