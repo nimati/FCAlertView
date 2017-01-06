@@ -513,7 +513,7 @@
                                           alertViewFrame.size.height - 50,
                                           alertViewFrame.size.width - 16,
                                           40);
-            doneButton.layer.cornerRadius = self.cornerRadius;
+            doneButton.layer.cornerRadius = MIN(self.cornerRadius, doneButton.frame.size.height/2);
             doneButton.layer.masksToBounds = YES;
         }
         
@@ -552,7 +552,7 @@
                                           doneButton.frame.origin.y - 5,
                                           doneButton.frame.size.width - 16,
                                           40);
-            doneButton.layer.cornerRadius = self.cornerRadius;
+            doneButton.layer.cornerRadius = MIN(self.cornerRadius, doneButton.frame.size.height/2);
             doneButton.layer.masksToBounds = YES;
         }
         
@@ -590,7 +590,7 @@
                                            otherButton.frame.origin.y - 5,
                                            otherButton.frame.size.width - 16,
                                            40);
-            otherButton.layer.cornerRadius = self.cornerRadius;
+            otherButton.layer.cornerRadius = MIN(self.cornerRadius, otherButton.frame.size.height/2);
             otherButton.layer.masksToBounds = YES;
         }
         
@@ -666,7 +666,7 @@
                                            firstButton.frame.origin.y - 5,
                                            firstButton.frame.size.width - 16,
                                            40);
-            firstButton.layer.cornerRadius = self.cornerRadius;
+            firstButton.layer.cornerRadius = MIN(self.cornerRadius, firstButton.frame.size.height/2);
             firstButton.layer.masksToBounds = YES;
         }
         
@@ -709,7 +709,7 @@
                                             secondButton.frame.origin.y - 5,
                                             secondButton.frame.size.width - 16,
                                             40);
-            secondButton.layer.cornerRadius = self.cornerRadius;
+            secondButton.layer.cornerRadius = MIN(self.cornerRadius, secondButton.frame.size.height/2);
             secondButton.layer.masksToBounds = YES;
         }
         
@@ -748,7 +748,7 @@
                                           alertViewFrame.size.height - 50,
                                           alertViewFrame.size.width - 16,
                                           40);
-            doneButton.layer.cornerRadius = self.cornerRadius;
+            doneButton.layer.cornerRadius = MIN(self.cornerRadius, doneButton.frame.size.height/2);
             doneButton.layer.masksToBounds = YES;
         }
         
