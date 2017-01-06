@@ -168,6 +168,7 @@ typedef void (^FCTextReturnBlock)(NSString *text);
 @property (nonatomic, retain) UIColor * colorScheme;
 @property (nonatomic, retain)  UIColor * titleColor;
 @property (nonatomic, retain)  UIColor * subTitleColor;
+@property (nonatomic, retain) UIColor *alertBackgroundColor;
 
 @property (nonatomic, retain)  UIColor * doneButtonTitleColor;
 

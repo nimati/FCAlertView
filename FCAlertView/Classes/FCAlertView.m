@@ -400,7 +400,10 @@
     if (alertViewWithVector) {
         alertView.backgroundColor = [UIColor clearColor];
     } else {
-        alertView.backgroundColor = [UIColor whiteColor];
+        if (!self.alertBackgroundColor)
+            alertView.backgroundColor = [UIColor whiteColor];
+        else
+            alertView.backgroundColor = _alertBackgroundColor;
         if (_darkTheme)
             alertView.backgroundColor = [UIColor colorWithWhite:48.0f/255.0f alpha:1.0];
     }
@@ -427,7 +430,10 @@
     CAShapeLayer *fillLayer = [CAShapeLayer layer];
     fillLayer.path = rectPath.CGPath;
     fillLayer.fillRule = kCAFillRuleEvenOdd;
-    fillLayer.fillColor = [UIColor whiteColor].CGColor;
+    if (!self.alertBackgroundColor)
+        fillLayer.fillColor = [UIColor whiteColor].CGColor;
+    else
+        fillLayer.fillColor = _alertBackgroundColor.CGColor;
     if (_darkTheme)
         fillLayer.fillColor = [UIColor colorWithWhite:48.0f/255.0f alpha:1.0].CGColor;
     fillLayer.opacity = 1.0;
@@ -470,6 +476,10 @@
         _textField.layer.borderWidth = 1.0f;
         _textField.delegate = self;
         _textField.placeholder = [[alertTextFields firstObject] objectForKey:@"placeholder"];
+        if (self.darkTheme)
+            _textField.backgroundColor = [UIColor colorWithWhite:227.0f/255.0f alpha:1.0];
+        else
+            _textField.backgroundColor = [UIColor whiteColor];
         
         UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
         _textField.leftView = paddingView;
@@ -503,7 +513,7 @@
                                           alertViewFrame.size.height - 50,
                                           alertViewFrame.size.width - 16,
                                           40);
-            doneButton.layer.cornerRadius = self.cornerRadius;
+            doneButton.layer.cornerRadius = MIN(self.cornerRadius, doneButton.frame.size.height/2);
             doneButton.layer.masksToBounds = YES;
         }
         
@@ -542,7 +552,7 @@
                                           doneButton.frame.origin.y - 5,
                                           doneButton.frame.size.width - 16,
                                           40);
-            doneButton.layer.cornerRadius = self.cornerRadius;
+            doneButton.layer.cornerRadius = MIN(self.cornerRadius, doneButton.frame.size.height/2);
             doneButton.layer.masksToBounds = YES;
         }
         
@@ -580,7 +590,7 @@
                                            otherButton.frame.origin.y - 5,
                                            otherButton.frame.size.width - 16,
                                            40);
-            otherButton.layer.cornerRadius = self.cornerRadius;
+            otherButton.layer.cornerRadius = MIN(self.cornerRadius, otherButton.frame.size.height/2);
             otherButton.layer.masksToBounds = YES;
         }
         
@@ -656,7 +666,7 @@
                                            firstButton.frame.origin.y - 5,
                                            firstButton.frame.size.width - 16,
                                            40);
-            firstButton.layer.cornerRadius = self.cornerRadius;
+            firstButton.layer.cornerRadius = MIN(self.cornerRadius, firstButton.frame.size.height/2);
             firstButton.layer.masksToBounds = YES;
         }
         
@@ -699,7 +709,7 @@
                                             secondButton.frame.origin.y - 5,
                                             secondButton.frame.size.width - 16,
                                             40);
-            secondButton.layer.cornerRadius = self.cornerRadius;
+            secondButton.layer.cornerRadius = MIN(self.cornerRadius, secondButton.frame.size.height/2);
             secondButton.layer.masksToBounds = YES;
         }
         
@@ -738,7 +748,7 @@
                                           alertViewFrame.size.height - 50,
                                           alertViewFrame.size.width - 16,
                                           40);
-            doneButton.layer.cornerRadius = self.cornerRadius;
+            doneButton.layer.cornerRadius = MIN(self.cornerRadius, doneButton.frame.size.height/2);
             doneButton.layer.masksToBounds = YES;
         }
         
@@ -818,7 +828,10 @@
     if (!_fullCircleCustomImage) {
         circleLayer = [CAShapeLayer layer];
         [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(alertViewContents.frame.size.width/2 - 30.0f, -30.0f, 60.0f, 60.0f)] CGPath]];
-        [circleLayer setFillColor:[UIColor whiteColor].CGColor];
+        if (!self.alertBackgroundColor)
+            [circleLayer setFillColor:[UIColor whiteColor].CGColor];
+        else
+            [circleLayer setFillColor:_alertBackgroundColor.CGColor];
     }
     
     if (_darkTheme)
@@ -1348,6 +1361,15 @@
                     [backgroundVisualEffectView removeFromSuperview];
                     [self removeFromSuperview];
                 }];
+            } else {
+                id<FCAlertViewDelegate> strongDelegate = self.delegate;
+
+                if ([strongDelegate respondsToSelector:@selector(FCAlertViewDismissed:)]) {
+                    [strongDelegate FCAlertViewDismissed:self];
+                }
+                
+                [backgroundVisualEffectView removeFromSuperview];
+                [self removeFromSuperview];
             }
         }
         
