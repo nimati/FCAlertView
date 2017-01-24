@@ -89,10 +89,10 @@
         {
             CGSize result = [[UIScreen mainScreen] bounds].size;
             
-            if(result.height == 1366)
-                return 105.0f + 600.0f;
+            if(result.height > result.width)
+                return (result.width / 1.5f);
             else
-                return 105.0f + 350.0f;
+                return (result.height / 1.2f);
         }
         if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
         {
@@ -333,11 +333,13 @@
     
     // Landscape Orientation Width Fix
     
-    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
+    // iPad spacing logic already adjusts for this, so no need to re-adjust
+    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation) &&
+        UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad)
     {
-        alertViewFrame = CGRectMake(self.frame.size.width/2 - (300/2),
+        alertViewFrame = CGRectMake(self.frame.size.width/2 - (alertViewFrame.size.width/2),
                                     self.frame.size.height/2 - (alertViewFrame.size.height/2),
-                                    300,
+                                    alertViewFrame.size.width,
                                     alertViewFrame.size.height);
     }
     
