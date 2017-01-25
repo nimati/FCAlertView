@@ -459,19 +459,22 @@
         [alertView.layer addSublayer:fillLayer];
     
     // HEADER VIEW - With Title & Subtitle
+    CGFloat defaultTitleSize = self.titleFont.pointSize * 1.2;
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15.0f,
-                                                                    20.0f + (alertViewWithVector * 30),
+                                                                    defaultTitleSize + (alertViewWithVector * 30),
                                                                     alertViewFrame.size.width - 30.0f,
                                                                     20.0f)];
     titleLabel.font = self.titleFont;
-    titleLabel.numberOfLines = 1;
+    titleLabel.numberOfLines = 0;
     titleLabel.textColor = self.titleColor;
     if (_title == nil)
         titleLabel.attributedText = self.attributedTitle;
     else
         titleLabel.text = self.title;
     titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.adjustsFontSizeToFitWidth = YES;
+    titleLabel.minimumScaleFactor = 0.5;
     
     // SEPARATOR LINE - Seperating Header View with Button View
     
