@@ -171,7 +171,7 @@ Use this line to apply a beautiful dark theme to your FCAlert:
 alert.darkTheme = YES;
 ```
 
-#### Title and Subtitle Colors
+#### Title and Subtitle Styling
 
 Change Title Color by Adding
 
@@ -183,6 +183,39 @@ Change SubTitle Color by Adding
 
 ```Objective-C
 alert.subTitleColor = alertView.flatBlue;
+```
+
+Change Title Font by Adding
+
+```Objective-C
+alert.titleFont = [UIFont fontWithName:@"Avenir" size:30.0];
+```
+Change SubTitle Font by Adding
+
+```Objective-C
+alert.subtitleFont = [UIFont fontWithName:@"Avenir" size:15.0];
+```
+
+You can also use Attributed text in the title or the subtitle!
+
+```Objective-C
+NSString *text = @"My Alert Title";
+
+NSDictionary *attrib = @{
+                         NSForegroundColorAttributeName: [UIColor blackColor],
+                         NSFontAttributeName: [UIFont systemFontOfSize:18.0 weight:UIFontWeightRegular]
+                         };
+NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:text attributes:attrib];
+
+NSRange nameRange = [text rangeOfString:@"Title"];
+UIFont *italics = [UIFont systemFontOfSize:18.0 weight:UIFontWeightHeavy];
+[str setAttributes:@{NSFontAttributeName:italics} range:nameRange];
+// Use the string as a title!
+[alert showAlertWithAttributedTitle:str withSubtitle:@"This is my subtitle!" withCustomImage:_alertImage withDoneButtonTitle:nil andButtons:self.arrayOfButtonTitles];
+// Or use it as a subtitle!
+[alert showAlertWithTitle:@"My Title" withAttributedSubtitle:str withCustomImage:_alertImage withDoneButtonTitle:nil andButtons:self.arrayOfButtonTitles];
+// Or use it as both!
+[alert showAlertWithAttributedTitle:str withAttributedSubtitle:str withCustomImage:_alertImage withDoneButtonTitle:nil andButtons:self.arrayOfButtonTitles];
 ```
 
 #### Button Colors
