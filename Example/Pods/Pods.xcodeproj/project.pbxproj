@@ -7,38 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0298F253C2A203ED34767414369F0911 /* checkmark-round.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA6B542F46B6E63D836A7E233C24C34 /* checkmark-round.png */; };
-		3C890FF61DBD9B6F00A0E639 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C890FF21DBD9B4200A0E639 /* heart.png */; };
-		3C890FF71DBD9B6F00A0E639 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C890FF31DBD9B4200A0E639 /* star.png */; };
-		4857C596162532B48BC78AA5C9BE49A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		53F5CAC83BCB432C59463B43959E63B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		5EF5AB086B2A5B2F8B97B26842D87CD3 /* FCAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A152DB51EEEB3091759892581A0B14FC /* FCAlertView.bundle */; };
-		6A8660F4277DCB3153313E479C5D9316 /* Pods-FCAlertView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 611C721888A341842BE5533987141652 /* Pods-FCAlertView_Tests-dummy.m */; };
-		6C092DDADCF33279CBEBDEDB5A9B909F /* Pods-FCAlertView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEB6B647BE0269C181D2F8F8831CA64 /* Pods-FCAlertView_Example-dummy.m */; };
-		7AF98990197D4174863C82B198B55947 /* FCAlertView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F1AB346A24505AF2ECCC3767256ABED5 /* FCAlertView-dummy.m */; };
-		7CBB05408F2DC287E844B49D9576FE53 /* FCAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CB534231CD85F420BF63FE82B068E37 /* FCAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8491B62589CB4EE3AA53FB7C586714D4 /* FCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1EA2ED035D74647526CEC7DA443DD /* FCAlertView.m */; };
-		8CCBDCA281FDB65D6DDE3479E34FD42F /* Pods-FCAlertView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D95D29ECAC147E0E23E69A1A88AC03DC /* Pods-FCAlertView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95C932387ADDDE933148C14055228362 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		C9544876EE83B9F175CA4CEFA97585F3 /* alert-round.png in Resources */ = {isa = PBXBuildFile; fileRef = DEDE75F091FD35392BBD1A8157EEF72F /* alert-round.png */; };
-		D875F351D5F063C561CD179A53D8096D /* Pods-FCAlertView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A8F02FB2F6ACCA7DEE48931012C27D /* Pods-FCAlertView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F3DA22F089925D67171AC941856FB65C /* FCAlertView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E6EA5F188877084CE854964280B40D0F /* FCAlertView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FC98690F19EFB5193D209491CA6464DB /* close-round.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EA62431B0ECAE02C03BD8888DD12851 /* close-round.png */; };
+		20BAB5D59DF7BD045F079334AAA64ACA /* FCAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = B2CEB2A113153EDC7996FFCBC3BAA339 /* FCAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2C9318D996236EC35AF4D0D440A2311A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		2F3EDA93641DBE32FEFDF36463D3AD67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		316318B494ADE8FEADE852B4BCB84596 /* Pods-FCAlertView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEB6B647BE0269C181D2F8F8831CA64 /* Pods-FCAlertView_Example-dummy.m */; };
+		5659316602600A4062EDF8AA96DB4544 /* alert-round.png in Resources */ = {isa = PBXBuildFile; fileRef = AA33CB5540B3BD0D0B3D764BAEC46F8A /* alert-round.png */; };
+		620FEACDDBE4B3929A5736071B0D06F2 /* checkmark-round.png in Resources */ = {isa = PBXBuildFile; fileRef = A0872A4D6BB14B794A0E33956DEDEC5A /* checkmark-round.png */; };
+		6F036EDB3C6F4D77407B93978853D66A /* FCAlertView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E2D50E490DD7B9DAA41C30D8257417E8 /* FCAlertView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DCA0EB4722A52B2584A2B14D3525DDD /* Pods-FCAlertView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D95D29ECAC147E0E23E69A1A88AC03DC /* Pods-FCAlertView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		82CD4C9C56D28B0A759AC4E8250B903F /* FCAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A152DB51EEEB3091759892581A0B14FC /* FCAlertView.bundle */; };
+		8CAE2E96BE9DAEDF420FB328CB2C30F4 /* FCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 163B372A8C7CEF335920AFDBAF8BB6E8 /* FCAlertView.m */; };
+		8EAD8DC87EFE35C7E714FBD936B98EDA /* FCAlertView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ED87A89C543E1BB4B295451BC47460 /* FCAlertView-dummy.m */; };
+		9C05669320CE59568F8D32BCF2B5AE35 /* close-round.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A9871074F9B01224AF3F532F62A28F /* close-round.png */; };
+		A94BC9BDFCC342D90417746BD9CAC7BD /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = CCB3A79618AB7EEFE1AD77C6C65024AC /* heart.png */; };
+		C89E51AB4872BFCCC8E6E646EBF217E7 /* Pods-FCAlertView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A8F02FB2F6ACCA7DEE48931012C27D /* Pods-FCAlertView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3B04FB5665A5732C78BF0514AABFAB7 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 26C84E72C39B7C8141726594FF8B477E /* star.png */; };
+		E9CE4A0129C00733C1D6FE9C28C3A6B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		EAE46CF4ADBD426B436B2A593B0F441E /* Pods-FCAlertView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 611C721888A341842BE5533987141652 /* Pods-FCAlertView_Tests-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4CE98E44CC685135CA55ECCC4E769487 /* PBXContainerItemProxy */ = {
+		32932EDC3FAA8184B9EDDDBBCA1BCF5D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E4A183B710C3B852DF70AB2469C283E6;
+			remoteGlobalIDString = 1613271357771814C71601D90B787D94;
 			remoteInfo = "FCAlertView-FCAlertView";
 		};
-		9AA7342386759B5E60290F248F530024 /* PBXContainerItemProxy */ = {
+		98197F87B3D0297FA87CDD284CF5E376 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DD0460046ACF8A381F75D6015478752E;
+			remoteGlobalIDString = EF1ABE20DAA23760FBF0359740C1F0B9;
 			remoteInfo = FCAlertView;
 		};
 /* End PBXContainerItemProxy section */
@@ -46,75 +46,75 @@
 /* Begin PBXFileReference section */
 		08F6D2B6F96ADEA93991993695A7CEAD /* Pods-FCAlertView_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FCAlertView_Tests-resources.sh"; sourceTree = "<group>"; };
 		0B92E124B99240D45741659D5CAE0B4B /* Pods-FCAlertView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FCAlertView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		0EA62431B0ECAE02C03BD8888DD12851 /* close-round.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "close-round.png"; path = "FCAlertView/Assets/close-round.png"; sourceTree = "<group>"; };
-		1C50ACFBC3512D286ED9F16A8A9C5C43 /* Pods-FCAlertView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FCAlertView_Tests.modulemap"; sourceTree = "<group>"; };
-		265E0A616E04F91972A8CD2566C1DC93 /* Pods_FCAlertView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FCAlertView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		163B372A8C7CEF335920AFDBAF8BB6E8 /* FCAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FCAlertView.m; path = FCAlertView/Classes/FCAlertView.m; sourceTree = "<group>"; };
+		1C50ACFBC3512D286ED9F16A8A9C5C43 /* Pods-FCAlertView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-FCAlertView_Tests.modulemap"; sourceTree = "<group>"; };
+		265E0A616E04F91972A8CD2566C1DC93 /* Pods_FCAlertView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FCAlertView_Example.framework; path = "Pods-FCAlertView_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26C84E72C39B7C8141726594FF8B477E /* star.png */ = {isa = PBXFileReference; includeInIndex = 1; name = star.png; path = FCAlertView/Assets/star.png; sourceTree = "<group>"; };
 		2EA3A1A89026B910FDEB1B146CABAB3C /* Pods-FCAlertView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FCAlertView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		32ED87A89C543E1BB4B295451BC47460 /* FCAlertView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FCAlertView-dummy.m"; sourceTree = "<group>"; };
 		398F88D5DEE81F449D1C6E77875CF98A /* Pods-FCAlertView_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FCAlertView_Example-resources.sh"; sourceTree = "<group>"; };
-		3C890FF21DBD9B4200A0E639 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heart.png; path = FCAlertView/Assets/heart.png; sourceTree = "<group>"; };
-		3C890FF31DBD9B4200A0E639 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = FCAlertView/Assets/star.png; sourceTree = "<group>"; };
 		41A8F02FB2F6ACCA7DEE48931012C27D /* Pods-FCAlertView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FCAlertView_Tests-umbrella.h"; sourceTree = "<group>"; };
 		4C31D5AC0965C827B99B817ED68F9DEA /* Pods-FCAlertView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FCAlertView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		4ED6C93DC0911243662AB9037F22F832 /* Pods-FCAlertView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FCAlertView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		5CB534231CD85F420BF63FE82B068E37 /* FCAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FCAlertView.h; path = FCAlertView/Classes/FCAlertView.h; sourceTree = "<group>"; };
+		54A24BC4BF5563C980FF700585485CFD /* FCAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FCAlertView.modulemap; sourceTree = "<group>"; };
 		611C721888A341842BE5533987141652 /* Pods-FCAlertView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FCAlertView_Tests-dummy.m"; sourceTree = "<group>"; };
-		6418EDD8424066F92057B3552A561D88 /* FCAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FCAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6EE1EA2ED035D74647526CEC7DA443DD /* FCAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FCAlertView.m; path = FCAlertView/Classes/FCAlertView.m; sourceTree = "<group>"; };
+		61A9871074F9B01224AF3F532F62A28F /* close-round.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "close-round.png"; path = "FCAlertView/Assets/close-round.png"; sourceTree = "<group>"; };
+		6272F7F457D48EE9CE775FFFBD96086C /* FCAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FCAlertView-prefix.pch"; sourceTree = "<group>"; };
+		6418EDD8424066F92057B3552A561D88 /* FCAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FCAlertView.framework; path = FCAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		786CF53AE0699DF9FC5EE90E0F778B6B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		798F1404F027EFF34C91E173CFBF6D1C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79D33A236D3BAF34170780DFC20A653F /* FCAlertView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FCAlertView.xcconfig; sourceTree = "<group>"; };
 		7D06C75E1105F27E611DB1FA7E883417 /* Pods-FCAlertView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FCAlertView_Example-frameworks.sh"; sourceTree = "<group>"; };
 		92DFA92589298DC7C5689B6D9309E0FD /* Pods-FCAlertView_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FCAlertView_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		933AFE4B0760F924E8FFE80F872DA5AA /* Pods-FCAlertView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FCAlertView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9652BDD478901C8556C5C7C35D2979ED /* FCAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FCAlertView.modulemap; sourceTree = "<group>"; };
-		A152DB51EEEB3091759892581A0B14FC /* FCAlertView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FCAlertView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		B012E47E978FDAB857B7306DA2CF67C7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B15E08ADC7A91CC56A72A364830BC4B4 /* FCAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FCAlertView-prefix.pch"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A0872A4D6BB14B794A0E33956DEDEC5A /* checkmark-round.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "checkmark-round.png"; path = "FCAlertView/Assets/checkmark-round.png"; sourceTree = "<group>"; };
+		A152DB51EEEB3091759892581A0B14FC /* FCAlertView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = FCAlertView.bundle; path = FCAlertView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA33CB5540B3BD0D0B3D764BAEC46F8A /* alert-round.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "alert-round.png"; path = "FCAlertView/Assets/alert-round.png"; sourceTree = "<group>"; };
+		B2CEB2A113153EDC7996FFCBC3BAA339 /* FCAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FCAlertView.h; path = FCAlertView/Classes/FCAlertView.h; sourceTree = "<group>"; };
 		B897C833926F09B754E6EC0F4086138F /* Pods-FCAlertView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FCAlertView_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		C04462341AB2A3452B5868CB5EDB5292 /* FCAlertView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FCAlertView.xcconfig; sourceTree = "<group>"; };
+		C44612B309C8686A0CBAB2F2DDBE6454 /* ResourceBundle-FCAlertView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-FCAlertView-Info.plist"; sourceTree = "<group>"; };
+		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		CCB3A79618AB7EEFE1AD77C6C65024AC /* heart.png */ = {isa = PBXFileReference; includeInIndex = 1; name = heart.png; path = FCAlertView/Assets/heart.png; sourceTree = "<group>"; };
 		CDEB6B647BE0269C181D2F8F8831CA64 /* Pods-FCAlertView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FCAlertView_Example-dummy.m"; sourceTree = "<group>"; };
-		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D50761AD0D532B3EDF4E5B374DB13F57 /* Pods-FCAlertView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FCAlertView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D95D29ECAC147E0E23E69A1A88AC03DC /* Pods-FCAlertView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FCAlertView_Example-umbrella.h"; sourceTree = "<group>"; };
-		DEDE75F091FD35392BBD1A8157EEF72F /* alert-round.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "alert-round.png"; path = "FCAlertView/Assets/alert-round.png"; sourceTree = "<group>"; };
-		DFA6B542F46B6E63D836A7E233C24C34 /* checkmark-round.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "checkmark-round.png"; path = "FCAlertView/Assets/checkmark-round.png"; sourceTree = "<group>"; };
-		E59908A11BCEC8A5F35A484027BFB8B3 /* Pods_FCAlertView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FCAlertView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2D50E490DD7B9DAA41C30D8257417E8 /* FCAlertView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FCAlertView-umbrella.h"; sourceTree = "<group>"; };
+		E59908A11BCEC8A5F35A484027BFB8B3 /* Pods_FCAlertView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FCAlertView_Tests.framework; path = "Pods-FCAlertView_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E9CF02AD8F482CEB87E76B25809720 /* Pods-FCAlertView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FCAlertView_Example.release.xcconfig"; sourceTree = "<group>"; };
-		E6EA5F188877084CE854964280B40D0F /* FCAlertView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FCAlertView-umbrella.h"; sourceTree = "<group>"; };
 		E7586F18FAB526D34506DCE8A30C434F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F0E3369184F15852C4AA16DF8D29DB55 /* Pods-FCAlertView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FCAlertView_Example.modulemap"; sourceTree = "<group>"; };
-		F1AB346A24505AF2ECCC3767256ABED5 /* FCAlertView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FCAlertView-dummy.m"; sourceTree = "<group>"; };
-		FDFD1B58475EAC88D67FB3E3F3259306 /* ResourceBundle-FCAlertView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-FCAlertView-Info.plist"; sourceTree = "<group>"; };
+		F0E3369184F15852C4AA16DF8D29DB55 /* Pods-FCAlertView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-FCAlertView_Example.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		06047E8D1540988D975CB02953378308 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				53F5CAC83BCB432C59463B43959E63B7 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0E277C9B61993D3DB9671ECD16286F3C /* Frameworks */ = {
+		1047C6535A86077A30CDE388D8404268 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DABD5CB01A6DB5808AED9476AD8183EF /* Frameworks */ = {
+		8159CAB96A39E0836AAA814D7FFBD305 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95C932387ADDDE933148C14055228362 /* Foundation.framework in Frameworks */,
+				2C9318D996236EC35AF4D0D440A2311A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DE191C8B282C9549BFE218F7345415EB /* Frameworks */ = {
+		94A1F5EEE952BB0AFBDD29B92C769ACF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4857C596162532B48BC78AA5C9BE49A6 /* Foundation.framework in Frameworks */,
+				2F3EDA93641DBE32FEFDF36463D3AD67 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		981A7526CA03232AAB65EE6C93894F5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9CE4A0129C00733C1D6FE9C28C3A6B4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +124,7 @@
 		0224B8FF13DDABDF629175892D6C4AE2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BEF8BDE10952E44C91E1DC754AE47479 /* FCAlertView */,
+				372B3FB70FC18039FB8F7F44152BF2DD /* FCAlertView */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -138,10 +138,34 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+		372B3FB70FC18039FB8F7F44152BF2DD /* FCAlertView */ = {
 			isa = PBXGroup;
 			children = (
-				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+				B2CEB2A113153EDC7996FFCBC3BAA339 /* FCAlertView.h */,
+				163B372A8C7CEF335920AFDBAF8BB6E8 /* FCAlertView.m */,
+				6E207CCFF5F6F0A0854441442B05A0D6 /* Resources */,
+				E9CC86A6EA0FFFE65DF383CE2C05E388 /* Support Files */,
+			);
+			name = FCAlertView;
+			path = FCAlertView;
+			sourceTree = "<group>";
+		};
+		6E207CCFF5F6F0A0854441442B05A0D6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AA33CB5540B3BD0D0B3D764BAEC46F8A /* alert-round.png */,
+				A0872A4D6BB14B794A0E33956DEDEC5A /* checkmark-round.png */,
+				61A9871074F9B01224AF3F532F62A28F /* close-round.png */,
+				CCB3A79618AB7EEFE1AD77C6C65024AC /* heart.png */,
+				26C84E72C39B7C8141726594FF8B477E /* star.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -175,33 +199,6 @@
 			path = "Target Support Files/Pods-FCAlertView_Example";
 			sourceTree = "<group>";
 		};
-		8F0A92BA501B8D21908571AF702AD0EB /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				DEDE75F091FD35392BBD1A8157EEF72F /* alert-round.png */,
-				3C890FF21DBD9B4200A0E639 /* heart.png */,
-				3C890FF31DBD9B4200A0E639 /* star.png */,
-				DFA6B542F46B6E63D836A7E233C24C34 /* checkmark-round.png */,
-				0EA62431B0ECAE02C03BD8888DD12851 /* close-round.png */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		9974CD037A3682B7BE625E17B8226DC1 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				9652BDD478901C8556C5C7C35D2979ED /* FCAlertView.modulemap */,
-				C04462341AB2A3452B5868CB5EDB5292 /* FCAlertView.xcconfig */,
-				F1AB346A24505AF2ECCC3767256ABED5 /* FCAlertView-dummy.m */,
-				B15E08ADC7A91CC56A72A364830BC4B4 /* FCAlertView-prefix.pch */,
-				E6EA5F188877084CE854964280B40D0F /* FCAlertView-umbrella.h */,
-				B012E47E978FDAB857B7306DA2CF67C7 /* Info.plist */,
-				FDFD1B58475EAC88D67FB3E3F3259306 /* ResourceBundle-FCAlertView-Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/FCAlertView";
-			sourceTree = "<group>";
-		};
 		A2F9AFDE65F35717623A39C8505F23FB /* Pods-FCAlertView_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,20 +220,9 @@
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BEF8BDE10952E44C91E1DC754AE47479 /* FCAlertView */ = {
-			isa = PBXGroup;
-			children = (
-				5CB534231CD85F420BF63FE82B068E37 /* FCAlertView.h */,
-				6EE1EA2ED035D74647526CEC7DA443DD /* FCAlertView.m */,
-				8F0A92BA501B8D21908571AF702AD0EB /* Resources */,
-				9974CD037A3682B7BE625E17B8226DC1 /* Support Files */,
-			);
-			path = FCAlertView;
 			sourceTree = "<group>";
 		};
 		E663947D4085855027AC47631753FFA7 /* Products */ = {
@@ -250,98 +236,59 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		E9CC86A6EA0FFFE65DF383CE2C05E388 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				54A24BC4BF5563C980FF700585485CFD /* FCAlertView.modulemap */,
+				79D33A236D3BAF34170780DFC20A653F /* FCAlertView.xcconfig */,
+				32ED87A89C543E1BB4B295451BC47460 /* FCAlertView-dummy.m */,
+				6272F7F457D48EE9CE775FFFBD96086C /* FCAlertView-prefix.pch */,
+				E2D50E490DD7B9DAA41C30D8257417E8 /* FCAlertView-umbrella.h */,
+				798F1404F027EFF34C91E173CFBF6D1C /* Info.plist */,
+				C44612B309C8686A0CBAB2F2DDBE6454 /* ResourceBundle-FCAlertView-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FCAlertView";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6BB916C15C3205AA4DD8C7EC1FC6124D /* Headers */ = {
+		13CC077374C4E126EA6B786AF09293D2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D875F351D5F063C561CD179A53D8096D /* Pods-FCAlertView_Tests-umbrella.h in Headers */,
+				6F036EDB3C6F4D77407B93978853D66A /* FCAlertView-umbrella.h in Headers */,
+				20BAB5D59DF7BD045F079334AAA64ACA /* FCAlertView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9BE43FC39871F5CE87930FDE17D20AEE /* Headers */ = {
+		653EAAC6E2414CBCAD36522E07B4A63A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CCBDCA281FDB65D6DDE3479E34FD42F /* Pods-FCAlertView_Example-umbrella.h in Headers */,
+				C89E51AB4872BFCCC8E6E646EBF217E7 /* Pods-FCAlertView_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AB14F0C0D152F1179A9AD677D7537FE5 /* Headers */ = {
+		BB2DCB547DD16472A045FAB0E684B5DC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3DA22F089925D67171AC941856FB65C /* FCAlertView-umbrella.h in Headers */,
-				7CBB05408F2DC287E844B49D9576FE53 /* FCAlertView.h in Headers */,
+				7DCA0EB4722A52B2584A2B14D3525DDD /* Pods-FCAlertView_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0F7AFADE1D2CFD88C5F114DE957E9F30 /* Pods-FCAlertView_Example */ = {
+		1613271357771814C71601D90B787D94 /* FCAlertView-FCAlertView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D9B7E87723333CA6B5FCA62D47A4150F /* Build configuration list for PBXNativeTarget "Pods-FCAlertView_Example" */;
+			buildConfigurationList = 4E82A1DE997D99C0DF2CECEF19D52746 /* Build configuration list for PBXNativeTarget "FCAlertView-FCAlertView" */;
 			buildPhases = (
-				324150BCED8483641183340E55107337 /* Sources */,
-				06047E8D1540988D975CB02953378308 /* Frameworks */,
-				9BE43FC39871F5CE87930FDE17D20AEE /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6FDCAABBCE09CA768C1A4176ED170A6F /* PBXTargetDependency */,
-			);
-			name = "Pods-FCAlertView_Example";
-			productName = "Pods-FCAlertView_Example";
-			productReference = 265E0A616E04F91972A8CD2566C1DC93 /* Pods_FCAlertView_Example.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		8B9FF06C4FEA3AA474C25AB2937A7B7E /* Pods-FCAlertView_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DC2946D75197958D87D12085A7A05397 /* Build configuration list for PBXNativeTarget "Pods-FCAlertView_Tests" */;
-			buildPhases = (
-				711AB52CD9EA8FE3A31B399F22950DCA /* Sources */,
-				DE191C8B282C9549BFE218F7345415EB /* Frameworks */,
-				6BB916C15C3205AA4DD8C7EC1FC6124D /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-FCAlertView_Tests";
-			productName = "Pods-FCAlertView_Tests";
-			productReference = E59908A11BCEC8A5F35A484027BFB8B3 /* Pods_FCAlertView_Tests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		DD0460046ACF8A381F75D6015478752E /* FCAlertView */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4BDCF0D4BA18E15425C73751FD10EE01 /* Build configuration list for PBXNativeTarget "FCAlertView" */;
-			buildPhases = (
-				DB333BF22D5119D2728D5FC818C7FAD5 /* Sources */,
-				DABD5CB01A6DB5808AED9476AD8183EF /* Frameworks */,
-				85B7D9A97BAABC84789DCEEA32FD0D5B /* Resources */,
-				AB14F0C0D152F1179A9AD677D7537FE5 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D2D927E0522643E9BF08820D7D65D7E0 /* PBXTargetDependency */,
-			);
-			name = FCAlertView;
-			productName = FCAlertView;
-			productReference = 6418EDD8424066F92057B3552A561D88 /* FCAlertView.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		E4A183B710C3B852DF70AB2469C283E6 /* FCAlertView-FCAlertView */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1E63580CA5486385131C6E164AF30E62 /* Build configuration list for PBXNativeTarget "FCAlertView-FCAlertView" */;
-			buildPhases = (
-				414C2080387EFD777CF62C58E52C75B6 /* Sources */,
-				0E277C9B61993D3DB9671ECD16286F3C /* Frameworks */,
-				2BF4DB907560F800668A72CC73AAA856 /* Resources */,
+				D36415FC0EF378A99093F211F254C4A3 /* Sources */,
+				1047C6535A86077A30CDE388D8404268 /* Frameworks */,
+				20C6F5D965AD56F6D1558A5AC78B2DB6 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -351,6 +298,60 @@
 			productName = "FCAlertView-FCAlertView";
 			productReference = A152DB51EEEB3091759892581A0B14FC /* FCAlertView.bundle */;
 			productType = "com.apple.product-type.bundle";
+		};
+		9E4A7B97C55BF8A57B894EA0C62F4997 /* Pods-FCAlertView_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9FB31A0AB6F7E2DA64DBA6BD1D48837 /* Build configuration list for PBXNativeTarget "Pods-FCAlertView_Example" */;
+			buildPhases = (
+				1F11477F6EBE054E73B9A6829F369067 /* Sources */,
+				94A1F5EEE952BB0AFBDD29B92C769ACF /* Frameworks */,
+				BB2DCB547DD16472A045FAB0E684B5DC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E9B3579E13C0DBC903F70D9172EB46C /* PBXTargetDependency */,
+			);
+			name = "Pods-FCAlertView_Example";
+			productName = "Pods-FCAlertView_Example";
+			productReference = 265E0A616E04F91972A8CD2566C1DC93 /* Pods_FCAlertView_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EF1ABE20DAA23760FBF0359740C1F0B9 /* FCAlertView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CA6C0585D1B3396EA76721ED9ABF898 /* Build configuration list for PBXNativeTarget "FCAlertView" */;
+			buildPhases = (
+				B3EE5904AD57CEBB6A3EABDD17E5F980 /* Sources */,
+				8159CAB96A39E0836AAA814D7FFBD305 /* Frameworks */,
+				9EFDE054B823A3EDE57E82668B162C3F /* Resources */,
+				13CC077374C4E126EA6B786AF09293D2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9E37634C12DE0AFB113AE9BB570E06D2 /* PBXTargetDependency */,
+			);
+			name = FCAlertView;
+			productName = FCAlertView;
+			productReference = 6418EDD8424066F92057B3552A561D88 /* FCAlertView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F5AF6BEFE7BAB21BCE8FD8D9E749A41B /* Pods-FCAlertView_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7AFAC36E99113B6DB979AB6432BCD4F /* Build configuration list for PBXNativeTarget "Pods-FCAlertView_Tests" */;
+			buildPhases = (
+				8C4B56099350A0ECF720F43C95BE42AA /* Sources */,
+				981A7526CA03232AAB65EE6C93894F5F /* Frameworks */,
+				653EAAC6E2414CBCAD36522E07B4A63A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-FCAlertView_Tests";
+			productName = "Pods-FCAlertView_Tests";
+			productReference = E59908A11BCEC8A5F35A484027BFB8B3 /* Pods_FCAlertView_Tests.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -373,91 +374,223 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DD0460046ACF8A381F75D6015478752E /* FCAlertView */,
-				E4A183B710C3B852DF70AB2469C283E6 /* FCAlertView-FCAlertView */,
-				0F7AFADE1D2CFD88C5F114DE957E9F30 /* Pods-FCAlertView_Example */,
-				8B9FF06C4FEA3AA474C25AB2937A7B7E /* Pods-FCAlertView_Tests */,
+				EF1ABE20DAA23760FBF0359740C1F0B9 /* FCAlertView */,
+				1613271357771814C71601D90B787D94 /* FCAlertView-FCAlertView */,
+				9E4A7B97C55BF8A57B894EA0C62F4997 /* Pods-FCAlertView_Example */,
+				F5AF6BEFE7BAB21BCE8FD8D9E749A41B /* Pods-FCAlertView_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2BF4DB907560F800668A72CC73AAA856 /* Resources */ = {
+		20C6F5D965AD56F6D1558A5AC78B2DB6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C890FF61DBD9B6F00A0E639 /* heart.png in Resources */,
-				3C890FF71DBD9B6F00A0E639 /* star.png in Resources */,
-				C9544876EE83B9F175CA4CEFA97585F3 /* alert-round.png in Resources */,
-				0298F253C2A203ED34767414369F0911 /* checkmark-round.png in Resources */,
-				FC98690F19EFB5193D209491CA6464DB /* close-round.png in Resources */,
+				5659316602600A4062EDF8AA96DB4544 /* alert-round.png in Resources */,
+				620FEACDDBE4B3929A5736071B0D06F2 /* checkmark-round.png in Resources */,
+				9C05669320CE59568F8D32BCF2B5AE35 /* close-round.png in Resources */,
+				A94BC9BDFCC342D90417746BD9CAC7BD /* heart.png in Resources */,
+				D3B04FB5665A5732C78BF0514AABFAB7 /* star.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		85B7D9A97BAABC84789DCEEA32FD0D5B /* Resources */ = {
+		9EFDE054B823A3EDE57E82668B162C3F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EF5AB086B2A5B2F8B97B26842D87CD3 /* FCAlertView.bundle in Resources */,
+				82CD4C9C56D28B0A759AC4E8250B903F /* FCAlertView.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		324150BCED8483641183340E55107337 /* Sources */ = {
+		1F11477F6EBE054E73B9A6829F369067 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C092DDADCF33279CBEBDEDB5A9B909F /* Pods-FCAlertView_Example-dummy.m in Sources */,
+				316318B494ADE8FEADE852B4BCB84596 /* Pods-FCAlertView_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		414C2080387EFD777CF62C58E52C75B6 /* Sources */ = {
+		8C4B56099350A0ECF720F43C95BE42AA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE46CF4ADBD426B436B2A593B0F441E /* Pods-FCAlertView_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		711AB52CD9EA8FE3A31B399F22950DCA /* Sources */ = {
+		B3EE5904AD57CEBB6A3EABDD17E5F980 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A8660F4277DCB3153313E479C5D9316 /* Pods-FCAlertView_Tests-dummy.m in Sources */,
+				8EAD8DC87EFE35C7E714FBD936B98EDA /* FCAlertView-dummy.m in Sources */,
+				8CAE2E96BE9DAEDF420FB328CB2C30F4 /* FCAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DB333BF22D5119D2728D5FC818C7FAD5 /* Sources */ = {
+		D36415FC0EF378A99093F211F254C4A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AF98990197D4174863C82B198B55947 /* FCAlertView-dummy.m in Sources */,
-				8491B62589CB4EE3AA53FB7C586714D4 /* FCAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6FDCAABBCE09CA768C1A4176ED170A6F /* PBXTargetDependency */ = {
+		0E9B3579E13C0DBC903F70D9172EB46C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FCAlertView;
-			target = DD0460046ACF8A381F75D6015478752E /* FCAlertView */;
-			targetProxy = 9AA7342386759B5E60290F248F530024 /* PBXContainerItemProxy */;
+			target = EF1ABE20DAA23760FBF0359740C1F0B9 /* FCAlertView */;
+			targetProxy = 98197F87B3D0297FA87CDD284CF5E376 /* PBXContainerItemProxy */;
 		};
-		D2D927E0522643E9BF08820D7D65D7E0 /* PBXTargetDependency */ = {
+		9E37634C12DE0AFB113AE9BB570E06D2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "FCAlertView-FCAlertView";
-			target = E4A183B710C3B852DF70AB2469C283E6 /* FCAlertView-FCAlertView */;
-			targetProxy = 4CE98E44CC685135CA55ECCC4E769487 /* PBXContainerItemProxy */;
+			target = 1613271357771814C71601D90B787D94 /* FCAlertView-FCAlertView */;
+			targetProxy = 32932EDC3FAA8184B9EDDDBBCA1BCF5D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		062215267A5CDC7E32EC089087808734 /* Release */ = {
+		2AD2762680CE83E6EC8EF4FA8E4EFF52 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C04462341AB2A3452B5868CB5EDB5292 /* FCAlertView.xcconfig */;
+			baseConfigurationReference = B897C833926F09B754E6EC0F4086138F /* Pods-FCAlertView_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-FCAlertView_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FCAlertView_Example/Pods-FCAlertView_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_FCAlertView_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2FDDB362FD39D415E5E11FFDB9F08691 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79D33A236D3BAF34170780DFC20A653F /* FCAlertView.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/FCAlertView/FCAlertView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FCAlertView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FCAlertView/FCAlertView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = FCAlertView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6A5A677FDD24F3D7ECE0ADF99D6612B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5E9CF02AD8F482CEB87E76B25809720 /* Pods-FCAlertView_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-FCAlertView_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FCAlertView_Example/Pods-FCAlertView_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_FCAlertView_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7141BE5552785A9251FEFCA1DD0B80FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79D33A236D3BAF34170780DFC20A653F /* FCAlertView.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/FCAlertView/FCAlertView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FCAlertView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FCAlertView/FCAlertView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = FCAlertView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7CEB3D839D1BDC64F3C6C0E33D021ED0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79D33A236D3BAF34170780DFC20A653F /* FCAlertView.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FCAlertView";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -472,7 +605,7 @@
 			};
 			name = Release;
 		};
-		0ACDCBCB0B6796575F46FFA2F5410C6B /* Release */ = {
+		8DED8AD26D381A6ACFF202E5217EC498 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -490,6 +623,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -504,187 +638,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		208579F0A065363CB286966D18C46C78 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E5E9CF02AD8F482CEB87E76B25809720 /* Pods-FCAlertView_Example.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-FCAlertView_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-FCAlertView_Example/Pods-FCAlertView_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_FCAlertView_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		58033A773575E7FF2EDBB6A6282EAAA3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C31D5AC0965C827B99B817ED68F9DEA /* Pods-FCAlertView_Tests.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-FCAlertView_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-FCAlertView_Tests/Pods-FCAlertView_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_FCAlertView_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		6597071980826C1F7419B39670B774B2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C04462341AB2A3452B5868CB5EDB5292 /* FCAlertView.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FCAlertView";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/FCAlertView/ResourceBundle-FCAlertView-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = FCAlertView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		A2974C4A202DEEA7CBB008AD711E8294 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C04462341AB2A3452B5868CB5EDB5292 /* FCAlertView.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/FCAlertView/FCAlertView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FCAlertView/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FCAlertView/FCAlertView.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = FCAlertView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		AB286FB6AA44F212A1747252AAB98C55 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C04462341AB2A3452B5868CB5EDB5292 /* FCAlertView.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/FCAlertView/FCAlertView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FCAlertView/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FCAlertView/FCAlertView.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = FCAlertView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		BA48D6AA1AF195783B69ADC5D5C18274 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B897C833926F09B754E6EC0F4086138F /* Pods-FCAlertView_Example.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-FCAlertView_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-FCAlertView_Example/Pods-FCAlertView_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_FCAlertView_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */ = {
+		9E1E4E48AF2EAB23169E611BF694090A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -702,6 +663,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -721,16 +683,19 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		DBF06965D078E50E86B8AF87B9EF83A6 /* Debug */ = {
+		A0DF65BF7EA810747613C5CF79C1B369 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 933AFE4B0760F924E8FFE80F872DA5AA /* Pods-FCAlertView_Tests.debug.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -759,50 +724,102 @@
 			};
 			name = Debug;
 		};
+		A6D07E3AFCBFA75546AF03E84F673E17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79D33A236D3BAF34170780DFC20A653F /* FCAlertView.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FCAlertView";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/FCAlertView/ResourceBundle-FCAlertView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = FCAlertView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		FDD1FCE8252EC5035FFFEF3C77A09B55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C31D5AC0965C827B99B817ED68F9DEA /* Pods-FCAlertView_Tests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-FCAlertView_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FCAlertView_Tests/Pods-FCAlertView_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_FCAlertView_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1E63580CA5486385131C6E164AF30E62 /* Build configuration list for PBXNativeTarget "FCAlertView-FCAlertView" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6597071980826C1F7419B39670B774B2 /* Debug */,
-				062215267A5CDC7E32EC089087808734 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */,
-				0ACDCBCB0B6796575F46FFA2F5410C6B /* Release */,
+				9E1E4E48AF2EAB23169E611BF694090A /* Debug */,
+				8DED8AD26D381A6ACFF202E5217EC498 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4BDCF0D4BA18E15425C73751FD10EE01 /* Build configuration list for PBXNativeTarget "FCAlertView" */ = {
+		4E82A1DE997D99C0DF2CECEF19D52746 /* Build configuration list for PBXNativeTarget "FCAlertView-FCAlertView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AB286FB6AA44F212A1747252AAB98C55 /* Debug */,
-				A2974C4A202DEEA7CBB008AD711E8294 /* Release */,
+				A6D07E3AFCBFA75546AF03E84F673E17 /* Debug */,
+				7CEB3D839D1BDC64F3C6C0E33D021ED0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D9B7E87723333CA6B5FCA62D47A4150F /* Build configuration list for PBXNativeTarget "Pods-FCAlertView_Example" */ = {
+		7CA6C0585D1B3396EA76721ED9ABF898 /* Build configuration list for PBXNativeTarget "FCAlertView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BA48D6AA1AF195783B69ADC5D5C18274 /* Debug */,
-				208579F0A065363CB286966D18C46C78 /* Release */,
+				2FDDB362FD39D415E5E11FFDB9F08691 /* Debug */,
+				7141BE5552785A9251FEFCA1DD0B80FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC2946D75197958D87D12085A7A05397 /* Build configuration list for PBXNativeTarget "Pods-FCAlertView_Tests" */ = {
+		D9FB31A0AB6F7E2DA64DBA6BD1D48837 /* Build configuration list for PBXNativeTarget "Pods-FCAlertView_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DBF06965D078E50E86B8AF87B9EF83A6 /* Debug */,
-				58033A773575E7FF2EDBB6A6282EAAA3 /* Release */,
+				2AD2762680CE83E6EC8EF4FA8E4EFF52 /* Debug */,
+				6A5A677FDD24F3D7ECE0ADF99D6612B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7AFAC36E99113B6DB979AB6432BCD4F /* Build configuration list for PBXNativeTarget "Pods-FCAlertView_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0DF65BF7EA810747613C5CF79C1B369 /* Debug */,
+				FDD1FCE8252EC5035FFFEF3C77A09B55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

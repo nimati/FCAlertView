@@ -4,10 +4,10 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>FCAlertView-FCAlertView.xcscheme_^#shared#^_</key>
+		<key>FCAlertView-FCAlertView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<true/>
+			<false/>
 		</dict>
 		<key>FCAlertView.xcscheme</key>
 		<dict>
@@ -27,22 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0F7AFADE1D2CFD88C5F114DE957E9F30</key>
+		<key>1613271357771814C71601D90B787D94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B9FF06C4FEA3AA474C25AB2937A7B7E</key>
+		<key>9E4A7B97C55BF8A57B894EA0C62F4997</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DD0460046ACF8A381F75D6015478752E</key>
+		<key>EF1ABE20DAA23760FBF0359740C1F0B9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E4A183B710C3B852DF70AB2469C283E6</key>
+		<key>F5AF6BEFE7BAB21BCE8FD8D9E749A41B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

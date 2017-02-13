@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8B9FF06C4FEA3AA474C25AB2937A7B7E"
+               BlueprintIdentifier = "F5AF6BEFE7BAB21BCE8FD8D9E749A41B"
                BuildableName = "Pods_FCAlertView_Tests.framework"
                BlueprintName = "Pods-FCAlertView_Tests"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8B9FF06C4FEA3AA474C25AB2937A7B7E"
+            BlueprintIdentifier = "F5AF6BEFE7BAB21BCE8FD8D9E749A41B"
             BuildableName = "Pods_FCAlertView_Tests.framework"
             BlueprintName = "Pods-FCAlertView_Tests"
             ReferencedContainer = "container:Pods.xcodeproj">
