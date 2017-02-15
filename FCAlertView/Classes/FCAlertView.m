@@ -70,7 +70,10 @@
         _hideSeparatorLineView = NO;
         _customImageScale = 1;
         _titleFont = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
-        _subtitleFont = nil;        
+        _subtitleFont = nil;
+        _doneButtonFont = nil;
+        _firstButtonFont = nil;
+        _secondButtonFont = nil;
         defaultSpacing = [self configureAVWidth];
         defaultHeight = [self configureAVHeight];
                 
@@ -89,10 +92,10 @@
         {
             CGSize result = [[UIScreen mainScreen] bounds].size;
             
-            if(result.height == 1366)
-                return 105.0f + 600.0f;
+            if(result.height > result.width)
+                return (result.width / 1.5f);
             else
-                return 105.0f + 350.0f;
+                return (result.height / 1.2f);
         }
         if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
         {
@@ -333,11 +336,13 @@
     
     // Landscape Orientation Width Fix
     
-    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
+    // iPad spacing logic already adjusts for this, so no need to re-adjust
+    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation) &&
+        UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad)
     {
-        alertViewFrame = CGRectMake(self.frame.size.width/2 - (300/2),
+        alertViewFrame = CGRectMake(self.frame.size.width/2 - (alertViewFrame.size.width/2),
                                     self.frame.size.height/2 - (alertViewFrame.size.height/2),
-                                    300,
+                                    alertViewFrame.size.width,
                                     alertViewFrame.size.height);
     }
     
@@ -457,19 +462,22 @@
         [alertView.layer addSublayer:fillLayer];
     
     // HEADER VIEW - With Title & Subtitle
+    CGFloat defaultTitleSize = self.titleFont.pointSize * 1.2;
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15.0f,
-                                                                    20.0f + (alertViewWithVector * 30),
+                                                                    defaultTitleSize + (alertViewWithVector * 30),
                                                                     alertViewFrame.size.width - 30.0f,
                                                                     20.0f)];
     titleLabel.font = self.titleFont;
-    titleLabel.numberOfLines = 1;
+    titleLabel.numberOfLines = 0;
     titleLabel.textColor = self.titleColor;
     if (_title == nil)
         titleLabel.attributedText = self.attributedTitle;
     else
         titleLabel.text = self.title;
     titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.adjustsFontSizeToFitWidth = YES;
+    titleLabel.minimumScaleFactor = 0.5;
     
     // SEPARATOR LINE - Seperating Header View with Button View
     
@@ -539,7 +547,10 @@
         [doneButton addTarget:self action:@selector(donePressed) forControlEvents:UIControlEventTouchUpInside];
         [doneButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
         [doneButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
-        doneButton.titleLabel.font = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
+        if (self.doneButtonFont != nil)
+            doneButton.titleLabel.font = self.doneButtonFont;
+        else
+            doneButton.titleLabel.font = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
         if (_colorScheme != nil || _darkTheme)
             doneButton.tintColor = [UIColor whiteColor];
         if (self.doneButtonTitleColor != nil)
@@ -578,7 +589,10 @@
         [doneButton addTarget:self action:@selector(donePressed) forControlEvents:UIControlEventTouchUpInside];
         [doneButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
         [doneButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
-        doneButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightMedium];
+        if (self.doneButtonFont != nil)
+            doneButton.titleLabel.font = self.doneButtonFont;
+        else
+            doneButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightMedium];
         if (_colorScheme != nil || _darkTheme)
             doneButton.tintColor = [UIColor whiteColor];
         if (self.doneButtonTitleColor != nil)
@@ -616,7 +630,10 @@
         [otherButton addTarget:self action:@selector(handleButton:) forControlEvents:UIControlEventTouchUpInside];
         [otherButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
         [otherButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
-        otherButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
+        if (self.firstButtonFont != nil)
+            otherButton.titleLabel.font = self.firstButtonFont;
+        else
+            otherButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
         otherButton.tintColor = self.colorScheme;
         if (self.colorScheme == nil && _darkTheme)
             otherButton.tintColor = [UIColor whiteColor];
@@ -692,7 +709,10 @@
         [firstButton addTarget:self action:@selector(handleButton:) forControlEvents:UIControlEventTouchUpInside];
         [firstButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
         [firstButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
-        firstButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
+        if (self.firstButtonFont != nil)
+            firstButton.titleLabel.font = self.firstButtonFont;
+        else
+            firstButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
         firstButton.tintColor = self.colorScheme;
         if (self.colorScheme == nil && _darkTheme)
             firstButton.tintColor = [UIColor whiteColor];
@@ -735,7 +755,10 @@
         [secondButton addTarget:self action:@selector(handleButton:) forControlEvents:UIControlEventTouchUpInside];
         [secondButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
         [secondButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
-        secondButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
+        if (self.secondButtonFont != nil)
+            secondButton.titleLabel.font = self.secondButtonFont;
+        else
+            secondButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
         secondButton.tintColor = self.colorScheme;
         if (self.colorScheme == nil && _darkTheme)
             secondButton.tintColor = [UIColor whiteColor];
@@ -774,7 +797,10 @@
         [doneButton addTarget:self action:@selector(donePressed) forControlEvents:UIControlEventTouchUpInside];
         [doneButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
         [doneButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
-        doneButton.titleLabel.font = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
+        if (self.doneButtonFont != nil)
+            doneButton.titleLabel.font = self.doneButtonFont;
+        else
+            doneButton.titleLabel.font = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
         if (_colorScheme != nil || _darkTheme)
             doneButton.tintColor = [UIColor whiteColor];
         if (self.doneButtonTitleColor != nil)

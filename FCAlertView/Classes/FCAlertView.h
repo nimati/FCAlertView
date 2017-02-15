@@ -79,6 +79,11 @@
 @property (nonatomic, retain) UIFont *titleFont;
 @property (nonatomic, retain) UIFont *subtitleFont;
 
+// AlertView Button Titles
+@property (nonatomic, retain) UIFont *doneButtonFont;
+@property (nonatomic, retain) UIFont *firstButtonFont;
+@property (nonatomic, retain) UIFont *secondButtonFont;
+
 // AlertView Background
 
 @property (nonatomic, retain) UIView *alertBackground;
