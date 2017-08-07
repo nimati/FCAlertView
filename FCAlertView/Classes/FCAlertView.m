@@ -53,6 +53,7 @@
         
         alertButtons = [[NSMutableArray alloc] init];
         alertTextFields = [[NSMutableArray alloc] init];
+        alertTextFieldHolder = [[NSMutableArray alloc] init];
         
         _numberOfButtons = 0;
         _autoHideSeconds = 0;
@@ -70,10 +71,10 @@
         _hideSeparatorLineView = NO;
         _customImageScale = 1;
         _titleFont = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
-        _subtitleFont = nil;        
+        _subtitleFont = nil;
         defaultSpacing = [self configureAVWidth];
         defaultHeight = [self configureAVHeight];
-                
+        
     }
     
     return self;
@@ -171,7 +172,7 @@
     
     if (_hideDoneButton || _hideAllButtons) {
         
-        if (_autoHideSeconds == 0) {
+        if (_autoHideSeconds == 0 && !_overrideForcedDismiss) {
             
             _dismissOnOutsideTouch = YES;
             
@@ -186,12 +187,12 @@
 #pragma mark - Title Validation
 -(BOOL)hasTitle {
     return (_title != nil && _title.length > 0) ||
-           (_attributedTitle != nil && _attributedTitle.length > 0);
+    (_attributedTitle != nil && _attributedTitle.length > 0);
 }
 
 -(BOOL)hasSubTitle {
     return (_subTitle != nil && _subTitle.length > 0) ||
-           (_attributedSubTitle != nil && _attributedSubTitle.length > 0);
+    (_attributedSubTitle != nil && _attributedSubTitle.length > 0);
 }
 
 #pragma mark - Touch Events
@@ -316,9 +317,9 @@
     
     if (alertTextFields.count > 0)
         alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
-                                    self.frame.size.height/2 - ((alertViewFrame.size.height - 50 + 140)/2),
+                                    self.frame.size.height/2 - ((alertViewFrame.size.height + 45*(MIN(alertTextFields.count,4)))/2),
                                     result.width - defaultSpacing,
-                                    alertViewFrame.size.height + 40);
+                                    alertViewFrame.size.height + 45*(MIN(alertTextFields.count,4)));
     else
         alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
                                     self.frame.size.height/2 - ((alertViewFrame.size.height - 50 + 140)/2),
@@ -329,11 +330,11 @@
         alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
                                     self.frame.size.height/2 - ((alertViewFrame.size.height - 50 + 140)/2),
                                     result.width - defaultSpacing,
-                                    alertViewFrame.size.height + 40);
+                                    alertViewFrame.size.height + 50);
     
     // Landscape Orientation Width Fix
     
-    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
+    if(UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation))
     {
         alertViewFrame = CGRectMake(self.frame.size.width/2 - (300/2),
                                     self.frame.size.height/2 - (alertViewFrame.size.height/2),
@@ -375,8 +376,41 @@
     
     descriptionLabel.numberOfLines = 0;
     descriptionLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+    
+    // HEADER VIEW - With Title & Subtitle
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15.0f,
+                                                                    20.0f + (alertViewWithVector * 30),
+                                                                    alertViewFrame.size.width - 30.0f,
+                                                                    30.0f)];
+    
+    titleLabel.font = self.titleFont;
+    titleLabel.numberOfLines = 1;
+    titleLabel.textColor = self.titleColor;
+    if (_title == nil)
+        titleLabel.attributedText = self.attributedTitle;
+    else
+        titleLabel.text = self.title;
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    // Re-adjusting Frames based on height of title - Requirement is to not have over 2 lines of title
+
+    CGSize size = [titleLabel.text sizeWithAttributes:@{NSFontAttributeName : titleLabel.font}];
+    if (size.width > titleLabel.bounds.size.width) {
+        titleLabel.numberOfLines = 2;
+        titleLabel.frame = CGRectMake(titleLabel.frame.origin.x, titleLabel.frame.origin.y, titleLabel.frame.size.width, 60.0f);
+        descriptionLabel.frame = CGRectMake(descriptionLabel.frame.origin.x,
+                                            descriptionLabel.frame.origin.y + 30.0f,
+                                            descriptionLabel.frame.size.width,
+                                            descriptionLabel.frame.size.height);
         
-    // Re-adjusting Frames based on height of text - Requirement is to not have over 6 lines of text
+        alertViewFrame = CGRectMake(alertViewFrame.origin.x,
+                                    alertViewFrame.origin.y,
+                                    alertViewFrame.size.width,
+                                    alertViewFrame.size.height + 30.0f);
+    }
+    
+    // Re-adjusting Frames based on height of subTitle - Requirement is to not have over 6 lines of subTitle
     
     CGSize constraint = CGSizeMake(descriptionLabel.frame.size.width, CGFLOAT_MAX);
     
@@ -385,7 +419,7 @@
                                                              options:NSStringDrawingUsesLineFragmentOrigin
                                                           attributes:@{NSFontAttributeName:descriptionLabel.font}
                                                              context:context].size;
-
+    
     CGFloat heightDiff = descriptionLabel.frame.size.height - boundingBox.height;
     
     descriptionLabel.frame = CGRectMake(descriptionLabel.frame.origin.x,
@@ -456,21 +490,6 @@
     if (alertViewWithVector)
         [alertView.layer addSublayer:fillLayer];
     
-    // HEADER VIEW - With Title & Subtitle
-    
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15.0f,
-                                                                    20.0f + (alertViewWithVector * 30),
-                                                                    alertViewFrame.size.width - 30.0f,
-                                                                    20.0f)];
-    titleLabel.font = self.titleFont;
-    titleLabel.numberOfLines = 1;
-    titleLabel.textColor = self.titleColor;
-    if (_title == nil)
-        titleLabel.attributedText = self.attributedTitle;
-    else
-        titleLabel.text = self.title;
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    
     // SEPARATOR LINE - Seperating Header View with Button View
     
     UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0,
@@ -486,24 +505,52 @@
     
     if (alertTextFields.count > 0) {
         
-        _textField = [[UITextField alloc] initWithFrame:CGRectMake(12.5, descriptionLabel.frame.size.height + descriptionLabel.frame.origin.y + 10.5, alertViewFrame.size.width - 25, 40)];
-        
-        _textField.layer.cornerRadius = 3.0f;
-        _textField.layer.masksToBounds = YES;
-        _textField.layer.borderColor = [[UIColor colorWithWhite:217.0f/255.0f alpha:1.0] CGColor];
-        _textField.layer.borderWidth = 1.0f;
-        _textField.delegate = self;
-        _textField.placeholder = [[alertTextFields firstObject] objectForKey:@"placeholder"];
-        if (self.darkTheme)
-            _textField.backgroundColor = [UIColor colorWithWhite:227.0f/255.0f alpha:1.0];
-        else
-            _textField.backgroundColor = [UIColor whiteColor];
-        
-        UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
-        _textField.leftView = paddingView;
-        _textField.leftViewMode = UITextFieldViewModeAlways;
-        
-        [alertView addSubview:_textField];
+        for (int i = 0; i < MIN(alertTextFields.count,4); i++) {
+            
+            UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(12.5, descriptionLabel.frame.size.height + descriptionLabel.frame.origin.y + 10.5 + 45*i, alertViewFrame.size.width - 25, 40)];
+            
+            if ([[alertTextFields objectAtIndex:i] objectForKey:@"field"] != nil &&
+                [[[alertTextFields objectAtIndex:i] objectForKey:@"field"] isKindOfClass:[UITextField class]]) {
+                
+                tf = [[alertTextFields objectAtIndex:i] objectForKey:@"field"];
+                tf.frame = CGRectMake(12.5, descriptionLabel.frame.size.height + descriptionLabel.frame.origin.y + 10.5 + 45*i, alertViewFrame.size.width - 25, 40);
+                
+            }
+            
+            if (tf.layer.cornerRadius == 0)
+                tf.layer.cornerRadius = 3.0f;
+            tf.layer.masksToBounds = YES;
+            tf.layer.borderColor = [[UIColor colorWithWhite:217.0f/255.0f alpha:1.0] CGColor];
+            
+            if (tf.layer.borderWidth == 0)
+                tf.layer.borderWidth = 1.0f;
+            
+            tf.delegate = self;
+            tf.tag = i;
+            if (tf.placeholder.length == 0 &&
+                [[alertTextFields objectAtIndex:i] objectForKey:@"placeholder"] != nil &&
+                [[[alertTextFields objectAtIndex:i] objectForKey:@"placeholder"] length] > 0)
+                tf.placeholder = [[alertTextFields objectAtIndex:i] objectForKey:@"placeholder"];
+            
+            if (self.darkTheme)
+                tf.backgroundColor = [UIColor colorWithWhite:227.0f/255.0f alpha:1.0];
+            else
+                tf.backgroundColor = [UIColor whiteColor];
+            
+            if (i+1 == MIN(alertTextFields.count,4))
+                [tf setReturnKeyType:UIReturnKeyDone];
+            else
+                [tf setReturnKeyType:UIReturnKeyNext];
+            
+            UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
+            tf.leftView = paddingView;
+            tf.leftViewMode = UITextFieldViewModeAlways;
+            
+            [alertTextFieldHolder addObject:tf];
+            
+            [alertView addSubview:tf];
+            
+        }
         
     }
     
@@ -521,6 +568,9 @@
         } else {
             doneButton.backgroundColor = _colorScheme;
         }
+        
+        if (_doneButtonHighlightedBackgroundColor)
+            [doneButton setBackgroundImage:[self imageWithColor:_doneButtonHighlightedBackgroundColor] forState:UIControlStateHighlighted];
         
         doneButton.frame = CGRectMake(0,
                                       alertViewFrame.size.height - 45,
@@ -540,6 +590,8 @@
         [doneButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
         [doneButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
         doneButton.titleLabel.font = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
+        if (self.doneButtonCustomFont)
+            doneButton.titleLabel.font = self.doneButtonCustomFont;
         if (_colorScheme != nil || _darkTheme)
             doneButton.tintColor = [UIColor whiteColor];
         if (self.doneButtonTitleColor != nil)
@@ -561,6 +613,9 @@
             doneButton.backgroundColor = _colorScheme;
         }
         
+        if (_doneButtonHighlightedBackgroundColor)
+            [doneButton setBackgroundImage:[self imageWithColor:_doneButtonHighlightedBackgroundColor] forState:UIControlStateHighlighted];
+        
         doneButton.frame = CGRectMake(alertViewFrame.size.width/2,
                                       alertViewFrame.size.height - 45,
                                       alertViewFrame.size.width/2,
@@ -579,6 +634,8 @@
         [doneButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
         [doneButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
         doneButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightMedium];
+        if (self.doneButtonCustomFont)
+            doneButton.titleLabel.font = self.doneButtonCustomFont;
         if (_colorScheme != nil || _darkTheme)
             doneButton.tintColor = [UIColor whiteColor];
         if (self.doneButtonTitleColor != nil)
@@ -592,6 +649,9 @@
             otherButton.backgroundColor = [UIColor colorWithWhite:78.0f/255.0f alpha:1.0];
         if (self.firstButtonBackgroundColor != nil)
             otherButton.backgroundColor = self.firstButtonBackgroundColor;
+        
+        if (_firstButtonHighlightedBackgroundColor)
+            [otherButton setBackgroundImage:[self imageWithColor:_firstButtonHighlightedBackgroundColor] forState:UIControlStateHighlighted];
         
         otherButton.frame = CGRectMake(0,
                                        alertViewFrame.size.height - 45,
@@ -617,6 +677,8 @@
         [otherButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
         [otherButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
         otherButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
+        if (self.firstButtonCustomFont)
+            otherButton.titleLabel.font = self.firstButtonCustomFont;
         otherButton.tintColor = self.colorScheme;
         if (self.colorScheme == nil && _darkTheme)
             otherButton.tintColor = [UIColor whiteColor];
@@ -668,6 +730,9 @@
         if (self.firstButtonBackgroundColor != nil)
             firstButton.backgroundColor = self.firstButtonBackgroundColor;
         
+        if (_firstButtonHighlightedBackgroundColor)
+            [firstButton setBackgroundImage:[self imageWithColor:_firstButtonHighlightedBackgroundColor] forState:UIControlStateHighlighted];
+        
         firstButton.frame = CGRectMake(0,
                                        alertViewFrame.size.height - 135,
                                        alertViewFrame.size.width,
@@ -693,6 +758,8 @@
         [firstButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
         [firstButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
         firstButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
+        if (self.firstButtonCustomFont)
+            firstButton.titleLabel.font = self.firstButtonCustomFont;
         firstButton.tintColor = self.colorScheme;
         if (self.colorScheme == nil && _darkTheme)
             firstButton.tintColor = [UIColor whiteColor];
@@ -711,6 +778,9 @@
             secondButton.backgroundColor = [UIColor colorWithWhite:78.0f/255.0f alpha:1.0];
         if (self.secondButtonBackgroundColor != nil)
             secondButton.backgroundColor = self.secondButtonBackgroundColor;
+        
+        if (_secondButtonHighlightedBackgroundColor)
+            [secondButton setBackgroundImage:[self imageWithColor:_secondButtonHighlightedBackgroundColor] forState:UIControlStateHighlighted];
         
         secondButton.frame = CGRectMake(0,
                                         alertViewFrame.size.height - 90,
@@ -736,6 +806,8 @@
         [secondButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
         [secondButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
         secondButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
+        if (self.secondButtonCustomFont)
+            secondButton.titleLabel.font = self.secondButtonCustomFont;
         secondButton.tintColor = self.colorScheme;
         if (self.colorScheme == nil && _darkTheme)
             secondButton.tintColor = [UIColor whiteColor];
@@ -757,6 +829,9 @@
             doneButton.backgroundColor = _colorScheme;
         }
         
+        if (_doneButtonHighlightedBackgroundColor)
+            [doneButton setBackgroundImage:[self imageWithColor:_doneButtonHighlightedBackgroundColor] forState:UIControlStateHighlighted];
+        
         doneButton.frame = CGRectMake(0,
                                       alertViewFrame.size.height - 45,
                                       alertViewFrame.size.width,
@@ -775,6 +850,8 @@
         [doneButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
         [doneButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
         doneButton.titleLabel.font = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
+        if (self.doneButtonCustomFont)
+            doneButton.titleLabel.font = self.doneButtonCustomFont;
         if (_colorScheme != nil || _darkTheme)
             doneButton.tintColor = [UIColor whiteColor];
         if (self.doneButtonTitleColor != nil)
@@ -882,7 +959,7 @@
     }
     
     CGFloat vectorSize = 30.0f * MIN(2, _customImageScale);
-
+    
     alertViewVector.frame = CGRectMake(alertViewContents.frame.size.width/2 - (vectorSize/2),
                                        -(vectorSize/2) - 0.5,
                                        vectorSize,
@@ -946,8 +1023,10 @@
     
     // ADDING RATING SYSTEM
     
+    UITextField *tf = [alertTextFieldHolder firstObject];
+    
     ratingController = [[UIView alloc] initWithFrame:CGRectMake(20,
-                                                                descriptionLevel + descriptionLabelFrames.size.height + 32.5 + 15+ (MIN(1, alertTextFields.count)*(_textField.frame.size.height + 7.5)),
+                                                                descriptionLevel + descriptionLabelFrames.size.height + 32.5 + 15+ (MAX(1, MIN(alertTextFields.count,4))*(tf.frame.size.height + 7.5)),
                                                                 alertViewFrame.size.width - 40,
                                                                 40)];
     
@@ -1036,6 +1115,22 @@
     
     [self showAlertView];
     
+}
+
+#pragma mark - Create Image with Color
+
+- (UIImage *)imageWithColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 #pragma mark - Getting Resources from Bundle
@@ -1167,7 +1262,7 @@
 - (void) showAlertWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons{
     
     [self setAlertViewAttributes:title withSubtitle:subTitle withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
-    UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     
     // Blur Effect
     if (_blurBackground && NSClassFromString(@"UIVisualEffectView") != nil) {
@@ -1189,7 +1284,7 @@
     
     self.attributedTitle = title;
     [self setAlertViewAttributes:nil withSubtitle:subTitle withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
-    UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     
     // Blur Effect
     if (_blurBackground && NSClassFromString(@"UIVisualEffectView") != nil) {
@@ -1210,7 +1305,7 @@
     
     self.attributedSubTitle = subTitle;
     [self setAlertViewAttributes:title withSubtitle:nil withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
-    UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     
     // Blur Effect
     if (_blurBackground && NSClassFromString(@"UIVisualEffectView") != nil) {
@@ -1232,7 +1327,7 @@
     self.attributedTitle = title;
     self.attributedSubTitle = subTitle;
     [self setAlertViewAttributes:nil withSubtitle:nil withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
-    UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     
     // Blur Effect
     if (_blurBackground && NSClassFromString(@"UIVisualEffectView") != nil) {
@@ -1446,7 +1541,7 @@
                 }];
             } else {
                 id<FCAlertViewDelegate> strongDelegate = self.delegate;
-
+                
                 if ([strongDelegate respondsToSelector:@selector(FCAlertViewDismissed:)]) {
                     [strongDelegate FCAlertViewDismissed:self];
                 }
@@ -1491,6 +1586,19 @@
     
     id<FCAlertViewDelegate> strongDelegate = self.delegate;
     
+    // Return Text from TextField to Block
+    
+    for (int i = 0; i < alertTextFields.count; i ++) {
+        
+        FCTextReturnBlock textReturnBlock = [[alertTextFields objectAtIndex:i] objectForKey:@"action"];
+        UITextField *tf = [alertTextFieldHolder objectAtIndex:i];
+        if (textReturnBlock)
+            textReturnBlock(tf.text);
+        
+    }
+    
+    // Handling Button Block
+    
     UIButton *clickedButton = (UIButton*)sender;
     
     NSDictionary *btnDict = [alertButtons objectAtIndex:[sender tag]];
@@ -1506,12 +1614,6 @@
     if ([strongDelegate respondsToSelector:@selector(FCAlertView:clickedButtonIndex:buttonTitle:)]) {
         [strongDelegate FCAlertView:self clickedButtonIndex:[sender tag] buttonTitle:clickedButton.titleLabel.text];
     }
-    
-    // Rertun Text from TextField to Block
-    
-    FCTextReturnBlock textReturnBlock = [[alertTextFields firstObject] objectForKey:@"action"];
-    if (textReturnBlock)
-        textReturnBlock(_textField.text);
     
     // Return Rating from Rating Controller
     
@@ -1540,19 +1642,27 @@
 
 - (void) donePressed {
     
+    id<FCAlertViewDelegate> strongDelegate = self.delegate;
+
+    // Return Text from TextField to Block
+    
+    for (int i = 0; i < alertTextFields.count; i ++) {
+        
+        FCTextReturnBlock textReturnBlock = [[alertTextFields objectAtIndex:i] objectForKey:@"action"];
+        UITextField *tf = [alertTextFieldHolder objectAtIndex:i];
+        if (textReturnBlock)
+            textReturnBlock(tf.text);
+        
+    }
+    
+    // Handling Done Button Block
+
     if (self.doneBlock)
         self.doneBlock();
-    
-    id<FCAlertViewDelegate> strongDelegate = self.delegate;
     
     if ([strongDelegate respondsToSelector:@selector(FCAlertDoneButtonClicked:)]) {
         [strongDelegate FCAlertDoneButtonClicked:self];
     }
-    
-    FCTextReturnBlock textReturnBlock = [[alertTextFields firstObject] objectForKey:@"action"];
-    
-    if (textReturnBlock)
-        textReturnBlock(_textField.text);
     
     // Return Rating from Rating Controller
     
@@ -1595,6 +1705,22 @@
     
 }
 
+- (void)addTextFieldWithCustomTextField:(UITextField *)field andPlaceholder:(NSString *)placeholder andTextReturnBlock:(FCTextReturnBlock)textReturn {
+    
+    if (placeholder == nil)
+        placeholder = @"";
+    
+    if (textReturn != nil)
+        [alertTextFields addObject:@{@"field" : field,
+                                     @"placeholder" : placeholder,
+                                     @"action" : textReturn}];
+    else
+        [alertTextFields addObject:@{@"field" : field,
+                                     @"placeholder" : placeholder,
+                                     @"action" : @0}];
+    
+}
+
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     
     currentAVCFrames = alertViewContents.frame;
@@ -1625,7 +1751,12 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    [textField endEditing:YES];
+    if (textField.tag+1 == alertTextFieldHolder.count) {
+        [textField endEditing:YES];
+    } else {
+        UITextField *tf = [alertTextFieldHolder objectAtIndex:(textField.tag+1)];
+        [tf becomeFirstResponder];
+    }
     
     return TRUE;
 }
