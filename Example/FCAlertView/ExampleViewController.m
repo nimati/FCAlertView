@@ -35,78 +35,37 @@
     _alertViewLatestOptions = [[NSMutableArray alloc] init];
     _alertViewAnimationOptions = [[NSMutableArray alloc] init];
     
-    _alertViewLatestOptionsOriginal = @[@{@"title" : @"Blur Background",
-                                          @"description" : @"Turn on to add a blur effect to your view's background.",
+    _alertViewLatestOptionsOriginal = @[@{@"title" : @"Multiple Textfields",
+                                          @"description" : @"Add multiple textfields to your alert to collect input.",
                                           @"setting" : @"Off",
                                           @"status" : @0,
                                           @"customIndicator" : @0,
                                           @"selection" : @[@"Off", @"On"]},
-                                        @{@"title" : @"Bounce Animation",
-                                          @"description" : @"Turn on to add more natural animations to the alert.",
+                                        @{@"title" : @"Custom Textfield",
+                                          @"description" : @"Add in a custom textfield with the properties you want.",
                                           @"setting" : @"Off",
                                           @"status" : @0,
                                           @"customIndicator" : @0,
                                           @"selection" : @[@"Off", @"On"]},
-                                        @{@"title" : @"Text Field",
-                                          @"description" : @"Turn on to add a textfield to the alert for input.",
+                                        @{@"title" : @"Button Highlight",
+                                          @"description" : @"Change the button's background color on highlight.",
                                           @"setting" : @"Off",
                                           @"status" : @0,
                                           @"customIndicator" : @0,
                                           @"selection" : @[@"Off", @"On"]},
-                                        @{@"title" : @"Alert Sound",
-                                          @"description" : @"Turn on to play a custom sound when the alert opens.",
+                                        @{@"title" : @"Custom Button Font",
+                                          @"description" : @"Add a button with custom font.",
                                           @"setting" : @"Off",
                                           @"status" : @0,
                                           @"customIndicator" : @0,
                                           @"selection" : @[@"Off", @"On"]},
-                                        @{@"title" : @"Dark Theme",
-                                          @"description" : @"Turn the alert into a dark color scheme to match the app.",
+                                        @{@"title" : @"Custom Done Button Font",
+                                          @"description" : @"Change the done button's default font.",
                                           @"setting" : @"Off",
                                           @"status" : @0,
                                           @"customIndicator" : @0,
-                                          @"selection" : @[@"Off", @"On"]},
-                                        @{@"title" : @"Round Buttons",
-                                          @"description" : @"Detach Buttons from alert and make them more round.",
-                                          @"setting" : @"Off",
-                                          @"status" : @0,
-                                          @"customIndicator" : @0,
-                                          @"selection" : @[@"Off", @"On"]},
-                                        @{@"title" : @"Full Circle Custom Image",
-                                          @"description" : @"Makes the custom image of the alert full circle if there is one.",
-                                          @"setting" : @"Off",
-                                          @"status" : @0,
-                                          @"customIndicator" : @0,
-                                          @"selection" : @[@"Off", @"On"]},
-                                        @{@"title" : @"Hide Separator Lines",
-                                          @"description" : @"Hides all separator lines of the alert.",
-                                          @"setting" : @"Off",
-                                          @"status" : @0,
-                                          @"customIndicator" : @0,
-                                          @"selection" : @[@"Off", @"On"]},
-                                        @{@"title" : @"Title Custom Font",
-                                          @"description" : @"Specify a different font for the title - such as Avenir!",
-                                          @"setting" : @"Off",
-                                          @"status" : @0,
-                                          @"customIndicator" : @0,
-                                          @"selection" : @[@"Off", @"On"]},
-                                        @{@"title" : @"Subtitle Custom Font",
-                                          @"description" : @"Specify a different font for the subtitle - such as Avenir!",
-                                          @"setting" : @"Off",
-                                          @"status" : @0,
-                                          @"customIndicator" : @0,
-                                          @"selection" : @[@"Off", @"On"]},
-                                        @{@"title" : @"Title Attributed Text",
-                                          @"description" : @"Specify formatted text in the title.",
-                                          @"setting" : @"Off",
-                                          @"status" : @0,
-                                          @"customIndicator" : @0,
-                                          @"selection" : @[@"Off", @"On"]},
-                                        @{@"title" : @"Title Custom Font",
-                                          @"description" : @"Specify formatted text in the subtitle.",
-                                          @"setting" : @"Off",
-                                          @"status" : @0,
-                                          @"customIndicator" : @0,
-                                          @"selection" : @[@"Off", @"On"]}];
+                                          @"selection" : @[@"Off", @"On"]}
+                                        ];
     
     _alertViewOptionsOriginal = @[@{@"title" : @"Custom Image",
                                     @"description" : @"Add a custom image to your alert.",
@@ -182,6 +141,78 @@
                                     @"selection" : @[@"Off", @"On"]},
                                   @{@"title" : @"Avoid Image Tint",
                                     @"description" : @"Turn off image tinting for the custom image.",
+                                    @"setting" : @"Off",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"Off", @"On"]},
+                                  @{@"title" : @"Blur Background",
+                                    @"description" : @"Turn on to add a blur effect to your view's background.",
+                                    @"setting" : @"Off",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"Off", @"On"]},
+                                  @{@"title" : @"Bounce Animation",
+                                    @"description" : @"Turn on to add more natural animations to the alert.",
+                                    @"setting" : @"Off",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"Off", @"On"]},
+                                  @{@"title" : @"Text Field",
+                                    @"description" : @"Turn on to add a textfield to the alert for input.",
+                                    @"setting" : @"Off",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"Off", @"On"]},
+                                  @{@"title" : @"Alert Sound",
+                                    @"description" : @"Turn on to play a custom sound when the alert opens.",
+                                    @"setting" : @"Off",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"Off", @"On"]},
+                                  @{@"title" : @"Dark Theme",
+                                    @"description" : @"Turn the alert into a dark color scheme to match the app.",
+                                    @"setting" : @"Off",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"Off", @"On"]},
+                                  @{@"title" : @"Round Buttons",
+                                    @"description" : @"Detach Buttons from alert and make them more round.",
+                                    @"setting" : @"Off",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"Off", @"On"]},
+                                  @{@"title" : @"Full Circle Custom Image",
+                                    @"description" : @"Makes the custom image of the alert full circle if there is one.",
+                                    @"setting" : @"Off",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"Off", @"On"]},
+                                  @{@"title" : @"Hide Separator Lines",
+                                    @"description" : @"Hides all separator lines of the alert.",
+                                    @"setting" : @"Off",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"Off", @"On"]},
+                                  @{@"title" : @"Title Custom Font",
+                                    @"description" : @"Specify a different font for the title - such as Avenir!",
+                                    @"setting" : @"Off",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"Off", @"On"]},
+                                  @{@"title" : @"Subtitle Custom Font",
+                                    @"description" : @"Specify a different font for the subtitle - such as Avenir!",
+                                    @"setting" : @"Off",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"Off", @"On"]},
+                                  @{@"title" : @"Title Attributed Text",
+                                    @"description" : @"Specify formatted text in the title.",
+                                    @"setting" : @"Off",
+                                    @"status" : @0,
+                                    @"customIndicator" : @0,
+                                    @"selection" : @[@"Off", @"On"]},
+                                  @{@"title" : @"Subtitle Attributed Text",
+                                    @"description" : @"Specify formatted text in the subtitle.",
                                     @"setting" : @"Off",
                                     @"status" : @0,
                                     @"customIndicator" : @0,
@@ -483,9 +514,9 @@
         headerView.backgroundColor = [UIColor colorWithWhite:239.0f/255.0f alpha:1.0];
         
         UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, headerView.frame.size.width - 60, 20)];
-        headerLabel.text = @"NEW FEATURES • V1.2.0+";
+        headerLabel.text = @"NEW FEATURES • V1.4.0+";
         
-        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"NEW FEATURES • V1.2.0+"];
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"NEW FEATURES • V1.4.0+"];
         [attributedString addAttribute:NSKernAttributeName
                                  value:@(3.0)
                                  range:NSMakeRange(0, headerLabel.text.length)];
@@ -881,91 +912,123 @@
     else
         alert.avoidCustomImageTint = 0;
     
-    // NEW FEATURES SECTION
     // Blur Background Effect
     
-    if (![[[_alertViewLatestOptions objectAtIndex:0] objectForKey:@"setting"] isEqual:@"Off"])
+    if (![[[_alertViewOptions objectAtIndex:13] objectForKey:@"setting"] isEqual:@"Off"])
         alert.blurBackground = 1;
     else
         alert.blurBackground = 0;
     
     // Bounce Animations Effect
     
-    if (![[[_alertViewLatestOptions objectAtIndex:1] objectForKey:@"setting"] isEqual:@"Off"])
+    if (![[[_alertViewOptions objectAtIndex:14] objectForKey:@"setting"] isEqual:@"Off"])
         alert.bounceAnimations = 1;
     else
         alert.bounceAnimations = 0;
     
     // Adding TextField
     
-    if (![[[_alertViewLatestOptions objectAtIndex:2] objectForKey:@"setting"] isEqual:@"Off"]) {
+    if (![[[_alertViewOptions objectAtIndex:15] objectForKey:@"setting"] isEqual:@"Off"])
+        [alert addTextFieldWithPlaceholder:@"Email Address" andTextReturnBlock:^(NSString *text) {
+            NSLog(@"TextField Returns: %@", text); // Do what you'd like with the text returned from the field
+            
+        }];
+    
+    // Alert Sound
+    
+    if (![[[_alertViewOptions objectAtIndex:16] objectForKey:@"setting"] isEqual:@"Off"])
+        [alert setAlertSoundWithFileName:@"Elevator Ding.mp3"];
+    
+    // Alert Dark Theme
+    
+    if (![[[_alertViewOptions objectAtIndex:17] objectForKey:@"setting"] isEqual:@"Off"])
+        alert.darkTheme = YES;
+    
+    // Alert Round/Detach Buttons
+    
+    if (![[[_alertViewOptions objectAtIndex:18] objectForKey:@"setting"] isEqual:@"Off"])
+        alert.detachButtons = YES;
+    
+    // Alert Full Circle Custom Image
+    
+    if (![[[_alertViewOptions objectAtIndex:19] objectForKey:@"setting"] isEqual:@"Off"])
+        alert.fullCircleCustomImage = YES;
+    
+    // Hide Alert's Separator Lines
+    
+    if (![[[_alertViewOptions objectAtIndex:20] objectForKey:@"setting"] isEqual:@"Off"])
+        alert.hideSeparatorLineView = YES;
+    
+    // Set Title Font to Avenir
+    
+    if (![[[_alertViewOptions objectAtIndex:21] objectForKey:@"setting"] isEqual:@"Off"])
+        alert.titleFont = [UIFont fontWithName:@"Avenir" size:18.0];
+    
+    // Set Subtitle Font to Avenir
+    
+    if (![[[_alertViewOptions objectAtIndex:22] objectForKey:@"setting"] isEqual:@"Off"])
+        alert.subtitleFont = [UIFont fontWithName:@"Avenir" size:15.0];
+
+    // Set Title to Attributed Text
+    
+    if (![[[_alertViewOptions objectAtIndex:23] objectForKey:@"setting"] isEqual:@"Off"])
+        useAttributedTitle = YES;
+
+    // Set Subtitle to Attributed Text
+    
+    if (![[[_alertViewOptions objectAtIndex:24] objectForKey:@"setting"] isEqual:@"Off"])
+        useAttributedSubTitle = YES;
+
+    // NEW FEATURES SECTION
+    // Multiple Textfields
+    
+    if (![[[_alertViewLatestOptions objectAtIndex:0] objectForKey:@"setting"] isEqual:@"Off"]) {
+        
         [alert addTextFieldWithPlaceholder:@"Email Address" andTextReturnBlock:^(NSString *text) {
             NSLog(@"TextField Returns: %@", text); // Do what you'd like with the text returned from the field
             
         }];
         
-        UITextField *testField = [[UITextField alloc] init];
-        testField.placeholder = @"I'm Custom!";
-        testField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
-        testField.secureTextEntry = 1;
-        
-        [alert addTextFieldWithCustomTextField:testField andPlaceholder:nil andTextReturnBlock:^(NSString *text) {
-            NSLog(@"Custom TextField Returns: %@", text); // Do what you'd like with the text returned from the field
+        [alert addTextFieldWithPlaceholder:@"First Name" andTextReturnBlock:^(NSString *text) {
+            NSLog(@"TextField Returns: %@", text); // Do what you'd like with the text returned from the field
+            
         }];
         
-    // Add this in for a second TextField (repeat for up to 4 fields as deired)
-        
-    /*[alert addTextFieldWithPlaceholder:@"First Name" andTextReturnBlock:^(NSString *text) {
-        NSLog(@"TextField Returns: %@", text); // Do what you'd like with the text returned from the field
-    }];*/
-
     }
     
-    // Alert Sound
+    // Custom TextField
     
-    if (![[[_alertViewLatestOptions objectAtIndex:3] objectForKey:@"setting"] isEqual:@"Off"])
-        [alert setAlertSoundWithFileName:@"Elevator Ding.mp3"];
+    if (![[[_alertViewLatestOptions objectAtIndex:1] objectForKey:@"setting"] isEqual:@"Off"]) {
+        UITextField *customField = [[UITextField alloc] init];
+        customField.placeholder = @"Custom Field";
+        customField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+        customField.secureTextEntry = 1;
+        
+        [alert addTextFieldWithCustomTextField:customField andPlaceholder:nil andTextReturnBlock:^(NSString *text) {
+            NSLog(@"Custom TextField Returns: %@", text); // Do what you'd like with the text returned from the field
+        }];
+    }
     
-    // Alert Dark Theme
+    // Button Highlight
+
+    if (![[[_alertViewLatestOptions objectAtIndex:2] objectForKey:@"setting"] isEqual:@"Off"])
+        alert.doneButtonHighlightedBackgroundColor = [UIColor colorWithWhite:0.5 alpha:1.0];
+    
+    // Button Custom Font
+    
+    if (![[[_alertViewLatestOptions objectAtIndex:3] objectForKey:@"setting"] isEqual:@"Off"]) {
+        [alert addButton:@"Nice Button" withActionBlock:^{
+            NSLog(@"Custom Font Button Pressed");
+            // Put your action here
+        }];
+        alert.firstButtonCustomFont = [UIFont fontWithName:@"Avenir" size:18.0];
+    }
+    
+    // Done Button Custom Font
     
     if (![[[_alertViewLatestOptions objectAtIndex:4] objectForKey:@"setting"] isEqual:@"Off"])
-        alert.darkTheme = YES;
+        alert.doneButtonCustomFont = [UIFont fontWithName:@"Avenir" size:18.0];
     
-    // Alert Round/Detach Buttons
-    
-    if (![[[_alertViewLatestOptions objectAtIndex:5] objectForKey:@"setting"] isEqual:@"Off"])
-        alert.detachButtons = YES;
-    
-    // Alert Full Circle Custom Image
-    
-    if (![[[_alertViewLatestOptions objectAtIndex:6] objectForKey:@"setting"] isEqual:@"Off"])
-        alert.fullCircleCustomImage = YES;
-    
-    // Hide Alert's Separator Lines
-    
-    if (![[[_alertViewLatestOptions objectAtIndex:7] objectForKey:@"setting"] isEqual:@"Off"])
-        alert.hideSeparatorLineView = YES;
-    
-    // Set Title Font to Avenir
-    
-    if (![[[_alertViewLatestOptions objectAtIndex:8] objectForKey:@"setting"] isEqual:@"Off"])
-        alert.titleFont = [UIFont fontWithName:@"Avenir" size:18.0];
-    
-    // Set Subtitle Font to Avenir
-    
-    if (![[[_alertViewLatestOptions objectAtIndex:9] objectForKey:@"setting"] isEqual:@"Off"])
-        alert.subtitleFont = [UIFont fontWithName:@"Avenir" size:15.0];
-
-    // Set Title to Attributed Text
-    
-    if (![[[_alertViewLatestOptions objectAtIndex:10] objectForKey:@"setting"] isEqual:@"Off"])
-        useAttributedTitle = YES;
-
-    // Set Subtitle to Attributed Text
-    
-    if (![[[_alertViewLatestOptions objectAtIndex:11] objectForKey:@"setting"] isEqual:@"Off"])
-        useAttributedSubTitle = YES;
-
     // ALERT ANIMATIONS SECTION
     // Animate In Options
     
