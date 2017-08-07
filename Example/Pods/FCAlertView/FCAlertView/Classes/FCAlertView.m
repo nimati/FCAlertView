@@ -334,7 +334,7 @@
     
     // Landscape Orientation Width Fix
     
-    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
+    if(UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation))
     {
         alertViewFrame = CGRectMake(self.frame.size.width/2 - (300/2),
                                     self.frame.size.height/2 - (alertViewFrame.size.height/2),
@@ -377,7 +377,40 @@
     descriptionLabel.numberOfLines = 0;
     descriptionLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     
-    // Re-adjusting Frames based on height of text - Requirement is to not have over 6 lines of text
+    // HEADER VIEW - With Title & Subtitle
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15.0f,
+                                                                    20.0f + (alertViewWithVector * 30),
+                                                                    alertViewFrame.size.width - 30.0f,
+                                                                    30.0f)];
+    
+    titleLabel.font = self.titleFont;
+    titleLabel.numberOfLines = 1;
+    titleLabel.textColor = self.titleColor;
+    if (_title == nil)
+        titleLabel.attributedText = self.attributedTitle;
+    else
+        titleLabel.text = self.title;
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    // Re-adjusting Frames based on height of title - Requirement is to not have over 2 lines of title
+
+    CGSize size = [titleLabel.text sizeWithAttributes:@{NSFontAttributeName : titleLabel.font}];
+    if (size.width > titleLabel.bounds.size.width) {
+        titleLabel.numberOfLines = 2;
+        titleLabel.frame = CGRectMake(titleLabel.frame.origin.x, titleLabel.frame.origin.y, titleLabel.frame.size.width, 60.0f);
+        descriptionLabel.frame = CGRectMake(descriptionLabel.frame.origin.x,
+                                            descriptionLabel.frame.origin.y + 30.0f,
+                                            descriptionLabel.frame.size.width,
+                                            descriptionLabel.frame.size.height);
+        
+        alertViewFrame = CGRectMake(alertViewFrame.origin.x,
+                                    alertViewFrame.origin.y,
+                                    alertViewFrame.size.width,
+                                    alertViewFrame.size.height + 30.0f);
+    }
+    
+    // Re-adjusting Frames based on height of subTitle - Requirement is to not have over 6 lines of subTitle
     
     CGSize constraint = CGSizeMake(descriptionLabel.frame.size.width, CGFLOAT_MAX);
     
@@ -456,21 +489,6 @@
     
     if (alertViewWithVector)
         [alertView.layer addSublayer:fillLayer];
-    
-    // HEADER VIEW - With Title & Subtitle
-    
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15.0f,
-                                                                    20.0f + (alertViewWithVector * 30),
-                                                                    alertViewFrame.size.width - 30.0f,
-                                                                    20.0f)];
-    titleLabel.font = self.titleFont;
-    titleLabel.numberOfLines = 1;
-    titleLabel.textColor = self.titleColor;
-    if (_title == nil)
-        titleLabel.attributedText = self.attributedTitle;
-    else
-        titleLabel.text = self.title;
-    titleLabel.textAlignment = NSTextAlignmentCenter;
     
     // SEPARATOR LINE - Seperating Header View with Button View
     
@@ -1198,7 +1216,7 @@
 - (void) showAlertWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons{
     
     [self setAlertViewAttributes:title withSubtitle:subTitle withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
-    UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     
     // Blur Effect
     if (_blurBackground && NSClassFromString(@"UIVisualEffectView") != nil) {
@@ -1220,7 +1238,7 @@
     
     self.attributedTitle = title;
     [self setAlertViewAttributes:nil withSubtitle:subTitle withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
-    UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     
     // Blur Effect
     if (_blurBackground && NSClassFromString(@"UIVisualEffectView") != nil) {
@@ -1241,7 +1259,7 @@
     
     self.attributedSubTitle = subTitle;
     [self setAlertViewAttributes:title withSubtitle:nil withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
-    UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     
     // Blur Effect
     if (_blurBackground && NSClassFromString(@"UIVisualEffectView") != nil) {
@@ -1263,7 +1281,7 @@
     self.attributedTitle = title;
     self.attributedSubTitle = subTitle;
     [self setAlertViewAttributes:nil withSubtitle:nil withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
-    UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     
     // Blur Effect
     if (_blurBackground && NSClassFromString(@"UIVisualEffectView") != nil) {
