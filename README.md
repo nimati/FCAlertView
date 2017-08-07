@@ -155,7 +155,7 @@ FCAlertView also comes with a set of pre-made colors that you can use:
 
 ![alt text](https://github.com/nimati/FCAlertView/blob/master/Images/FlatColors.png?raw=true "Flat Colors")
 
-#####*Credit goes to [flatuicolors.com](http://flatuicolors.com) for the Beautiful Palette of Flat Colors*
+##### *Credit goes to [flatuicolors.com](http://flatuicolors.com) for the Beautiful Palette of Flat Colors*
 
 Simply choose the color you'd like to use for your AlertView, and add:
 
@@ -218,7 +218,7 @@ UIFont *italics = [UIFont systemFontOfSize:18.0 weight:UIFontWeightHeavy];
 [alert showAlertWithAttributedTitle:str withAttributedSubtitle:str withCustomImage:_alertImage withDoneButtonTitle:nil andButtons:self.arrayOfButtonTitles];
 ```
 
-#### Button Colors
+#### Button Styling
 
 Change Title Color of Buttons
 
@@ -232,6 +232,21 @@ Change Background Color of Buttons
 ```Objective-C
 alert.firstButtonBackgroundColor = [UIColor whiteColor];
 alert.secondButtonBackgroundColor = [UIColor blackColor];
+```
+
+Add Button Background Color for Highlight
+
+```Objective-C
+alert.firstButtonHighlightedBackgroundColor = [UIColor whiteColor];
+alert.firstButtonHighlightedBackgroundColor = [UIColor blackColor];
+```
+
+Customize Button Fonts
+
+```Objective-C
+alert.doneButtonCustomFont = [UIFont fontWithName:@"Avenir" size:15.0];
+alert.firstButtonCustomFont = [UIFont fontWithName:@"Avenir" size:15.0];
+alert.secondButtonCustomFont = [UIFont fontWithName:@"Avenir" size:15.0];
 ```
 
 ### Rounded Corners
@@ -426,6 +441,19 @@ Simply add textfields (up to a max of 4 fields) to your alert, by adding this li
 ```Objective-C
 [alert addTextFieldWithPlaceholder:@"Email Address" andTextReturnBlock:^(NSString *text) {
     NSLog(@"The Email Address is: %@", text); // Do what you'd like with the text returned from the field
+}];
+```
+
+#### Customized Textfields
+
+If you'd like to change the textfield properties and make them custom. Simply use this to add your textfield rather than the method above.
+
+```Objective-C
+UITextField *customField = [[UITextField alloc] init];
+customField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+        
+[alert addTextFieldWithCustomTextField:customField andPlaceholder:@"Placeholder" andTextReturnBlock:^(NSString *text) {
+     NSLog(@"Custom TextField Returns: %@", text); // Do what you'd like with the text returned from the field
 }];
 ```
 
