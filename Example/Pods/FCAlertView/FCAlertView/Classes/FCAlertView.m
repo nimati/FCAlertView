@@ -172,7 +172,7 @@
     
     if (_hideDoneButton || _hideAllButtons) {
         
-        if (_autoHideSeconds == 0) {
+        if (_autoHideSeconds == 0 && !_overrideForcedDismiss) {
             
             _dismissOnOutsideTouch = YES;
             

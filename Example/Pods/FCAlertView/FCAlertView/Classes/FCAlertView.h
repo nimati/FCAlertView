@@ -98,6 +98,7 @@
 @property CGFloat cornerRadius;
 
 @property BOOL dismissOnOutsideTouch;
+@property BOOL overrideForcedDismiss;
 @property BOOL hideAllButtons;
 @property BOOL hideDoneButton;
 @property BOOL avoidCustomImageTint;
