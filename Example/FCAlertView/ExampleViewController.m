@@ -898,10 +898,28 @@
     
     // Adding TextField
     
-    if (![[[_alertViewLatestOptions objectAtIndex:2] objectForKey:@"setting"] isEqual:@"Off"])
+    if (![[[_alertViewLatestOptions objectAtIndex:2] objectForKey:@"setting"] isEqual:@"Off"]) {
         [alert addTextFieldWithPlaceholder:@"Email Address" andTextReturnBlock:^(NSString *text) {
             NSLog(@"TextField Returns: %@", text); // Do what you'd like with the text returned from the field
+            
         }];
+        
+        UITextField *testField = [[UITextField alloc] init];
+        testField.placeholder = @"I'm Custom!";
+        testField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+        testField.secureTextEntry = 1;
+        
+        [alert addTextFieldWithCustomTextField:testField andPlaceholder:nil andTextReturnBlock:^(NSString *text) {
+            NSLog(@"Custom TextField Returns: %@", text); // Do what you'd like with the text returned from the field
+        }];
+        
+    // Add this in for a second TextField (repeat for up to 4 fields as deired)
+        
+    /*[alert addTextFieldWithPlaceholder:@"First Name" andTextReturnBlock:^(NSString *text) {
+        NSLog(@"TextField Returns: %@", text); // Do what you'd like with the text returned from the field
+    }];*/
+
+    }
     
     // Alert Sound
     

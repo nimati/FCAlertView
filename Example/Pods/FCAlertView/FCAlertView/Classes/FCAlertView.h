@@ -35,6 +35,7 @@
     
     NSMutableArray *alertButtons;
     NSMutableArray *alertTextFields;
+    NSMutableArray *alertTextFieldHolder;
     NSInteger alertViewWithVector;
     NSString *doneTitle;
     UIImage *vectorImage;
@@ -173,6 +174,7 @@ typedef void (^FCActionBlock)(void);
 typedef void (^FCTextReturnBlock)(NSString *text);
 @property (nonatomic, copy) FCTextReturnBlock textReturnBlock;
 - (void)addTextFieldWithPlaceholder:(NSString *)placeholder andTextReturnBlock:(FCTextReturnBlock)textReturn;
+- (void)addTextFieldWithCustomTextField:(UITextField *)field andPlaceholder:(NSString *)placeholder andTextReturnBlock:(FCTextReturnBlock)textReturn;
 
 // Color Schemes
 
@@ -188,6 +190,7 @@ typedef void (^FCTextReturnBlock)(NSString *text);
 
 @property (nonatomic, retain)  UIColor * secondButtonTitleColor;
 @property (nonatomic, retain)  UIColor * secondButtonBackgroundColor;
+
 // Preset Flat Colors
 
 @property (nonatomic, retain) UIColor * flatTurquoise;

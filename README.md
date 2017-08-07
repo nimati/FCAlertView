@@ -31,11 +31,11 @@ FCAlertView is a Flat Customizable AlertView, written in Objective C
 [10. Button Actions](https://github.com/nimati/FCAlertView#button-actions)<br />
 [11. Other Helper Methods](https://github.com/nimati/FCAlertView#other-helper-methods)<br />
 
-##Swift
+## Swift
 
 For the swift version of FCAlertView, [Click Here](https://github.com/k9101/FCAlertView). Credits to [Kris Penney](https://github.com/k9101) for writing the swift library.
 
-##Installation
+## Installation
 
 ### Using CocoaPods
 
@@ -421,7 +421,7 @@ alert.animateAlertOutToTop = YES; // Change "Top" to "Bottom", "Left", or "Right
 
 ## Adding TextFields
 
-Simply add a single textfield to your alert, by adding this line and get the returned text when any of the AlertView's buttons are pressed:
+Simply add textfields (up to a max of 4 fields) to your alert, by adding this line for each new field and get the returned text when any of the AlertView's buttons are pressed:
 
 ```Objective-C
 [alert addTextFieldWithPlaceholder:@"Email Address" andTextReturnBlock:^(NSString *text) {
