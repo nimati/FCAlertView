@@ -52,6 +52,7 @@
         // CUSTOMIZATIONS - Setting Default Customization Settings & Checks
         
         alertButtons = [[NSMutableArray alloc] init];
+        alertTextFieldsDictionaries = [[NSMutableArray alloc] init];
         alertTextFields = [[NSMutableArray alloc] init];
         
         _numberOfButtons = 0;
@@ -73,7 +74,6 @@
         _subtitleFont = nil;        
         defaultSpacing = [self configureAVWidth];
         defaultHeight = [self configureAVHeight];
-                
     }
     
     return self;
@@ -259,7 +259,7 @@
     if (_dismissOnOutsideTouch && isPointInsideBackview && !isPointInsideAlertView)
         [self dismissAlertView];
     
-    if (alertTextFields.count > 0 && isPointInsideBackview && !isPointInsideAlertView)
+    if (alertTextFieldsDictionaries.count > 0 && isPointInsideBackview && !isPointInsideAlertView)
         [self endEditing:YES];
     
 }
@@ -314,11 +314,11 @@
                                         alertViewFrame.size.height - 50 + 140);
     }
     
-    if (alertTextFields.count > 0)
+    if (alertTextFieldsDictionaries.count > 0)
         alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
                                     self.frame.size.height/2 - ((alertViewFrame.size.height - 50 + 140)/2),
                                     result.width - defaultSpacing,
-                                    alertViewFrame.size.height + 40*alertTextFields.count +20);
+                                    alertViewFrame.size.height + 40*alertTextFieldsDictionaries.count +20);
     else
         alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
                                     self.frame.size.height/2 - ((alertViewFrame.size.height - 50 + 140)/2),
@@ -484,26 +484,29 @@
     
     // TEXTFIELD VIEW - Section with TextField
     int y = descriptionLabel.frame.size.height + descriptionLabel.frame.origin.y + 10.5;
-    if (alertTextFields.count > 0) {
-        for (NSDictionary *alertTextField in alertTextFields) {
-            _textField = [[UITextField alloc] initWithFrame:CGRectMake(12.5, y, alertViewFrame.size.width - 25, 40)];
+    if (alertTextFieldsDictionaries.count > 0)
+    {
+        for (NSDictionary *alertTextField in alertTextFieldsDictionaries)
+        {
+            UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(12.5, y, alertViewFrame.size.width - 25, 40)];
             
-            _textField.layer.cornerRadius = 3.0f;
-            _textField.layer.masksToBounds = YES;
-            _textField.layer.borderColor = [[UIColor colorWithWhite:217.0f/255.0f alpha:1.0] CGColor];
-            _textField.layer.borderWidth = 1.0f;
-            _textField.delegate = self;
-            _textField.placeholder = [alertTextField objectForKey:@"placeholder"];
+            tf.layer.cornerRadius = 3.0f;
+            tf.layer.masksToBounds = YES;
+            tf.layer.borderColor = [[UIColor colorWithWhite:217.0f/255.0f alpha:1.0] CGColor];
+            tf.layer.borderWidth = 1.0f;
+            tf.delegate = self;
+            tf.placeholder = [alertTextField objectForKey:@"placeholder"];
             if (self.darkTheme)
-                _textField.backgroundColor = [UIColor colorWithWhite:227.0f/255.0f alpha:1.0];
+                tf.backgroundColor = [UIColor colorWithWhite:227.0f/255.0f alpha:1.0];
             else
-                _textField.backgroundColor = [UIColor whiteColor];
+                tf.backgroundColor = [UIColor whiteColor];
             
             UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
-            _textField.leftView = paddingView;
-            _textField.leftViewMode = UITextFieldViewModeAlways;
+            tf.leftView = paddingView;
+            tf.leftViewMode = UITextFieldViewModeAlways;
             
-            [alertView addSubview:_textField];
+            [alertTextFields addObject:tf];
+            [alertView addSubview:tf];
             y += 60;
         }
     }
@@ -948,7 +951,7 @@
     // ADDING RATING SYSTEM
     
     ratingController = [[UIView alloc] initWithFrame:CGRectMake(20,
-                                                                descriptionLevel + descriptionLabelFrames.size.height + 32.5 + 15+ (MIN(1, alertTextFields.count)*(_textField.frame.size.height + 7.5)),
+                                                                descriptionLevel + descriptionLabelFrames.size.height + 32.5 + 15+ (MIN(1, alertTextFieldsDictionaries.count)*(40 + 7.5)),
                                                                 alertViewFrame.size.width - 40,
                                                                 40)];
     
@@ -1509,15 +1512,17 @@
     }
     
     // Rertun Text from TextField to Block
-    
-    FCTextReturnBlock textReturnBlock = [[alertTextFields firstObject] objectForKey:@"action"];
-    if (textReturnBlock)
-        textReturnBlock(_textField.text);
-    
-    // Return Rating from Rating Controller
-    
-    if (_ratingBlock)
-        _ratingBlock(currentRating);
+    for (NSDictionary *alertTextFieldDic in alertTextFieldsDictionaries)
+    {
+        UITextField *tf = [alertTextFields objectAtIndex:[alertTextFieldsDictionaries indexOfObject:alertTextFieldDic]];
+        FCTextReturnBlock textReturnBlock = [alertTextFieldDic objectForKey:@"action"];
+        if (textReturnBlock)
+            textReturnBlock(tf.text);
+        
+        // Return Rating from Rating Controller
+        if (_ratingBlock)
+            _ratingBlock(currentRating);
+    }
     
     [self dismissAlertView];
     
@@ -1541,6 +1546,20 @@
 
 - (void) donePressed {
     
+    // Rertun Text from TextField to Block
+    for (NSDictionary *alertTextField in alertTextFieldsDictionaries)
+    {
+        UITextField *tf = [alertTextFields objectAtIndex:[alertTextFieldsDictionaries indexOfObject:alertTextField]];
+        
+        FCTextReturnBlock textReturnBlock = [alertTextField objectForKey:@"action"];
+        if (textReturnBlock)
+            textReturnBlock(tf.text);
+        
+        // Return Rating from Rating Controller
+        if (_ratingBlock)
+            _ratingBlock(currentRating);
+    }
+    
     if (self.doneBlock)
         self.doneBlock();
     
@@ -1550,18 +1569,7 @@
         [strongDelegate FCAlertDoneButtonClicked:self];
     }
     
-    FCTextReturnBlock textReturnBlock = [[alertTextFields firstObject] objectForKey:@"action"];
-    
-    if (textReturnBlock)
-        textReturnBlock(_textField.text);
-    
-    // Return Rating from Rating Controller
-    
-    if (_ratingBlock)
-        _ratingBlock(currentRating);
-    
     [self dismissAlertView];
-    
 }
 
 - (void) btnReleased {
@@ -1588,10 +1596,10 @@
 - (void)addTextFieldWithPlaceholder:(NSString *)placeholder andTextReturnBlock:(FCTextReturnBlock)textReturn {
     
     if (textReturn != nil)
-        [alertTextFields addObject:@{@"placeholder" : placeholder,
+        [alertTextFieldsDictionaries addObject:@{@"placeholder" : placeholder,
                                      @"action" : textReturn}];
     else
-        [alertTextFields addObject:@{@"placeholder" : placeholder,
+        [alertTextFieldsDictionaries addObject:@{@"placeholder" : placeholder,
                                      @"action" : @0}];
     
 }
