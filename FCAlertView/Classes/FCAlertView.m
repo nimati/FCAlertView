@@ -1597,31 +1597,33 @@
 #pragma mark - Adding Alert TextField Block Method
 
 - (void)addTextFieldWithPlaceholder:(NSString *)placeholder andTextReturnBlock:(FCTextReturnBlock)textReturn {
-    
-    if (textReturn != nil)
-        [alertTextFieldsDictionaries addObject:@{@"placeholder" : placeholder,
-                                     @"action" : textReturn}];
-    else
-        [alertTextFieldsDictionaries addObject:@{@"placeholder" : placeholder,
-                                     @"action" : @0}];
-    
+    [self addTextFieldWithPlaceholder:placeholder secure:[NSNumber numberWithBool:false] onlyNumbers:[NSNumber numberWithBool:false] andTextReturnBlock:textReturn];
 }
+
 - (void)addTextFieldWithPlaceholder:(NSString *)placeholder secure:(NSNumber*)secureField andTextReturnBlock:(FCTextReturnBlock)textReturn{
-    
+    [self addTextFieldWithPlaceholder:placeholder secure:secureField onlyNumbers:[NSNumber numberWithBool:false] andTextReturnBlock:textReturn];
+}
+
+- (void)addTextFieldWithPlaceholder:(NSString *)placeholder secure:(NSNumber*)secureField onlyNumbers:(NSNumber*)numbersOnly andTextReturnBlock:(FCTextReturnBlock)textReturn
+{
     if (secureField == nil){
         secureField = [NSNumber numberWithBool:false];
+    }
+    
+    if (numbersOnly == nil) {
+        numbersOnly = [NSNumber numberWithBool:false];
     }
     if (textReturn != nil){
         [alertTextFieldsDictionaries addObject:@{@"placeholder" : placeholder,
                                                  @"action":textReturn,
-                                                 @"secureField" : secureField}];
+                                                 @"secureField" : secureField,
+                                                 @"numbersOnly" : numbersOnly}];
     }else{
         [alertTextFieldsDictionaries addObject:@{@"placeholder" : placeholder,
                                                  @"action":@0,
-                                                 @"secureField" : secureField}];
+                                                 @"secureField" : secureField,
+                                                 @"numbersOnly" : numbersOnly}];
     }
-    
-    
 }
 
 
@@ -1658,6 +1660,25 @@
     [textField endEditing:YES];
     
     return TRUE;
+}
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    int position = [alertTextFields indexOfObject:textField];
+    NSNumber *numbersOnly = [[alertTextFieldsDictionaries objectAtIndex:position] valueForKey:@"numbersOnly"];
+    
+    if (numbersOnly != nil && [numbersOnly boolValue]) {
+        NSCharacterSet *myCharSet = [NSCharacterSet decimalDigitCharacterSet];
+        for (int i = 0; i < [string length]; i++) {
+            unichar c = [string characterAtIndex:i];
+            if ([myCharSet characterIsMember:c]) {
+                return YES;
+            }
+        }
+    }
+    else {
+        return YES;
+    }
 }
 
 #pragma mark - Rating System Trigger Methods

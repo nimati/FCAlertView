@@ -172,6 +172,7 @@ typedef void (^FCTextReturnBlock)(NSString *text);
 @property (nonatomic, copy) FCTextReturnBlock textReturnBlock;
 - (void)addTextFieldWithPlaceholder:(NSString *)placeholder andTextReturnBlock:(FCTextReturnBlock)textReturn;
 - (void)addTextFieldWithPlaceholder:(NSString *)placeholder secure:(NSNumber*)secureField andTextReturnBlock:(FCTextReturnBlock)textReturn;
+- (void)addTextFieldWithPlaceholder:(NSString *)placeholder secure:(NSNumber*)secureField onlyNumbers:(NSNumber*)numbersOnly andTextReturnBlock:(FCTextReturnBlock)textReturn;
 
 // Color Schemes
 
