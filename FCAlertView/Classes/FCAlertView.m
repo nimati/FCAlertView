@@ -496,6 +496,9 @@
             tf.layer.borderWidth = 1.0f;
             tf.delegate = self;
             tf.placeholder = [alertTextField objectForKey:@"placeholder"];
+            NSNumber *secureField = [alertTextField objectForKey:@"secureField"];
+            tf.secureTextEntry = [secureField boolValue] ;
+            
             if (self.darkTheme)
                 tf.backgroundColor = [UIColor colorWithWhite:227.0f/255.0f alpha:1.0];
             else
@@ -1603,6 +1606,24 @@
                                      @"action" : @0}];
     
 }
+- (void)addTextFieldWithPlaceholder:(NSString *)placeholder secure:(NSNumber*)secureField andTextReturnBlock:(FCTextReturnBlock)textReturn{
+    
+    if (secureField == nil){
+        secureField = [NSNumber numberWithBool:false];
+    }
+    if (textReturn != nil){
+        [alertTextFieldsDictionaries addObject:@{@"placeholder" : placeholder,
+                                                 @"action":textReturn,
+                                                 @"secureField" : secureField}];
+    }else{
+        [alertTextFieldsDictionaries addObject:@{@"placeholder" : placeholder,
+                                                 @"action":@0,
+                                                 @"secureField" : secureField}];
+    }
+    
+    
+}
+
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     
