@@ -71,7 +71,7 @@
         _hideSeparatorLineView = NO;
         _customImageScale = 1;
         _titleFont = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
-        _subtitleFont = nil;        
+        _subtitleFont = nil;
         defaultSpacing = [self configureAVWidth];
         defaultHeight = [self configureAVHeight];
     }
@@ -186,12 +186,12 @@
 #pragma mark - Title Validation
 -(BOOL)hasTitle {
     return (_title != nil && _title.length > 0) ||
-           (_attributedTitle != nil && _attributedTitle.length > 0);
+    (_attributedTitle != nil && _attributedTitle.length > 0);
 }
 
 -(BOOL)hasSubTitle {
     return (_subTitle != nil && _subTitle.length > 0) ||
-           (_attributedSubTitle != nil && _attributedSubTitle.length > 0);
+    (_attributedSubTitle != nil && _attributedSubTitle.length > 0);
 }
 
 #pragma mark - Touch Events
@@ -375,7 +375,7 @@
     
     descriptionLabel.numberOfLines = 0;
     descriptionLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-        
+    
     // Re-adjusting Frames based on height of text - Requirement is to not have over 6 lines of text
     
     CGSize constraint = CGSizeMake(descriptionLabel.frame.size.width, CGFLOAT_MAX);
@@ -385,7 +385,7 @@
                                                              options:NSStringDrawingUsesLineFragmentOrigin
                                                           attributes:@{NSFontAttributeName:descriptionLabel.font}
                                                              context:context].size;
-
+    
     CGFloat heightDiff = descriptionLabel.frame.size.height - boundingBox.height;
     
     descriptionLabel.frame = CGRectMake(descriptionLabel.frame.origin.x,
@@ -889,7 +889,7 @@
     }
     
     CGFloat vectorSize = 30.0f * MIN(2, _customImageScale);
-
+    
     alertViewVector.frame = CGRectMake(alertViewContents.frame.size.width/2 - (vectorSize/2),
                                        -(vectorSize/2) - 0.5,
                                        vectorSize,
@@ -1453,7 +1453,7 @@
                 }];
             } else {
                 id<FCAlertViewDelegate> strongDelegate = self.delegate;
-
+                
                 if ([strongDelegate respondsToSelector:@selector(FCAlertViewDismissed:)]) {
                     [strongDelegate FCAlertViewDismissed:self];
                 }
@@ -1633,7 +1633,7 @@
     
     [UIView animateWithDuration:0.30 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         alertViewContents.frame = CGRectMake(currentAVCFrames.origin.x,
-                                             currentAVCFrames.origin.y - 80,
+                                             currentAVCFrames.origin.y - 120,
                                              currentAVCFrames.size.width,
                                              currentAVCFrames.size.height);
     } completion:nil];
@@ -1644,9 +1644,11 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     
+    currentAVCFrames = alertViewContents.frame;
+    
     [UIView animateWithDuration:0.30 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         alertViewContents.frame = CGRectMake(currentAVCFrames.origin.x,
-                                             currentAVCFrames.origin.y,
+                                             currentAVCFrames.origin.y + 120,
                                              currentAVCFrames.size.width,
                                              currentAVCFrames.size.height);
     } completion:nil];
@@ -1807,3 +1809,4 @@
 }
 
 @end
+
