@@ -1667,18 +1667,20 @@
     int position = [alertTextFields indexOfObject:textField];
     NSNumber *numbersOnly = [[alertTextFieldsDictionaries objectAtIndex:position] valueForKey:@"numbersOnly"];
     
-    if (numbersOnly != nil && [numbersOnly boolValue]) {
-        NSCharacterSet *myCharSet = [NSCharacterSet decimalDigitCharacterSet];
-        for (int i = 0; i < [string length]; i++) {
-            unichar c = [string characterAtIndex:i];
-            if ([myCharSet characterIsMember:c]) {
-                return YES;
+    if (range.length > 0){
+        return YES;
+    }else{
+        if (numbersOnly != nil && [numbersOnly boolValue]) {
+            NSCharacterSet *myCharSet = [NSCharacterSet decimalDigitCharacterSet];
+            for (int i = 0; i < [string length]; i++) {
+                unichar c = [string characterAtIndex:i];
+                if ([myCharSet characterIsMember:c]) {
+                    return YES;
+                }
             }
         }
     }
-    else {
-        return YES;
-    }
+    return NO;
 }
 
 #pragma mark - Rating System Trigger Methods
