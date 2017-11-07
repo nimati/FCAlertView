@@ -496,9 +496,10 @@
             tf.layer.borderColor = [[UIColor colorWithWhite:217.0f/255.0f alpha:1.0] CGColor];
             tf.layer.borderWidth = 1.0f;
             tf.delegate = self;
+            tf.keyboardType = [[alertTextField objectForKey:@"keyboardType"] intValue];
             tf.placeholder = [alertTextField objectForKey:@"placeholder"];
             NSNumber *secureField = [alertTextField objectForKey:@"secureField"];
-            tf.secureTextEntry = [secureField boolValue] ;
+            tf.secureTextEntry = [secureField boolValue];
             
             if (self.darkTheme)
                 tf.backgroundColor = [UIColor colorWithWhite:227.0f/255.0f alpha:1.0];
@@ -1598,14 +1599,14 @@
 #pragma mark - Adding Alert TextField Block Method
 
 - (void)addTextFieldWithPlaceholder:(NSString *)placeholder andTextReturnBlock:(FCTextReturnBlock)textReturn {
-    [self addTextFieldWithPlaceholder:placeholder secure:[NSNumber numberWithBool:false] onlyNumbers:[NSNumber numberWithBool:false] andTextReturnBlock:textReturn];
+    [self addTextFieldWithPlaceholder:placeholder secure:[NSNumber numberWithBool:false] onlyNumbers:[NSNumber numberWithBool:false] keyboardType:UIKeyboardTypeDefault andTextReturnBlock:textReturn];
 }
 
 - (void)addTextFieldWithPlaceholder:(NSString *)placeholder secure:(NSNumber*)secureField andTextReturnBlock:(FCTextReturnBlock)textReturn{
-    [self addTextFieldWithPlaceholder:placeholder secure:secureField onlyNumbers:[NSNumber numberWithBool:false] andTextReturnBlock:textReturn];
+    [self addTextFieldWithPlaceholder:placeholder secure:secureField onlyNumbers:[NSNumber numberWithBool:false] keyboardType:UIKeyboardTypeDefault andTextReturnBlock:textReturn];
 }
 
-- (void)addTextFieldWithPlaceholder:(NSString *)placeholder secure:(NSNumber*)secureField onlyNumbers:(NSNumber*)numbersOnly andTextReturnBlock:(FCTextReturnBlock)textReturn
+- (void)addTextFieldWithPlaceholder:(NSString *)placeholder secure:(NSNumber*)secureField onlyNumbers:(NSNumber*)numbersOnly keyboardType:(UIKeyboardType)type andTextReturnBlock:(FCTextReturnBlock)textReturn
 {
     if (secureField == nil){
         secureField = [NSNumber numberWithBool:false];
@@ -1614,16 +1615,19 @@
     if (numbersOnly == nil) {
         numbersOnly = [NSNumber numberWithBool:false];
     }
+    
     if (textReturn != nil){
         [alertTextFieldsDictionaries addObject:@{@"placeholder" : placeholder,
                                                  @"action":textReturn,
                                                  @"secureField" : secureField,
-                                                 @"numbersOnly" : numbersOnly}];
+                                                 @"numbersOnly" : numbersOnly,
+                                                 @"keyboardType": [NSNumber numberWithInt:type]}];
     }else{
         [alertTextFieldsDictionaries addObject:@{@"placeholder" : placeholder,
                                                  @"action":@0,
                                                  @"secureField" : secureField,
-                                                 @"numbersOnly" : numbersOnly}];
+                                                 @"numbersOnly" : numbersOnly,
+                                                 @"keyboardType": [NSNumber numberWithInt:UIKeyboardTypeDefault]}];
     }
 }
 
@@ -1810,3 +1814,4 @@
 }
 
 @end
+
