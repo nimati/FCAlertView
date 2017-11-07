@@ -93,6 +93,7 @@
 @property NSInteger numberOfButtons;
 @property NSInteger autoHideSeconds;
 @property CGFloat cornerRadius;
+@property int maxCharacter;
 
 @property BOOL dismissOnOutsideTouch;
 @property BOOL hideAllButtons;

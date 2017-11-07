@@ -72,6 +72,7 @@
         _customImageScale = 1;
         _titleFont = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
         _subtitleFont = nil;
+        _maxCharacter = 20;
         defaultSpacing = [self configureAVWidth];
         defaultHeight = [self configureAVHeight];
     }
@@ -1671,7 +1672,7 @@
     
     if (range.length > 0){
         return YES;
-    }else{
+    }else if (textField.text.length < _maxCharacter){
         if (numbersOnly != nil && [numbersOnly boolValue]) {
             NSCharacterSet *myCharSet = [NSCharacterSet decimalDigitCharacterSet];
             for (int i = 0; i < [string length]; i++) {
@@ -1809,4 +1810,3 @@
 }
 
 @end
-
