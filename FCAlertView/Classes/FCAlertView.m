@@ -1150,8 +1150,8 @@
     // Adding Alert
     
     [self setAlertViewAttributes:title withSubtitle:subTitle withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
-    [view.view.window addSubview:self];
-    
+    [[[UIApplication sharedApplication].windows objectAtIndex:0] endEditing:YES];
+    [[[UIApplication sharedApplication].windows objectAtIndex:0] addSubview:self];
 }
 
 - (void) showAlertInWindow:(UIWindow *)window withTitle:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons {
@@ -1169,8 +1169,8 @@
     // Adding Alert
     
     [self setAlertViewAttributes:title withSubtitle:subTitle withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
-    [window addSubview:self];
-    
+    [[[UIApplication sharedApplication].windows objectAtIndex:0] endEditing:YES];
+    [[[UIApplication sharedApplication].windows objectAtIndex:0] addSubview:self];
 }
 
 - (void) showAlertWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons{
@@ -1189,8 +1189,8 @@
     
     // Adding Alert
     
-    [window addSubview:self];
-    [window bringSubviewToFront:self];
+    [[[UIApplication sharedApplication].windows objectAtIndex:0] endEditing:YES];
+    [[[UIApplication sharedApplication].windows objectAtIndex:0] addSubview:self];
     
 }
 
@@ -1211,8 +1211,8 @@
     
     // Adding Alert
     
-    [window addSubview:self];
-    [window bringSubviewToFront:self];
+    [[[UIApplication sharedApplication].windows objectAtIndex:0] endEditing:YES];
+    [[[UIApplication sharedApplication].windows objectAtIndex:0] addSubview:self];
 }
 
 - (void) showAlertWithTitle:(NSString *)title withAttributedSubtitle:(NSAttributedString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons {
@@ -1232,8 +1232,8 @@
     
     // Adding Alert
     
-    [window addSubview:self];
-    [window bringSubviewToFront:self];
+    [[[UIApplication sharedApplication].windows objectAtIndex:0] endEditing:YES];
+    [[[UIApplication sharedApplication].windows objectAtIndex:0] addSubview:self];
 }
 
 - (void) showAlertWithAttributedTitle:(NSAttributedString *)title withAttributedSubtitle:(NSAttributedString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons {
@@ -1254,8 +1254,8 @@
     
     // Adding Alert
     
-    [window addSubview:self];
-    [window bringSubviewToFront:self];
+    [[[UIApplication sharedApplication].windows objectAtIndex:0] endEditing:YES];
+    [[[UIApplication sharedApplication].windows objectAtIndex:0] addSubview:self];
 }
 
 
