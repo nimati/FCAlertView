@@ -1676,18 +1676,21 @@
     
     if (range.length > 0){
         return YES;
-    }else if (textField.text.length < _maxCharacter){
+    }else if((textField.text.length >= _maxCharacter)) {
+        return NO;
+    }
+    else{
         if (numbersOnly != nil && [numbersOnly boolValue]) {
             NSCharacterSet *myCharSet = [NSCharacterSet decimalDigitCharacterSet];
             for (int i = 0; i < [string length]; i++) {
                 unichar c = [string characterAtIndex:i];
-                if ([myCharSet characterIsMember:c]) {
-                    return YES;
+                if (![myCharSet characterIsMember:c]) {
+                    return NO;
                 }
             }
         }
     }
-    return NO;
+    return YES;
 }
 
 #pragma mark - Rating System Trigger Methods
