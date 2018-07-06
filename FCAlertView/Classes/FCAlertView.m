@@ -594,6 +594,8 @@
             doneButton.titleLabel.font = self.doneButtonCustomFont;
         if (_colorScheme != nil || _darkTheme)
             doneButton.tintColor = [UIColor whiteColor];
+        if (self.doneButtonBackgroundColor)
+            doneButton.backgroundColor = self.doneButtonBackgroundColor;
         if (self.doneButtonTitleColor != nil)
             doneButton.tintColor = self.doneButtonTitleColor;
         
@@ -856,6 +858,8 @@
             doneButton.titleLabel.font = self.doneButtonCustomFont;
         if (_colorScheme != nil || _darkTheme)
             doneButton.tintColor = [UIColor whiteColor];
+        if (self.doneButtonBackgroundColor)
+            doneButton.backgroundColor = self.doneButtonBackgroundColor;
         if (self.doneButtonTitleColor != nil)
             doneButton.tintColor = self.doneButtonTitleColor;
         
