@@ -34,8 +34,8 @@
     // Customizations made to UI
     
     NSMutableArray *alertButtons;
-    NSMutableArray *alertTextFields;
-    NSMutableArray *alertTextFieldHolder;
+    NSMutableArray *alertTextFields;            //text fields in form
+    NSMutableArray *alertTextFieldsDictionaries;//Dictionaries holding text fields data
     NSInteger alertViewWithVector;
     NSString *doneTitle;
     UIImage *vectorImage;
@@ -84,9 +84,6 @@
 
 @property (nonatomic, retain) UIView *alertBackground;
 
-// AlertView TextView
-
-@property (nonatomic, retain) UITextField *textField;
 
 // AlertView Customizations
 
@@ -96,9 +93,9 @@
 @property NSInteger numberOfButtons;
 @property NSInteger autoHideSeconds;
 @property CGFloat cornerRadius;
+@property int maxCharacter;
 
 @property BOOL dismissOnOutsideTouch;
-@property BOOL overrideForcedDismiss;
 @property BOOL hideAllButtons;
 @property BOOL hideDoneButton;
 @property BOOL avoidCustomImageTint;
@@ -175,7 +172,8 @@ typedef void (^FCActionBlock)(void);
 typedef void (^FCTextReturnBlock)(NSString *text);
 @property (nonatomic, copy) FCTextReturnBlock textReturnBlock;
 - (void)addTextFieldWithPlaceholder:(NSString *)placeholder andTextReturnBlock:(FCTextReturnBlock)textReturn;
-- (void)addTextFieldWithCustomTextField:(UITextField *)field andPlaceholder:(NSString *)placeholder andTextReturnBlock:(FCTextReturnBlock)textReturn;
+- (void)addTextFieldWithPlaceholder:(NSString *)placeholder secure:(NSNumber*)secureField andTextReturnBlock:(FCTextReturnBlock)textReturn;
+- (void)addTextFieldWithPlaceholder:(NSString *)placeholder secure:(NSNumber*)secureField onlyNumbers:(NSNumber*)numbersOnly keyboardType:(UIKeyboardType)type andTextReturnBlock:(FCTextReturnBlock)textReturn;
 
 // Color Schemes
 
@@ -185,19 +183,12 @@ typedef void (^FCTextReturnBlock)(NSString *text);
 @property (nonatomic, retain) UIColor *alertBackgroundColor;
 
 @property (nonatomic, retain)  UIColor * doneButtonTitleColor;
-@property (nonatomic, retain)  UIFont * doneButtonCustomFont;
-@property (nonatomic, retain)  UIColor * doneButtonHighlightedBackgroundColor;
 
 @property (nonatomic, retain)  UIColor * firstButtonTitleColor;
-@property (nonatomic, retain)  UIFont * firstButtonCustomFont;
 @property (nonatomic, retain)  UIColor * firstButtonBackgroundColor;
-@property (nonatomic, retain)  UIColor * firstButtonHighlightedBackgroundColor;
 
 @property (nonatomic, retain)  UIColor * secondButtonTitleColor;
-@property (nonatomic, retain)  UIFont * secondButtonCustomFont;
 @property (nonatomic, retain)  UIColor * secondButtonBackgroundColor;
-@property (nonatomic, retain)  UIColor * secondButtonHighlightedBackgroundColor;
-
 // Preset Flat Colors
 
 @property (nonatomic, retain) UIColor * flatTurquoise;
@@ -220,3 +211,4 @@ typedef void (^FCTextReturnBlock)(NSString *text);
 - (void)FCAlertDoneButtonClicked:(FCAlertView *)alertView;
 
 @end
+
