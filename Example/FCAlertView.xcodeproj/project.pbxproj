@@ -288,7 +288,7 @@
 				ORGANIZATIONNAME = "Nima Tahami";
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
-						DevelopmentTeam = ZL289U74HM;
+						DevelopmentTeam = HL645E3BZ4;
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -300,6 +300,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -571,12 +572,12 @@
 			baseConfigurationReference = CFB214F5045001FCE1FECCFE /* Pods-FCAlertView_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZL289U74HM;
+				DEVELOPMENT_TEAM = HL645E3BZ4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FCAlertView/FCAlertView-Prefix.pch";
 				INFOPLIST_FILE = "FCAlertView/FCAlertView-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nimatahami.FCAlertView-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shiftride.FCAlertView-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -588,12 +589,12 @@
 			baseConfigurationReference = 8A17B1DD47225084EB8243FF /* Pods-FCAlertView_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZL289U74HM;
+				DEVELOPMENT_TEAM = HL645E3BZ4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FCAlertView/FCAlertView-Prefix.pch";
 				INFOPLIST_FILE = "FCAlertView/FCAlertView-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nimatahami.FCAlertView-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shiftride.FCAlertView-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

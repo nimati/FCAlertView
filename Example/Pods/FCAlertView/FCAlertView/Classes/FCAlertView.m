@@ -75,6 +75,12 @@
         defaultSpacing = [self configureAVWidth];
         defaultHeight = [self configureAVHeight];
         
+        if (@available(iOS 12.0, *)) {
+            if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ) {
+                _darkTheme = YES;
+            }
+        }
+        
     }
     
     return self;

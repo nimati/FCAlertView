@@ -18,11 +18,11 @@
     [super viewDidLoad];
     
     _headerHeight = 230;
-
+    
     // Orientation Detection for Example App
     
     [[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(orientationChanged:)    name:UIDeviceOrientationDidChangeNotification  object:nil];
-
+    
     // SETTING COLORS OF BUTTONS FOR THIS EXAMPLE VIEWCONTROLLER - Not related to FCAlertView
     
     self.redColor = [UIColor colorWithRed:190.0f/255.0f green:0.0f blue:0.0f alpha:1.0f];
@@ -65,7 +65,7 @@
                                           @"status" : @0,
                                           @"customIndicator" : @0,
                                           @"selection" : @[@"Off", @"On"]}
-                                        ];
+    ];
     
     _alertViewOptionsOriginal = @[@{@"title" : @"Custom Image",
                                     @"description" : @"Add a custom image to your alert.",
@@ -244,6 +244,12 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:44.0/255.0f green:62.0/255.0f blue:80.0/255.0f alpha:1.0];
     
+    if (@available(iOS 12.0, *)) {
+        if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ) {
+            self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:144.0/255.0f green:162.0/255.0f blue:180.0/255.0f alpha:1.0];
+        }
+    }
+    
     // TABLEVIEW SETTINGS
     
     self.tableView.delegate = self;
@@ -255,6 +261,39 @@
     UIView *dummyView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, dummyViewHeight)];
     self.tableView.tableHeaderView = dummyView;
     self.tableView.contentInset = UIEdgeInsetsMake(-dummyViewHeight, 0, 0, 0);
+    
+    // UPDATING BACKGROUND COLORS BASED ON DARK MODE
+    
+    if (@available(iOS 12.0, *)) {
+        if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ) {
+            self.view.backgroundColor = [UIColor blackColor];
+            self.tableView.backgroundColor = [UIColor blackColor];
+        } else {
+            self.view.backgroundColor = [UIColor whiteColor];
+            self.tableView.backgroundColor = [UIColor whiteColor];
+        }
+    }
+    
+    // UPDATING BUTTON POSITION
+    
+    if (@available(iOS 11.0, *)) {
+        UIWindow *window = UIApplication.sharedApplication.keyWindow;
+        
+        CGFloat bottomPadding = window.safeAreaInsets.bottom;
+        
+        _showAlertButton.frame = CGRectMake(_showAlertButton.frame.origin.x,
+                                            _showAlertButton.frame.origin.y - bottomPadding,
+                                            _showAlertButton.frame.size.width,
+                                            _showAlertButton.frame.size.height + bottomPadding);
+        
+        [_showAlertButton setTitleEdgeInsets:UIEdgeInsetsMake(10.0f, 0, 30.0f, 0)];
+        
+        _tableView.frame = CGRectMake(_tableView.frame.origin.x,
+                                      _tableView.frame.origin.y,
+                                      _tableView.frame.size.width,
+                                      _tableView.frame.size.height - bottomPadding);
+        
+    }
     
 }
 
@@ -294,6 +333,11 @@
         
         UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 79.0f, self.view.frame.size.width, 2)];
         separatorLineView.backgroundColor = [UIColor colorWithRed:247.0f/255.0f green:247.0f/255.0f blue:247.0f/255.0f alpha:1.0];
+        if (@available(iOS 12.0, *)) {
+            if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ) {
+                separatorLineView.backgroundColor = [UIColor colorWithRed:47.0f/255.0f green:47.0f/255.0f blue:47.0f/255.0f alpha:1.0];
+            }
+        }
         [cell.contentView addSubview:separatorLineView];
         
         // Circle Indicator Layer
@@ -361,7 +405,7 @@
             optionTitle.text = [[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"title"];
         else if (indexPath.section == 2)
             optionTitle.text = [[_alertViewAnimationOptions objectAtIndex:indexPath.row] objectForKey:@"title"];
-
+        
         // Option Description Label
         
         UILabel *optionDesc = [[UILabel alloc] initWithFrame:CGRectMake(25.0f, 25.0f, self.tableView.frame.size.width - 160.0f, 50.0f)];
@@ -375,7 +419,7 @@
             optionDesc.text = [[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"description"];
         else if (indexPath.section == 2)
             optionDesc.text = [[_alertViewAnimationOptions objectAtIndex:indexPath.row] objectForKey:@"description"];
-
+        
         // Option Setting Label
         
         NSString *selectedSetting;
@@ -386,7 +430,7 @@
             selectedSetting = [[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"setting"];
         else if (indexPath.section == 2)
             selectedSetting = [[_alertViewAnimationOptions objectAtIndex:indexPath.row] objectForKey:@"setting"];
-
+        
         UILabel *optionSetting = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width - 35.0f, 80.0f)];
         optionSetting.numberOfLines = 1;
         optionSetting.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
@@ -422,6 +466,8 @@
         selectedCell = [[_alertViewOptions objectAtIndex:indexPath.row] mutableCopy];
     else if (indexPath.section == 2)
         selectedCell = [[_alertViewAnimationOptions objectAtIndex:indexPath.row] mutableCopy];
+    
+    AudioServicesPlaySystemSound(1519);
 
     NSInteger status = [[selectedCell objectForKey:@"status"] integerValue];
     NSArray *selection = [selectedCell objectForKey:@"selection"];
@@ -438,7 +484,7 @@
         selectedSetting = [[[_alertViewOptions objectAtIndex:indexPath.row] objectForKey:@"selection"] objectAtIndex:status];
     else if (indexPath.section == 2)
         selectedSetting = [[[_alertViewAnimationOptions objectAtIndex:indexPath.row] objectForKey:@"selection"] objectAtIndex:status];
-
+    
     [selectedCell setObject:selectedSetting forKey:@"setting"];
     
     if (indexPath.section == 0)
@@ -447,7 +493,7 @@
         [_alertViewOptions replaceObjectAtIndex:indexPath.row withObject:selectedCell];
     else if (indexPath.section == 2)
         [_alertViewAnimationOptions replaceObjectAtIndex:indexPath.row withObject:selectedCell];
-
+    
     NSLog(@"For: %@ Now Selected: %@", [selectedCell objectForKey:@"title"], [selection objectAtIndex:status]);
     
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
@@ -463,6 +509,8 @@
         CGPoint pressPoint = [longPress locationInView:self.tableView];
         NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:pressPoint];
         
+        AudioServicesPlaySystemSound(1520);
+
         NSMutableDictionary *selectedCell;
         
         if (indexPath.section == 0) {
@@ -486,7 +534,7 @@
             NSLog(@"For: %@ Reset to: %@",
                   [selectedCell objectForKey:@"title"],
                   [[_alertViewOptionsOriginal objectAtIndex:indexPath.row] objectForKey:@"setting"]);
-        
+            
         } else if (indexPath.section == 2) {
             
             selectedCell = [[_alertViewAnimationOptions objectAtIndex:indexPath.row] mutableCopy];
@@ -512,6 +560,11 @@
         
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 120)];
         headerView.backgroundColor = [UIColor colorWithWhite:239.0f/255.0f alpha:1.0];
+        if (@available(iOS 12.0, *)) {
+            if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ) {
+                headerView.backgroundColor = [UIColor colorWithWhite:49.0f/255.0f alpha:1.0];
+            }
+        }
         
         UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, headerView.frame.size.width - 60, 20)];
         headerLabel.text = @"NEW FEATURES • V1.4.0+";
@@ -532,13 +585,18 @@
         [headerView addSubview:headerLabel];
         
         return headerView;
-     
+        
     }
     
     if (section == 2) {
-    
+        
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 120)];
         headerView.backgroundColor = [UIColor colorWithWhite:239.0f/255.0f alpha:1.0];
+        if (@available(iOS 12.0, *)) {
+            if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ) {
+                headerView.backgroundColor = [UIColor colorWithWhite:49.0f/255.0f alpha:1.0];
+            }
+        }
         
         UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, headerView.frame.size.width - 60, 20)];
         headerLabel.text = @"ANIMATION OPTIONS";
@@ -566,11 +624,21 @@
             
             UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 120)];
             headerView.backgroundColor = [UIColor colorWithWhite:239.0f/255.0f alpha:1.0];
+            if (@available(iOS 12.0, *)) {
+                if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ) {
+                    headerView.backgroundColor = [UIColor colorWithWhite:49.0f/255.0f alpha:1.0];
+                }
+            }
             
             // Separator Line View
             
             UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 3)];
             separatorLineView.backgroundColor = [UIColor colorWithWhite:225.0f/255.0f alpha:1.0];
+            if (@available(iOS 12.0, *)) {
+                if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ) {
+                    separatorLineView.backgroundColor = [UIColor colorWithWhite:49.0f/255.0f alpha:1.0];
+                }
+            }
             [headerView addSubview:separatorLineView];
             
             // Label for Instructions
@@ -578,6 +646,11 @@
             UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 10, headerView.frame.size.width - 60, headerView.frame.size.height - 10)];
             headerLabel.font = [UIFont systemFontOfSize:16.0f];
             headerLabel.textColor = [UIColor colorWithWhite:40.0f/255.0f alpha:1.0];
+            if (@available(iOS 12.0, *)) {
+                if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ) {
+                    headerLabel.textColor = [UIColor colorWithWhite:149.0f/255.0f alpha:1.0];
+                }
+            }
             headerLabel.textAlignment = NSTextAlignmentCenter;
             headerLabel.text = @"Tap on cells to Toggle Customizations\n Hold to Reset to Default \n Enjoy!";
             headerLabel.numberOfLines = 4;
@@ -672,8 +745,8 @@
                        options: UIViewAnimationOptionTransitionCrossDissolve
                     animations: ^(void)
      {
-         [self.tableView reloadData];
-     }
+        [self.tableView reloadData];
+    }
                     completion: nil];
     
 }
@@ -743,7 +816,7 @@
         [mc setToRecipients:toRecipents];
         
         [self presentViewController:mc animated:YES completion:NULL];
-
+        
     } else {
         
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
@@ -786,6 +859,8 @@
 
 - (IBAction)showAlert:(id)sender {
     
+    AudioServicesPlaySystemSound(1519);
+
     // ADDING AND INITIALIZING FCALERTVIEW
     
     FCAlertView *alert = [[FCAlertView alloc] init]; // 2) Add This Where you Want to Create an FCAlertView
@@ -968,17 +1043,17 @@
     
     if (![[[_alertViewOptions objectAtIndex:22] objectForKey:@"setting"] isEqual:@"Off"])
         alert.subtitleFont = [UIFont fontWithName:@"Avenir" size:15.0];
-
+    
     // Set Title to Attributed Text
     
     if (![[[_alertViewOptions objectAtIndex:23] objectForKey:@"setting"] isEqual:@"Off"])
         useAttributedTitle = YES;
-
+    
     // Set Subtitle to Attributed Text
     
     if (![[[_alertViewOptions objectAtIndex:24] objectForKey:@"setting"] isEqual:@"Off"])
         useAttributedSubTitle = YES;
-
+    
     // NEW FEATURES SECTION
     // Multiple Textfields
     
@@ -1010,7 +1085,7 @@
     }
     
     // Button Highlight
-
+    
     if (![[[_alertViewLatestOptions objectAtIndex:2] objectForKey:@"setting"] isEqual:@"Off"])
         alert.doneButtonHighlightedBackgroundColor = [UIColor colorWithWhite:0.5 alpha:1.0];
     
@@ -1049,7 +1124,7 @@
     }
     
     // Animate Out Options
-        
+    
     if ([[[_alertViewAnimationOptions objectAtIndex:1] objectForKey:@"setting"] isEqual:@"Top"]) {
         alert.animateAlertOutToTop = YES;
     }
@@ -1099,22 +1174,22 @@
     
     if (useAttributedSubTitle && useAttributedTitle) {
         [alert showAlertWithAttributedTitle:[self getAttributedTitle]
-                  withAttributedSubtitle:[self getAttributedSubtitle]
-               withCustomImage:_alertImage
-           withDoneButtonTitle:nil
-                    andButtons:self.arrayOfButtonTitles];
+                     withAttributedSubtitle:[self getAttributedSubtitle]
+                            withCustomImage:_alertImage
+                        withDoneButtonTitle:nil
+                                 andButtons:self.arrayOfButtonTitles];
     } else if (useAttributedTitle) {
         [alert showAlertWithAttributedTitle:[self getAttributedTitle]
-                  withSubtitle:@"This is my alert's subtitle. Keep it short and concise. 😜"
-               withCustomImage:_alertImage
-           withDoneButtonTitle:nil
-                    andButtons:self.arrayOfButtonTitles];
+                               withSubtitle:@"This is my alert's subtitle. Keep it short and concise. 😜"
+                            withCustomImage:_alertImage
+                        withDoneButtonTitle:nil
+                                 andButtons:self.arrayOfButtonTitles];
     } else if (useAttributedSubTitle) {
         [alert showAlertWithTitle:_alertTitle
-                  withAttributedSubtitle:[self getAttributedSubtitle]
-               withCustomImage:_alertImage
-           withDoneButtonTitle:nil
-                    andButtons:self.arrayOfButtonTitles];
+           withAttributedSubtitle:[self getAttributedSubtitle]
+                  withCustomImage:_alertImage
+              withDoneButtonTitle:nil
+                       andButtons:self.arrayOfButtonTitles];
     } else {
         [alert showAlertInView:self
                      withTitle:_alertTitle
@@ -1129,9 +1204,9 @@
     NSString *text = @"Alert Title";
     
     NSDictionary *attrib = @{
-                             NSForegroundColorAttributeName: [UIColor blackColor],
-                             NSFontAttributeName: [UIFont systemFontOfSize:18.0 weight:UIFontWeightRegular]
-                             };
+        NSForegroundColorAttributeName: [UIColor blackColor],
+        NSFontAttributeName: [UIFont systemFontOfSize:18.0 weight:UIFontWeightRegular]
+    };
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:text attributes:attrib];
     
     NSRange nameRange = [text rangeOfString:@"Title"];
@@ -1145,23 +1220,23 @@
     NSString *text = @"This is my alert's subtitle. Keep it short and concise. 😜";
     
     NSDictionary *attrib = @{
-                             NSForegroundColorAttributeName: [UIColor blackColor],
-                             NSFontAttributeName: [UIFont systemFontOfSize:15.0 weight:UIFontWeightRegular]
-                             };
+        NSForegroundColorAttributeName: [UIColor blackColor],
+        NSFontAttributeName: [UIFont systemFontOfSize:15.0 weight:UIFontWeightRegular]
+    };
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:text attributes:attrib];
     
     NSRange nameRange = [text rangeOfString:@"my"];
     UIFont *newFont = [UIFont systemFontOfSize:15.0 weight:UIFontWeightHeavy];
     [str setAttributes:@{NSFontAttributeName:newFont} range:nameRange];
-
+    
     nameRange = [text rangeOfString:@"short"];
     newFont = [UIFont systemFontOfSize:15.0 weight:UIFontWeightThin];
     [str setAttributes:@{NSFontAttributeName:newFont} range:nameRange];
-
+    
     nameRange = [text rangeOfString:@"concise"];
     newFont = [UIFont systemFontOfSize:15.0 weight:UIFontWeightHeavy];
     [str setAttributes:@{NSFontAttributeName:newFont} range:nameRange];
-
+    
     return str;
 }
 
