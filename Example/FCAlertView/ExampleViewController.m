@@ -67,6 +67,15 @@
                                           @"selection" : @[@"Off", @"On"]}
     ];
     
+    NSNumber *darkMode = @0;
+    if (@available(iOS 12.0, *)) {
+        if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ) {
+            darkMode = @1;
+        } else {
+            darkMode = @0;
+        }
+    }
+    
     _alertViewOptionsOriginal = @[@{@"title" : @"Custom Image",
                                     @"description" : @"Add a custom image to your alert.",
                                     @"setting" : @"Off",
@@ -171,8 +180,8 @@
                                     @"selection" : @[@"Off", @"On"]},
                                   @{@"title" : @"Dark Theme",
                                     @"description" : @"Turn the alert into a dark color scheme to match the app.",
-                                    @"setting" : @"Off",
-                                    @"status" : @0,
+                                    @"setting" : ([darkMode isEqual:@1]) ? @"On" : @"Off",
+                                    @"status" : darkMode,
                                     @"customIndicator" : @0,
                                     @"selection" : @[@"Off", @"On"]},
                                   @{@"title" : @"Round Buttons",
@@ -1018,6 +1027,8 @@
     
     if (![[[_alertViewOptions objectAtIndex:17] objectForKey:@"setting"] isEqual:@"Off"])
         alert.darkTheme = YES;
+    else
+        alert.darkTheme = NO;
     
     // Alert Round/Detach Buttons
     
